@@ -7,6 +7,8 @@ ENDIF(COMMAND CMAKE_POLICY)
 # Set CMake project name
 PROJECT(SPOOLES)
 
+add_definitions(-Wall -Wextra)
+
 # Identify CMake directory
 set(SPOOLES_CMAKE_DIR "${SPOOLES_SOURCE_DIR}/CMake")
 if(SPOOLES_IS_SUBBUILD)
