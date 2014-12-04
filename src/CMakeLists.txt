@@ -488,6 +488,7 @@ set(MPI_SRCS
 
 add_library(spooles ${SPOOLES_SRCS})
 
+install(TARGETS spooles DESTINATION lib)
 
 # Local Variables:
 # tab-width: 8

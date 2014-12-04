@@ -57,6 +57,8 @@ if(SPOOLES_ENABLE_TESTING)
   add_subdirectory(src/A2/tests)
 endif(SPOOLES_ENABLE_TESTING)
 
+install(DIRECTORY include/ DESTINATION include/spooles)
+
 # Local Variables:
 # tab-width: 8
 # mode: cmake
