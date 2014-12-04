@@ -25,9 +25,7 @@ if(NOT M_LIBRARY)
   include(CheckLibraryExists)
   include(ResolveCompilerPaths)
   CHECK_LIBRARY_EXISTS(m cos "" HAVE_M_LIBRARY)
-  if(HAVE_M_LIBRARY)
-    RESOLVE_LIBRARIES(M_LIBRARY "-lm")
-  endif(HAVE_M_LIBRARY)
+  set(M_LIBRARY "m")
 endif(NOT M_LIBRARY)
 
 # search for 32/64 bit pthread library on windows
