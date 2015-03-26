@@ -39,7 +39,7 @@ I2Ohash_setDefaultFields (
 if ( hashtable == NULL ) {
    fprintf(stderr, "\n fatal error in I2Ohash_setDefaultFields(%p)"
            "\n hashtable is NULL\n", hashtable) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 hashtable->nlist    =   0  ;
 hashtable->grow     =   0  ;
@@ -67,7 +67,7 @@ I2OP   *i2op ;
 if ( hashtable == NULL ) {
    fprintf(stderr, "\n fatal error in I2Ohash_clearData(%p)"
            "\n hashtable is NULL\n", hashtable) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
    fprintf(stdout, "\n\n I2Ohash_clearData") ;
@@ -103,7 +103,7 @@ I2Ohash_free (
 if ( hashtable == NULL ) {
    fprintf(stderr, "\n fatal error in I2Ohash_free(%p)"
            "\n hashtable is NULL\n", hashtable) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 I2Ohash_clearData(hashtable) ;
 FREE(hashtable) ;

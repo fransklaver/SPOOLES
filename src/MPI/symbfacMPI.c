@@ -86,7 +86,7 @@ if ( frontETree == NULL || frontOwnersIV == NULL
            "\n inpmtx = %p, firsttag = %d, msglvl = %d, msgFile = %p"
            "\n bad input\n", comm, frontETree, frontOwnersIV, inpmtx,
            firsttag, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 MPI_Comm_size(comm, &nproc) ;
@@ -97,13 +97,13 @@ if ( msglvl > 2 ) {
 if ( firsttag < 0 ) {
    fprintf(stderr, "\n fatal error in SymbFac_MPI_initFromInpMtx()"
            "\n firsttag = %d\n", firsttag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 lasttag = firsttag + frontETree->nfront ;
 if ( lasttag > (tagbound = maxTagMPI(comm)) ) {
    fprintf(stderr, "\n fatal error in SymbFac_MPI_initFromInpMtx()"
            "\n lasttag = %d, tag_bound = %d", lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------
@@ -192,7 +192,7 @@ if ( frontETree == NULL || frontOwnersIV == NULL
            "\n pencil = %p, firsttag = %d, msglvl = %d, msgFile = %p"
            "\n bad input\n", comm, frontETree, frontOwnersIV, pencil,
            firsttag, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 MPI_Comm_size(comm, &nproc) ;
@@ -203,13 +203,13 @@ if ( msglvl > 2 ) {
 if ( firsttag < 0 ) {
    fprintf(stderr, "\n fatal error in SymbFac_MPI_initFromPencil()"
            "\n firsttag = %d\n", firsttag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 lasttag = firsttag + frontETree->nfront ;
 if ( lasttag > (tagbound = maxTagMPI(comm)) ) {
    fprintf(stderr, "\n fatal error in SymbFac_MPI_initFromPencil()"
            "\n lasttag = %d, tag_bound = %d", lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------
@@ -1126,7 +1126,7 @@ for ( J = 0 ; J < nfront ; J++ ) {
                fprintf(msgFile,
                        "\n error, J = %d, w = %d, map[%d] = %d",
                        J, w, w, vtxToFront[w]) ;
-               exit(-1) ;
+               spoolesFatal();
             }
             if ( mark[w] != J ) {
                mark[w] = J ;
@@ -1153,7 +1153,7 @@ for ( J = 0 ; J < nfront ; J++ ) {
                   fprintf(msgFile,
                           "\n error, J = %d, w = %d, map[%d] = %d",
                           J, w, w, vtxToFront[w]) ;
-                  exit(-1) ;
+                  spoolesFatal();
                }
                if ( mark[w] != J ) {
                   mark[w] = J ;

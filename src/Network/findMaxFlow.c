@@ -28,7 +28,7 @@ int    *deltas, *pred, *tags ;
 if ( network == NULL || (nnode = network->nnode) <= 0 ) {
    fprintf(stderr, "\n fatal error in findMaxFlow(%p)"
            "\n bad input\n", network) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 outheads = network->outheads ;
 inheads  = network->inheads  ;

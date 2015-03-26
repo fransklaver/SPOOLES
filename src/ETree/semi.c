@@ -52,7 +52,7 @@ if ( etree == NULL || graph == NULL || symbfacIVL == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in ETree_optPart()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = etree->nfront ;
 nodwghts = ETree_nodwghts(etree) ;
@@ -64,7 +64,7 @@ if ( (nvtx = graph->nvtx) != etree->nvtx ) {
    fprintf(stderr, "\n fatal error in ETree_optPart()"
            "\n etree->nvtx = %d, graph->nvtx = %d\n",
            etree->nvtx, graph->nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vwghts = graph->vwghts ;
 /*

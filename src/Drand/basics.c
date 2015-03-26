@@ -38,7 +38,7 @@ Drand_setDefaultFields (
 if ( drand == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_setDefaultFields(%p)"
            "\n bad input", drand) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 drand->seed1 =  123456789.0 ;
 drand->seed2 =  987654321.0 ;
@@ -72,7 +72,7 @@ Drand_clearData (
 if ( drand == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_clearData(%p)"
            "\n bad input\n", drand) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------
@@ -98,7 +98,7 @@ Drand_free (
 if ( drand == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_free(%p)"
            "\n bad input\n", drand) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Drand_clearData(drand) ;
 FREE(drand) ;

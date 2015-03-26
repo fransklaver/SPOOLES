@@ -34,14 +34,14 @@ int    *colsup, *ivec1, *ivec2, *rowsup ;
 if ( A == NULL || rowsupIV == NULL || colsupIV == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportNonsym(%p,%p,%p)"
            "\n bad input\n", A, rowsupIV, colsupIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  !INPMTX_IS_BY_ROWS(A) 
    && !INPMTX_IS_BY_COLUMNS(A) 
    && !INPMTX_IS_BY_CHEVRONS(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportNonsym(%p,%p,%p)"
            "\n coordinate type\n", A, rowsupIV, colsupIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivec1 = InpMtx_ivec1(A) ;
 ivec2 = InpMtx_ivec2(A) ;
@@ -175,14 +175,14 @@ int    *colsup, *ivec1, *ivec2, *rowsup ;
 if ( A == NULL || rowsupIV == NULL || colsupIV == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportNonsymT(%p,%p,%p)"
            "\n bad input\n", A, rowsupIV, colsupIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  !INPMTX_IS_BY_ROWS(A) 
    && !INPMTX_IS_BY_COLUMNS(A) 
    && !INPMTX_IS_BY_CHEVRONS(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportNonsymT(%p,%p,%p)"
            "\n coordinate type\n", A, rowsupIV, colsupIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivec1 = InpMtx_ivec1(A) ;
 ivec2 = InpMtx_ivec2(A) ;
@@ -312,14 +312,14 @@ InpMtx_supportNonsymH (
 if ( A == NULL || rowsupIV == NULL || colsupIV == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportNonsymH(%p,%p,%p)"
            "\n bad input\n", A, rowsupIV, colsupIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  !INPMTX_IS_BY_ROWS(A) 
    && !INPMTX_IS_BY_COLUMNS(A) 
    && !INPMTX_IS_BY_CHEVRONS(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportNonsymH(%p,%p,%p)"
            "\n coordinate type\n", A, rowsupIV, colsupIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 InpMtx_supportNonsymT(A, rowsupIV, colsupIV) ;
 
@@ -355,14 +355,14 @@ int    *ivec1, *ivec2, *sup ;
 if ( A == NULL || supIV == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportSym(%p,%p)"
            "\n bad input\n", A, supIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  !INPMTX_IS_BY_ROWS(A) 
    && !INPMTX_IS_BY_COLUMNS(A) 
    && !INPMTX_IS_BY_CHEVRONS(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportSym(%p,%p)"
            "\n coordinate type\n", A, supIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivec1 = InpMtx_ivec1(A) ;
 ivec2 = InpMtx_ivec2(A) ;
@@ -482,14 +482,14 @@ InpMtx_supportHerm (
 if ( A == NULL || supIV == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportHerm(%p,%p)"
            "\n bad input\n", A, supIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  !INPMTX_IS_BY_ROWS(A) 
    && !INPMTX_IS_BY_COLUMNS(A) 
    && !INPMTX_IS_BY_CHEVRONS(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_supportHerm(%p,%p)"
            "\n coordinate type\n", A, supIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 InpMtx_supportSym(A, supIV) ;
 

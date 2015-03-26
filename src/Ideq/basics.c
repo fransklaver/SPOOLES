@@ -37,7 +37,7 @@ Ideq_setDefaultFields (
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_setDefaultFields(%p)"
            "\n deq is NULL\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 deq->maxsize =  0 ;
 deq->head    = -1 ;
@@ -61,7 +61,7 @@ Ideq_clearData (
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_clearData(%p)"
            "\n deq is NULL\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_clearData(&deq->iv) ;
 Ideq_setDefaultFields(deq) ;
@@ -83,7 +83,7 @@ Ideq_free (
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_free(%p)"
            "\n deq is NULL\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Ideq_clearData(deq) ;
 FREE(deq) ;

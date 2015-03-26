@@ -53,7 +53,7 @@ if (  A == NULL || Y == NULL || alpha == NULL
    fprintf(stderr, 
            "\n fatal error in InpMtx_MT_nonsym_mmm(%p,%p,%p,%p,%d)"
            "\n bad input\n", A, Y, alpha, X, nthread) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nthread == 1 ) {
    InpMtx_nonsym_mmm(A, Y, alpha, X) ;
@@ -90,7 +90,7 @@ if (  A == NULL || Y == NULL || alpha == NULL
    fprintf(stderr, 
            "\n fatal error in InpMtx_MT_sym_mmm(%p,%p,%p,%p,%d)"
            "\n bad input\n", A, Y, alpha, X, nthread) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nthread == 1 ) {
    InpMtx_sym_mmm(A, Y, alpha, X) ;
@@ -127,7 +127,7 @@ if (  A == NULL || Y == NULL || alpha == NULL
    fprintf(stderr, 
            "\n fatal error in InpMtx_MT_herm_mmm(%p,%p,%p,%p,%d)"
            "\n bad input\n", A, Y, alpha, X, nthread) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nthread == 1 ) {
    InpMtx_herm_mmm(A, Y, alpha, X) ;
@@ -164,7 +164,7 @@ if (  A == NULL || Y == NULL || alpha == NULL
    fprintf(stderr, 
            "\n fatal error in InpMtx_MT_nonsym_mmm_T(%p,%p,%p,%p,%d)"
            "\n bad input\n", A, Y, alpha, X, nthread) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nthread == 1 ) {
    InpMtx_nonsym_mmm_T(A, Y, alpha, X) ;
@@ -201,7 +201,7 @@ if (  A == NULL || Y == NULL || alpha == NULL
    fprintf(stderr, 
            "\n fatal error in InpMtx_MT_nonsym_mmm_H(%p,%p,%p,%p,%d)"
            "\n bad input\n", A, Y, alpha, X, nthread) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nthread == 1 ) {
    InpMtx_nonsym_mmm_H(A, Y, alpha, X) ;
@@ -276,7 +276,7 @@ for ( myid = 0, obj = MTmvmObjs ; myid < nthread ; myid++, obj++ ) {
       fprintf(stderr, 
            "\n fatal error, myid = %d, rc = %d from pthread_create",
            myid, rc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else if ( msglvl > 2 ) {
       fprintf(stderr, "\n %% thread %d created", myid) ;
    }

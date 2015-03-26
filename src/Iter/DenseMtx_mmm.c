@@ -86,7 +86,7 @@ if ( B_opt[0] == 'N' || B_opt[0] == 'n' ){
               (A_opt[0] == 'C' || A_opt[0] == 'c')  ){
     if (nrowA != nrowB || nrowC != ncolA || ncolC != ncolB) {
        fprintf(stderr,"Error in Input DenseMtx_mmm\n");
-       exit(-3);
+       spoolesFatal();
     }
   } else {
     fprintf(stderr,"Invalid option for mtxA\n");

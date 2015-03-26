@@ -57,7 +57,7 @@ int     ndom ;
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_fidmat(%p)"
            "\n bad input\n", bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ndom = bkl->ndom ;
 /*
@@ -192,7 +192,7 @@ int     *cweights, *doms ;
 if ( bkl == NULL || cells == NULL || tags == NULL || DomByDom == NULL ){
    fprintf(stderr, "\n fatal error in BKL_fidmatPass(%p,%p,%p,%p,%d)"
            "\n bad input\n", bkl, cells, tags, DomByDom, npass) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ndom     = bkl->ndom     ;
 cweights = bkl->cweights ;

@@ -70,7 +70,7 @@ fprintf(msgFile,
 fflush(msgFile) ;
 if ( n1 <= 0 || n2 <= 0 || n3 <= 0 || estpar < 0.0 || growth <= 1.0 ) {
    fprintf(stderr, "\n fatal error in testInput, bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------
@@ -209,7 +209,7 @@ for ( irow = 0 ; irow < neqns ; irow++ ) {
    if ( size1 != size2 ) {
       fprintf(msgFile, "\n\n error, irow %d, size1 %d, size2 %d",
               irow, size1, size2) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( ii = 0 ; ii < size1 ; ii++ ) {
       if ( indices1[ii] != indices2[ii] ) {
@@ -218,7 +218,7 @@ for ( irow = 0 ; irow < neqns ; irow++ ) {
          IVfprintf(msgFile, size1, indices1) ;
          fprintf(msgFile, "\n indices2") ;
          IVfprintf(msgFile, size1, indices2) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 }

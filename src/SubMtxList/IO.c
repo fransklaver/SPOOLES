@@ -27,7 +27,7 @@ if ( list == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxList_writeForHumanEye(%p,%p)"
            "\n bad input\n", list, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n SubMtxList object at address %p"
             "\n %d lists, %d locks" 

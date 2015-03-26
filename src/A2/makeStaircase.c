@@ -25,7 +25,7 @@ int      *firstnonzero ;
 if ( mtxA == NULL ) {
    fprintf(stderr, "\n fatal error in A2_staircase(%p)"
            "\n bad input\n", mtxA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = A2_nrow(mtxA) ;
 ncol = A2_ncol(mtxA) ;

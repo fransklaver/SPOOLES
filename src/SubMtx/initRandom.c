@@ -34,7 +34,7 @@ if ( mtx == NULL || type < 1 || type > 2 || mode < 0 || mode > 9
 || nrow <= 0 || ncol <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_initRandom()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_clearData(mtx) ;
 /*
@@ -284,7 +284,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM : {
    } break ;
 default :
    fprintf(stderr, "\n\n %% type %d not yet supported", type) ;
-   exit(0) ;
+   spoolesFatal();
    break ;
 }
 Drand_free(drand) ;
@@ -325,7 +325,7 @@ if ( mtx == NULL || type < 1 || type > 2 || mode < 0 || mode > 9
 || nrow <= 0 || ncol <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_initRandomUpperTriangle()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_clearData(mtx) ;
 /*
@@ -585,7 +585,7 @@ case SUBMTX_DENSE_SUBCOLUMNS : {
    } break ;
 default :
    fprintf(stderr, "\n\n %% type %d not yet supported", type) ;
-   exit(0) ;
+   spoolesFatal();
    break ;
 }
 /*
@@ -631,7 +631,7 @@ int     *colind, *rowind ;
 if ( mtx == NULL || type < 0 || type > 9 || nrow <= 0 || ncol <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_initRandomLowerTriangle()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_clearData(mtx) ;
 /*
@@ -876,7 +876,7 @@ case SUBMTX_DENSE_SUBCOLUMNS : {
    } break ;
 default :
    fprintf(stderr, "\n\n %% type %d not yet supported", type) ;
-   exit(0) ;
+   spoolesFatal();
    break ;
 }
 SubMtx_rowIndices(mtx, &nrow, &rowind) ;

@@ -429,7 +429,7 @@ int   ierr, rc ;
 if ( bpg == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in BPG_writeForHumanEye(%p,%p)"
            "\n bad input\n", bpg, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -486,7 +486,7 @@ int   rc ;
 if ( bpg == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in BPG_writeStats(%p,%p)"
            "\n bad input\n", bpg, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( bpg->graph == NULL ) {
    fprintf(stderr, "\n warning in BPG_writeStats(%p,%p)"

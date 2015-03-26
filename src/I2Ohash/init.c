@@ -26,13 +26,13 @@ if ( hashtable == NULL || nlist <= 0 ) {
    fprintf(stderr, "\n\n error in I2Ohash_init(%p,%d,%d,%d)"
            "\n hashtable is NULL or nlist = %d is nonpositive\n",
            hashtable, nlist, nobj, grow, nlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nobj <= 0 && grow <= 0 ) {
    fprintf(stderr, "\n\n error in I2Ohash_init(%p,%d,%d,%d)"
            "\n nobj = %d, grow = %d\n",
            hashtable, nlist, nobj, grow, nobj, grow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 I2Ohash_clearData(hashtable) ;
 hashtable->nlist = nlist ;

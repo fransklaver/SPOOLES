@@ -37,7 +37,7 @@ Network_setDefaultFields (
 if ( network == NULL ) {
    fprintf(stderr, "\n fatal error in Network_setDefaultFields(%p)"
            "\n bad input\n", network) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 network->nnode    =   0  ;
 network->narc     =   0  ;
@@ -67,7 +67,7 @@ ArcChunk   *chunk ;
 if ( network == NULL ) {
    fprintf(stderr, "\n fatal error in Network_clearData(%p)"
            "\n bad input\n", network) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( network->inheads != NULL ) {
    FREE(network->inheads) ;
@@ -99,7 +99,7 @@ Network_free (
 if ( network == NULL ) {
    fprintf(stderr, "\n fatal error in Network_free(%p)"
            "\n bad input\n", network) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Network_clearData(network) ;
 FREE(network) ;

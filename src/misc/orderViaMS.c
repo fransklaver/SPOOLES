@@ -52,7 +52,7 @@ if ( graph == NULL || maxdomainsize <= 0
    fprintf(stderr, "\n fatal error in orderViaMS(%p,%d,%d,%d,%p)"
            "\n bad input\n", 
            graph, maxdomainsize, seed, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------

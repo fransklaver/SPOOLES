@@ -22,7 +22,7 @@ A2_nrow (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_nrow(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->n1) ; }
 
@@ -46,7 +46,7 @@ A2_ncol (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_ncol(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->n2) ; }
 
@@ -70,7 +70,7 @@ A2_inc1 (
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_inc1(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->inc1) ; }
 
@@ -94,7 +94,7 @@ A2_inc2 (
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_inc2(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->inc2) ; }
 
@@ -118,7 +118,7 @@ A2_entries (
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_entries(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->entries) ; }
 
@@ -144,18 +144,18 @@ double   *row ;
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_row(%p,%d)"
            "\n bad input\n", mtx, irow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in A2_row(%p,%d)"
            "\n bad structure, entries is NULL\n", mtx, irow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, "\n fatal error in A2_row(%p,%d)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_IS_REAL(mtx) ) {
    row = mtx->entries + irow*mtx->inc1 ;
@@ -165,7 +165,7 @@ if ( A2_IS_REAL(mtx) ) {
    fprintf(stderr, "\n fatal error in A2_row(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX",
            mtx, irow, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(row) ; }
 
@@ -191,18 +191,18 @@ double   *col ;
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_column(%p,%d)"
            "\n bad input\n", mtx, jcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in A2_column(%p,%d)"
            "\n bad structure, entries is NULL\n", mtx, jcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, "\n fatal error in A2_column(%p,%d)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, jcol, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_IS_REAL(mtx) ) {
    col = mtx->entries + jcol*mtx->inc2 ;
@@ -212,7 +212,7 @@ if ( A2_IS_REAL(mtx) ) {
    fprintf(stderr, "\n fatal error in A2_col(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX",
            mtx, jcol, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(col) ; }
 
@@ -240,31 +240,31 @@ int   loc ;
 if ( mtx == NULL || pValue == NULL ) {
    fprintf(stderr, "\n fatal error in A2_realEntry(%p,%d,%d,%p)"
            "\n bad input\n", mtx, irow, jcol, pValue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! A2_IS_REAL(mtx) ) {
    fprintf(stderr, "\n fatal error in A2_realEntry(%p,%d,%d,%p)"
            "\n bad type %d, must be SPOOLES_REAL\n", 
            mtx, irow, jcol, pValue, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in A2_realEntry(%p,%d,%d,%p)"
            "\n bad structure, entries is NULL\n", 
            mtx, irow, jcol, pValue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, "\n fatal error in A2_realEntry(%p,%d,%d,%p)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, jcol, pValue, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, "\n fatal error in A2_realEntry(%p,%d,%d,%p)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, irow, jcol, pValue, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = irow*mtx->inc1 + jcol*mtx->inc2 ;
 *pValue = mtx->entries[loc] ;
@@ -296,31 +296,31 @@ int   loc ;
 if ( mtx == NULL || pReal == NULL || pImag == NULL ) {
    fprintf(stderr, "\n fatal error in A2_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad input\n", mtx, irow, jcol, pReal, pImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! A2_IS_COMPLEX(mtx) ) {
    fprintf(stderr, "\n fatal error in A2_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, jcol, pReal, pImag, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in A2_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad structure, entries is NULL\n", 
            mtx, irow, jcol, pReal, pImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, "\n fatal error in A2_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, jcol, pReal, pImag, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, "\n fatal error in A2_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, irow, jcol, pReal, pImag, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = 2*(irow*mtx->inc1 + jcol*mtx->inc2) ;
 *pReal = mtx->entries[loc] ;
@@ -353,35 +353,35 @@ if ( mtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_setRealEntry(%p,%d,%d,%f)"
            "\n bad input\n", mtx, irow, jcol, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! A2_IS_REAL(mtx) ) {
    fprintf(stderr, 
            "\n fatal error in A2_setRealEntry(%p,%d,%d,%f)"
            "\n bad type %d, must be SPOOLES_REAL\n", 
            mtx, irow, jcol, value, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_setRealEntry(%p,%d,%d,%f)"
            "\n bad structure, entries is NULL\n", 
            mtx, irow, jcol, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, 
            "\n fatal error in A2_setRealEntry(%p,%d,%d,%f)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, jcol, value, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, 
            "\n fatal error in A2_setRealEntry(%p,%d,%d,%f)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, irow, jcol, value, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = irow*mtx->inc1 + jcol*mtx->inc2 ;
 mtx->entries[loc] = value ;
@@ -414,35 +414,35 @@ if ( mtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_setComplexEntry(%p,%d,%d,%f,%f)"
            "\n bad input\n", mtx, irow, jcol, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! A2_IS_COMPLEX(mtx) ) {
    fprintf(stderr, 
            "\n fatal error in A2_setComplexEntry(%p,%d,%d,%f,%f)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, jcol, real, imag, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_setComplexEntry(%p,%d,%d,%f,%f)"
            "\n bad structure, entries is NULL\n", 
            mtx, irow, jcol, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, 
            "\n fatal error in A2_setComplexEntry(%p,%d,%d,%f,%f)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, jcol, real, imag, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, 
            "\n fatal error in A2_setComplexEntry(%p,%d,%d,%f,%f)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, irow, jcol, real, imag, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = 2*(irow*mtx->inc1 + jcol*mtx->inc2) ;
 mtx->entries[loc]   = real ;
@@ -476,35 +476,35 @@ if ( mtx == NULL || ppValue == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToRealEntry(%p,%d,%d,%p)"
            "\n bad input\n", mtx, irow, jcol, ppValue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! A2_IS_COMPLEX(mtx) ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToRealEntry(%p,%d,%d,%p)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, jcol, ppValue, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToRealEntry(%p,%d,%d,%p)"
            "\n bad structure, entries is NULL\n", 
            mtx, irow, jcol, ppValue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToRealEntry(%p,%d,%d,%p)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, jcol, ppValue, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToRealEntry(%p,%d,%d,%p)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, irow, jcol, ppValue, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = irow*mtx->inc1 + jcol*mtx->inc2 ;
 *ppValue = mtx->entries + loc ;
@@ -538,35 +538,35 @@ if ( mtx == NULL || ppReal == NULL || ppImag == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad input\n", mtx, irow, jcol, ppReal, ppImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! A2_IS_COMPLEX(mtx) ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, jcol, ppReal, ppImag, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad structure, entries is NULL\n", 
            mtx, irow, jcol, ppReal, ppImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->n1 ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad input, irow = %d, n1 = %d\n", 
            mtx, irow, jcol, ppReal, ppImag, irow, mtx->n1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->n2 ) {
    fprintf(stderr, 
            "\n fatal error in A2_pointerToComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad input, jcol = %d, n2 = %d\n", 
            mtx, irow, jcol, ppReal, ppImag, jcol, mtx->n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = 2*(irow*mtx->inc1 + jcol*mtx->inc2) ;
 *ppReal = mtx->entries + loc ;

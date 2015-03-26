@@ -105,7 +105,7 @@ MSMDstageInfo   *stageinfo ;
 if ( info == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in MSMDinfo_print(%p,%p)"
            "\n bad input\n", info, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n MSMDinfo :") ;
 fprintf(fp, "\n    compressFlag = %d : ", info->compressFlag) ;

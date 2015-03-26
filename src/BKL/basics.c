@@ -37,7 +37,7 @@ BKL_setDefaultFields (
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_setDefaultFields(%p)"
            "\n bad input\n", bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 bkl->bpg       = NULL ;
 bkl->ndom      =   0  ;
@@ -73,7 +73,7 @@ BKL_clearData (
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_clearData(%p)"
            "\n bad input\n", bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( bkl->colors != NULL ) {
    IVfree(bkl->colors) ;
@@ -103,7 +103,7 @@ BKL_free (
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_free(%p)"
            "\n bad input\n", bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 BKL_clearData(bkl) ;
 FREE(bkl) ;

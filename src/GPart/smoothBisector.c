@@ -42,7 +42,7 @@ IV        *YCmapIV, *YVmapIV ;
 if ( gpart == NULL || nlevel < 0 || alpha < 0.0 ) {
    fprintf(stderr, "\n fatal error in GPart_smoothBisector(%p,%d,%f)"
            "\n bad input\n", gpart, nlevel, alpha) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 g        = gpart->g        ;
 compids  = IV_entries(&gpart->compidsIV)  ;

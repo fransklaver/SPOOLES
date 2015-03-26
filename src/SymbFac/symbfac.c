@@ -42,7 +42,7 @@ if ( etree == NULL
    if ( graph != NULL ) {
       Graph_writeStats(graph, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 vwghts = graph->vwghts ;
 /*
@@ -257,7 +257,7 @@ if ( etree == NULL
    if ( inpmtx != NULL ) {
       InpMtx_writeStats(inpmtx, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------------
@@ -268,13 +268,13 @@ if ( ! INPMTX_IS_BY_CHEVRONS(inpmtx) ) {
    fprintf(stderr, "\n fatal error in Symbfac_initFromInpMtx()"
            "\n bad input, coordType %d, must be INPMTX_BY_CHEVRONS\n",
            InpMtx_coordType(inpmtx)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_BY_VECTORS(inpmtx) ) {
    fprintf(stderr, "\n fatal error in Symbfac_initFromInpMtx()"
            "\n bad input, storageMode %d, must be INPMTX_BY_VECTORS\n",
            InpMtx_storageMode(inpmtx)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvector = InpMtx_nvector(inpmtx) ;
 #if MYDEBUG > 0
@@ -461,7 +461,7 @@ if ( etree == NULL
    if ( pencil != NULL ) {
       Pencil_writeStats(pencil, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 inpmtxA = pencil->inpmtxA ;
 inpmtxB = pencil->inpmtxB ;
@@ -475,13 +475,13 @@ if ( inpmtxA != NULL ) {
       fprintf(stderr, "\n fatal error in Symbfac_initFromPencil()"
            "\n bad input, coordType %d, must be INPMTX_BY_CHEVRONS\n",
            InpMtx_coordType(inpmtxA)) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( ! INPMTX_IS_BY_VECTORS(inpmtxA) ) {
       fprintf(stderr, "\n fatal error in Symbfac_initFromPencil()"
            "\n bad input, storageMode %d, must be INPMTX_BY_VECTORS\n",
            InpMtx_storageMode(inpmtxA)) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    nvectorA = InpMtx_nvector(inpmtxA) ;
 } else {
@@ -492,13 +492,13 @@ if ( inpmtxB != NULL ) {
       fprintf(stderr, "\n fatal error in Symbfac_initFromPencil()"
            "\n bad input, coordType %d, must be INPMTX_BY_CHEVRONS\n",
            InpMtx_coordType(inpmtxB)) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( ! INPMTX_IS_BY_VECTORS(inpmtxB) ) {
       fprintf(stderr, "\n fatal error in Symbfac_initFromPencil()"
            "\n bad input, storageMode %d, must be INPMTX_BY_VECTORS\n",
            InpMtx_storageMode(inpmtxB)) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    nvectorB = InpMtx_nvector(inpmtxB) ;
 } else {

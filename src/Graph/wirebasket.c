@@ -33,14 +33,14 @@ int   *dist, *dmark, *domids, *list, *stages, *vadj, *vmark ;
 if ( graph == NULL || stagesIV == NULL || radius < 0 ) {
    fprintf(stderr, "\n fatal error in Graph_wirebasketStages(%p,%p,%d)"
            "\n bad input\n", graph, stagesIV, radius) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(stagesIV, &nvtx, &stages) ;
 if ( nvtx != graph->nvtx || stages == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_wirebasketStages(%p,%p,%d)"
            "\n stages->nvtx = %d, graph->nvtx = %d, stages = %p\n", 
            graph, stagesIV, nvtx, radius, graph->nvtx, stages) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------

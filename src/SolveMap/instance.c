@@ -22,7 +22,7 @@ SolveMap_symmetryflag (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_symmetryflag(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->symmetryflag) ; }
 
@@ -46,7 +46,7 @@ SolveMap_nfront (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_nfront(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->nfront) ; }
 
@@ -70,7 +70,7 @@ SolveMap_nproc (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_nproc(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->nproc) ; }
 
@@ -94,7 +94,7 @@ SolveMap_nblockUpper (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_nblockUpper(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->nblockUpper) ; }
 
@@ -118,7 +118,7 @@ SolveMap_nblockLower (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_nblockLower(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->nblockLower) ; }
 
@@ -142,7 +142,7 @@ SolveMap_owners (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_owners(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->owners) ; }
 
@@ -167,7 +167,7 @@ SolveMap_rowidsUpper (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_rowidsUpper(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->rowidsUpper) ; }
 
@@ -192,7 +192,7 @@ SolveMap_colidsUpper (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_colidsUpper(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->colidsUpper) ; }
 
@@ -217,7 +217,7 @@ SolveMap_mapUpper (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_mapUpper(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->mapUpper) ; }
 
@@ -242,7 +242,7 @@ SolveMap_rowidsLower (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_rowidsLower(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->rowidsLower) ; }
 
@@ -267,7 +267,7 @@ SolveMap_colidsLower (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_colidsLower(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->colidsLower) ; }
 
@@ -292,7 +292,7 @@ SolveMap_mapLower (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_mapLower(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(solvemap->mapLower) ; }
 

@@ -38,7 +38,7 @@ SubMtx_setDefaultFields (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_setDefaultFields(%p)"
            "\n bad input", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mtx->type    = SPOOLES_REAL ;
 mtx->mode    = SUBMTX_DENSE_COLUMNS ;
@@ -72,7 +72,7 @@ SubMtx_clearData (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_clearData(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -104,7 +104,7 @@ SubMtx_free (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_free(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_clearData(mtx) ;
 FREE(mtx) ;

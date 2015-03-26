@@ -29,7 +29,7 @@ if ( etree == NULL || etree->tree == NULL
    || (nfront = etree->nfront) <= 0 || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_fundChainMap(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -67,7 +67,7 @@ if ( etree == NULL || etree->tree == NULL
    || (nfront = etree->nfront) <= 0 || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_fundSupernodeMap(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 par      = etree->tree->par ;
 fch      = etree->tree->fch ;
@@ -134,7 +134,7 @@ if (  etree == NULL || (nfront = etree->nfront) <= 0
    || (nvtx = etree->nvtx) <= 0 || frontmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_compress(%p,%p)"
            "\n bad input\n", etree, frontmapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------

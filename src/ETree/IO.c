@@ -339,7 +339,7 @@ int   rc ;
 if ( etree == NULL || fp == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_writeToFormattedFile(%p,%p)"
            "\n bad input\n", etree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------
@@ -428,7 +428,7 @@ int   itemp[2] ;
 if ( etree == NULL || fp == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_writeToBinaryFile(%p,%p)"
            "\n bad input\n", etree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------
@@ -515,7 +515,7 @@ int   *bndwghts, *fch, *nodwghts, *par, *sib ;
 if ( etree == NULL || fp == NULL || (nfront = etree->nfront) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_writeForHumanEye(%p,%p)"
            "\n bad input\n", etree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = ETree_writeStats(etree, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in ETree_writeForHumanEye(%p,%p)"
@@ -565,7 +565,7 @@ int   rc ;
 if ( etree == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in ETree_writeStats(%p,%p)"
            "\n bad input\n", etree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, 
       "\n ETree : etree object, %d fronts, %d vertices, takes %d bytes",

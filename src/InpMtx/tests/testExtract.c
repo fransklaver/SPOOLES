@@ -91,32 +91,32 @@ fprintf(msgFile,
 fflush(msgFile) ;
 if ( dataType != SPOOLES_REAL && dataType != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n invalid value %d for dataType\n", dataType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  symmetryflag != SPOOLES_SYMMETRIC
    && symmetryflag != SPOOLES_HERMITIAN
    && symmetryflag != SPOOLES_NONSYMMETRIC ) {
    fprintf(stderr, 
            "\n invalid value %d for symmetryflag\n", symmetryflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( symmetryflag == SPOOLES_HERMITIAN && dataType != SPOOLES_COMPLEX ){
    fprintf(stderr, 
            "\n symmetryflag is hermitian, data type is not complex\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  coordType != INPMTX_BY_ROWS 
    && coordType != INPMTX_BY_COLUMNS 
    && coordType != INPMTX_BY_CHEVRONS ) {
    fprintf(stderr, 
            "\n invalid value %d for coordType\n", coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrowA <= 0 || ncolA <= 0 || nitem <= 0 ) {
    fprintf(stderr, 
            "\n invalid value: nrow = %d, ncol = %d, nitem = %d",
            nrowA, ncolA, nitem) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n %% symmetryflag %d, nrowA %d, ncolA %d\n",
         symmetryflag, nrowA, ncolA) ;
@@ -125,19 +125,19 @@ if (   (   symmetryflag == SPOOLES_SYMMETRIC
     && nrowA != ncolA ) {
    fprintf(stderr, 
            "\n symmetric matrix, nrowA %d, ncolA %d\n", nrowA, ncolA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrow1 < 0 || nrow2 < 0 || (nrow1 + nrow2 != nrowA) ) {
    fprintf(stderr, 
            "\n invalid value: nrow = %d, nrow1 = %d, nrow2 = %d",
            nrowA, nrow1, nrow2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ncol1 < 0 || ncol2 < 0 || (ncol1 + ncol2 != ncolA) ) {
    fprintf(stderr, 
            "\n invalid value: ncol = %d, ncol1 = %d, ncol2 = %d",
            ncolA, ncol1, ncol2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------
@@ -251,7 +251,7 @@ if ( nrow1 > 0 ) {
                                    symmetryflag, msglvl, msgFile) ;
       if ( rc != 1 ) {
          fprintf(stderr, "\n error return %d for A11\n", rc) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       fprintf(msgFile, "\n A11 = zeros(%d,%d) ;", nrow1, ncol1) ;
       InpMtx_writeForMatlab(A11, "A11", msgFile) ;
@@ -274,7 +274,7 @@ if ( nrow1 > 0 ) {
                                    symmetryflag, msglvl, msgFile) ;
       if ( rc != 1 ) {
          fprintf(stderr, "\n error return %d for A12\n", rc) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       fprintf(msgFile, "\n A12 = zeros(%d,%d) ;", nrow1, ncol2) ;
       InpMtx_writeForMatlab(A12, "A12", msgFile) ;
@@ -295,7 +295,7 @@ if ( nrow2 > 0 ) {
                                    symmetryflag, msglvl, msgFile) ;
       if ( rc != 1 ) {
          fprintf(stderr, "\n error return %d for A21\n", rc) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       fprintf(msgFile, "\n A21 = zeros(%d,%d) ;", nrow2, ncol1) ;
       InpMtx_writeForMatlab(A21, "A21", msgFile) ;
@@ -311,7 +311,7 @@ if ( nrow2 > 0 ) {
                                    symmetryflag, msglvl, msgFile) ;
       if ( rc != 1 ) {
          fprintf(stderr, "\n error return %d for A22\n", rc) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       fprintf(msgFile, "\n A22 = zeros(%d,%d) ;", nrow2, ncol2) ;
       InpMtx_writeForMatlab(A22, "A22", msgFile) ;

@@ -25,7 +25,7 @@ int   nbytes ;
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_sizeOf(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _IVL) ;
 if ( ivl->nlist > 0 ) {
@@ -65,7 +65,7 @@ int   *ent ;
 if ( ivl == NULL || (nlist = ivl->nlist) <= 0 ) {
    fprintf(stderr, "\n fatal error in IVL_min(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 first  =  1 ;
 minval = -1 ;
@@ -105,7 +105,7 @@ int   *ent ;
 if ( ivl == NULL || (nlist = ivl->nlist) <= 0 ) {
    fprintf(stderr, "\n fatal error in IVL_max(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 first  =  1 ;
 maxval = -1 ;
@@ -145,7 +145,7 @@ int   *ent ;
 if ( ivl == NULL || (nlist = ivl->nlist) <= 0 ) {
    fprintf(stderr, "\n fatal error in IVL_maxListSize(%p)"
            "\n bad input", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 for ( ilist = 0, maxsize = 0 ; ilist < nlist ; ilist++ ) {
    IVL_listAndSize(ivl, ilist, &size, &ent) ;
@@ -173,7 +173,7 @@ int   *jind ;
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_sum(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 sum = 0 ;
 for ( j = 0 ; j < ivl->nlist ; j++ ) {
@@ -206,7 +206,7 @@ int   *ent ;
 if ( ivl == NULL || (nlist = ivl->nlist) < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_sortUp(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 for ( ilist = 0 ; ilist < nlist ; ilist++ ) {
@@ -246,7 +246,7 @@ int   *chksum, *issorted, *map, *mark, *vadj, *vids, *wadj ;
 if ( ivl == NULL || (nlist = ivl->nlist) < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_equivMap(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nlist == 0 ) {
    return(NULL) ;
@@ -482,7 +482,7 @@ int   *list, *oldToNew ;
 if ( ivl == NULL || oldToNewIV == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_overwrite(%p,%p)"
            "\n bad input\n", ivl, oldToNewIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 oldToNew = IV_entries(oldToNewIV) ;
 range    = IV_size(oldToNewIV) ;
@@ -525,7 +525,7 @@ IVL   *newIVL ;
 if ( ivl == NULL || mapIV == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_mapEntries(%p,%p)"
            "\n bad input\n", ivl, mapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nlist = ivl->nlist ;
 range = IV_size(mapIV) ;
@@ -641,12 +641,12 @@ int      *ivec, *map ;
 if ( ivl1 == NULL || ivl2 == NULL || mapIV == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_absorbIVL(%p,%p,%p)"
            "\n bad input\n", ivl1, ivl2, mapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (map = IV_entries(mapIV)) == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_absorbIVL(%p,%p,%p)"
            "\n IV_entries(mapIV) is NULL\n", ivl1, ivl2, mapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------
@@ -657,7 +657,7 @@ if ( IV_size(mapIV) != (nlist2 = ivl2->nlist) ) {
    fprintf(stderr, "\n fatal error in IVL_absorbIVL(%p,%p,%p)"
            "\n ivl2->nlist = %d, IV_size(mapIV) = %d\n", 
            ivl1, ivl2, mapIV, nlist2, IV_size(mapIV)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------
@@ -719,7 +719,7 @@ IVL   *ivl2 ;
 if ( ivl == NULL || eqmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_expand(%p,%p)"
            "\n bad input\n", ivl, eqmapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nlist1 = ivl->nlist ;
 /*
@@ -740,7 +740,7 @@ for ( ii = nlist2 - 1 ; ii >= 0 ; ii-- ) {
       fprintf(stderr, "\n fatal error in IVL_expand(%p,%p)"
               "\n nlist1 = %d, nvtx = %d, map[%d] = %d\n",
               ivl, eqmapIV, nlist1, nvtx, ii, jj) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    link[ii] = head[jj] ;
    head[jj] = ii ;

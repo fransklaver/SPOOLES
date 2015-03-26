@@ -34,7 +34,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_permuteUpperAdj(%p,%d,%p)"
            "\n badn input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 neqns = FrontMtx_neqns(frontmtx) ;
 map   = IVinit(neqns, -1) ;
@@ -79,7 +79,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_permuteLowerAdj(%p,%d,%p)"
            "\n badn input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 neqns = FrontMtx_neqns(frontmtx) ;
 map   = IVinit(neqns, -1) ;
@@ -126,7 +126,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_permuteUpperMatrices(%p,%d,%p)"
            "\n badn input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = FrontMtx_nfront(frontmtx) ;
 neqns  = FrontMtx_neqns(frontmtx) ;
@@ -189,7 +189,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_permuteLowerMatrices(%p,%d,%p)"
            "\n badn input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = FrontMtx_nfront(frontmtx) ;
 neqns  = FrontMtx_neqns(frontmtx) ;
@@ -266,7 +266,7 @@ if ( ncolK == 0 ) {
    fprintf(stderr, "\n fatal error FrontMtx_reorderColumnIndices()"
            "\n J = %d, K = %d, nJ = %d, ncolJ = %d, ncolK = %d\n",
            J, K, nJ, ncolJ, ncolK) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n colindJ") ;
@@ -340,7 +340,7 @@ if ( nrowK == 0 ) {
    fprintf(stderr, "\n fatal error FrontMtx_reorderRowIndices()"
            "\n J = %d, K = %d, nJ = %d, nrowJ = %d, nrowK = %d\n",
            J, K, nJ, nrowJ, nrowK) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n rowindJ") ;

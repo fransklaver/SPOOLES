@@ -43,13 +43,13 @@ SubMtx_scale1vec (
 if ( mtxA == NULL || y0 == NULL || x0 == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_scale1vec(%p,%p,%p)"
            "\n bad input\n", mtxA, y0, x0) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtxA) || SUBMTX_IS_COMPLEX(mtxA)) ) {
    fprintf(stderr, "\n fatal error in SubMtx_scale1vec(%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtxA, y0, x0, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mtxA->mode ) {
 case SUBMTX_DIAGONAL :
@@ -63,7 +63,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM :
       fprintf(stderr, "\n fatal error in SubMtx_scale1vec(%p,%p,%p)"
               "\n hermitian matrix, type %d is not SPOOLES_COMPLEX\n", 
               mtxA, y0, x0, mtxA->type) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    block_diagonal_herm_scale1vec(mtxA, y0, x0) ;
    break ;
@@ -73,7 +73,7 @@ default :
            "\n must be SUBMTX_DIAGONAL,"
            "\n      or SUBMTX_BLOCK_DIAGONAL_SYM"
            "\n      or SUBMTX_BLOCK_DIAGONAL_HERM\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -102,13 +102,13 @@ if (  mtxA == NULL || y0 == NULL || y1 == NULL
    || x0 == NULL || x1 == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_scale2vec(%p,%p,%p,%p,%p)"
            "\n bad input\n", mtxA, y0, y1, x0, x1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtxA) || SUBMTX_IS_COMPLEX(mtxA)) ) {
    fprintf(stderr, "\n fatal error in SubMtx_scale2vec(%p,%p,%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtxA, y0, y1, x0, x1, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mtxA->mode ) {
 case SUBMTX_DIAGONAL :
@@ -123,7 +123,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM :
               "\n fatal error in SubMtx_scale2vec(%p,%p,%p,%p,%p)"
               "\n hermitian matrix, type %d is not SPOOLES_COMPLEX\n", 
               mtxA, y0, y1, x0, x1, mtxA->type) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    block_diagonal_herm_scale2vec(mtxA, y0, y1, x0, x1) ;
    break ;
@@ -133,7 +133,7 @@ default :
            "\n must be SUBMTX_DIAGONAL,"
            "\n      or SUBMTX_BLOCK_DIAGONAL_SYM"
            "\n      or SUBMTX_BLOCK_DIAGONAL_HERM\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -165,14 +165,14 @@ if (  mtxA == NULL || y0 == NULL || y1 == NULL || y2 == NULL
    fprintf(stderr, 
            "\n fatal error in SubMtx_scale3vec(%p,%p,%p,%p,%p,%p,%p)"
            "\n bad input\n", mtxA, y0, y1, y2, x0, x1, x2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtxA) || SUBMTX_IS_COMPLEX(mtxA)) ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_scale3vec(%p,%p,%p,%p,%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtxA, y0, y1, y2, x0, x1, x2, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mtxA->mode ) {
 case SUBMTX_DIAGONAL :
@@ -187,7 +187,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM :
               "\n fatal error in SubMtx_scale3vec(%p,%p,%p,%p,%p,%p,%p)"
               "\n hermitian matrix, type %d is not SPOOLES_COMPLEX\n", 
               mtxA, y0, y1, y2, x0, x1, x2, mtxA->type) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    block_diagonal_herm_scale3vec(mtxA, y0, y1, y2, x0, x1, x2) ;
    break ;
@@ -197,7 +197,7 @@ default :
            "\n must be SUBMTX_DIAGONAL,"
            "\n      or SUBMTX_BLOCK_DIAGONAL_SYM"
            "\n      or SUBMTX_BLOCK_DIAGONAL_HERM\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -395,7 +395,7 @@ if ( SUBMTX_IS_REAL(mtxA) ) {
       } else {
          fprintf(stderr, "\n fatal error in SubMtx_scale3vec()"
                  "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 } else if ( SUBMTX_IS_COMPLEX(mtxA) ) {
@@ -448,7 +448,7 @@ if ( SUBMTX_IS_REAL(mtxA) ) {
       } else {
          fprintf(stderr, "\n fatal error in SubMtx_scale3vec()"
                  "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 }
@@ -507,7 +507,7 @@ if ( SUBMTX_IS_REAL(mtxA) ) {
       } else {
          fprintf(stderr, "\n fatal error in SubMtx_scale3vec()"
                  "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 } else if ( SUBMTX_IS_COMPLEX(mtxA) ) {
@@ -551,7 +551,7 @@ if ( SUBMTX_IS_REAL(mtxA) ) {
       } else {
          fprintf(stderr, "\n fatal error in SubMtx_scale2vec()"
                  "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 }
@@ -602,7 +602,7 @@ if ( SUBMTX_IS_REAL(mtxA) ) {
       } else {
          fprintf(stderr, "\n fatal error in SubMtx_scale3vec()"
                  "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 } else if ( SUBMTX_IS_COMPLEX(mtxA) ) {
@@ -638,7 +638,7 @@ if ( SUBMTX_IS_REAL(mtxA) ) {
       } else {
          fprintf(stderr, "\n fatal error in SubMtx_scale1vec()"
                  "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 }
@@ -723,7 +723,7 @@ for ( irowA = ipivot = kk = rloc = 0, iloc = 1 ;
    } else {
       fprintf(stderr, "\n fatal error in SubMtx_scale3vec()"
               "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 return ; }
@@ -796,7 +796,7 @@ for ( irowA = ipivot = kk = rloc = 0, iloc = 1 ;
    } else {
       fprintf(stderr, "\n fatal error in SubMtx_scale2vec()"
               "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 return ; }
@@ -859,7 +859,7 @@ for ( irowA = ipivot = kk = rloc = 0, iloc = 1 ;
    } else {
       fprintf(stderr, "\n fatal error in SubMtx_scale1vec()"
               "\n pivotsizes[%d] = %d", ipivot, pivotsizes[ipivot]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 return ; }

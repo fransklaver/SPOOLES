@@ -100,7 +100,7 @@ if ( n > 0 ) {
       "\n n = %d, flag = %d"
       "\n flag must be 0 (IP_NULL), 1 (IP_FORWARD) or 2(IP_BACKWARD)\n",
       n, flag) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       IP    *head, *ip, *tail ;

@@ -121,7 +121,7 @@ nthread        = atoi(argv[13]) ;
 */
 if ( (inputFile = fopen(matrixFileName, "r")) == NULL ) {
    fprintf(stderr, "\n unable to open file %s", matrixFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fscanf(inputFile, "%d %d %d", &nrow, &ncol, &nent) ;
 neqns = nrow ;
@@ -275,11 +275,11 @@ if ( msglvl > 1 ) {
 }
 if ( rootchv != NULL ) {
    fprintf(msgFile, "\n\n matrix found to be singular\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( error >= 0 ) {
    fprintf(msgFile, "\n\n fatal error at front %d\n", error) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------
@@ -300,7 +300,7 @@ if ( msglvl > 1 ) {
 */
 if ( (inputFile = fopen(rhsFileName, "r")) == NULL ) {
    fprintf(stderr, "\n unable to open file %s", rhsFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fscanf(inputFile, "%d %d", &nrow, &nrhs) ;
 mtxB = DenseMtx_new() ;

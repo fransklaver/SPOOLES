@@ -106,7 +106,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 etree = ETree_new() ;
 MARKTIME(t1) ;
@@ -117,7 +117,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in etree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, etree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ETree_leftJustify(etree) ;
 fprintf(msgFile, "\n\n after reading ETree object from file %s",
@@ -137,7 +137,7 @@ tree   = ETree_tree(etree) ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 graph = Graph_new() ;
 MARKTIME(t1) ;
@@ -150,7 +150,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Graph object from file %s",
         inGraphFileName) ;
@@ -272,7 +272,7 @@ case 5 : {
 default :
    fprintf(stderr, "\n error in testStats"
            "\n metricType %d not supported", metricType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n metric vector") ;
@@ -306,7 +306,7 @@ yDV = DV_new() ;
 rc = Tree_getSimpleCoords(tree, heightflag, coordflag, xDV, yDV) ;
 if ( rc != 1 ) {
    fprintf(stderr, "\n error return %d from Tree_getSimpleCoords()",rc);
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n x-coordinates") ;
@@ -334,7 +334,7 @@ rc = Tree_drawToEPS(tree, outEPSfileName, xDV, yDV, rscale, radiusDV,
                     labelflag, fontscale, NULL, bbox, frame, NULL) ;
 if ( rc != 1 ) {
    fprintf(stderr, "\n error return %d from Tree_drawToEPSfile()", rc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------

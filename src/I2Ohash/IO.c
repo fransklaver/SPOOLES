@@ -23,7 +23,7 @@ if ( hashtable == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in I2Ohash_writeForHumanEye(%p,%p)"
            "\n hashtable is NULL or file pointer is NULL", 
            hashtable, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n I2Ohash : %d lists, %d items", 
         hashtable->nlist, hashtable->nitem) ;

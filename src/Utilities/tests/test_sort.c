@@ -74,14 +74,14 @@ if ( argc != 9 ) {
          "\n   mod   -- entries in vectors are uniform(1,range) %% mod"
          "\n   seed  -- seed for random number generator"
          "\n", argv[0]) ;
-   exit(0) ;
+   spoolesFatal();
 }
 msglvl = atoi(argv[1]) ;
 if ( strcmp("stdout", argv[2]) == 0 ) {
    msgFile = stdout ;
 } else if ( (msgFile = fopen(argv[2], "a")) == NULL ) {
    fprintf(stderr, "\n unable to open file %s\n", argv[2]) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 target   = argv[3] ;
 sortType = argv[4] ;
@@ -807,6 +807,6 @@ if ( strcmp(target, "IV") == 0 ) {
    }
 }
 
-exit(0) ; }
+spoolesFatal(); }
 
 /*--------------------------------------------------------------------*/

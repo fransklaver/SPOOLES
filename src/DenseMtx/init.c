@@ -28,7 +28,7 @@ if (  nrow < 0 || ncol < 0 ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_nbytesNeeded(%d,%d,%d)"
            "\n bad input\n", type, nrow, ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nint = 7 + nrow + ncol ;
 if ( type == SPOOLES_REAL ) {
@@ -39,7 +39,7 @@ if ( type == SPOOLES_REAL ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_nbytesNeeded(%d,%d,%d)"
            "\n bad type %d\n", type, nrow, ncol, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( sizeof(int) == sizeof(double) ) {
    nbytes = nint*sizeof(int) + ndouble*sizeof(double) ;
@@ -49,7 +49,7 @@ if ( sizeof(int) == sizeof(double) ) {
    fprintf(stderr, "\n error in DenseMtx_nbytesNeeded(%ld,%ld)"
            "\n sizeof(int) = %ld, sizeof(double) = %ld",
            (long unsigned int)nrow, (long unsigned int)ncol, (long unsigned int)sizeof(int), (long unsigned int)sizeof(double)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(nbytes) ; }
  
@@ -68,7 +68,7 @@ DenseMtx_nbytesInWorkspace (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_nbytesInWorkspace(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(sizeof(double)*DV_maxsize(&mtx->wrkDV)) ; }
  
@@ -89,7 +89,7 @@ if ( mtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_setNbytesInWorkspace(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_setSize(&mtx->wrkDV, nbytes/sizeof(double)) ;
 
@@ -127,7 +127,7 @@ if (  mtx == NULL || nrow < 0 || ncol < 0
            "\n fatal error in DenseMtx_setFields(%p,%d,%d,%d,%d,%d,%d)"
            "\n bad input\n", 
            mtx, rowid, colid, nrow, ncol, inc1, inc2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dbuffer = DV_entries(&mtx->wrkDV) ;
 ibuffer = (int *) dbuffer ;
@@ -198,7 +198,7 @@ if (  mtx == NULL || nrow < 0 || ncol < 0
            "\n fatal error in DenseMtx_init(%p,%d,%d,%d,%d,%d,%d)"
            "\n bad input\n", 
            mtx, rowid, colid, nrow, ncol, inc1, inc2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -209,7 +209,7 @@ default :
            "\n fatal error in DenseMtx_init(%p,%d,%d,%d,%d,%d,%d,%d)"
            "\n bad type %d\n", 
            mtx, type, rowid, colid, nrow, ncol, inc1, inc2, type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 /*
@@ -255,7 +255,7 @@ int   *ibuffer ;
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_initFromBuffer(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ibuffer   = (int *) DV_entries(&mtx->wrkDV) ;
 DenseMtx_setFields(mtx, ibuffer[0], ibuffer[1], ibuffer[2], 
@@ -301,7 +301,7 @@ if (  mtx == NULL || nrow <= 0 || ncol <= 0 || inc1 < 0 || inc2 < 0
            "\n bad input\n",
            mtx, rowid, colid, nrow, ncol, inc1, inc2, 
            rowind, colind, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -358,7 +358,7 @@ DenseMtx_setA2 (
 if (  mtx == NULL || a2 == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setZA2(%p,%p)"
            "\n bad input\n", mtx, a2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
 if ( DENSEMTX_IS_REAL(mtx) ) {

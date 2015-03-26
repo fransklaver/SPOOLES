@@ -30,17 +30,17 @@ IP    **heads ;
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_forwardSetup"
            "\n solvemap is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( myid < 0 || myid >= solvemap->nproc ) {
    fprintf(stderr, "\n fatal error in SolveMap_forwardSetup"
            "\n myid %d, solvemap->nproc %d\n", myid, solvemap->nproc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( solvemap == NULL || myid < 0 || myid >= solvemap->nproc ) {
    fprintf(stderr, "\n fatal error in SolveMap_forwardSetup(%p,%d)"
            "\n bad input\n", solvemap, myid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = solvemap->nfront ;
 if ( solvemap->symmetryflag == 2 ) {
@@ -151,7 +151,7 @@ IP    **heads ;
 if ( solvemap == NULL || myid < 0 || myid >= solvemap->nproc ) {
    fprintf(stderr, "\n fatal error in SolveMap_backwardSetup(%p,%d)"
            "\n bad input\n", solvemap, myid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = solvemap->nfront ;
 nblock = solvemap->nblockUpper ;

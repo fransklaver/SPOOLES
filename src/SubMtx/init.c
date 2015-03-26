@@ -30,7 +30,7 @@ if (  nrow <= 0 || ncol <= 0 || nent < 0 ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_nbytesNeeded(%d,%d,%d,%d,%d)"
            "\n bad input\n", type, mode, nrow, ncol, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -40,7 +40,7 @@ default :
    fprintf(stderr, 
            "\n fatal error in SubMtx_nbytesNeeded(%d,%d,%d,%d,%d)"
            "\n bad type\n", type, mode, nrow, ncol, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mode ) {
 case SUBMTX_DENSE_ROWS :
@@ -58,7 +58,7 @@ default :
    fprintf(stderr, 
            "\n fatal error in SubMtx_nbytesNeeded(%d,%d,%d,%d,%d)"
            "\n bad mode\n", type, mode, nrow, ncol, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------
@@ -110,7 +110,7 @@ if ( sizeof(int) == sizeof(double) ) {
            "\n sizeof(int) = %ld, sizeof(double) = %ld",
            (long unsigned int)nrow, (long unsigned int)ncol, (long unsigned int)sizeof(int), 
 	   (long unsigned int)sizeof(double)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(nbytes) ; }
  
@@ -130,7 +130,7 @@ SubMtx_nbytesInUse (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_nbytesInUse(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(sizeof(double)*DV_size(&mtx->wrkDV)) ; }
  
@@ -149,7 +149,7 @@ SubMtx_workspace (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_workspace(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return((void *)DV_entries(&mtx->wrkDV)) ; }
  
@@ -168,7 +168,7 @@ SubMtx_nbytesInWorkspace (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_nbytesInWorkspace(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(sizeof(double)*DV_maxsize(&mtx->wrkDV)) ; }
  
@@ -189,7 +189,7 @@ if ( mtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_setNbytesInWorkspace(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_setSize(&mtx->wrkDV, nbytes/sizeof(double)) ;
 
@@ -225,22 +225,22 @@ int      *ibuffer ;
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_setFields()"
            "\n mtx is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  nrow <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_setFields()"
            "\n nrow = %d <= 0\n", nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  ncol <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_setFields()"
            "\n ncol = %d <= 0\n", ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  nrow <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_setFields()"
            "\n nent = %d <= 0\n", nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -249,7 +249,7 @@ case SPOOLES_COMPLEX :
 default :
    fprintf(stderr, "\n fatal error in SubMtx_setFields()"
            "\n invalid type %d", type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mode ) {
 case SUBMTX_DENSE_ROWS :
@@ -266,7 +266,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM :
 default :
    fprintf(stderr, "\n fatal error in SubMtx_setFields()"
            "\n invalid mode %d", mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dbuffer = DV_entries(&mtx->wrkDV) ;
 ibuffer = (int *) dbuffer ;
@@ -344,22 +344,22 @@ int   *colind, *rowind ;
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_init()"
            "\n mtx is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  nrow <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_init()"
            "\n nrow = %d <= 0\n", nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  ncol <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_init()"
            "\n ncol = %d <= 0\n", ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  nrow <= 0 ) {
    fprintf(stderr, "\n fatal error in SubMtx_init()"
            "\n nent = %d <= 0\n", nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -368,7 +368,7 @@ case SPOOLES_COMPLEX :
 default :
    fprintf(stderr, "\n fatal error in SubMtx_init()"
            "\n invalid type %d", type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mode ) {
 case SUBMTX_DENSE_ROWS :
@@ -385,7 +385,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM :
 default :
    fprintf(stderr, "\n fatal error in SubMtx_init()"
            "\n invalid mode %d", mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------------------------
@@ -430,7 +430,7 @@ int   *ibuffer ;
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_initFromBuffer(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ibuffer   = (int *) DV_entries(&mtx->wrkDV) ;
 SubMtx_setFields(mtx, ibuffer[0], ibuffer[1], ibuffer[2], 

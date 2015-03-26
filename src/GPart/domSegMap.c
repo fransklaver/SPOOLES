@@ -53,7 +53,7 @@ if (  gpart == NULL
    || pnseg == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_domSegMap(%p,%p,%p)"
            "\n bad input\n", gpart, pndom, pnseg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 compids = IV_entries(&gpart->compidsIV) ;
 msglvl  = gpart->msglvl  ;
@@ -82,7 +82,7 @@ for ( v = 0 ; v < nV ; v++ ) {
               "\n fatal error in GPart_domSegMap(%p,%p,%p)"
               "\n compids[%d] = %d\n", gpart, pndom, pnseg,
               v, compids[v]) ;
-      exit(-1) ;
+      spoolesFatal();
    } else if ( d == 0 ) {
       nPhi++ ;
    } else if ( ndom < d ) {
@@ -122,7 +122,7 @@ if ( phi != nPhi ) {
            "\n fatal error in GPart_domSegMap(%p,%p,%p)"
            "\n phi = %d != %d = nPhi\n", 
            gpart, pndom, pnseg, phi, nPhi) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n PhiToV(%d) :", nPhi) ;

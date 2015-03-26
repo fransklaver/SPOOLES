@@ -84,7 +84,7 @@ if ( list == NULL || ilist < 0 || ilist >= list->nlist ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxList_addObjectToList(%p,%p,%d)"
            "\n bad input\n", list, mtx, ilist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n SubMtxList %p : adding mtx %p to list %d",
@@ -156,7 +156,7 @@ if ( list == NULL || ilist < 0 || ilist >= list->nlist ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxList_getList(%p,%d)"
            "\n bad input\n", list, ilist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n SubMtxList %p : get list %d", list, ilist) ;

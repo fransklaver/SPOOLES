@@ -67,7 +67,7 @@ if (  gpart == NULL || freeze < 0.0
    fprintf(stderr, 
           "\n fatal error in GPart_DDviaFishnet(%p,%f,%d,%d,%d)"
           "\n bad input\n", gpart, freeze, minweight, maxweight, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------
@@ -169,7 +169,7 @@ int     *compids, *vids ;
 if ( gpart == NULL || (g = gpart->g) == NULL || extdegs == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_freeze(%p,%f,%p)"
            "\n bad input\n", gpart, freeze, extdegs) ;
-   exit(-1) ;
+   spoolesFatal();
  }
 nvtx = gpart->nvtx ;
 compids = IV_entries(&gpart->compidsIV) ;
@@ -261,7 +261,7 @@ int     *compids, *cweights, *list, *vadj, *vids, *vwghts ;
 if ( gpart == NULL || (g = gpart->g) == NULL || maxWeight < 0 ) {
    fprintf(stderr, "\n fatal error in GPart_indpSepGrowth(%p,%d,%d)"
            "\n bad input\n", gpart, maxWeight, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vwghts = g->vwghts ;
 /*
@@ -433,7 +433,7 @@ int     *compids, *cweights, *dmap, *head, *link, *vwghts ;
 if ( gpart == NULL || (g = gpart->g) == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_absDomains(%p,%d)"
            "\n bad input\n", gpart, minweight) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx     = gpart->nvtx  ;
 vwghts   = g->vwghts    ;
@@ -561,7 +561,7 @@ int      *compids, *cweights, *list, *vwghts ;
 if ( gpart == NULL || (g = gpart->g) == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_absBoundary(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx     = gpart->nvtx ;
 compids  = IV_entries(&gpart->compidsIV)  ;

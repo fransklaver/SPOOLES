@@ -110,7 +110,7 @@ for ( J = 0 ; J < nfront ; J++ ) {
       if ( BJ == NULL ) {
          fprintf(stderr,
             "\n fatal error in load rhs(%d), BJ = NULL", J) ;
-         exit(-1) ;
+         spoolesFatal();
       }
 /*
       -----------------------
@@ -247,7 +247,7 @@ if ( aggList != NULL && owners[J] == myid ) {
    if ( (BJ = p_agg[J]) == NULL ) {
       fprintf(stderr,
              "\n 2. fatal error in forwardVisit(%d), BJ = NULL", J) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    assembleAggregates(J, BJ, aggList, mtxmanager, 
                              msglvl, msgFile) ;
@@ -467,7 +467,7 @@ if ( aggList != NULL && owners[J] == myid ) {
    if ( (ZJ = p_agg[J]) == NULL ) {
       fprintf(stderr,
              "\n 2. fatal error in backwardVisit(%d), ZJ = NULL", J) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    assembleAggregates(J, ZJ, aggList, mtxmanager, 
                              msglvl, msgFile) ;
@@ -597,7 +597,7 @@ for ( J = 0 ; J < nfront ; J++ ) {
          fprintf(stderr,
             "\n fatal error in storeSolution(%d)"
             "\n thread %d, xmtxJ = NULL", J, myid) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( msglvl > 1 ) {
          fprintf(msgFile, "\n storing solution for front %d", J) ;
@@ -710,7 +710,7 @@ BJ = SubMtxManager_newObjectOfSizeNbytes(mtxmanager, nbytes) ;
 if ( BJ == NULL ) {
    fprintf(stderr,
           "\n 1. fatal error in forwardVisit(%d), BJ = NULL", J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_init(BJ, type, SUBMTX_DENSE_COLUMNS, J, 0, nJ, nrhs, nJ*nrhs) ;
 SubMtx_denseInfo(BJ, &nJ, &nrhs, &inc1, &inc2, &entries) ;
@@ -836,7 +836,7 @@ if ( BJ == NULL || aggList == NULL ) {
    fprintf(stderr,
           "\n fatal error in assembleAggregates()"
           "\n BJ = %p, aggList = %p", BJ, aggList) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( SubMtxList_isListNonempty(aggList, BJ->rowid) ) {
    if ( msglvl > 3 ) {
@@ -856,7 +856,7 @@ if ( SubMtxList_isListNonempty(aggList, BJ->rowid) ) {
          fprintf(stderr,
                  "\n 3. fatal error in forwardVisit(%d)"
                  "\n BJhat = NULL", J) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       SubMtx_denseInfo(BJhat, &nrowhat, &ncolhat, &inc1hat, &inc2hat,
                        &entBJhat) ;
@@ -870,7 +870,7 @@ if ( SubMtxList_isListNonempty(aggList, BJ->rowid) ) {
       if ( nrow != nrowhat || ncol != ncolhat
          || inc1 != inc1hat || inc2 != inc2hat || entBJhat == NULL ) {
          fprintf(stderr, "\n fatal error") ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( msglvl > 3 ) {
          fprintf(msgFile, "\n\n BJ") ;
@@ -1080,7 +1080,7 @@ for ( J = 0 ; J < nfront ; J++ ) {
          if ( heads[nfront] == NULL ) {
             fprintf(stderr,
                     "\n WHOA, heads[nfront] = %p", heads[nfront]) ;
-            exit(-1) ;
+            spoolesFatal();
          }
          ip = heads[nfront] ; heads[nfront] = ip->next ;
          ip->val = K ; ip->next = heads[J] ; heads[J] = ip ;

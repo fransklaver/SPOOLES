@@ -75,7 +75,7 @@ fflush(msgFile) ;
 graph = Graph_new() ;
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 rc = Graph_readFromFile(graph, inGraphFileName) ;
@@ -86,7 +86,7 @@ nvtx = graph->nvtx ;
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading Graph object from file %s",

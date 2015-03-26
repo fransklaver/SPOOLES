@@ -137,7 +137,7 @@ Drand_setNormal(&drand, 0.0, 1.0) ;
 */
 if ( strcmp(mtxFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 mtxA = InpMtx_new() ;
 MARKTIME(t1) ;
@@ -149,7 +149,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from InpMtx_readFromFile(%p,%s)",
            rc, mtxA, mtxFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 type = mtxA->inputMode ;
 neqns = 1 + IVmax(mtxA->nent, InpMtx_ivec1(mtxA), &loc) ;
@@ -161,7 +161,7 @@ if ( INPMTX_IS_BY_ROWS(mtxA) ) {
    fprintf(msgFile, "\n matrix coordinate type is chevrons") ;
 } else {
    fprintf(msgFile, "\n\n, error, bad coordinate type") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( INPMTX_IS_RAW_DATA(mtxA) ) {
    fprintf(msgFile, "\n matrix storage mode is raw data\n") ;
@@ -171,7 +171,7 @@ if ( INPMTX_IS_RAW_DATA(mtxA) ) {
    fprintf(msgFile, "\n matrix storage mode is by vectors\n") ;
 } else {
    fprintf(msgFile, "\n\n, error, bad storage mode") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 {
 int   maxcol, maxrow, mincol, minrow ;
@@ -255,7 +255,7 @@ DenseMtx_writeForMatlab(mtxB, "B", msgFile) ;
 */
 if ( strcmp(etreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 frontETree = ETree_new() ;
 MARKTIME(t1) ;
@@ -266,7 +266,7 @@ fprintf(msgFile, "\n CPU %8.3f : read in frontETree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, frontETree, etreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ETree_leftJustify(frontETree) ;
 if ( msglvl > 1 ) {
@@ -390,7 +390,7 @@ if ( rootchv != NULL ) {
 }
 if ( error >= 0 ) {
    fprintf(msgFile, "\n\n error encountered at front %d\n", error) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile,
         "\n %8d pivots, %8d pivot tests, %8d delayed rows and columns",

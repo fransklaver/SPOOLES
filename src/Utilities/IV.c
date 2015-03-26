@@ -40,7 +40,7 @@ if ( size1 <= 0 || size2 <= 0 ) {
            "\n size1 = %d, x1 = %p, y1 = %p"
            "\n size2 = %d, x2 = %p, y2 = %p\n",
            size1, x1, y1, size2, x2, y2) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 /*
    ----------------------------------------
@@ -115,7 +115,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in IVcopy, invalid data"
               "\n size = %d, y = %p, x = %p", size, y, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -144,7 +144,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in IVfill, invalid data"
               "\n size = %d, y = %p, ival = %d\n",
               size, y, ival) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -173,7 +173,7 @@ if ( fp != NULL && size > 0 ) {
       fprintf(stderr, "\n fatal error in IVfprintf, invalid data"
               "\n fp = %p, size = %d, y = %p\n",
               fp, size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int    i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -220,7 +220,7 @@ if ( fp != NULL && size > 0 ) {
       fprintf(stderr, "\n fatal error in IVfp80, invalid input"
               "\n fp = %p, size = %d, y = %p, column = %d\n",
               fp, size, y, column) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int    i, inum, nchar ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -291,7 +291,7 @@ if ( fp != NULL && size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVfscanf, invalid data"
               "\n fp = %p, size = %d, y = %p\n", fp, size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       for ( i = 0 ; i < size ; i++ ) {
          if ( fscanf(fp, " %d", y + i) != 1 ) {
@@ -322,7 +322,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in IVgather, invalid data"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -394,7 +394,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVinverse, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j ;
       x = IVinit(size, -1) ;
@@ -405,7 +405,7 @@ if ( size > 0 ) {
                     "\n fatal error in IVinverse"
                     "\n y[%d] = %d, value out-of-range or repeated",
                     i, j) ;
-            exit(-1) ;
+            spoolesFatal();
          }
          x[j] = i ; 
       }
@@ -432,7 +432,7 @@ if ( size > 0 ) {
    if ( y == NULL || index == NULL ) {
       fprintf(stderr, "\n fatal error in IVinvPerm, invalid data"
               "\n size = %d, y = %p, index = %p\n", size, y, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   *x ;
       int    i ;
@@ -468,7 +468,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVmax, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-     exit(-1) ;
+     spoolesFatal();
    } else {
       int      i ;
       maxval = y[0] ;
@@ -507,7 +507,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVmaxabs, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-     exit(-1) ;
+     spoolesFatal();
    } else {
       int   i, val ;
       maxval = (y[0] >= 0) ? y[0] : -y[0] ;
@@ -547,7 +547,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVmin, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-     exit(-1) ;
+     spoolesFatal();
    } else {
       int      i ;
       minval = y[0] ;
@@ -587,7 +587,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVminabs, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-     exit(-1) ;
+     spoolesFatal();
    } else {
       int   i, val ;
       minval = (y[0] >= 0) ? y[0] : -y[0] ;
@@ -626,7 +626,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in IVperm, invalid data"
               "\n size = %d, y = %p, index = %p\n",
               size, y, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   *x ;
       int   i  ;
@@ -660,7 +660,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in IVramp, invalid data"
               "\n size = %d, y = %p, start = %d, inc = %d\n",
               size, y, start, inc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j ;
       for ( i = 0, j = start ; i < size ; i++, j += inc ) {
@@ -690,7 +690,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in IVscatter, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -719,7 +719,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVsum, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0, sum = 0 ; i < size ; i++ ) {
@@ -748,7 +748,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVsumabs, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, sum ;
       for ( i = 0, sum = 0 ; i < size ; i++ ) {
@@ -776,7 +776,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in IVswap, invalid data"
               "\n size = %d, y = %p, x = %p\n", size, y, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, temp ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -805,7 +805,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVzero, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -841,7 +841,7 @@ if ( size > 0 && seed > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in IVshuffle, invalid data"
               "\n size = %d, y = %p, seed = %d\n", size, y, seed) ;
-     exit(-1) ;
+     spoolesFatal();
    } else {
       int      i, j, temp ;
       double   value ;

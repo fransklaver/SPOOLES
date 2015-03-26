@@ -63,7 +63,7 @@ if ( length > 0 ) {
       fprintf(stderr, "\n fatal error in PIVsetup, invalid data"
               "\n length = %d, sizes = %p, ivec = %p, p_ivec = %p\n",
               length, sizes, ivec, p_ivec) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   j ;
       for ( j = 0 ; j < length ; j++ ) {
@@ -97,7 +97,7 @@ if ( length > 0 ) {
       fprintf(stdout, "\n fatal error in PIVcopy, invalid data"
               "\n length = %d, p_ivec1 = %p, p_ivec2 = %p\n",
               length, p_ivec1, p_ivec2) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   j ;
       for ( j = 0 ; j < length ; j++ ) {

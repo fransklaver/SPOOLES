@@ -56,7 +56,7 @@ fflush(stdout) ;
 if ( g == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_setDefaultFields(%p)"
            "\n graph is NULL\n", g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 g->type     =  0   ;
 g->nvtx     =  0   ;
@@ -95,7 +95,7 @@ fflush(stdout) ;
 if ( g == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_clearData(%p)"
            "\n graph is NULL\n", g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( g->adjIVL != NULL ) {
@@ -136,7 +136,7 @@ fflush(stdout) ;
 if ( g == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_free(%p)"
            "\n graph is NULL\n", g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 Graph_clearData(g) ;

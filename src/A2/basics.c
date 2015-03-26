@@ -38,7 +38,7 @@ A2_setDefaultFields (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_setDefaultFields(%p)"
            "\n bad input", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mtx->type    =   SPOOLES_REAL  ;
 mtx->n1      =   0  ;
@@ -70,7 +70,7 @@ A2_clearData (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_clearData(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -104,7 +104,7 @@ A2_free (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_free(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 A2_clearData(mtx) ;
 FREE(mtx) ;

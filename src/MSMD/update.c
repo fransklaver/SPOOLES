@@ -28,7 +28,7 @@ MSMDvtx   *v ;
 if ( msmd == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_update(%p,%p)"
            "\n bad input\n", msmd, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( info->msglvl > 4 ) {
    fprintf(info->msgFile, 
@@ -231,17 +231,17 @@ MSMDvtx   *u0, *u1, *w ;
 if ( msmd == NULL || v == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_exactDegree2(%p,%p,%p)"
            "\n bad input\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( v->subtrees == NULL ) {
    fprintf(stderr, "\n\n 1. error in MSMD_exactDegree2(%p,%p,%p)"
            "\n v->subtrees == NULL\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( v->subtrees->next == NULL ) {
    fprintf(stderr, "\n\n 1. error in MSMD_exactDegree2(%p,%p,%p)"
            "\n v->subtrees->next == NULL\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------------------------
@@ -257,7 +257,7 @@ if ( usize0 == 0 || uadj0 == NULL ) {
            "\n bad adjacency list for %d\n ", 
            msmd, v, info, usize0, uadj0, u0->id) ;
    MSMDvtx_print(u0, stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 u1     = msmd->vertices + v->subtrees->next->val ;
 usize1 = u1->nadj ; 
@@ -268,7 +268,7 @@ if ( usize1 == 0 || uadj1 == NULL ) {
            "\n bad adjacency list for %d\n ", 
            msmd, v, info, usize1, uadj1, u1->id) ;
    MSMDvtx_print(u1, stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------
@@ -390,7 +390,7 @@ MSMDvtx   *u, *w ;
 if ( msmd == NULL || v == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_exactDegree3(%p,%p,%p)"
            "\n bad input\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 adj = IV_entries(&msmd->ivtmpIV) ;
 /*
@@ -496,7 +496,7 @@ MSMDvtx   *u ;
 if ( msmd == NULL || v == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_approxDegree(%p,%p,%p)"
            "\n bad input\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------------------

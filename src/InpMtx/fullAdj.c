@@ -30,7 +30,7 @@ IVL       *adjIVL ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_fullAdjacency(%p)"
            "\n NULL input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
     ----------------------
@@ -238,7 +238,7 @@ IVL       *adjIVL ;
 if ( inpmtxA == NULL && inpmtxB == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_fullAdjacency2(%p,%p)"
            "\n both input matrices are NULL\n", inpmtxA, inpmtxB) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------

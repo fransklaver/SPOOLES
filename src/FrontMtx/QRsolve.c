@@ -54,7 +54,7 @@ if ( frontmtx == NULL || mtxA == NULL || mtxX == NULL || mtxB == NULL
            "\n fatal error in FrontMtx_QR_solve(%p,%p,%p,%p,%p,%d,%p)"
            "\n bad input\n", 
            frontmtx, mtxA, mtxX, mtxB, cpus, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------

@@ -26,13 +26,13 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_permute(%p,%p,%p)"
            "\n bad input\n", inpmtx, rowOldToNew, colOldToNew);
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( inpmtx->coordType <= 0 || inpmtx->coordType >= 4 ) {
    fprintf(stderr, "\n fatal error in InpMtx_permute(%p,%p,%p)"
            "\n coordType = %d, must be 1, 2 or 3\n", 
            inpmtx, rowOldToNew, colOldToNew, inpmtx->coordType);
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------
@@ -51,7 +51,7 @@ if ( ivec1 == NULL || ivec2 == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_permute(%p,%p,%p)"
            "\n nent = %d, ivec1 = %p, ivec2 = %p",
            inpmtx, rowOldToNew, colOldToNew, nent, ivec1, ivec2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------

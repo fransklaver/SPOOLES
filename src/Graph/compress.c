@@ -38,7 +38,7 @@ if (  g == NULL || mapIV == NULL
    if ( mapIV != NULL ) {
       IV_writeStats(mapIV, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 return(Graph_compress(g, IV_entries(mapIV), coarseType)) ; }
 
@@ -78,35 +78,35 @@ fflush(stdout) ;
 if ( g == NULL || cmap == NULL || coarseType < 0 || 3 < coarseType ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n bad input\n", g, cmap, coarseType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (nvtx = g->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n nvtx = %d\n", g, cmap, coarseType, nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (adjIVL = g->adjIVL) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n adjIVL is NULL\n", g, cmap, coarseType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g->type % 2 == 1 && (vwghts = g->vwghts) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n g->type = %d and g->vwghts is NULL\n", 
            g, cmap, coarseType, g->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g->type >= 2 && (ewghtIVL = g->ewghtIVL) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n g->type = %d and g->ewghtIVL is NULL\n", 
            g, cmap, coarseType, g->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( IVmin(nvtx, cmap, &j) < 0 ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n IVmin(cmap) = %d\n", 
            g, cmap, coarseType, IVmin(nvtx, cmap, &j)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ncvtx = 1 + IVmax(nvtx, cmap, &j) ;
 #if MYDEBUG > 0
@@ -123,19 +123,19 @@ Graph_init1(g2, coarseType, ncvtx, 0, 0, IVL_CHUNKED, IVL_CHUNKED) ;
 if ( (AdjIVL = g2->adjIVL) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n AdjIVL is NULL\n", g, cmap, coarseType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g2->type % 2 == 1 && (Vwghts = g2->vwghts) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n g2->type = %d and g2->vwghts is NULL\n", 
            g, cmap, coarseType, g2->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g2->type >= 2 && (EwghtIVL = g2->ewghtIVL) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_compress(%p,%p,%d)"
            "\n g2->type = %d and g2->ewghtIVL is NULL\n", 
            g, cmap, coarseType, g2->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n after initializing the coarse graph object") ;

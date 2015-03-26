@@ -434,7 +434,7 @@ int   *jind ;
 if ( ivl == NULL || fp == NULL || (nlist = ivl->nlist) <= 0 ) {
    fprintf(stderr, "\n fatal error in IVL_writeToFormattedFile(%p,%p)"
            "\n bad input\n", ivl, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -507,7 +507,7 @@ int   itemp[3] ;
 if ( ivl == NULL || fp == NULL || (nlist = ivl->nlist) <= 0 ) {
    fprintf(stderr, "\n fatal error in IVL_writeToBinaryFile(%p,%p)"
            "\n bad input\n", ivl, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 itemp[0] = ivl->type ;
 itemp[1] = ivl->nlist ;
@@ -569,7 +569,7 @@ int   *ind ;
 if ( ivl == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_writeForHumanEye(%p,%p)"
            "\n bad input\n", ivl, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = IVL_writeStats(ivl, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in IVL_writeForHumanEye(%p,%p)"
@@ -617,7 +617,7 @@ int   nactive, rc ;
 if ( ivl == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in IVL_writeStats(%p,%p)"
            "\n bad input\n", ivl, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nactive = 0 ;
 if ( ivl->nlist > 0 ) {

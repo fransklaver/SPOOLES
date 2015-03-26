@@ -23,7 +23,7 @@ if ( size <= 0 ) {
    fprintf(stderr, "\n fatal error in FVadd"
            "\n invalid input, size = %d, y = %p, x = %p\n",
            size, y, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -53,7 +53,7 @@ if ( size < 0 || alpha == 0.0 ) {
    fprintf(stderr, "\n fatal error in FVaxpy"
            "\n invalid input, size = %d, y = %p, alpha = %f, x = %p\n",
            size, y, alpha, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -84,7 +84,7 @@ if ( size <= 0 || alpha == 0.0 ) {
    fprintf(stderr, "\n fatal error in FVaxpyi, invalid input"
            "\n size = %d, y = %p, index = %p, alpha = %f, x = %p",
            size, y, index, alpha, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -112,7 +112,7 @@ if ( size <= 0 ) {
 } else if ( y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in FVcopy, invalid input"
            "\n size = %d, y = %p, x = %p\n", size, y, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -158,7 +158,7 @@ if ( size1 <= 0 || size2 <= 0 ) {
            "\n size1 = %d, x1 = %p, y1 = %p"
            "\n size2 = %d, x2 = %p, y2 = %p",
            size1, x1, y1, size2, x2, y2) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 /*
    ----------------------------------------
@@ -234,7 +234,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in FVdot, invalid data"
               "\n size = %d, y = %p, x = %p\n", size, y, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       for ( i = 0, sum = 0. ; i < size ; i++ ) {
@@ -262,7 +262,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVfill, invalid data"
               "\n size = %d, y = %p, dval = %f\n", size, y, dval) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -290,7 +290,7 @@ if ( fp != NULL && size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVfprintf, invalid input"
               "\n fp = %p, size = %d, y = %p\n", fp, size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int    i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -339,7 +339,7 @@ if ( fp != NULL && size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVfscanf, invalid input"
               "\n fp = %p, size = %d, y = %p\n", fp, size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       for ( i = 0 ; i < size ; i++ ) {
          if ( (rc = fscanf(fp, " %f", y + i)) != 1 ) {
@@ -373,7 +373,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVgather, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -403,7 +403,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVgatherAddZero, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -435,7 +435,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVgatherZero, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -509,7 +509,7 @@ if ( size > 0 ) {
    if ( y == NULL || index == NULL ) {
       fprintf(stderr, "\n fatal error in FVinvPerm, invalid data"
               "\n size = %d, y = %p, index = %p", size, y, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       float   *x ;
       int      i ;
@@ -544,7 +544,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVmax, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       maxval = y[0] ;
@@ -584,7 +584,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVmaxabs, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i   ;
       float   val ;
@@ -625,7 +625,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVmin, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       minval = y[0] ;
@@ -665,7 +665,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVminabs, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i   ;
       float   val ;
@@ -704,7 +704,7 @@ if ( size > 0 ) {
    if ( y == NULL || index == NULL ) {
       fprintf(stderr, "\n fatal error in FVperm, invalid data"
               "\n size = %d, y = %p, index = %p\n", size, y, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       float   *x ;
       int      i ;
@@ -738,7 +738,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVramp, invalid input"
               "\n size = %d, y = %p, start = %f, inc = %f\n",
               size, y, start, inc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       float   val ;
@@ -767,7 +767,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in FVsub, invalid input"
               "\n size = %d, y = %p, x = %p", size, y, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -796,7 +796,7 @@ if ( size > 0 && alpha != 1.0 ) {
       fprintf(stderr, "\n fatal error in FVscale, invalid data"
               "\n size = %d, y = %p, alpha = %f\n",
               size, y, alpha) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -826,7 +826,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVscatter, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -856,7 +856,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVscatterAddZero, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -887,7 +887,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in FVscatterZero, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -916,7 +916,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVsum, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       for ( i = 0, sum = 0. ; i < size ; i++ ) {
@@ -945,7 +945,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVsumabs, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       for ( i = 0, sum = 0. ; i < size ; i++ ) {
@@ -973,7 +973,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in FVswap, invalid data"
               "\n size = %d, y = %p, x = %p", size, y, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       float   temp ;
       int      i ;
@@ -1003,7 +1003,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVzero, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -1039,7 +1039,7 @@ if ( size > 0 || seed <= 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in FVshuffle, invalid data"
               "\n size = %d, y = %p, seed = %d\n", size, y, seed) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       float   temp ;
       int     i, j ;

@@ -51,7 +51,7 @@ if (  mtx == NULL || length < 0 || dvec == NULL ) {
    fprintf(stderr,
            "\n fatal error in A2_copyEntriesToVector(%p,%d,%p,,%d,%d)"
            "\n bad input\n", mtx, length, dvec, copyflag, storeflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( copyflag  < 1 || copyflag > 6 ) {
    fprintf(stderr,
@@ -65,7 +65,7 @@ if ( copyflag  < 1 || copyflag > 6 ) {
            "\n    5 --> upper entries"
            "\n    6 --> all entries",
            mtx, length, dvec, copyflag, storeflag, copyflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( storeflag  < 0 || storeflag > 1 ) {
    fprintf(stderr,
@@ -75,7 +75,7 @@ if ( storeflag  < 0 || storeflag > 1 ) {
            "\n    0 --> store by rows"
            "\n    1 --> store by columns",
            mtx, length, dvec, copyflag, storeflag, storeflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = mtx->n1 ;
 ncol = mtx->n2 ;
@@ -118,7 +118,7 @@ if ( nent > length ) {
            "\n fatal error in A2_copyEntriesToVector(%p,%d,%p,%d,%d)"
            "\n nent = %d, buffer length = %d", 
            mtx, length, dvec, copyflag, storeflag, nent, length) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------

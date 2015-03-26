@@ -19,7 +19,7 @@ int   bytes = sizeof(struct _Perm) ;
 if ( perm == NULL ) {
    fprintf(stderr, "\n fatal error in Perm_sizeOf(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( perm->newToOld != NULL ) {
@@ -56,7 +56,7 @@ if (  perm == NULL
    || (size = perm->size) <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_checkPerm(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = 1 ;
 counts = IVinit(size, 0) ;
@@ -121,7 +121,7 @@ if (  perm == NULL
    || (size = perm->size) <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_fillOldToNew(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( perm->isPresent == 1 ) {
    int   inew ;
@@ -159,7 +159,7 @@ if (  perm == NULL
    || (size = perm->size) <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_fillNewToOld(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( perm->isPresent == 2 ) {
    int   iold ;
@@ -197,7 +197,7 @@ if (  perm == NULL
    || (size = perm->size) <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_fillOldToNew(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( perm->isPresent ) {
 case 1 :
@@ -240,7 +240,7 @@ if (  perm == NULL
    || (size = perm->size) <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_fillOldToNew(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( perm->isPresent ) {
 case 1 :

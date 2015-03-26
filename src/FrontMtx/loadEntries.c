@@ -37,7 +37,7 @@ if ( chv == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_loadEntries(%p,%p,%d,%p)"
            "\n bad input\n", chv, pencil, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 3 ) {
    fprintf(msgFile, 
@@ -203,7 +203,7 @@ if ( inpmtxB != NULL ) {
                     "\n chevron is hermitian" 
                     "\n sigma = %12.4e + %12.4e*i\n",
                     sigma[0], sigma[1]) ;
-            exit(-1) ;
+            spoolesFatal();
          }
          stride = nD + chv->nU ;
          off    = 0 ;

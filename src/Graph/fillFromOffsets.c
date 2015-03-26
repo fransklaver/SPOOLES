@@ -53,7 +53,7 @@ if (  g == NULL
    fprintf(stderr, 
            "\n fatal error in Graph_fillFromOffsets(%p,%d,%p,%p,%d)"
            "\n bad input\n", g, neqns, offsets, adjncy, flag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------
@@ -122,7 +122,7 @@ fprintf(stdout, "\n    w = %d", adjncy[ii]) ;
                "\n fatal error in Graph_fillFromOffsets(%p,%d,%p,%p,%d)"
                "\n list %d, entry %d\n", g, neqns, offsets, adjncy,
                flag, v, w) ;
-            exit(-1) ;
+            spoolesFatal();
          }
       }
    }

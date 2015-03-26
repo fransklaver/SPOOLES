@@ -34,25 +34,25 @@ int   *colindT, *colindU ;
 if ( chvT == NULL || mtxD == NULL || mtxU == NULL || tempDV == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_updateH(%p,%p,%p,%p)"
            "\n bad input\n", chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! CHV_IS_COMPLEX(chvT) ) {
    fprintf(stderr, "\n fatal error in Chv_updateH(%p,%p,%p,%p)"
            "\n bad input, chvT is not complex\n", 
            chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_COMPLEX(mtxD) ) {
    fprintf(stderr, "\n fatal error in Chv_updateH(%p,%p,%p,%p)"
            "\n bad input, mtxD is not complex\n", 
            chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_COMPLEX(mtxU) ) {
    fprintf(stderr, "\n fatal error in Chv_updateH(%p,%p,%p,%p)"
            "\n bad input, mtxU is not complex\n", 
            chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_columnIndices(chvT, &ncolT, &colindT) ;
 SubMtx_columnIndices(mtxU, &ncolU, &colindU) ;
@@ -543,7 +543,7 @@ fprintf(stdout, "\n base0[%d] = %12.4e, base0[%d] = %12.4e",
    fprintf(stderr, "\n fatal error in Chv_updateH(%p,%p,%p,%p)"
            "\n mtxU must have dense or sparse columns\n", 
            chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------------------------
@@ -585,27 +585,27 @@ int   *colindT, *colindU ;
 if ( chvT == NULL || mtxD == NULL || mtxU == NULL || tempDV == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_updateS(%p,%p,%p,%p)"
            "\n bad input\n", chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_REAL(chvT) ) {
    if ( ! SUBMTX_IS_REAL(mtxD) || ! SUBMTX_IS_REAL(mtxU) ) {
       fprintf(stderr, "\n fatal error in Chv_updateT(%p,%p,%p,%p)"
               "\n chvT is real, but mtxD and/or mtxU are not\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chvT) ) {
    if ( ! SUBMTX_IS_COMPLEX(mtxD) || ! SUBMTX_IS_COMPLEX(mtxU) ) {
       fprintf(stderr, "\n fatal error in Chv_updateT(%p,%p,%p,%p)"
               "\n chvT is complex, but mtxD and/or mtxU are not\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    fprintf(stderr, "\n fatal error in Chv_updateT(%p,%p,%p,%p)"
            "\n bad input, chvT is not real or complex\n", 
            chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_columnIndices(chvT, &ncolT, &colindT) ;
 SubMtx_columnIndices(mtxU, &ncolU, &colindU) ;
@@ -985,7 +985,7 @@ if ( CHV_IS_REAL(chvT) ) {
       fprintf(stderr, "\n fatal error in Chv_updateT(%p,%p,%p,%p)"
               "\n bad input, mtxU must have dense or sparse columns\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chvT) ) {
    if ( SUBMTX_IS_DENSE_COLUMNS(mtxU) ) {
@@ -1319,7 +1319,7 @@ if ( CHV_IS_REAL(chvT) ) {
       fprintf(stderr, "\n fatal error in Chv_updateT(%p,%p,%p,%p)"
               "\n bad input, mtxU must have dense or sparse columns\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*
@@ -1366,7 +1366,7 @@ int   *colindT, *colindU ;
 if ( chvT == NULL || mtxD == NULL || mtxU == NULL || tempDV == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_updateN(%p,%p,%p,%p,%p)"
            "\n bad input\n", chvT, mtxL, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_REAL(chvT) ) {
    if ( ! SUBMTX_IS_REAL(mtxD) || ! SUBMTX_IS_REAL(mtxL) 
@@ -1374,7 +1374,7 @@ if ( CHV_IS_REAL(chvT) ) {
       fprintf(stderr, "\n fatal error in Chv_updateN(%p,%p,%p,%p)"
               "\n chvT is real, but mtxD, mtxL and/or mtxU are not\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chvT) ) {
    if ( ! SUBMTX_IS_COMPLEX(mtxD) || ! SUBMTX_IS_COMPLEX(mtxL) 
@@ -1382,13 +1382,13 @@ if ( CHV_IS_REAL(chvT) ) {
       fprintf(stderr, "\n fatal error in Chv_updateN(%p,%p,%p,%p)"
              "\n chvT is complex, but mtxD, mtxL and/or mtxU are not\n",
              chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    fprintf(stderr, "\n fatal error in Chv_updateN(%p,%p,%p,%p)"
            "\n bad input, chvT is not real or complex\n", 
            chvT, mtxD, mtxU, tempDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_columnIndices(chvT, &ncolT, &colindT) ;
 SubMtx_columnIndices(mtxU, &ncolU, &colindU) ;
@@ -2298,7 +2298,7 @@ if ( CHV_IS_REAL(chvT) ) {
               "\n bad input, mtxU must have dense or sparse columns"
               "\n and mtxL must have dense or sparse rows\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chvT) ) {
    if ( SUBMTX_IS_DENSE_COLUMNS(mtxU) && SUBMTX_IS_DENSE_ROWS(mtxL) ) {
@@ -3208,7 +3208,7 @@ if ( CHV_IS_REAL(chvT) ) {
               "\n bad input, mtxU must have dense or sparse columns"
               "\n and mtxL must have dense or sparse rows\n",
               chvT, mtxD, mtxU, tempDV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*

@@ -36,7 +36,7 @@ if ( frontmtx == NULL || mtxA == NULL || prowsIVL == NULL
    || pfirstnz == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_QR_setup()"
            "\n bad input\n") ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 neqns      = FrontMtx_neqns(frontmtx) ;
 nfront     = FrontMtx_nfront(frontmtx) ;
@@ -135,7 +135,7 @@ if ( frontmtx == NULL || mtxA == NULL || rowsIVL == NULL
      || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(msgFile, "\n fatal error in FrontMtx_QR_factorVisit(%d)"
            "\n bad input\n", J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------------------------------
@@ -272,7 +272,7 @@ if ( frontmtx == NULL || mtxA == NULL || rowsIVL == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_QR_assembleFront()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 3 ) {
    fprintf(msgFile, "\n\n inside FrontMtx_QR_assembleFront(%d)", J) ;
@@ -467,7 +467,7 @@ if (  frontmtx == NULL || frontJ == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_QR_storeFront()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = FrontMtx_nfront(frontmtx) ;
 FrontMtx_columnIndices(frontmtx, J, &ncolJ, &colindJ) ;

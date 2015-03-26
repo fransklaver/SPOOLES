@@ -38,7 +38,7 @@ if (  perm == NULL
    if ( eqmapIV != NULL ) {
       IV_writeStats(eqmapIV, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 n = perm->size ;
 if ( (oldToNew = perm->oldToNew) == NULL ) {

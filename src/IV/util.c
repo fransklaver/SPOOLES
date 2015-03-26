@@ -26,7 +26,7 @@ IV_shiftBase (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_shiftBase(%p,%d)"
            "\n bad input\n", iv, offset) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 iv->vec     += offset ;
 iv->size    -= offset ;
@@ -54,7 +54,7 @@ IV_push (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_push(%p,%d)"
            "\n bad input\n", iv, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
 fprintf(stdout, "\n %% iv %p, size %d, maxsize %d, entries %p",
@@ -89,7 +89,7 @@ int   i ;
 if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in IV_min(%p), size = %d, vec = %p",
            iv, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IVmin(iv->size, iv->vec, &i)) ; }
 
@@ -102,7 +102,7 @@ int   i ;
 if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in IV_max(%p), size = %d, vec = %p",
            iv, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IVmax(iv->size, iv->vec, &i)) ; }
 
@@ -115,7 +115,7 @@ int   i ;
 if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in IV_sum(%p), size = %d, vec = %p",
            iv, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IVsum(iv->size, iv->vec)) ; }
 
@@ -135,7 +135,7 @@ if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in IV_sortUp(%p), size = %d, vec = %p",
            iv, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVqsortUp(iv->size, iv->vec) ;
 
@@ -149,7 +149,7 @@ if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in IV_sortDown(%p), size = %d, vec = %p",
            iv, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVqsortDown(iv->size, iv->vec) ;
 
@@ -173,7 +173,7 @@ if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in IV_ramp(%p,%d,%d), size = %d, vec = %p",
            iv, base, incr, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVramp(iv->size, iv->vec, base, incr) ;
 
@@ -196,7 +196,7 @@ if ( iv == NULL || iv->size <= 0 || iv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in IV_shuffle(%p,%d), size = %d, vec = %p",
            iv, seed, iv->size, iv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVshuffle(iv->size, iv->vec, seed) ;
 
@@ -219,7 +219,7 @@ int   nbytes ;
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_sizeOf(%p)"
            "\n bad input \n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _IV) ;
 if ( iv->owned == 1 ) {
@@ -251,7 +251,7 @@ int   *vec ;
 if ( iv == NULL || tags == NULL ) {
    fprintf(stderr, "\n fatal error in IV_filterKeep(%p,%p,%d)"
            "\n bad input", iv, tags, keepTag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = iv->size ;
 vec = iv->vec ;
@@ -303,7 +303,7 @@ int   *vec ;
 if ( iv == NULL || tags == NULL ) {
    fprintf(stderr, "\n fatal error in IV_filterPurge(%p,%p,%d)"
            "\n bad input", iv, tags, purgeTag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = iv->size ;
 vec = iv->vec ;
@@ -353,7 +353,7 @@ int   *pi ;
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_first(%p)"
            "\n bad input", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->size == 0 ) {
    pi = NULL ;
@@ -386,7 +386,7 @@ if ( iv == NULL || pi == NULL ) {
    fprintf(stderr, "\n fatal error in IV_next(%p,%p)"
            "\n bad input", iv, pi) ;
    fflush(stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------
@@ -403,7 +403,7 @@ if ( (offset = pi - iv->vec) < 0 || offset >= iv->size ) {
            "\n offset = %d, must be in [0,%d)",
            iv, pi, offset, iv->size) ;
    fflush(stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( offset == iv->size - 1 ) {
 /*
    ----------------------------
@@ -442,7 +442,7 @@ IV_fill (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_fill(%p,%d)"
            "\n bad input\n", iv, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->size > 0 ) {
    IVfill(iv->size, iv->vec, value) ;
@@ -475,7 +475,7 @@ int   *vec1, *vec2 ;
 if ( iv1 == NULL || iv2 == NULL ) {
    fprintf(stderr, "\n fatal error in IV_copy(%p,%p)"
            "\n bad input\n", iv1, iv2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = iv1->size ;
 if ( size > iv2->size ) {
@@ -513,7 +513,7 @@ if ( iv == NULL || loc < 0 || loc >= iv->size ) {
    if ( iv != NULL ) {
       fprintf(stderr, "\n loc = %d, size = %d", loc, iv->size) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 return(++iv->vec[loc]) ; }
 
@@ -542,7 +542,7 @@ if ( iv == NULL || loc < 0 || loc >= iv->size ) {
    if ( iv != NULL ) {
       fprintf(stderr, "\n loc = %d, size = %d", loc, iv->size) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 return(--iv->vec[loc]) ; }
 
@@ -571,7 +571,7 @@ int   *vec ;
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_findValue(%p,%d)"
            "\n bad input\n", iv, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (n = iv->size) <= 0 || (vec = iv->vec) == NULL ) {
    return(-1) ;
@@ -609,7 +609,7 @@ int   *vec ;
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_findValueAscending(%p,%d)"
            "\n bad input\n", iv, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (n = iv->size) <= 0 || (vec = iv->vec) == NULL ) {
    return(-1) ;
@@ -660,7 +660,7 @@ int   *vec ;
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_findValueDescending(%p,%d)"
            "\n bad input\n", iv, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (n = iv->size) <= 0 || (vec = iv->vec) == NULL ) {
    return(-1) ;
@@ -712,19 +712,19 @@ IV    *invlistIV ;
 if ( listIV == NULL ) {
    fprintf(stderr, "\n fatal error in IV_inverseMap()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(listIV, &n, &list) ;
 if ( n <= 0 && list == NULL ) {
    fprintf(stderr, "\n fatal error in IV_inverseMap()"
            "\n size = %d, list = %p\n", n, list) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 for ( ii = 0, maxval = -1 ; ii < n ; ii++ ) {
    if ( list[ii] < 0 ) {
       fprintf(stderr, "\n fatal error in IV_inverseMap()"
               "\n list[%d] = %d, must be positive\n", ii, list[ii]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( maxval < list[ii] ) {
       maxval = list[ii] ;
@@ -738,7 +738,7 @@ for ( ii = 0 ; ii < n ; ii++ ) {
    if ( invlist[list[ii]] != -1 ) {
       fprintf(stderr, "\n fatal error in IV_inverseMap()"
               "\n repeated list value %d\n", list[ii]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    invlist[list[ii]] = ii ;
 }
@@ -772,13 +772,13 @@ IV    *entriesIV ;
 if ( listIV == NULL ) {
    fprintf(stderr, "\n fatal error in IV_targetEntries()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(listIV, &n, &list) ;
 if ( n <= 0 && list == NULL ) {
    fprintf(stderr, "\n fatal error in IV_targetEntries()"
            "\n size = %d, list = %p\n", n, list) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 for ( ii = count = 0 ; ii < n ; ii++ ) {
    if ( list[ii] == target ) {

@@ -31,13 +31,13 @@ if (  a == NULL
    || (inc2 = a->inc2) < 0 ) {
    fprintf(stderr, "\n fatal error in A2_maxabs(%p)"
            "\n bad input\n", a ) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(a) || A2_IS_COMPLEX(a)) ) {
    fprintf(stderr, "\n fatal error in A2_maxabs(%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            a, a->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 entries = a->entries ;
 maxval = 0.0 ;
@@ -88,13 +88,13 @@ if ( mtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in A2_frobNorm(%p) "
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_frobNorm(%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (nrow = mtx->n1) <= 0 || (ncol = mtx->n2) <= 0 ) {
    return(0.0) ;
@@ -198,13 +198,13 @@ int      ncol, nrow ;
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_oneNorm(%p) "
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_oneNorm(%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (nrow = mtx->n1) <= 0 || (ncol = mtx->n2) <= 0 ) {
    return(0.0) ;
@@ -303,13 +303,13 @@ int      ncol, nrow ;
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in A2_infinityNorm(%p) "
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_infinityNorm(%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (nrow = mtx->n1) <= 0 || (ncol = mtx->n2) <= 0 ) {
    return(0.0) ;
@@ -406,13 +406,13 @@ if (  mtx == NULL || mtx->entries == NULL
    || jcol < 0 || jcol > mtx->n2 ) {
    fprintf(stderr, "\n fatal error in A2_oneNormOfColumn(%p,%d)"
            "\n bad input\n", mtx, jcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_oneNormOfColumn(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, jcol, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = mtx->n1 ;
 sum  = 0.0 ;
@@ -466,13 +466,13 @@ if (  mtx == NULL || mtx->entries == NULL
    || jcol < 0 || jcol > mtx->n2 ) {
    fprintf(stderr, "\n fatal error in A2_twoNormOfColumn(%p,%d)"
            "\n bad input\n", mtx, jcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_twoNormOfColumn(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, jcol, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = mtx->n1 ;
 sum  = 0.0 ;
@@ -528,13 +528,13 @@ if (  mtx == NULL || mtx->entries == NULL
    || jcol < 0 || jcol > mtx->n2 ) {
    fprintf(stderr, "\n fatal error in A2_infinityNormOfColumn(%p,%d)"
            "\n bad input\n", mtx, jcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_infinityNormOfColumn(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, jcol, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = mtx->n1 ;
 norm = 0.0 ;
@@ -600,13 +600,13 @@ if (  mtx == NULL || mtx->entries == NULL
    || irow < 0 || irow > mtx->n1 ) {
    fprintf(stderr, "\n fatal error in A2_oneNormOfRow(%p,%d)"
            "\n bad input\n", mtx, irow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_oneNormOfRow(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, irow, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ncol = mtx->n2 ;
 sum  = 0.0 ;
@@ -660,13 +660,13 @@ if (  mtx == NULL || mtx->entries == NULL
    || irow < 0 || irow > mtx->n1 ) {
    fprintf(stderr, "\n fatal error in A2_twoNormOfRow(%p,%d)"
            "\n bad input\n", mtx, irow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_twoNormOfRow(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, irow, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ncol = mtx->n2 ;
 sum  = 0.0 ;
@@ -722,13 +722,13 @@ if (  mtx == NULL || mtx->entries == NULL
    || irow < 0 || irow > mtx->n1 ) {
    fprintf(stderr, "\n fatal error in A2_infinityNormOfRow(%p,%d)"
            "\n bad input\n", mtx, irow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_infinityNormOfRow(%p,%d)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, irow, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ncol = mtx->n2 ;
 norm = 0.0 ;

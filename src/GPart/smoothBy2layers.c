@@ -42,7 +42,7 @@ IV      *YCmapIV, *YVmapIV ;
 if ( gpart == NULL || alpha < 0.0 ) {
    fprintf(stderr, "\n fatal error in GPart_smoothBy2layers(%p,%f)"
            "\n bad input\n", gpart, alpha) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 pass     = 1 ;
 cweights = IV_entries(&gpart->cweightsIV) ;

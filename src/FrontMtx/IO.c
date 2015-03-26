@@ -1016,7 +1016,7 @@ if ( frontmtx == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_writeToFormattedFile(%p,%p)"
            "\n bad input\n", frontmtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 /*
@@ -1311,7 +1311,7 @@ if ( frontmtx == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_writeToBinaryFile(%p,%p)"
            "\n bad input\n", frontmtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------
@@ -1606,7 +1606,7 @@ FrontMtx_writeStats (
 if ( frontmtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in FrontMtx_writeStats(%p,%p)"
            "\n bad input\n", frontmtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n FrontMtx object at address %p"
         "\n nfront = %d", frontmtx, frontmtx->nfront) ;
@@ -1683,7 +1683,7 @@ int    *adj ;
 if ( frontmtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_writeForHumanEye(%p,%p)"
            "\n bad input\n", frontmtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 FrontMtx_writeStats(frontmtx, fp) ;
@@ -1825,7 +1825,7 @@ if (  frontmtx == NULL || Lname == NULL || Dname == NULL
    || Uname == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_writeForMatlab()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    nfront = FrontMtx_nfront(frontmtx) ;

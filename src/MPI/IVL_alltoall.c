@@ -51,7 +51,7 @@ MPI_Status   status ;
 if ( sendIVL == NULL || stats == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(msgFile, "\n fatal error in IVL_MPI_alltoall()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------------
@@ -64,13 +64,13 @@ if ( sendIVL->nlist != nproc ) {
    fprintf(msgFile, "\n fatal error in IVL_MPI_alltoall()"
            "\n sendIVL: nproc = %d, nlist = %d\n", 
            nproc, sendIVL->nlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 lasttag = firsttag + nproc ;
 if ( lasttag > (tagbound = maxTagMPI(comm)) ) {
    fprintf(stderr, "\n fatal error in IVL_MPI_alltoall()"
            "\n lasttag = %d, tag_bound = %d", lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( recvIVL == NULL ) {
@@ -150,7 +150,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
          fprintf(stderr, "\n fatal error in IVL_MPI_alltoall()"
                  "\n proc %d : source %d, count %d, recvcount %d\n",
                  myid, source, count, recvcount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
    if ( msglvl > 2 ) {

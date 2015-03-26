@@ -24,7 +24,7 @@ BKL_init (
 if ( bkl == NULL || bpg == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_init(%p,%p,%f)"
            "\n bad input\n", bkl, bpg, alpha) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------

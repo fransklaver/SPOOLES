@@ -50,7 +50,7 @@ if (  inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_init(%p,%d,%d,%d,%d)"
            "\n inpmtx is NULL \n", 
            inpmtx, coordType, inputMode, maxnent, maxnvector) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! ( INPMTX_IS_BY_ROWS(inpmtx)
       || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -58,7 +58,7 @@ if ( ! ( INPMTX_IS_BY_ROWS(inpmtx)
    fprintf(stderr, "\n fatal error in InpMtx_init(%p,%d,%d,%d,%d)"
            "\n bad coordType \n", 
            inpmtx, coordType, inputMode, maxnent, maxnvector) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_INDICES_ONLY(inpmtx)
    ||   INPMTX_IS_REAL_ENTRIES(inpmtx)
@@ -66,14 +66,14 @@ if ( ! (INPMTX_IS_INDICES_ONLY(inpmtx)
    fprintf(stderr, "\n fatal error in InpMtx_init(%p,%d,%d,%d,%d)"
            "\n bad inputMode \n", 
            inpmtx, coordType, inputMode, maxnent, maxnvector) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( maxnent < 0 || maxnvector < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_init(%p,%d,%d,%d,%d)"
            "\n maxnent = %d, maxnvector = %d \n", 
            inpmtx, coordType, inputMode, maxnent, maxnvector,
            maxnent, maxnvector) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -126,14 +126,14 @@ if ( inpmtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_changeCoordType(%p,%d)"
            "\n bad input\n", inpmtx, newType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  newType != INPMTX_BY_ROWS && newType != INPMTX_BY_COLUMNS
    && newType != INPMTX_BY_CHEVRONS && newType != INPMTX_CUSTOM ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_changeCoordType(%p,%d)"
            "\n bad new coordType\n", inpmtx, newType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! ( INPMTX_IS_BY_ROWS(inpmtx)
       || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -141,7 +141,7 @@ if ( ! ( INPMTX_IS_BY_ROWS(inpmtx)
    fprintf(stderr, 
            "\n fatal error in InpMtx_changeCoordType(%p,%d)"
            "\n bad existing coordType\n", inpmtx, newType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 oldType = inpmtx->coordType ;
 if ( oldType == newType ) {
@@ -296,13 +296,13 @@ int   oldMode ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_changeStorageMode(%p,%d)"
            "\n inpmtx is NULL\n", inpmtx, newMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  newMode != INPMTX_RAW_DATA && newMode != INPMTX_SORTED
    && newMode != INPMTX_BY_VECTORS ) {
    fprintf(stderr, "\n fatal error in InpMtx_changeStorageMode(%p,%d)"
            "\n bad new storage mode\n", inpmtx, newMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 oldMode = inpmtx->storageMode ;
 if ( oldMode == newMode ) {

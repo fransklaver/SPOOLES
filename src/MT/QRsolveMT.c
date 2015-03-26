@@ -54,7 +54,7 @@ if ( frontmtx == NULL || mtxA == NULL || mtxX == NULL || mtxB == NULL
    || cpus == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MT_QR_solve()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------

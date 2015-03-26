@@ -48,7 +48,7 @@ if ( argc != 10 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -66,7 +66,7 @@ alpha[1] = atof(argv[9]) ;
 if (  nD <= 0 || nU < 0 || symflag < 0 || symflag > 2 ) {
    fprintf(stderr, "\n invalid input"
            "\n nD = %d, nU = %d, symflag = %d\n", nD, nU, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n alpha = %12.4e + %12.4e*i ;", alpha[0], alpha[1]) ;
 nL = nU ;

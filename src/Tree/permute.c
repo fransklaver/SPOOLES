@@ -27,7 +27,7 @@ if (  tree == NULL || (n = tree->n) <= 0
    || newToOld == NULL || oldToNew == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_permute(%p,%p,%p)"
            "\n bad input\n", tree, newToOld, oldToNew) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------

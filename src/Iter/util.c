@@ -396,7 +396,7 @@ if (  mtxB == NULL || icolB < 0 || icolB >= mtxB->nrow
    || (nrow = mtxA->nrow) != mtxB->nrow ) {
    fprintf(stderr, "\n fatal error in DenseMtx_copyRow(%p,%d,%p,%d)"
            "\n bad input\n", mtxB, icolB, mtxA, icolA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inc1A = mtxA->inc1 ;
 inc1B = mtxB->inc1 ;
@@ -419,7 +419,7 @@ if ( DENSEMTX_IS_REAL(mtxB) && DENSEMTX_IS_REAL(mtxA) ) {
 } else {
    fprintf(stderr, "\n fatal error in DenseMtx_copyColumn(%p,%d,%p,%d)"
            "\n mixing real and complex datatype\n", mtxB, icolB, mtxA, icolA);
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
  
@@ -458,7 +458,7 @@ ierr=DenseMtx_initAsSubmatrix (&rhsV, rhsmtx, 0, nrowr-1, icol, icol);
 if (ierr < 0) {
    fprintf(stderr, "\n fatal error in FrontMtx_solveOneColumn: ");
    fprintf(stderr, "cannot assign rhsmtx(:,icol) as a sub-DenseMtx");
-   exit(-1) ;
+   spoolesFatal();
 }
 
 /*solV = DenseMtx_new() ;*/
@@ -467,7 +467,7 @@ ierr=DenseMtx_initAsSubmatrix (&solV, solmtx, 0, nrows-1, jcol, jcol);
 if (ierr < 0) {
    fprintf(stderr, "\n fatal error in FrontMtx_solveOneColumn: ");
    fprintf(stderr, "cannot assign solmtx(:,jcol) as a sub-DenseMtx");
-   exit(-1) ;
+   spoolesFatal();
 }
 
 FrontMtx_solve (frontmtx,&solV,&rhsV,mtxmanager,cpus,msglvl,msgFile);

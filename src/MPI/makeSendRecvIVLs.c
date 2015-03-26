@@ -70,7 +70,7 @@ if ( supportedIV == NULL || globalmapIV == NULL
    || stats == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in makeSendRecvIVLs()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(supportedIV, &nitem,  &items) ;
 if ( nitem == 0 ) {

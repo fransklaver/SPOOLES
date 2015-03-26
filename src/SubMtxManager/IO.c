@@ -26,7 +26,7 @@ if ( manager == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxManager_writeForHumanEye(%p,%p)"
            "\n bad input\n", manager, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n SubMtxManager object at address %p"
         "\n     %d active objects, %d bytes active"

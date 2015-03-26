@@ -28,7 +28,7 @@ int   *colind, *rowind ;
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sort(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_rowIndices(mtx, &nrow, &rowind) ;
 DenseMtx_columnIndices(mtx, &ncol, &colind) ;
@@ -88,7 +88,7 @@ if (  mtxB == NULL || irowB < 0 || irowB >= mtxB->nrow
    || (ncol = mtxA->ncol) != mtxB->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_copyRow(%p,%d,%p,%d)"
            "\n bad input\n", mtxB, irowB, mtxA, irowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inc2A = mtxA->inc2 ;
 inc2B = mtxB->inc2 ;
@@ -137,7 +137,7 @@ if (  mtxB == NULL || irowB < 0 || irowB >= mtxB->nrow
    || mtxA->ncol != mtxB->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_copyRow(%p,%d,%p,%d)"
            "\n bad input\n", mtxB, irowB, mtxA, irowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_copyRow(mtxB, irowB, mtxA, irowA) ;
 mtxB->rowind[irowB] = mtxA->rowind[irowA] ; 
@@ -171,7 +171,7 @@ if (  mtxB == NULL || irowB < 0 || irowB >= mtxB->nrow
    || (ncol = mtxA->ncol) != mtxB->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_addRow(%p,%d,%p,%d)"
            "\n bad input\n", mtxB, irowB, mtxA, irowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inc2A = mtxA->inc2 ;
 inc2B = mtxB->inc2 ;
@@ -211,7 +211,7 @@ DenseMtx_zero (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_zero(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(mtx) ) {
    DVzero(mtx->nrow*mtx->ncol, mtx->entries) ;
@@ -241,7 +241,7 @@ DenseMtx_fillRandomEntries (
 if ( mtx == NULL || drand == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_fillRandomEntries(%p,%p)"
            "\n bad input\n", mtx, drand) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(mtx) ) {
    Drand_fillDvector(drand, mtx->nrow*mtx->ncol, mtx->entries) ;
@@ -277,7 +277,7 @@ int      *colind, *rowind ;
 if ( mtx == NULL || sums == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_checksums(%p,%p)"
            "\n bad input\n", mtx, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 sums[0] = sums[1] = sums[2] = 0.0 ;
 DenseMtx_rowIndices(mtx, &nrow, &rowind) ;
@@ -323,7 +323,7 @@ int      loc ;
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_maxabs(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(mtx) ) {
    maxabs = DVmaxabs(mtx->nrow*mtx->ncol, mtx->entries, &loc) ;
@@ -332,7 +332,7 @@ if ( DENSEMTX_IS_REAL(mtx) ) {
 } else {
    fprintf(stderr, "\n fatal error in DenseMtx_maxabs(%p)"
            "\n bad type %d\n", mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(maxabs) ; }
 
@@ -357,31 +357,31 @@ DenseMtx_sub (
 if ( mtxB == NULL || mtxA == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sub(%p,%p)"
            "\n bad input\n", mtxB, mtxA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxB->type != mtxA->type ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sub(%p,%p)"
            "\n mtxB->type = %d, mtxA->type = %d\n", 
            mtxB, mtxA, mtxB->type, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxB->nrow != mtxA->nrow ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sub(%p,%p)"
            "\n mtxB->nrow = %d, mtxA->nrow = %d\n", 
            mtxB, mtxA, mtxB->nrow, mtxA->nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxB->ncol != mtxA->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sub(%p,%p)"
            "\n mtxB->ncol = %d, mtxA->ncol = %d\n", 
            mtxB, mtxA, mtxB->ncol, mtxA->ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxB->entries == NULL || mtxA->entries == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sub(%p,%p)"
            "\n mtxB->entries = %p, mtxA->entries = %p\n", 
            mtxB, mtxA, mtxB->entries, mtxA->entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(mtxB) ) {
    DVsub(mtxB->nrow*mtxB->ncol, mtxB->entries, mtxA->entries) ;
@@ -391,7 +391,7 @@ if ( DENSEMTX_IS_REAL(mtxB) ) {
    fprintf(stderr, "\n fatal error in DenseMtx_sub(%p,%p)"
            "\n mtxB->type = %d, mtxA->type = %d\n", 
            mtxB, mtxA, mtxB->type, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -424,14 +424,14 @@ if ( mtx == NULL || irow < 0 || vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_copyRowIntoVector()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_rowIndices(mtx, &nrow, &rowind) ;
 if ( irow >= nrow ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_copyRowIntoVector()"
            "\n irow = %d, nrow = %d\n", irow, nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_columnIndices(mtx, &ncol, &colind) ;
 inc1    = DenseMtx_rowIncrement(mtx) ;
@@ -483,14 +483,14 @@ if ( mtx == NULL || irow < 0 || vec == NULL ) {
            "\n fatal error in DenseMtx_copyVectorIntoRow()"
            "\n bad input, mtx %p, irow %d, vec %p\n",
            mtx, irow, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_rowIndices(mtx, &nrow, &rowind) ;
 if ( irow >= nrow ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_copyVectorIntoRow()"
            "\n irow = %d, nrow = %d\n", irow, nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_columnIndices(mtx, &ncol, &colind) ;
 inc1    = DenseMtx_rowIncrement(mtx) ;
@@ -542,14 +542,14 @@ if ( mtx == NULL || irow < 0 || vec == NULL ) {
            "\n fatal error in DenseMtx_addVectorIntoRow()"
            "\n bad input, mtx %p, irow %d, vec %p\n",
            mtx, irow, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_rowIndices(mtx, &nrow, &rowind) ;
 if ( irow >= nrow ) {
    fprintf(stderr, 
            "\n fatal error in DenseMtx_addVectorIntoRow()"
            "\n irow = %d, nrow = %d\n", irow, nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_columnIndices(mtx, &ncol, &colind) ;
 inc1    = DenseMtx_rowIncrement(mtx) ;

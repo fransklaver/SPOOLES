@@ -38,7 +38,7 @@ Lock_setDefaultFields (
 if ( lock == NULL ) {
    fprintf(stderr, "\n fatal error in Lock_setDefaultFields(%p)"
            "\n bad input", lock) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 lock->nlocks   =   0  ;
 lock->nunlocks =   0  ;
@@ -66,7 +66,7 @@ Lock_clearData (
 if ( lock == NULL ) {
    fprintf(stderr, "\n fatal error in Lock_clearData(%p)"
            "\n bad input\n", lock) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -111,7 +111,7 @@ Lock_free (
 if ( lock == NULL ) {
    fprintf(stderr, "\n fatal error in Lock_free(%p)"
            "\n bad input\n", lock) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Lock_clearData(lock) ;
 FREE(lock) ;

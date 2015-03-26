@@ -31,7 +31,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_postProcess(%p,%d,%p)"
            "\n bad input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 if ( FRONTMTX_IS_PIVOTING(frontmtx) ) {

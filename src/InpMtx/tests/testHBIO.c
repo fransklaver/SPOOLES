@@ -61,7 +61,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 readHB_info(inFileName, &nrow, &ncol, &nnonzeros, &type, &nrhs) ;
@@ -85,7 +85,7 @@ default :
    fprintf(stderr, "\n fatal error in %s, type = %s"
            "\n first character must be 'P', 'R' or 'C'",
            argv[0], type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 FREE(type) ;

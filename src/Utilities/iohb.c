@@ -1726,6 +1726,6 @@ static void upcase(char* S)
 static void IOHBTerminate(char* message) 
 {
    fprintf(stderr, "%s\n" ,message);
-   exit(1);
+   spoolesFatal();
 }
 

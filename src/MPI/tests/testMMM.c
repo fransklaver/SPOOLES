@@ -129,7 +129,7 @@ fflush(msgFile) ;
 */
 if ( nrowA <= 0 || ncolA <= 0 || nentA <= 0 || ncolX <= 0 ) {
    fprintf(stderr, "\n fatal error, bad dimensions") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( coordType ) {
 case INPMTX_BY_ROWS :
@@ -138,7 +138,7 @@ case INPMTX_BY_CHEVRONS :
    break ;
 default :
    fprintf(stderr, "\n bad coordType") ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 switch ( inputMode ) {
@@ -147,7 +147,7 @@ case SPOOLES_COMPLEX :
    break ;
 default :
    fprintf(stderr, "\n bad type") ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 switch ( symflag ) {
@@ -156,7 +156,7 @@ case SPOOLES_SYMMETRIC :
       fprintf(stderr, 
               "\n fatal error, symmetric but nrowA = %d, ncolA = %d", 
               nrowA, ncolA) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    nrowX = nrowA ;
    nrowY = nrowA ;
@@ -166,11 +166,11 @@ case SPOOLES_HERMITIAN :
       fprintf(stderr, 
               "\n fatal error, hermitian but nrowA = %d, ncolA = %d", 
               nrowA, ncolA) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( inputMode != SPOOLES_COMPLEX ) {
       fprintf(stderr, "\n fatal error, hermitian but not complex") ;
-      exit(-1) ;
+      spoolesFatal();
    }
    nrowX = nrowA ;
    nrowY = nrowA ;
@@ -186,7 +186,7 @@ case SPOOLES_NONSYMMETRIC :
    break ;
 default :
    fprintf(stderr, "\n bad symflag") ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 switch ( opflag ) {
@@ -196,7 +196,7 @@ case MMM_WITH_AH :
    break ;
 default :
    fprintf(stderr, "\n bad opflag") ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 alpha[0] = real ;

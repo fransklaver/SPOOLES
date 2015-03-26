@@ -43,7 +43,7 @@ if ( ivl == NULL || ilist < 0 || ilist >= ivl->nlist
               ilist, ivl->nlist) ;
       IVL_writeForHumanEye(ivl, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -84,13 +84,13 @@ IVL_firstInList (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_firstInList(%p,%d)"
            "\n bad input, ivl is NULL\n", ivl, ilist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ilist < 0 || ilist >= ivl->nlist ) {
    fprintf(stderr, "\n fatal error in IVL_firstInList(%p,%d)"
            "\n bad input, ilist = %d, must be in [0,%d) \n", 
            ivl, ilist, ilist, ivl->nlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ivl->sizes[ilist] == 0 ) {
    return(NULL) ;
@@ -99,7 +99,7 @@ if ( ivl->sizes[ilist] == 0 ) {
 } else {
    fprintf(stderr, "\n fatal error in IVL_firstInList(%p,%d)"
            "\n size > 0 but list is NULL\n", ivl, ilist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 }
 /*--------------------------------------------------------------------*/
@@ -133,20 +133,20 @@ int   offset ;
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_nextInList(%p,%d,%p)"
            "\n bad input, ivl is NULL\n", ivl, ilist, pi) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ilist < 0 || ilist >= ivl->nlist ) {
    fprintf(stderr, "\n fatal error in IVL_nextInList(%p,%d,%p)"
            "\n bad input, ilist = %d, must be in [0,%d) \n", 
            ivl, ilist, pi, ilist, ivl->nlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  (pi == NULL) 
    || ((offset = pi - ivl->p_vec[ilist]) < 0)
    || offset >= ivl->sizes[ilist] ) {
    fprintf(stderr, "\n fatal error in IVL_nextInList(%p,%d,%p)"
            "\n bad pointer\n", ivl, ilist, pi) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( offset == ivl->sizes[ilist] - 1 ) {
    return(NULL) ;
 } else {
@@ -196,12 +196,12 @@ IVL_setList (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_setList(%p,%d,%d,%p)"
            "\n bad input, ivl is NULL\n", ivl, ilist, isize, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ilist < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_setList(%p,%d,%d,%p)"
            "\n bad input, ilist < 0", ivl, ilist, isize, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ilist >= ivl->maxnlist ) {
    int   newmaxnlist = (int) 1.25*ivl->maxnlist ;
@@ -300,7 +300,7 @@ if ( isize == 0 ) {
                "\n you are trying to grow a list but type = %d"
                "\n type must be IVL_CHUNKED = 1 or IVL_SOLO = 2\n",
                ivl, ilist, isize, ivec, ivl->type) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
    ivl->tsize += isize - ivl->sizes[ilist] ;
@@ -345,18 +345,18 @@ IVL_setPointerToList (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_setPointerToList(%p,%d,%d,%p)"
            "\n bad input, ivl is NULL\n", ivl, ilist, isize, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ivl->type != IVL_CHUNKED ) {
    fprintf(stderr, "\n fatal error in IVL_setPointerToList(%p,%d,%d,%p)"
            "\n this method is only used with type IVL_CHUNKED\n", 
            ivl, ilist, isize, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ilist < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_setPointerToList(%p,%d,%d,%p)"
            "\n bad input, ilist < 0", ivl, ilist, isize, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ilist >= ivl->maxnlist ) {
    int   newmaxnlist = (int) 1.25*ivl->maxnlist ;

@@ -100,7 +100,7 @@ if (  frontmtx == NULL || mtxA == NULL || chvmanager == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MT_QR_factor()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nthread = 1 + IV_max(ownersIV) ;
 /*
@@ -140,7 +140,7 @@ for ( myid = 0, data = dataObjects ; myid < nthread ; myid++, data++ ) {
       if ( (data->msgFile = fopen(buffer, "w")) == NULL ) {
          fprintf(stderr, "\n fatal error in FrontMtx_MT_QR_factor()"
                  "\n unable to open file %s", buffer) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    } else {
       data->msgFile = NULL ;
@@ -165,7 +165,7 @@ for ( myid = 0, data = dataObjects ;
       fprintf(stderr, 
               "\n fatal error, myid = %d, rc = %d from thr_create()", 
               myid, rc) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 FrontMtx_QR_workerFactor(data) ;
@@ -218,7 +218,7 @@ void             *status ;
                  "\n fatal error in FrontMtx_MT_QR_factor()"
                  "\n myid = %d, rc = %d from pthread_create()",
                  myid, rc) ;
-         exit(-1) ;
+         spoolesFatal();
       } else if ( msglvl > 2 ) {
          fprintf(stderr, "\n thread %d created", myid) ;
       }

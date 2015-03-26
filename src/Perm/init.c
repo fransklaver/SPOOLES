@@ -33,7 +33,7 @@ if ( isPresent < 1 || isPresent > 3 || size <= 0 ) {
            "\n isPresent = %d, must be 1, 2 or 3"
            "\n size = %d, must be positive", 
            perm, isPresent, size, isPresent, size) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 perm->isPresent = isPresent ;
 perm->size      = size      ;

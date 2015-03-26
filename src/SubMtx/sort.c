@@ -24,13 +24,13 @@ SubMtx_sortRowsUp (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_sortRowsUp(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in SubMtx_sortRowsUp(%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mtx->mode ) {
 case SUBMTX_DENSE_ROWS :
@@ -150,7 +150,7 @@ case SUBMTX_SPARSE_ROWS : {
 default :
    fprintf(stderr, "\n fatal error in SubMtx_sortRowsUp(%p)"
            "\n bad type = %d", mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -282,7 +282,7 @@ default :
    fprintf(stderr, "\n fatal error in SubMtx_sortColumnsUp(%p)"
            "\n bad type = %d", mtx, mtx->type) ;
    SubMtx_writeForHumanEye(mtx, stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 

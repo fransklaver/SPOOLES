@@ -24,7 +24,7 @@ IV   *tmetricIV, *vmetricIV ;
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_leftJustify(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------------------------------------
@@ -69,7 +69,7 @@ if (  tree == NULL
    || (metric = IV_entries(metricIV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_leftJustifyI(%p,%p)"
            "\n bad input\n", tree, metricIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 par = tree->par ;
 fch = tree->fch ;
@@ -150,7 +150,7 @@ if (  tree == NULL
    || (metric = DV_entries(metricDV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_leftJustifyD(%p,%p)"
            "\n bad input\n", tree, metricDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 par = tree->par ;
 fch = tree->fch ;

@@ -24,7 +24,7 @@ DSTree_init1 (
 if ( dstree == NULL || ndomsep <= 0 ) {
    fprintf(stderr, "\n fatal error in DSTree_init1(%p,%d,%d)"
            "\n bad input\n", dstree, ndomsep, nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DSTree_clearData(dstree) ;
 dstree->tree = Tree_new() ;
@@ -58,7 +58,7 @@ if ( dstree == NULL || tree == NULL || tree->n < 1
    || mapIV == NULL || IV_size(mapIV) < 1 ) {
    fprintf(stderr, "\n fatal error in DSTree_init2(%p,%p,%p)"
            "\n bad input\n", dstree, tree, mapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DSTree_clearData(dstree) ;
 dstree->tree  = tree  ;

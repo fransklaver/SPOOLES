@@ -22,7 +22,7 @@ InpMtx_coordType (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_coordType(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->coordType) ; }
 
@@ -46,7 +46,7 @@ InpMtx_storageMode (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_storageMode(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->storageMode) ; }
 
@@ -70,7 +70,7 @@ InpMtx_inputMode (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_inputMode(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->inputMode) ; }
 
@@ -94,7 +94,7 @@ InpMtx_maxnent (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_maxnent(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->maxnent) ; }
 
@@ -118,7 +118,7 @@ InpMtx_nent (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nent(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->nent) ; }
 
@@ -142,7 +142,7 @@ InpMtx_maxnvector (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_maxnvector(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->maxnvector) ; }
 
@@ -166,7 +166,7 @@ InpMtx_nvector (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nvector(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->nvector) ; }
 
@@ -185,7 +185,7 @@ InpMtx_resizeMultiple (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_resizeMultiple(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(inpmtx->resizeMultiple) ; }
 
@@ -209,7 +209,7 @@ InpMtx_ivec1 (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_ivec1(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(&inpmtx->ivec1IV)) ; }
 
@@ -233,7 +233,7 @@ InpMtx_ivec2 (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_ivec2(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(&inpmtx->ivec2IV)) ; }
 
@@ -257,7 +257,7 @@ InpMtx_dvec (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_dvec(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(DV_entries(&inpmtx->dvecDV)) ; }
 
@@ -281,7 +281,7 @@ InpMtx_sizes (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_sizes(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(&inpmtx->sizesIV)) ; }
 
@@ -305,7 +305,7 @@ InpMtx_vecids (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_vecids(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(&inpmtx->vecidsIV)) ; }
 
@@ -329,7 +329,7 @@ InpMtx_offsets (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_offsets(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(&inpmtx->offsetsIV)) ; }
 
@@ -359,18 +359,18 @@ int   loc, off ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_vector(%p,%d,%p,%p)"
            "\n bad input\n", inpmtx, id, pnent, pindices) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_BY_VECTORS(inpmtx) ) {
    fprintf(stderr, "\n fatal error in InpMtx_vector(%p,%d,%p,%p)"
            "\n bad input\n", inpmtx, id, pnent, pindices) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (   pnent == NULL || pindices == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_vector(%p,%d,%p,%p)"
            "\n NULL input, pnent = %p, pindices = %p",
 	   inpmtx, id, pnent, pindices, pnent, pindices) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------
@@ -429,14 +429,14 @@ if ( inpmtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_realVector(%p,%d,%p,%p,%p)"
            "\n bad input\n", inpmtx, id, pnent, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !INPMTX_IS_BY_VECTORS(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_realVector(%p,%d,%p,%p,%p)"
            "\n storageMode must be INPMTX_BY_VECTORS\n", 
            inpmtx, id, pnent, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (   pnent == NULL || pindices == NULL || pentries == NULL ) {
    fprintf(stderr, 
@@ -444,7 +444,7 @@ if (   pnent == NULL || pindices == NULL || pentries == NULL ) {
            "\n NULL input, pnent = %p, pindices = %p, pentries = %p",
 	   inpmtx, id, pnent, pindices, pentries,
 	   pnent, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------
@@ -505,14 +505,14 @@ if ( inpmtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_complexVector(%p,%d,%p,%p,%p)"
            "\n bad input\n", inpmtx, id, pnent, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !INPMTX_IS_BY_VECTORS(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_complexVector(%p,%d,%p,%p,%p)"
            "\n storage mode muse be INPMTX_BY_VECTORS\n", 
            inpmtx, id, pnent, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (   pnent == NULL || pindices == NULL || pentries == NULL ) {
    fprintf(stderr, 
@@ -520,7 +520,7 @@ if (   pnent == NULL || pindices == NULL || pentries == NULL ) {
            "\n NULL input, pnent = %p, pindices = %p, pentries = %p",
 	   inpmtx, id, pnent, pindices, pentries,
 	   pnent, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------
@@ -574,7 +574,7 @@ InpMtx_setMaxnent (
 if ( inpmtx == NULL || newmaxnent < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_setMaxnent(%p, %d)"
            "\n bad input\n", inpmtx, newmaxnent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( newmaxnent != inpmtx->maxnent ) {
   IV_setMaxsize(&(inpmtx->ivec1IV), newmaxnent) ;
@@ -610,7 +610,7 @@ InpMtx_setNent (
 if ( inpmtx == NULL || newnent < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_setNent(%p,%d)"
            "\n bad input\n", inpmtx, newnent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( inpmtx->maxnent < newnent ) {
 /*
@@ -654,7 +654,7 @@ InpMtx_setMaxnvector (
 if ( inpmtx == NULL || newmaxnvector < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_Maxnvector(%p, %d)"
            "\n bad input\n", inpmtx, newmaxnvector) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( newmaxnvector != inpmtx->maxnvector ) {
   IV_setMaxsize(&(inpmtx->vecidsIV),  newmaxnvector) ;
@@ -686,7 +686,7 @@ InpMtx_setNvector (
 if ( inpmtx == NULL || newnvector < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_setNvector(%p, %d)"
            "\n bad input\n", inpmtx, newnvector) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( newnvector > inpmtx->maxnvector ) {
   InpMtx_setMaxnvector(inpmtx, newnvector) ;
@@ -719,7 +719,7 @@ InpMtx_setResizeMultiple (
 if ( inpmtx == NULL || resizeMultiple < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_setResizeMultiple(%p,%f)"
            "\n bad input\n", inpmtx, resizeMultiple) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inpmtx->resizeMultiple = resizeMultiple ;
 
@@ -752,7 +752,7 @@ if ( inpmtx == NULL || type <= 3 ) {
      fprintf(stderr, "\n fatal error in InpMtx_setCoordType"
            "\n reserved coordinate type %d \n", type) ;
       
-   exit(-1) ;
+   spoolesFatal();
 }
 inpmtx->coordType = type ;
 

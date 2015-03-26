@@ -57,13 +57,13 @@ fflush(msgFile) ;
 inpmtxA = InpMtx_new() ;
 if ( strcmp(argv[3], "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 rc = InpMtx_readFromFile(inpmtxA, argv[3]) ;
 fprintf(msgFile, "\n return value %d from InpMtx_readFromFile(%p,%s)",
         rc, inpmtxA, argv[3]) ;
 if ( rc != 1 ) {
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading InpMtx object from file %s",

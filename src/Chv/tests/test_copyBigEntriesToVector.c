@@ -54,7 +54,7 @@ if ( argc != 11 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -209,7 +209,7 @@ if ( CHV_IS_NONSYMMETRIC(chvJ) ) {
                                     storeflag, droptol) ;
    if ( nent != nentL ) {
       fprintf(stderr, "\n error: nentL = %d, nent = %d", nentL, nent) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( storeflag == 0 ) {
       for ( irow = 0, mm = 0 ; irow < nrow ; irow++ ) {
@@ -253,7 +253,7 @@ nent = Chv_copyEntriesToVector(chvJ, npivot, pivotsizes, maxnent,
                                dvec, CHV_DIAGONAL, storeflag) ;
 if ( nent != nentD ) {
    fprintf(stderr, "\n error: nentD = %d, nent = %d", nentD, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( pivotsizes == NULL ) {
    for ( jcol = 0, mm = 0 ; jcol < nD ; jcol++, mm++ ) {
@@ -313,7 +313,7 @@ nent = Chv_copyBigEntriesToVector(chvJ, npivot, pivotsizes, sizes,
                                   storeflag, droptol) ;
 if ( nent != nentU ) {
    fprintf(stderr, "\n error: nentU = %d, nent = %d", nentU, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( storeflag == 1 ) {
    for ( jcol = mm = 0 ; jcol < ncol ; jcol++ ) {
@@ -406,7 +406,7 @@ if ( CHV_IS_NONSYMMETRIC(chvJ) ) {
    if ( nent != nentL11 ) {
       fprintf(stderr, 
               "\n error: nentL11 = %d, nent = %d", nentL11, nent) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( storeflag == 0 ) {
       for ( irow = 0, mm = 0 ; irow < nD ; irow++ ) {
@@ -451,7 +451,7 @@ if ( CHV_IS_NONSYMMETRIC(chvJ) ) {
    if ( nent != nentL21 ) {
       fprintf(stderr, "\n error: nentL21 = %d, nent = %d", 
               nentL21, nent) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( storeflag == 0 ) {
       for ( irow = nD, mm = 0 ; irow < nrow ; irow++ ) {
@@ -499,7 +499,7 @@ DVfprintf(stdout, 2*nent, dvec) ;
 */
 if ( nent != nentD ) {
    fprintf(stderr, "\n error: nentD = %d, nent = %d", nentD, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( pivotsizes == NULL ) {
    for ( jcol = 0, mm = 0 ; jcol < nD ; jcol++, mm++ ) {
@@ -567,7 +567,7 @@ DVfprintf(stdout, 2*nent, dvec) ;
 */
 if ( nent != nentU11 ) {
    fprintf(stderr, "\n error: nentU11 = %d, nent = %d", nentU11, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( storeflag == 1 ) {
    for ( jcol = mm = 0 ; jcol < nD ; jcol++ ) {
@@ -623,7 +623,7 @@ DVfprintf(stdout, 2*nent, dvec) ;
 */
 if ( nent != nentU12 ) {
    fprintf(stderr, "\n error: nentU12 = %d, nent = %d", nentU12, nent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( storeflag == 1 ) {
    for ( jcol = nD, mm = 0 ; jcol < ncol ; jcol++ ) {

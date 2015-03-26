@@ -33,7 +33,7 @@ IV    *eqmapIV ;
 if ( g == NULL || (nvtx = g->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in Graph_equivMap(%p)"
            "\n bad input\n", g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------

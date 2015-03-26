@@ -29,7 +29,7 @@ DV_init (
 if ( dv == NULL || size < 0 ) {
    fprintf(stderr, "\n fatal error in DV_init(%p,%d,%p)"
            "\n bad input\n", dv, size, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------
@@ -101,24 +101,24 @@ DV_init2 (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_init2(%p,%d,%d,%d,%p)"
            "\n bad input\n", dv, size, maxsize, owned, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( size < 0 || maxsize < size ) {
    fprintf(stderr, "\n fatal error in DV_init2(%p,%d,%d,%d,%p)"
            "\n size = %d, maxsize = %d \n", 
            dv, size, maxsize, owned, vec, size, maxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( owned < 0 || 1 < owned ) {
    fprintf(stderr, "\n fatal error in DV_init2(%p,%d,%d,%d,%p)"
            "\n owned = %d\n", dv, size, maxsize, owned, vec, owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( owned == 1 && vec == NULL ) {
    fprintf(stderr, "\n fatal error in DV_init2(%p,%d,%d,%d,%p)"
            "\n owned = %d and vec = %p", 
            dv, size, maxsize, owned, vec, owned, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 /*
    --------------
@@ -168,13 +168,13 @@ DV_setMaxsize (
 if ( dv == NULL || newmaxsize < 0 ) {
    fprintf(stderr, "\n fatal error in DV_setMaxsize(%p,%d)"
            "\n bad input\n", dv, newmaxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->maxsize > 0 && dv->owned == 0 ) {
    fprintf(stderr, "\n fatal error in DV_setMaxsize(%p,%d)"
            "\n dv->maxsize = %d, dv->owned = %d\n", 
            dv, newmaxsize, dv->maxsize, dv->owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->maxsize != newmaxsize ) {
 /*
@@ -197,7 +197,7 @@ if ( dv->maxsize != newmaxsize ) {
          fprintf(stderr, "\n fatal error in DV_setMaxsize(%p,%d)"
                  "\n dv->size = %d, dv->vec is NULL\n", 
                  dv, newmaxsize, dv->size) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( dv->size <= newmaxsize ) {
          DVcopy(dv->size, vec, dv->vec) ;
@@ -251,13 +251,13 @@ DV_setSize (
 if ( dv == NULL || newsize < 0 ) {
    fprintf(stderr, "\n fatal error in DV_setSize(%p,%d)"
            "\n bad input\n", dv, newsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( 0 < dv->maxsize && dv->maxsize < newsize && dv->owned == 0 ) {
    fprintf(stderr, "\n fatal error in DV_setSize(%p,%d)"
            "\n dv->maxsize = %d, newsize = %d, dv->owned = %d\n", 
            dv, newsize, dv->maxsize, newsize, dv->owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->maxsize < newsize ) {
 /*

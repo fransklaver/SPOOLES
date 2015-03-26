@@ -26,7 +26,7 @@ if ( manager == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ChvManager_writeForHumanEye(%p,%p)"
            "\n bad input\n", manager, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, 
         "\n\n ChvManager object at address %p"

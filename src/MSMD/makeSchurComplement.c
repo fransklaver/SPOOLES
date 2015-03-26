@@ -43,7 +43,7 @@ if ( msmd == NULL || schurGraph == NULL || VtoPhiIV == NULL ) {
    fprintf(stderr, 
            "\n\n fatal error in MSMD_makeSchurComplement(%p,%p,%p)"
            "\n bad input\n", msmd, schurGraph, VtoPhiIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vertices = msmd->vertices ;
 nvtx     = msmd->nvtx     ;

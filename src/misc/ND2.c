@@ -84,7 +84,7 @@ if ( n1 <= 0 || n2 <= 0 || n3 <= 0 || newToOld == NULL
            "\n bad input data\n",
            n1, n2, n3, newToOld, 
            west, east, south, north, bottom, top) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( east - west <= 1 && north - south <= 1 && top - bottom <= 1 ) {

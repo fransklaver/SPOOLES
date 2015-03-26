@@ -49,19 +49,19 @@ SubMtx_solveupdT (
 if ( mtxY == NULL || mtxA == NULL || mtxX == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_solveupdT(%p,%p,%p)"
            "\n bad input\n", mtxY, mtxA, mtxX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_DENSE_COLUMNS(mtxY) ) {
    fprintf(stderr, "\n fatal error in SubMtx_solveupdT(%p,%p,%p)"
            "\n Y must have mode SUBMTX_DENSE_COLUMNS\n", 
            mtxY, mtxA, mtxX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_DENSE_COLUMNS(mtxX) ) {
    fprintf(stderr, "\n fatal error in SubMtx_solveupdT(%p,%p,%p)"
            "\n X must have mode SUBMTX_DENSE_COLUMNS\n", 
            mtxY, mtxA, mtxX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mtxA->type ) {
 case SPOOLES_REAL :
@@ -82,7 +82,7 @@ case SPOOLES_REAL :
       fprintf(stderr, "\n fatal error in SubMtx_solveupdT(%p,%p,%p)"
               "\n unsupported mode %d for A\n",
               mtxY, mtxA, mtxX, mtxA->mode) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -104,7 +104,7 @@ case SPOOLES_COMPLEX :
       fprintf(stderr, "\n fatal error in SubMtx_solveupdT(%p,%p,%p)"
               "\n unsupported mode %d for A\n",
               mtxY, mtxA, mtxX, mtxA->mode) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -112,7 +112,7 @@ default :
    fprintf(stderr, "\n fatal error in SubMtx_solveupdT(%p,%p,%p)"
            "\n unsupported type %d for A\n",
            mtxY, mtxA, mtxX, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return ; }

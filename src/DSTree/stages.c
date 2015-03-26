@@ -31,13 +31,13 @@ if (  dstree == NULL
    || (mapIV = dstree->mapIV) == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_NDstages(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(mapIV, &nvtx, &map) ;
 if ( map == NULL || nvtx < 1 ) {
    fprintf(stderr, "\n fatal error in DSTree_NDstages(%p)"
            "\n bad mapIV object\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------
@@ -97,13 +97,13 @@ if (  dstree == NULL
    || (mapIV = dstree->mapIV) == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_ND2stages(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(mapIV, &nvtx, &map) ;
 if ( map == NULL || nvtx < 1 ) {
    fprintf(stderr, "\n fatal error in DSTree_ND2stages(%p)"
            "\n bad mapIV object\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------
@@ -166,13 +166,13 @@ if (  dstree == NULL
    || (mapIV = dstree->mapIV) == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_MS2stages(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(mapIV, &nvtx, &map) ;
 if ( map == NULL || nvtx < 1 ) {
    fprintf(stderr, "\n fatal error in DSTree_MS2stages(%p)"
            "\n bad mapIV object\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------
@@ -235,13 +235,13 @@ if (  dstree == NULL
    || (mapIV = dstree->mapIV) == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_MS3stages(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(mapIV, &nvtx, &map) ;
 if ( map == NULL || nvtx < 1 ) {
    fprintf(stderr, "\n fatal error in DSTree_MS3stages(%p)"
            "\n bad mapIV object\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------
@@ -316,21 +316,21 @@ if (  dstree == NULL
    fprintf(stderr, 
            "\n fatal error in DSTree_stagesViaDomainWeight(%p,%p,%p)"
            "\n bad input\n", dstree, vwghts, cutoffDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(mapIV, &nvtx, &map) ;
 if ( map == NULL || nvtx < 1 ) {
    fprintf(stderr, 
            "\n fatal error in DSTree_stagesViaDomainWeight(%p,%p,%p)"
            "\n bad mapIV object\n", dstree, vwghts, cutoffDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_sizeAndEntries(cutoffDV, &nstage, &cutoffs) ;
 if ( cutoffs == NULL || nstage < 1 ) {
    fprintf(stderr, 
            "\n fatal error in DSTree_stagesViaDomainWeight(%p,%p,%p)"
            "\n bad cutoffDV object\n", dstree, vwghts, cutoffDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n %d stages", nstage) ;

@@ -39,7 +39,7 @@ if (  frontmtx == NULL || frontOwnersIV == NULL || stats == NULL
            "\n stats %p, msglvl %d, msgFile %p, comm %p"
            "\n bad input\n", frontmtx, frontOwnersIV, firsttag, 
            stats, msglvl, msgFile, comm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_size(comm, &nproc) ;
 lasttag  = firsttag + 5*nproc ;
@@ -47,7 +47,7 @@ tagbound = maxTagMPI(comm) ;
 if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_postProcess()"
            "\n firsttag = %d, tagbound = %d", firsttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 if ( msglvl > 2 ) {
@@ -260,7 +260,7 @@ if ( frontmtx == NULL || frontOwnersIV == NULL || stats == NULL
          "\n stats %p, msglvl %d, msgFile %p"
          "\n bad input\n", 
          frontmtx, frontOwnersIV, firsttag, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------
@@ -284,7 +284,7 @@ tagbound = maxTagMPI(comm) ;
 if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_permuteUpperAdj()"
            "\n firsttag = %d, tagbound = %d", firsttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 nfront    = FrontMtx_nfront(frontmtx) ;
@@ -413,7 +413,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
                  "\n 0. fatal error in FrontMtx_MPI_permuteUpperAdj()"
                  "\n proc %d : count = %d, outcount = %d\n",
                  myid, count, incount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( msglvl > 1 ) {
          fprintf(msgFile, "\n\n message to %d", right) ;
@@ -448,7 +448,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
                  "\n 1. fatal error in FrontMtx_MPI_permuteUpperAdj()"
                  "\n proc %d : source = %d, count = %d, incount = %d\n",
                  myid, source, count, incount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( msglvl > 1 ) {
          fprintf(msgFile, "\n\n message from %d", source) ;
@@ -477,7 +477,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
               "\n 2. fatal error in FrontMtx_MPI_permuteUpperAdj()"
               "\n proc %d : source = %d, count = %d, incount = %d\n",
               myid, source, count, incount) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 if ( msglvl > 1 ) {
@@ -546,7 +546,7 @@ if ( frontmtx == NULL || frontOwnersIV == NULL || stats == NULL
          "\n stats %p, msglvl %d, msgFile %p"
          "\n bad input\n", 
          frontmtx, frontOwnersIV, firsttag, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------
@@ -570,7 +570,7 @@ tagbound = maxTagMPI(comm) ;
 if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_permuteUpperAdj()"
            "\n firsttag = %d, tagbound = %d", firsttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 nfront    = FrontMtx_nfront(frontmtx) ;
@@ -718,7 +718,7 @@ for ( offset = 1 ; offset < nproc ; offset++ ) {
                  "\n 1. fatal error in FrontMtx_MPI_permuteLowerAdj()"
                  "\n proc %d : source = %d, count = %d, incount = %d\n",
                  myid, source, count, incount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 /*
@@ -738,7 +738,7 @@ for ( offset = 1 ; offset < nproc ; offset++ ) {
               "\n 2. fatal error in FrontMtx_MPI_permuteLowerAdj()"
               "\n proc %d : source = %d, count = %d, incount = %d\n",
               myid, source, count, incount) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*

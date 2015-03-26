@@ -81,7 +81,7 @@ while (1) {
     if (strlen(ctemp)==80) {
       fprintf(stderr, "\n fatal error in %s: input line contains more than "
 	      "80 characters.\n",argv[0]);
-      exit(-1);
+      spoolesFatal();
     }
     if (k==0) {
       sscanf(ctemp, "%d",  &iformat);
@@ -213,7 +213,7 @@ rc = 1;
 
 if ( strcmp(srcFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mtxA = InpMtx_new() ;
 

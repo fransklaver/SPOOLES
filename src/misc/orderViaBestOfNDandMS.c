@@ -60,27 +60,27 @@ IV       *eqmapIV, *stagesIV ;
 if ( graph == NULL ) {
    fprintf(stderr, "\n fatal error in orderViaBestOfNDandMS()"
            "\n graph is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( maxdomainsize <= 0 ) {
    fprintf(stderr, "\n fatal error in orderViaBestOfNDandMS()"
            "\n maxdomainsize %d\n", maxdomainsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( maxzeros < 0 ) {
    fprintf(stderr, "\n fatal error in orderViaBestOfNDandMS()"
            "\n maxzeros %d\n", maxzeros) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( maxsize <= 0 ) {
    fprintf(stderr, "\n fatal error in orderViaBestOfNDandMS()"
            "\n maxsize %d\n", maxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in orderViaBestOfNDandMS()"
            "\n msglvl %d, msgFile %p\n", msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t0) ;
 /*

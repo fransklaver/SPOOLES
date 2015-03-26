@@ -44,7 +44,7 @@ if ( firsttag < 0 || firsttag + 1 > maxTagMPI(comm) ) {
    fprintf(stderr, "\n fatal error in Pencil_MPI_split()"
            "\n range of tags is [%d,%d], tag_bound = %d",
            firsttag, firsttag + 1, maxTagMPI(comm)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------

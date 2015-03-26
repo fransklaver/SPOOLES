@@ -38,7 +38,7 @@ InpMtx_setDefaultFields (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_setDefaultFields(%p)"
            "\n bad input", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inpmtx->coordType      =   INPMTX_BY_ROWS  ;
 inpmtx->storageMode    =   INPMTX_RAW_DATA ;
@@ -77,7 +77,7 @@ InpMtx_clearData (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_clearData(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------------
@@ -114,7 +114,7 @@ InpMtx_free (
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_free(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 InpMtx_clearData(inpmtx) ;
 FREE(inpmtx) ;

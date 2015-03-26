@@ -49,7 +49,7 @@ if (  frontmtx == NULL || mtxA == NULL || chvmanager == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_QR_factor()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 neqns  = frontmtx->neqns  ;
 nfront = frontmtx->nfront ;

@@ -35,7 +35,7 @@ if (   etree == NULL
    || depth <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_msByDepth(%p,%d)"
            "\n bad input\n", etree, depth) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 /*
@@ -104,7 +104,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_msByCutoff(%p,%f)"
            "\n bad input\n", etree, cutoff) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 /*
@@ -176,7 +176,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_msByCutoff(%p,%f,%d)"
            "\n bad input\n", etree, cutoff, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 /*
@@ -254,7 +254,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_msByCutoff(%p,%f,%d)"
            "\n bad input\n", etree, cutoff, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 /*
@@ -374,7 +374,7 @@ if ( frontETree == NULL || msIV == NULL || nvtxIV == NULL
            "\n frontETree = %p, msIV = %p, nvtxIV = %p"
            "\n nzfIV = %p, opsDV = %p, symflag = %d\n",
            frontETree, msIV, nvtxIV, nzfIV, opsDV, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront     = ETree_nfront(frontETree) ;
 nvtx       = ETree_nvtx(frontETree) ;

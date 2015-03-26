@@ -27,7 +27,7 @@ int   ii, stride ;
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_shift(%p,%d)"
            "\n bad input\n", chv, shift) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( shift == 0 ) {
    return ;
@@ -81,7 +81,7 @@ if ( CHV_IS_REAL(chv) ) {
               "\n type is SPOOLES_REAL, symflag = %d" 
               "\n must be SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC\n", 
               chv, shift, chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chv) ) {
    if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
@@ -133,7 +133,7 @@ if ( CHV_IS_REAL(chv) ) {
         "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN"
         "\n or SPOOLES_NONSYMMETRIC\n",
         chv, shift, chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 return ; }
@@ -159,7 +159,7 @@ double   maxabs ;
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_maxabs(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 maxabs = 0.0 ;
 if ( CHV_IS_REAL(chv) ) {
@@ -171,7 +171,7 @@ if ( CHV_IS_REAL(chv) ) {
    fprintf(stderr, "\n fatal error in Chv_maxabs(%p)"
            "\n type is %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(maxabs) ; }
 
@@ -196,7 +196,7 @@ double   sum ;
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_frobNorm(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_REAL(chv) ) {
    double   value, *entries ;
@@ -223,7 +223,7 @@ if ( CHV_IS_REAL(chv) ) {
    fprintf(stderr, "\n fatal error in Chv_frobNorm(%p)"
            "\n type is %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(sqrt(sum)) ; }
 
@@ -250,14 +250,14 @@ int      ii, nDI, nDJ, nent, nLI, nLJ, nUI, nUJ ;
 if ( chvI == NULL || chvJ == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_sub(%p,%p)"
            "\n bad input\n", chvI, chvJ) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chvJ, &nDJ, &nLJ, &nUJ) ;
 Chv_dimensions(chvI, &nDI, &nLI, &nUI) ;
 if ( nDJ != nDI || nLJ != nLI || nUJ != nUI ) {
    fprintf(stderr, "\n fatal error in Chv_sub(%p,%p)"
            "\n dimensions do not match\n", chvJ, chvI) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 entriesJ = Chv_entries(chvJ) ;
 entriesI = Chv_entries(chvI) ;
@@ -265,7 +265,7 @@ if ( entriesJ == NULL || entriesI == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_sub(%p,%p)"
            "\n entriesJ = %p, entriesI = %p\n", 
            chvJ, chvI, entriesJ, entriesI) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_REAL(chvJ) && CHV_IS_REAL(chvI) ) {
    nent = Chv_nent(chvJ) ;
@@ -283,7 +283,7 @@ if ( CHV_IS_REAL(chvJ) && CHV_IS_REAL(chvI) ) {
            "\n typeJ = %d, typeI = %d"
            "\n both must be SPOOLES_REAL or SPOOLES_COMPLEX",
            chvJ, chvI, chvJ->type, chvI->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -307,7 +307,7 @@ Chv_zero (
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_zero(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_REAL(chv) ) {
    DVzero(Chv_nent(chv), Chv_entries(chv)) ;
@@ -317,7 +317,7 @@ if ( CHV_IS_REAL(chv) ) {
    fprintf(stderr, "\n fatal error in Chv_zero(%p)"
            "\n type = %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -344,13 +344,13 @@ int      nD, nL, nU ;
 if ( chv == NULL || mtx == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_fill11block(%p,%p)"
            "\n bad input\n", chv, mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_fill11block(%p,%p)"
            "\n type = %d, must be real or complex\n", 
            chv, mtx, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -496,13 +496,13 @@ int      nD, nL, nU ;
 if ( chv == NULL || mtx == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_fill12block(%p,%p)"
            "\n bad input\n", chv, mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_fill12block(%p,%p)"
            "\n type = %d, must be real or complex\n", 
            chv, mtx, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -629,13 +629,13 @@ int      nD, nL, nU ;
 if ( chv == NULL || mtx == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_fillReal21block(%p,%p)"
            "\n bad input\n", chv, mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_fill21block(%p,%p)"
            "\n type = %d, must be real or complex\n", 
            chv, mtx, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;

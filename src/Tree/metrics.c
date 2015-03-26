@@ -31,7 +31,7 @@ if (  tree == NULL || tree->n <= 0
    || (vmetric = IV_entries(vmetricIV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setSubtreeImetric(%p,%p)"
            "\n bad input\n", tree, vmetricIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tmetricIV = IV_new() ;
 IV_init(tmetricIV, tree->n, NULL) ;
@@ -75,7 +75,7 @@ if (  tree == NULL || tree->n <= 0
    || (vmetric = DV_entries(vmetricDV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setSubtreeImetric(%p,%p)"
            "\n bad input\n", tree, vmetricDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tmetricDV = DV_new() ;
 DV_init(tmetricDV, tree->n, NULL) ;
@@ -122,7 +122,7 @@ if (  tree == NULL || tree->n < 1
    || (vmetric = IV_entries(vmetricIV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setDepthImetric(%p,%p)"
            "\n bad input\n", tree, vmetricIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dmetricIV = IV_new() ;
 IV_init(dmetricIV, tree->n, NULL) ;
@@ -169,7 +169,7 @@ if (  tree == NULL || tree->n < 1
    || (vmetric = DV_entries(vmetricDV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setDepthDmetric(%p,%p)"
            "\n bad input\n", tree, vmetricDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dmetricDV = DV_new() ;
 DV_init(dmetricDV, tree->n, NULL) ;
@@ -222,7 +222,7 @@ if (  tree == NULL || tree->n < 1
    if ( vmetricIV != NULL ) {
       IV_writeForHumanEye(vmetricIV, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 hmetricIV = IV_new() ; 
 IV_init(hmetricIV, tree->n, NULL) ; 
@@ -271,7 +271,7 @@ if (  tree == NULL || tree->n < 1
    || (vmetric = DV_entries(vmetricDV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setHeightDmetric(%p,%p)"
            "\n bad input\n", tree, vmetricDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 hmetricDV = DV_new() ; 
 DV_init(hmetricDV, tree->n, NULL) ; 

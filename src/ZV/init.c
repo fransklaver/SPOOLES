@@ -30,7 +30,7 @@ ZV_init (
 if ( zv == NULL || size < 0 ) {
    fprintf(stderr, "\n fatal error in ZV_init(%p,%d,%p)"
            "\n bad input\n", zv, size, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------
@@ -99,24 +99,24 @@ ZV_init2 (
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_init2(%p,%d,%d,%d,%p)"
            "\n bad input\n", zv, size, maxsize, owned, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( size < 0 || maxsize < size ) {
    fprintf(stderr, "\n fatal error in ZV_init2(%p,%d,%d,%d,%p)"
            "\n size = %d, maxsize = %d \n", 
            zv, size, maxsize, owned, vec, size, maxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( owned < 0 || 1 < owned ) {
    fprintf(stderr, "\n fatal error in ZV_init2(%p,%d,%d,%d,%p)"
            "\n owned = %d\n", zv, size, maxsize, owned, vec, owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( owned == 1 && vec == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_init2(%p,%d,%d,%d,%p)"
            "\n owned = %d and vec = %p", 
            zv, size, maxsize, owned, vec, owned, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 /*
    --------------
@@ -166,13 +166,13 @@ ZV_setMaxsize (
 if ( zv == NULL || newmaxsize < 0 ) {
    fprintf(stderr, "\n fatal error in ZV_setMaxsize(%p,%d)"
            "\n bad input\n", zv, newmaxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( zv->maxsize > 0 && zv->owned == 0 ) {
    fprintf(stderr, "\n fatal error in ZV_setMaxsize(%p,%d)"
            "\n zv->maxsize = %d, zv->owned = %d\n", 
            zv, newmaxsize, zv->maxsize, zv->owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( zv->maxsize != newmaxsize ) {
 /*
@@ -191,7 +191,7 @@ if ( zv->maxsize != newmaxsize ) {
          fprintf(stderr, "\n fatal error in ZV_setMaxsize(%p,%d)"
                  "\n zv->size = %d, zv->vec is NULL\n", 
                  zv, newmaxsize, zv->size) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( zv->size <= newmaxsize ) {
          DVcopy(2*zv->size, vec, zv->vec) ;
@@ -245,13 +245,13 @@ ZV_setSize (
 if ( zv == NULL || newsize < 0 ) {
    fprintf(stderr, "\n fatal error in ZV_setSize(%p,%d)"
            "\n bad input\n", zv, newsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( 0 < zv->maxsize && zv->maxsize < newsize && zv->owned == 0 ) {
    fprintf(stderr, "\n fatal error in ZV_setSize(%p,%d)"
            "\n zv->maxsize = %d, newsize = %d, zv->owned = %d\n", 
            zv, newsize, zv->maxsize, newsize, zv->owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( zv->maxsize < newsize ) {
 /*

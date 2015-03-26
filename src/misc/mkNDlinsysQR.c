@@ -87,7 +87,7 @@ if (  (n1 == 1 && n2 == 1)
    || (n1 == 2 && n3 == 1) ) {
    fprintf(stderr, "\n fatal error in mkNDlinsysQR"
            "\n n1 = %d, n2 = %d, n3 = %d\n", n1, n2, n3) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n1 == 1 ) {
    adjIVL = IVL_make9P(n2, n3, 1) ;

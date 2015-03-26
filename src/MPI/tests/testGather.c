@@ -111,7 +111,7 @@ fprintf(msgFile,
 fflush(msgFile) ;
 if ( inc1 != 1 && inc2 != 1 ) {
    fprintf(stderr, "\n fatal error, inc1 = %d, inc2 = %d", inc1, inc2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------
@@ -147,7 +147,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
    if ( counts[iproc] == 0 ) {
       fprintf(stderr, "\n proc %d has no rows", iproc) ;
       MPI_Finalize() ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 nrowX = counts[myid] ;

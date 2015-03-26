@@ -44,31 +44,31 @@ if ( g == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n graph is NULL\n",
            g, type, nvtx, nvbnd, nedges, adjType, ewghtType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( type < 0 || type >= 4 ) {
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n invalid type = %d, must be in [0,3]\n",
            g, type, nvtx, nvbnd, nedges, adjType, ewghtType, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nvtx <= 0 ) {
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n nvtx = %d, must be positive\n",
            g, type, nvtx, nvbnd, nedges, adjType, ewghtType, nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nvbnd < 0 ) {
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n nvbnd = %d, must be nonnegative\n",
            g, type, nvtx, nvbnd, nedges, adjType, ewghtType, nvbnd) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nedges < 0 ) {
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n nedges = %d, must be nonnegative\n",
            g, type, nvtx, nvbnd, nedges, adjType, ewghtType, nedges) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYTRACE > 0
 fprintf(stdout, "\n input checks out") ;
@@ -83,7 +83,7 @@ default :
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n invalid adjType = %d\n",
            g, type, nvtx, nvbnd, nedges, adjType, ewghtType, adjType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( ewghtType ) {
 case IVL_CHUNKED :
@@ -94,7 +94,7 @@ default :
    fprintf(stderr, "\n fatal error in Graph_init1(%p,%d,%d,%d,%d,%d,%d)"
            "\n invalid ewghtType = %d\n",
         g, type, nvtx, nvbnd, nedges, adjType, ewghtType, ewghtType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------
@@ -207,7 +207,7 @@ if ( g == NULL ) {
         "\n graph is NULL\n",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( type < 0 || type >= 4 ) {
    fprintf(stdout, 
@@ -215,7 +215,7 @@ if ( type < 0 || type >= 4 ) {
         "\n invalid type = %d, must be in [0,3]\n",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nvtx <= 0 ) {
    fprintf(stdout, 
@@ -223,7 +223,7 @@ if ( nvtx <= 0 ) {
         "\n nvtx = %d, must be positive\n",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL, nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nvbnd < 0 ) {
    fprintf(stdout, 
@@ -231,7 +231,7 @@ if ( nvbnd < 0 ) {
         "\n nvbnd = %d, must be nonnegative\n",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL, nvbnd) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nedges < 0 ) {
    fprintf(stdout, 
@@ -239,7 +239,7 @@ if ( nedges < 0 ) {
         "\n nedges = %d, must be nonnegative\n",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL, nedges) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( adjIVL == NULL ) {
    fprintf(stdout, 
@@ -247,7 +247,7 @@ if ( adjIVL == NULL ) {
         "\n adjIVL is NULL\n",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (type % 2 == 1) && (vwghts == NULL) ) {
    fprintf(stdout, 
@@ -255,7 +255,7 @@ if ( (type % 2 == 1) && (vwghts == NULL) ) {
         "\n type = %d, vwghts is NULL",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (type >= 2) && (ewghtIVL == NULL) ) {
    fprintf(stdout, 
@@ -263,7 +263,7 @@ if ( (type >= 2) && (ewghtIVL == NULL) ) {
         "\n type = %d, ewghtIVL is NULL",
         g, type, nvtx, nvbnd, nedges, totvwght, totewght,
         adjIVL, vwghts, ewghtIVL, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------

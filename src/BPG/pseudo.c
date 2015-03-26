@@ -27,7 +27,7 @@ int   *dist, *list, *mark ;
 if ( bpg == NULL ) {
    fprintf(stderr, "\n fatal error in BPG_pseudoperipheralnode(%p,%d)"
            "\n bad input\n", bpg, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( seed < 0 ) {
    seed = - seed ;
@@ -120,7 +120,7 @@ if ( bpg == NULL || root < 0 || root >= bpg->nX + bpg->nY
    fprintf(stderr, 
            "\n fatal error in BPG_levelStructure(%p,%d,%p,%p,%p,%d)"
            "\n bad input\n", bpg, root, list, dist, mark, tag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 #if MYDEBUG > 0

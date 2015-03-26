@@ -38,7 +38,7 @@ DenseMtx_setDefaultFields (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setDefaultFields(%p)"
            "\n bad input", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mtx->type    =  SPOOLES_REAL ;
 mtx->rowid   =  -1  ;
@@ -75,7 +75,7 @@ DenseMtx_clearData (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_clearData(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -107,7 +107,7 @@ DenseMtx_free (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_free(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_clearData(mtx) ;
 FREE(mtx) ;

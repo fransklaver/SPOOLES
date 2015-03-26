@@ -58,14 +58,14 @@ if (  chv == NULL || workDV == NULL || tau < 1.0 || ndelay < 0
            "\n fatal error in Chv_findPivot(%p,%p,%f,%d,%p,%p,%p)"
            "\n bad input\n", 
            chv, workDV, tau, ndelay, pirow, pjcol, pntest) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, 
            "\n fatal error in Chv_findPivot(%p,%p,%f,%d,%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            chv, workDV, tau, ndelay, pirow, pjcol, pntest, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) 
         || CHV_IS_NONSYMMETRIC(chv)) ) {
@@ -74,7 +74,7 @@ if ( !(CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv)
         "\n bad symflag %d"
         "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN or CHV_NONSYMMETRIC\n",
         chv, workDV, tau, ndelay, pirow, pjcol, pntest, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
    rc = findPivotSH(chv, workDV, tau, ndelay, pirow, pjcol, pntest) ;
@@ -85,7 +85,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
            "\n fatal error in Chv_findPivot(%p,%p,%f,%d,%p,%p,%p)"
            "\n bad symflag %d\n", chv, workDV, tau, ndelay, pirow, 
            pjcol, pntest, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(rc) ; }
 

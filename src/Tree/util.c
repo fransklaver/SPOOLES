@@ -23,7 +23,7 @@ int   v ;
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_postOTfirst(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------
@@ -56,7 +56,7 @@ Tree_postOTnext (
 if ( tree == NULL || tree->n < 1 || v < 0 || v >= tree->n ) {
    fprintf(stderr, "\n fatal error in Tree_postOTnext(%p,%d)"
            "\n bad input\n", tree, v) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------------------------
@@ -93,7 +93,7 @@ Tree_preOTfirst (
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_preOTfirst(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(tree->root) ; }
 
@@ -118,7 +118,7 @@ Tree_preOTnext (
 if ( tree == NULL || tree->n < 1 || v < 0 || v >= tree->n ) {
    fprintf(stderr, "\n fatal error in Tree_preOTnext(%p,%d)"
            "\n bad input\n", tree, v) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -156,7 +156,7 @@ int   nleaf, v ;
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_nleaves(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
  
 nleaf = 0 ;
@@ -188,7 +188,7 @@ int   nroot, v ;
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_nroots(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
  
 nroot = 0 ;
@@ -223,12 +223,12 @@ int   nchild, w ;
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_nchild(%p,%d)"
            "\n bad input\n", tree, v) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( v < 0 || v >= tree->n ) {
    fprintf(stderr, "\n fatal error in Tree_nchild(%p,%d)"
            "\n v = %d, size = %d\n", tree, v, v, tree->n) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nchild = 0 ;
 for ( w = tree->fch[v] ; w != -1 ; w = tree->sib[w] ) {
@@ -260,7 +260,7 @@ IV    *nchildIV ;
 if ( tree == NULL || (n = tree->n) < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_nchildIV(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nchildIV = IV_new() ;
 IV_init(nchildIV, n, NULL) ;
@@ -297,7 +297,7 @@ int   *heights ;
 if ( tree == NULL || tree->n < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_height(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 heights = IVinit(tree->n, 1) ;
 for ( v = Tree_postOTfirst(tree) ;
@@ -349,7 +349,7 @@ int   *fch, *sib ;
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_maxNchild(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 n   = tree->n   ;
 fch = tree->fch ;
@@ -384,7 +384,7 @@ int   nbytes ;
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_sizeOf(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
  
 nbytes = sizeof(struct _Tree) + 3*tree->n*sizeof(int) ;

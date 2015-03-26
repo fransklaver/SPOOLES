@@ -22,7 +22,7 @@ DenseMtx_rowid (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_rowid(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->rowid) ; }
 
@@ -46,7 +46,7 @@ DenseMtx_colid (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_colid(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->colid) ; }
 
@@ -72,7 +72,7 @@ DenseMtx_dimensions (
 if ( mtx == NULL || pnrow == NULL || pncol == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_dimensions(%p,%p,%p)"
            "\n bad input\n", mtx, pnrow, pncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnrow = mtx->nrow ;
 *pncol = mtx->ncol ;
@@ -99,7 +99,7 @@ DenseMtx_rowIncrement (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_rowIncrement(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->inc1) ; }
 
@@ -123,7 +123,7 @@ DenseMtx_columnIncrement (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_columnIncrement(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->inc2) ; }
 
@@ -149,7 +149,7 @@ DenseMtx_rowIndices (
 if ( mtx == NULL || pnrow == NULL || prowind == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_rowIndices(%p,%p,%p)"
            "\n bad input\n", mtx, pnrow, prowind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnrow   = mtx->nrow   ;
 *prowind = mtx->rowind ;
@@ -178,7 +178,7 @@ DenseMtx_columnIndices (
 if ( mtx == NULL || pncol == NULL || pcolind == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_columnIndices(%p,%p,%p)"
            "\n bad input\n", mtx, pncol, pcolind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pncol   = mtx->ncol   ;
 *pcolind = mtx->colind ;
@@ -205,7 +205,7 @@ DenseMtx_entries(
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_entries(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(mtx->entries) ; }
 
@@ -229,7 +229,7 @@ DenseMtx_workspace(
 if (  mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_workspace(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(DV_entries(&mtx->wrkDV)) ; }
 
@@ -256,27 +256,27 @@ DenseMtx_realEntry (
 if ( mtx == NULL || pValue == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_realEntry()"
            "\n mtx or pValue is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->type != SPOOLES_REAL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_realEntry()"
            "\n mtx type must be SPOOLES_REAL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->nrow ) {
    fprintf(stderr, "\n fatal error in DenseMtx_realEntry()"
            "\n irow = %d, mtx->nrow = %d input\n", irow, mtx->nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_realEntry()"
            "\n jcol = %d, mtx->ncol = %d input\n", jcol, mtx->ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_realEntry()"
            "\n mtx->entries is NULL \n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pValue = mtx->entries[irow*mtx->inc1 + jcol*mtx->inc2] ;
 
@@ -307,27 +307,27 @@ int   loc ;
 if ( mtx == NULL || pReal == NULL || pImag == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_complexEntry()"
            "\n mtxm pReal or pImag is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->type != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n fatal error in DenseMtx_complexEntry()"
            "\n mtx type must be SPOOLES_COMPLEX\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->nrow ) {
    fprintf(stderr, "\n fatal error in DenseMtx_complexEntry()"
            "\n irow = %d, mtx->nrow = %d input\n", irow, mtx->nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_complexEntry()"
            "\n jcol = %d, mtx->ncol = %d input\n", jcol, mtx->ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_complexEntry()"
            "\n mtx->entries is NULL \n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = 2*(irow*mtx->inc1 + jcol*mtx->inc2) ;
 *pReal = mtx->entries[loc]   ;
@@ -358,27 +358,27 @@ DenseMtx_setRealEntry (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setRealEntry()"
            "\n mtx is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->type != SPOOLES_REAL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setRealEntry()"
            "\n mtx type must be SPOOLES_REAL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->nrow ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setRealEntry()"
            "\n irow = %d, mtx->nrow = %d input\n", irow, mtx->nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setRealEntry()"
            "\n jcol = %d, mtx->ncol = %d input\n", jcol, mtx->ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setRealEntry()"
            "\n mtx->entries is NULL \n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mtx->entries[irow*mtx->inc1 + jcol*mtx->inc2] = value ;
 
@@ -409,27 +409,27 @@ int   loc ;
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setComplexEntry()"
            "\n mtx is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->type != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setComplexEntry()"
            "\n mtx type must be SPOOLES_COMPLEX\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( irow < 0 || irow >= mtx->nrow ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setComplexEntry()"
            "\n irow = %d, mtx->nrow = %d input\n", irow, mtx->nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( jcol < 0 || jcol >= mtx->ncol ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setComplexEntry()"
            "\n jcol = %d, mtx->ncol = %d input\n", jcol, mtx->ncol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtx->entries == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_setComplexEntry()"
            "\n mtx->entries is NULL \n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc = 2*(irow*mtx->inc1 + jcol*mtx->inc2) ;
 mtx->entries[loc]   = real ;

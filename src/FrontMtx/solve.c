@@ -61,7 +61,7 @@ if ( frontmtx == NULL || solmtx == NULL || rhsmtx == NULL
            "\n    msglvl = %d, msgFile = %p\n",
            frontmtx, solmtx, rhsmtx, mtxmanager, 
            cpus, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront  = FrontMtx_nfront(frontmtx) ;
 tree    = FrontMtx_frontTree(frontmtx) ;

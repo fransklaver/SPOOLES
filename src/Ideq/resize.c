@@ -31,7 +31,7 @@ int   *ivec, *tmp ;
 if ( deq == NULL || newsize < 0 ) {
    fprintf(stderr, "\n fatal error in Ideq_resize(%p,%d)"
            "\n bad input\n", deq, newsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------------

@@ -49,19 +49,19 @@ SubMtx_solveupd (
 if ( mtxY == NULL || mtxA == NULL || mtxX == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_solveupd(%p,%p,%p)"
            "\n bad input\n", mtxY, mtxA, mtxX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxY->mode != SUBMTX_DENSE_COLUMNS ) {
    fprintf(stderr, "\n fatal error in SubMtx_solveupd(%p,%p,%p)"
            "\n Y must have mode SUBMTX_DENSE_COLUMNS\n", 
            mtxY, mtxA, mtxX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxX->mode != SUBMTX_DENSE_COLUMNS ) {
    fprintf(stderr, "\n fatal error in SubMtx_solveupd(%p,%p,%p)"
            "\n X must have mode SUBMTX_DENSE_COLUMNS\n", 
            mtxY, mtxA, mtxX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mtxA->type ) {
 case SPOOLES_REAL :
@@ -82,7 +82,7 @@ case SPOOLES_REAL :
       fprintf(stderr, "\n fatal error in SubMtx_solveupd(%p,%p,%p)"
               "\n unsupported mode %d for A\n",
               mtxY, mtxA, mtxX, mtxA->mode) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -105,7 +105,7 @@ case SPOOLES_COMPLEX :
               "\n unsupported mode %d for A\n",
               mtxY, mtxA, mtxX, mtxA->mode) ;
       SubMtx_writeForHumanEye(mtxA, stderr) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -113,7 +113,7 @@ default :
    fprintf(stderr, "\n fatal error in SubMtx_solveupd(%p,%p,%p)"
            "\n unsupported type %d for A\n",
            mtxY, mtxA, mtxX, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return ; }

@@ -48,7 +48,7 @@ if ( argc != 9 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -84,7 +84,7 @@ ncolX = ncolB ;
 */
 if ( nrowA <= 0 || nentA <= 0 || ncolB <= 0 ) {
    fprintf(stderr, "\n invalid input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -98,7 +98,7 @@ case SPOOLES_REAL :
       break ;
    default :
       fprintf(stderr, "\n invalid mode %d\n", mode) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 case SPOOLES_COMPLEX :
@@ -113,12 +113,12 @@ case SPOOLES_COMPLEX :
       break ;
    default :
       fprintf(stderr, "\n invalid mode %d\n", mode) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 default :
    fprintf(stderr, "\n invalid type %d\n", type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 /*
@@ -214,7 +214,7 @@ case SUBMTX_BLOCK_DIAGONAL_HERM :
 default :
    fprintf(stderr, "\n fatal error in test_solve"
            "\n invalid mode = %d", mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n %% A SubMtx object") ;

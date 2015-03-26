@@ -21,7 +21,7 @@ DSTree_tree (
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_tree(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(dstree->tree) ; }
 
@@ -45,7 +45,7 @@ DSTree_mapIV (
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_mapIV(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(dstree->mapIV) ; }
 

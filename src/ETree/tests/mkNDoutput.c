@@ -105,7 +105,7 @@ if ( maptype < 0 || maptype > 4 ) {
            "\n 2 -- balanced map"
            "\n 3 -- subtree-subset map"
            "\n 4 -- domain decomposition map\n", maptype) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------

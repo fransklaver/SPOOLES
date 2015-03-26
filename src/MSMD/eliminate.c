@@ -27,7 +27,7 @@ MSMDvtx   *v ;
 if (  msmd == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_eliminateStage(%p,%p)"
            "\n bad input\n", msmd, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 stage = info->istage ;
 /*
@@ -122,7 +122,7 @@ while ( 1 ) {
       if ( reach[ii] < 0 || reach[ii] >= msmd->nvtx ) {
          fprintf(stderr, "\n fatal error in MSMD_eliminateStage()"
                  "\n reach[%d] = %d", ii, reach[ii]) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       v = msmd->vertices + reach[ii] ;
       if ( v->status == 'I' ) {
@@ -197,7 +197,7 @@ MSMDvtx   *v ;
 if ( msmd == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_eliminate(%p,%p)"
            "\n bad input\n", msmd, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------
@@ -319,7 +319,7 @@ MSMDvtx   *u, *w ;
 if ( msmd == NULL || v == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_eliminateVtx(%p,%p,%p)"
            "\n bad input\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 adj     = IV_entries(&msmd->ivtmpIV) ;
 reachIV = &msmd->reachIV ;
@@ -504,7 +504,7 @@ for ( i = 0 ; i < nbnd ; i++ ) {
          fprintf(stderr, "\n fatal error in MSMD_eliminateVtx%p,%p,%p)"
                  "\n unable to allocate more IP objects",
                  msmd, v, info) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( info->msglvl > 4 ) {
          fprintf(info->msgFile, "\n   old baseIP = %p", msmd->baseIP) ;
@@ -576,7 +576,7 @@ for ( i = 0 ; i < nbnd ; i++ ) {
               "\n status[%d] = '%c'\n",
               msmd, v, info, wid, w->status) ;
       fprintf(stderr, "\n msmd->nvtx = %d", msmd->nvtx) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 /*
    --------------------------------

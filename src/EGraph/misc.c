@@ -33,7 +33,7 @@ fflush(stdout) ;
 if ( n1 <= 0 || n2 <= 0 || ncomp <= 0 ) {
    fprintf(stderr, "\n fatal error in EGraph_make9P(%d,%d,%d)"
            "\n bad input\n", n1, n2, ncomp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------
@@ -109,7 +109,7 @@ int       *list ;
 if ( n1 <= 0 || n2 <= 0 || n3 <= 0 || ncomp <= 0 ) {
    fprintf(stderr, "\n fatal error in EGraph_make27P(%d,%d,%d,%d)"
            "\n bad input\n", n1, n2, n3, ncomp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n inside EGraph_make27P(%d,%d,%d,%d)", 

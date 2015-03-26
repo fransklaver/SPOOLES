@@ -67,7 +67,7 @@ if (  gpart == NULL || (g = gpart->g) == NULL
    || alpha < 0.0 ) {
    fprintf(stderr, "\n fatal error in GPart_smoothSep(%p,%p,%p,%f)"
            "\n bad input\n", gpart, YVmapIV, YCmapIV, alpha) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 compids  = IV_entries(&gpart->compidsIV)  ;
 cweights = IV_entries(&gpart->cweightsIV) ;
@@ -351,7 +351,7 @@ if ( g == NULL || (nvtx = g->nvtx) <= 0 || compids == NULL
      || NYmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in createNetwork(%p,%p,%p,%p,%p)"
            "\n bad input\n", g, compids, YVmapIV, NYmapIV, YCmapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vwghts = g->vwghts ;
 if ( vwghts == NULL ) {
@@ -378,7 +378,7 @@ for ( y = 0 ; y < nY ; y++ ) {
    default : 
       fprintf(stderr, "\n fatal error, y = %d, YCmap[%d] = %d",
               y, y, YCmap[y]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 mnode = 1 + n1 + n12 + 2*n0 + n2 + 1 ;
@@ -448,7 +448,7 @@ for ( y = 0 ; y < nY ; y++ ) {
       fprintf(stderr,
               "\n fatal error, y = %d, v = %d, YCmap[%d] = %d",
               y, v, y, YCmap[y]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 if ( msglvl > 4 ) {
@@ -596,7 +596,7 @@ for ( y = 0 ; y < nY ; y++ ) {
       fprintf(stderr,
               "\n fatal error, y = %d, v = %d, YCmap[%d] = %d",
               y, v, y, YCmap[y]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*
@@ -698,7 +698,7 @@ while ( ynet < sink ) {
       fprintf(stderr, "\n fatal error in getNewCompids()"
               "\n ynet = %d, y = %d, YCmap[%d] = %d",
               ynet, y, y, YCmap[y]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( msglvl > 2 ) {
       fprintf(msgFile, ", Ycompids[%d] = %d", y, Ycompids[y]) ;

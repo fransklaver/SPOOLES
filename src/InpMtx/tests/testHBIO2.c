@@ -58,7 +58,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 inpmtx = InpMtx_new() ;

@@ -18,7 +18,7 @@ GPart_init (
 if ( gpart == NULL || g == NULL || g->nvtx <= 0 ) {
    fprintf(stderr, "\n fatal error in GPart_init(%p,%p)"
            "\n bad input\n", gpart, g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 GPart_clearData(gpart) ;
 gpart->nvtx     = g->nvtx  ;
@@ -47,7 +47,7 @@ GPart_setMessageInfo (
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_setMessageInfo(%p,%d,%p)"
            "\n bad input\n", gpart, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 gpart->msglvl = msglvl ;
 if ( msgFile != NULL ) {

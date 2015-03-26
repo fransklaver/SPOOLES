@@ -67,7 +67,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inFrontMtxFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 frontmtx = FrontMtx_new() ;
 MARKTIME(t1) ;
@@ -79,7 +79,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from FrontMtx_readFromFile(%p,%s)",
            rc, frontmtx, inFrontMtxFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading FrontMtx object from file %s",
         inFrontMtxFileName) ;
@@ -96,7 +96,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inInpMtxFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 inpmtx = InpMtx_new() ;
 MARKTIME(t1) ;
@@ -108,7 +108,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from InpMtx_readFromFile(%p,%s)",
            rc, inpmtx, inInpMtxFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading InpMtx object from file %s",
         inInpMtxFileName) ;
@@ -125,7 +125,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inIVfileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 frontmapIV = IV_new() ;
 MARKTIME(t1) ;
@@ -137,7 +137,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from IV_readFromFile(%p,%s)",
            rc, frontmapIV, inIVfileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading IV object from file %s",
         inIVfileName) ;

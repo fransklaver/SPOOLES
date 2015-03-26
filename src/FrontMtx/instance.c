@@ -22,7 +22,7 @@ FrontMtx_nfront (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nfront(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(frontmtx->nfront) ; }
  
@@ -46,7 +46,7 @@ FrontMtx_neqns (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_neqns(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(frontmtx->neqns) ; }
  
@@ -70,7 +70,7 @@ FrontMtx_frontTree (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_frontTree(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(frontmtx->tree) ; }
  
@@ -105,7 +105,7 @@ if (  frontmtx == NULL || J < 0 || J >= frontmtx->nfront
            "\n frontmtx = %p, J = %d, pnD = %p, "
            "pnL = %p, pnU = %p, pnbytes = %p",
            frontmtx, J, pnD, pnL, pnU, pnbytes) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( frontmtx->type ) {
 case SPOOLES_REAL :
@@ -117,7 +117,7 @@ case SPOOLES_REAL :
       fprintf(stderr, 
               "\n fatal error in FrontMtx_initialFrontDimensions()"
               "\n real type, must be symmetric or nonsymmetric\n") ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
   break ;
@@ -131,7 +131,7 @@ case SPOOLES_COMPLEX :
               "\n fatal error in FrontMtx_initialFrontDimensions()"
               "\n complex type, must be symmetric,"
               "\n hermitian or nonsymmetric\n") ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -139,7 +139,7 @@ default :
    fprintf(stderr, 
            "\n fatal error in FrontMtx_initialFrontDimensions()"
            "\n bad type, must be real or complex") ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 nD = frontmtx->frontETree->nodwghtsIV->vec[J] ;
@@ -175,7 +175,7 @@ if ( frontmtx == NULL || frontmtx->frontsizesIV == NULL
    || J < 0 || J >= frontmtx->nfront ) {
    fprintf(stderr, "\n fatal error in FrontMtx_frontSize(%p,%d)"
            "\n bad input\n", frontmtx, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entry(frontmtx->frontsizesIV, J)) ; }
 
@@ -202,7 +202,7 @@ if ( frontmtx == NULL || frontmtx->frontsizesIV == NULL
    || J < 0 || J >= frontmtx->nfront || size < 0 ) {
    fprintf(stderr, "\n fatal error in FrontMtx_setFrontSize(%p,%d,%d)"
            "\n bad input\n", frontmtx, J, size) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_setEntry(frontmtx->frontsizesIV, J, size) ;
 
@@ -234,7 +234,7 @@ if ( frontmtx == NULL || J < 0 || J >= frontmtx->nfront
    fprintf(stderr, 
            "\n fatal error in FrontMtx_columnIndices(%p,%d,%p,%p)"
            "\n bad input\n", frontmtx, J, pncol, pcolind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! FRONTMTX_IS_PIVOTING(frontmtx) ) {
    IVL_listAndSize(frontmtx->symbfacIVL, J, pncol, pcolind) ;
@@ -269,7 +269,7 @@ if ( frontmtx == NULL || J < 0 || J >= frontmtx->nfront
    fprintf(stderr, 
            "\n fatal error in FrontMtx_rowIndices(%p,%d,%p,%p)"
            "\n bad input\n", frontmtx, J, pnrow, prowind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! FRONTMTX_IS_PIVOTING(frontmtx) ) {
    IVL_listAndSize(frontmtx->symbfacIVL, J, pnrow, prowind) ;
@@ -302,7 +302,7 @@ FrontMtx_diagMtx (
 if ( frontmtx == NULL || J < 0 || J >= frontmtx->nfront ) {
    fprintf(stderr, "\n fatal error in FrontMtx_diagMtx(%p,%d)"
            "\n bad input\n", frontmtx, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(frontmtx->p_mtxDJJ[J]) ; }
  
@@ -332,7 +332,7 @@ if ( frontmtx == NULL
    || K < J || K > frontmtx->nfront ) {
    fprintf(stderr, "\n fatal error in FrontMtx_upperMtx(%p,%d,%d)"
            "\n bad input\n", frontmtx, J, K) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    if ( K == frontmtx->nfront ) {
@@ -376,7 +376,7 @@ if ( frontmtx == NULL
    || K < J || K > frontmtx->nfront ) {
    fprintf(stderr, "\n fatal error in FrontMtx_lowerMtx(%p,%d,%d)"
            "\n bad input\n", frontmtx, K, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    if ( K == frontmtx->nfront ) {
@@ -422,12 +422,12 @@ if ( frontmtx == NULL
    fprintf(stderr,
            "\n fatal error in FrontMtx_lowerAdjFronts(%p,%d,%p,%p)"
           "\n bad input\n", frontmtx, J, pnadj, padj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_lowerAdjFronts()"
            "\n data mode is 1-D, not 2-D\n") ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( FRONTMTX_IS_NONSYMMETRIC(frontmtx) ) {
    IVL_listAndSize(frontmtx->lowerblockIVL, J, pnadj, padj) ;
 } else {
@@ -463,12 +463,12 @@ if ( frontmtx == NULL
    fprintf(stderr,
            "\n fatal error in FrontMtx_upperAdjFronts(%p,%d,%p,%p)"
           "\n bad input\n", frontmtx, J, pnadj, padj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_upperAdjFronts()"
            "\n data mode is 1, not 2\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVL_listAndSize(frontmtx->upperblockIVL, J, pnadj, padj) ;
  
@@ -495,12 +495,12 @@ int   nblocks ;
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nLowerBlocks(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nLowerBlocks()"
            "\n data mode is 1, not 2\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_NONSYMMETRIC(frontmtx) ) {
    nblocks = frontmtx->lowerblockIVL->tsize ;
@@ -529,12 +529,12 @@ FrontMtx_nUpperBlocks (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nUpperBlocks(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nUpperBlocks()"
            "\n data mode is 1, not 2\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(frontmtx->upperblockIVL->tsize) ; }
  
@@ -558,12 +558,12 @@ FrontMtx_upperBlockIVL (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_upperBlockIVL(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_upperBlockIVL()"
            "\n data mode is 1, not 2\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(frontmtx->upperblockIVL) ; }
  
@@ -588,12 +588,12 @@ IVL    *ivl ;
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_lowerBlockIVL(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_1D_MODE(frontmtx) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_lowerBlockIVL()"
            "\n data mode is 1, not 2\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( FRONTMTX_IS_NONSYMMETRIC(frontmtx) ) {
    ivl = frontmtx->lowerblockIVL ;

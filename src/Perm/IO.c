@@ -146,7 +146,7 @@ if ( isPresent == 2 || isPresent == 3 ) {
       fprintf(stderr, "\n error in Perm_readFromFormattedFile(%p,%p)"
              "\n %d items of %d read\n", 
              perm, fp, rc, size) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( i = 0 ; i < size ; i++ ) {
       if ( oldToNew[i] == size ) {
@@ -168,7 +168,7 @@ if ( isPresent == 1 || isPresent == 3 ) {
       fprintf(stderr, "\n error in Perm_readFromFormattedFile(%p,%p)"
              "\n %d items of %d read\n", 
              perm, fp, rc, size) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( i = 0 ; i < size ; i++ ) {
       if ( newToOld[i] == size ) {
@@ -187,7 +187,7 @@ if ( isPresent == 1 || isPresent == 3 ) {
 if ( Perm_checkPerm(perm) != 1 ) {
    fprintf(stderr, "\n fatal error in Perm_readFromFormattedFile(%p,%p)"
            "\n permutation is not valid\n", perm, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 return(1) ; }
@@ -258,7 +258,7 @@ if ( isPresent == 2 || isPresent == 3 ) {
    if ( (rc = fread(oldToNew, sizeof(int), size, fp)) != size ) {
       fprintf(stderr, "\n error in Perm_readFromBinaryFile(%p,%p)"
               "\n %d items of %d read\n", perm, fp, rc, size) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( i = 0 ; i < size ; i++ ) {
       if ( oldToNew[i] == size ) {
@@ -279,7 +279,7 @@ if ( isPresent == 1 || isPresent == 3 ) {
    if ( (rc = fread(newToOld, sizeof(int), size, fp)) != size ) {
       fprintf(stderr, "\n error in Perm_readFromBinaryFile(%p,%p)"
               "\n %d items of %d read\n", perm, fp, rc, size) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( i = 0 ; i < size ; i++ ) {
       if ( newToOld[i] == size ) {
@@ -293,7 +293,7 @@ if ( isPresent == 1 || isPresent == 3 ) {
 if ( Perm_checkPerm(perm) != 1 ) {
    fprintf(stderr, "\n fatal error in Perm_readFromFormattedFile(%p,%p)"
            "\n permutation is not valid\n", perm, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 return(1) ; }
@@ -403,7 +403,7 @@ int   ierr, rc ;
 if ( perm == NULL || fp == NULL || perm->size <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_writeToFormattedFile(%p,%p)"
            "\n bad input\n", perm, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------
@@ -474,7 +474,7 @@ int   itemp[3] ;
 if ( perm == NULL || fp == NULL || (size = perm->size) <= 0 ) {
    fprintf(stderr, "\n fatal error in Perm_writeToBinaryFile(%p,%p)"
            "\n bad input\n", perm, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------
@@ -539,7 +539,7 @@ int   ierr, rc ;
 if ( perm == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Perm_writeForHumanEye(%p,%p)"
            "\n bad input\n", perm, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = Perm_writeStats(perm, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in Perm_writeForHumanEye(%p,%p)"
@@ -582,7 +582,7 @@ int   rc ;
 if ( perm == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in Perm_writeStats(%p,%p)"
            "\n bad input\n", perm, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, "\n Perm : permutation object :") ;
 if ( rc < 0 ) { goto IO_error ; }

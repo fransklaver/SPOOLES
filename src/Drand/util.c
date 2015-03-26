@@ -23,7 +23,7 @@ double   sum, t ;
 if ( drand == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_value(%p)"
            "\n bad input\n", drand) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------
@@ -101,7 +101,7 @@ int   i ;
 if ( drand == NULL || size < 0 || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_fillZvector(%p,%d,%p)"
            "\n bad input\n", drand, size, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------
@@ -136,7 +136,7 @@ int   i ;
 if ( drand == NULL || size < 0 || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_fillDvector(%p,%d,%p)"
            "\n bad input\n", drand, size, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------
@@ -172,7 +172,7 @@ int   i ;
 if ( drand == NULL || size < 0 || ivec == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_fillIvector(%p,%d,%p)"
            "\n bad input\n", drand, size, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------

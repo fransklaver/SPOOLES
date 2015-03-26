@@ -28,7 +28,7 @@ int     *list, *mark, *xadj, *yadj ;
 if ( bpg == NULL ) {
    fprintf(stdout, "\n fatal error in BPG_makeGraphXbyX(%p)"
            "\n bad input\n", bpg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------
@@ -109,7 +109,7 @@ int     *list, *mark, *xadj, *yadj ;
 if ( bpg == NULL ) {
    fprintf(stdout, "\n fatal error in BPG_makeGraphXbyX(%p)"
            "\n bad input\n", bpg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------

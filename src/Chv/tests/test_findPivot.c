@@ -49,7 +49,7 @@ if ( argc != 9 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -88,13 +88,13 @@ if (  nD <= 0 || nU < 0
    fprintf(stderr, "\n invalid input"
       "\n nD = %d, nL = %d, nU = %d, symflag = %d\n",
            nD, nL, nU, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  (symflag ==  SPOOLES_SYMMETRIC || symflag ==  SPOOLES_HERMITIAN) 
    && nL != nU ) {
    fprintf(stderr, "\n invalid input"
       "\n symflag = %d, nL = %d, nU = %d", symflag, nL, nU) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile,
         "\n nD = %d ;"
@@ -186,7 +186,7 @@ fprintf(msgFile, "\n\n irow = %d ; \n jcol = %d ;", irow+1, jcol+1) ;
    -------------------------
 */
 if ( pivotsize == 0 ) {
-   exit(0) ;
+   spoolesFatal();
 } else if ( pivotsize == 1 ) {
    fprintf(msgFile, 
            "\n b = a ;"
@@ -223,7 +223,7 @@ if ( pivotsize == 0 ) {
    } else {
       fprintf(stderr, "\n fatal error, symflag = %d, pvtsize = %d",
               symflag, pivotsize) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*

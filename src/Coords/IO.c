@@ -312,7 +312,7 @@ if (   coords == NULL || fp == NULL
    || (size = coords->ndim * coords->ncoor) <= 0 ) {
    fprintf(stderr, "\n fatal error in Coords_writeToFormattedFile(%p,%p)"
            "\n bad input\n", coords, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -362,7 +362,7 @@ if (   coords == NULL || fp == NULL
    || (size = coords->ndim * coords->ncoor) <= 0 ) {
    fprintf(stderr, "\n fatal error in Coords_writeToBinaryFile(%p,%p)"
            "\n bad input\n", coords, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 itemp[0] = coords->type  ;
 itemp[1] = coords->ndim  ;
@@ -402,7 +402,7 @@ int   icoor, idim, rc ;
 if ( coords == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_writeForHumanEye(%p,%p)"
            "\n bad input\n", coords, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = Coords_writeStats(coords, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in Coords_writeForHumanEye(%p,%p)"
@@ -442,7 +442,7 @@ int   rc ;
 if ( coords == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in Coords_writeStats(%p,%p)"
            "\n bad input\n", coords, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, "\n Coords : coordinates object :") ;
 if ( rc < 0 ) { goto IO_error ; }

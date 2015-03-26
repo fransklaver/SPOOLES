@@ -53,7 +53,7 @@ if ( flag < 0 || flag > 1 ) {
    "\n flag must be 0 if indices and offsets are zero-based like C"
    "\n flag must be 1 if indices and offsets are one-based like Fortran"
    "\n", msglvl, argv[2], argv[3], argv[4], flag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, 
         "\n %s "
@@ -83,7 +83,7 @@ if ( (fp = fopen(argv[3], "r")) == NULL ) {
 if ( (rc = fscanf(fp, " %d %d", &nvtx, &nadj)) != 2 ) {
    fprintf(stderr, "\n fatal error in %s"
            "\n %d of %d items read\n", argv[0], rc, 2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 0 ) {
    fprintf(msgFile, "\n adjacency file has %d vertices and %d indices",
@@ -101,7 +101,7 @@ if ( rc != nvtx + 1 ) {
    fprintf(stderr, "\n fatal error in %s reading offsets"
            "\n %d of %d items read\n", 
            argv[0], rc, nvtx + 1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( flag == 1 ) {
 /*
@@ -129,7 +129,7 @@ if ( rc != nadj ) {
    fprintf(stderr, "\n fatal error in %s reading adjncy"
            "\n %d of %d items read\n", 
            argv[0], rc, nadj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( flag == 1 ) {
 /*
@@ -157,7 +157,7 @@ for ( ii = 0 ; ii < nadj ; ii++ ) {
       fprintf(stderr, "\n fatal error in mkGraph"
               "\n adjncy[%d] = %d, out of range in [0,%d]"
               "\n ", ii, v, nvtx-1) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 if ( msglvl > 3 ) {

@@ -27,7 +27,7 @@ int   *colind, *rowind ;
 if ( chv == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_writeForHumanEye(%p,%p)"
            "\n bad input\n", chv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 fprintf(fp, 
@@ -122,13 +122,13 @@ int      *colind, *rowind ;
 if ( chv == NULL || chvname == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", chv, chvname, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_writeForMatlab(%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, chvname, fp, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 Chv_rowIndices(chv, &nrow, &rowind) ;

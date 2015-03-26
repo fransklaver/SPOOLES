@@ -85,7 +85,7 @@ fflush(msgFile) ;
 neqns = n1*n2*n3 ;
 if ( type != SPOOLES_REAL && type != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n fatal error, type must be real or complex") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------------

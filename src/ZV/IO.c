@@ -296,7 +296,7 @@ if ( zv == NULL || fp == NULL || zv->size <= 0 ) {
    fprintf(stderr, "\n fatal error in ZV_writeToFormattedFile(%p,%p)"
            "\n bad input\n", zv, fp) ;
    fprintf(stderr, "\n zv->size = %d", zv->size) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -340,7 +340,7 @@ int   rc, size ;
 if ( zv == NULL || fp == NULL || zv->size <= 0 ) {
    fprintf(stderr, "\n fatal error in ZV_writeToBinaryFile(%p,%p)"
            "\n bad input\n", zv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = ZV_size(zv) ;
 rc = fwrite((void *) &size, sizeof(int), 1, fp) ;
@@ -379,7 +379,7 @@ int      ii, jj, rc, size ;
 if ( zv == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_writeForHumanEye(%p,%p)"
            "\n bad input\n", zv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = ZV_writeStats(zv, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in ZV_writeForHumanEye(%p,%p)"
@@ -422,7 +422,7 @@ int   rc ;
 if ( zv == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in ZV_writeStats(%p,%p)"
            "\n bad input\n", zv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, "\n ZV : double complex vector object : ") ;
 if ( rc < 0 ) { goto IO_error ; }
@@ -462,7 +462,7 @@ double   *z ;
 if ( zv == NULL || vecname == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", zv, vecname, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ZV_sizeAndEntries(zv, &size, &z) ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {

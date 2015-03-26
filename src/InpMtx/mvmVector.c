@@ -29,13 +29,13 @@ if ( A == NULL || y == NULL || alpha == NULL || x == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_nonsym_mmmVector(%p,%p,%p,%p)"
            "\n bad input\n", A, y, alpha, x) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_REAL_ENTRIES(A) || INPMTX_IS_COMPLEX_ENTRIES(A)) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_nonsym_mmmVector(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, y, alpha, x, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -51,7 +51,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
            "\n fatal error in InpMtx_nonsym_mmmVector(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, y, alpha, x, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_REAL_ENTRIES(A) ) {
@@ -241,13 +241,13 @@ if ( A == NULL || y == NULL || alpha == NULL || x == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_nonsym_mmmVector_T(%p,%p,%p,%p)"
            "\n bad input\n", A, y, alpha, x) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_REAL_ENTRIES(A) || INPMTX_IS_COMPLEX_ENTRIES(A)) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_nonsym_mmmVector_T(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, y, alpha, x, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -263,7 +263,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
            "\n fatal error in InpMtx_nonsym_mmmVector_T(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, y, alpha, x, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_REAL_ENTRIES(A) ) {
@@ -453,13 +453,13 @@ if ( A == NULL || y == NULL || alpha == NULL || x == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_nonsym_mmmVector_H(%p,%p,%p,%p)"
            "\n bad input\n", A, y, alpha, x) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(A) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_nonsym_mmmVector_H(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, y, alpha, x, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -475,7 +475,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
            "\n fatal error in InpMtx_nonsym_mmmVector_H(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, y, alpha, x, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_COMPLEX_ENTRIES(A) ) {
@@ -613,12 +613,12 @@ double   *dvec ;
 if ( A == NULL || y == NULL || alpha == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmmVector(%p,%p,%p,%p)"
            "\n bad input\n", A, y, alpha, x) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_REAL_ENTRIES(A) || INPMTX_IS_COMPLEX_ENTRIES(A)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmmVector(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, y, alpha, x, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -633,7 +633,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmmVector(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, y, alpha, x, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_REAL_ENTRIES(A) ) {
@@ -893,13 +893,13 @@ if ( A == NULL || y == NULL || alpha == NULL || x == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_herm_mmmVector(%p,%p,%p,%p)"
            "\n bad input\n", A, y, alpha, x) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(A) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_herm_mmmVector(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, y, alpha, x, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -915,7 +915,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
            "\n fatal error in InpMtx_herm_mmmVector(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, y, alpha, x, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_COMPLEX_ENTRIES(A) ) {

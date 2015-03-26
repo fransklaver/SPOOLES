@@ -38,7 +38,7 @@ ChvList_setDefaultFields (
 if ( chvlist == NULL ) {
    fprintf(stderr, "\n fatal error in ChvList_setDefaultFields(%p)"
            "\n bad input", chvlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 chvlist->nlist  =   0  ;
 chvlist->heads  = NULL ;
@@ -69,7 +69,7 @@ ChvList_clearData (
 if ( chvlist == NULL ) {
    fprintf(stderr, "\n fatal error in ChvList_clearData(%p)"
            "\n bad input\n", chvlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------
@@ -117,7 +117,7 @@ ChvList_free (
 if ( chvlist == NULL ) {
    fprintf(stderr, "\n fatal error in ChvList_free(%p)"
            "\n bad input\n", chvlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ChvList_clearData(chvlist) ;
 FREE(chvlist) ;

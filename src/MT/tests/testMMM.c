@@ -104,50 +104,50 @@ fprintf(msgFile,
 fflush(msgFile) ;
 if ( dataType != 1 && dataType != 2 ) {
    fprintf(stderr, "\n invalid value %d for dataType\n", dataType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( symflag != 0 && symflag != 1 && symflag != 2 ) {
    fprintf(stderr, "\n invalid value %d for symflag\n", symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( storageMode != 1 && storageMode != 2 && storageMode != 3 ) {
    fprintf(stderr, 
            "\n invalid value %d for storageMode\n", storageMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( transposeflag < 0
    || transposeflag > 2 ) {
    fprintf(stderr, "\n error, transposeflag = %d, must be 0, 1 or 2",
            transposeflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (transposeflag == 1 && symflag != 2)
    || (transposeflag == 2 && symflag != 2) ) {
    fprintf(stderr, "\n error, transposeflag = %d, symflag = %d",
            transposeflag, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( transposeflag == 1 && dataType != 2 ) {
    fprintf(stderr, "\n error, transposeflag = %d, dataType = %d",
            transposeflag, dataType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( symflag == 1 && dataType != 2 ) {
    fprintf(stderr, 
            "\n symflag = 1 (hermitian), dataType != 2 (complex)") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrowA <= 0 || ncolA <= 0 || nitem <= 0 ) {
    fprintf(stderr, 
            "\n invalid value: nrow = %d, ncol = %d, nitem = %d",
            nrowA, ncolA, nitem) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( symflag < 2 && nrowA != ncolA ) {
    fprintf(stderr,
            "\n invalid data: symflag = %d, nrow = %d, ncol = %d",
            symflag, nrowA, ncolA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 alpha[0] = alphaReal ;
 alpha[1] = alphaImag ;

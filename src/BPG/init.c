@@ -33,7 +33,7 @@ IVL   *adjIVL ;
 if ( bpg == NULL || nX <= 0 || nY <= 0 || graph == NULL ) {
    fprintf(stderr, "\n fatal error in BPG_init(%p,%d,%d,%p)"
            "\n bad input\n", bpg, nX, nY, graph) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------
@@ -149,7 +149,7 @@ if ( bpg == NULL || graph == NULL || colors == NULL
    fprintf(stderr, 
            "\n fatal error in BPG_initFromColoring(%p,%p,%p,%d,%d,%p)"
            "\n bad input\n", bpg, graph, colors, cX, cY, cmap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 BPG_clearData(bpg) ;
 nV = graph->nvtx ;
@@ -209,7 +209,7 @@ if ( bpg->nX == 0 || bpg->nY == 0 ) {
    IVfp80(stderr, nV, colors, 80, &ierr) ;
    fprintf(stderr, "\n graph") ;
    Graph_writeForHumanEye(graph, stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------

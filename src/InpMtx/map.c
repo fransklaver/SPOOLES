@@ -39,26 +39,26 @@ int   *colmap, *ivec1, *ivec2, *rowmap ;
 if ( inpmtx == NULL || rowmapIV == NULL || colmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(INPMTX_IS_BY_ROWS(inpmtx)
    ||  INPMTX_IS_BY_COLUMNS(inpmtx)
    ||  INPMTX_IS_BY_CHEVRONS(inpmtx)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
            "\n bad coordinate type\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(rowmapIV, &nrow, &rowmap) ;
 if ( rowmap == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
            "\n rowmap is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(colmapIV, &ncol, &colmap) ;
 if ( colmap == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
            "\n colmap is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -69,13 +69,13 @@ if ( INPMTX_IS_BY_ROWS(inpmtx) ) {
       if ( row < 0 || row >= nrow ) {
          fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
                  "\n entry (%d,%d), nrow = %d\n", row, col, nrow) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       ivec1[ii] = rowmap[row] ;
       if ( col < 0 || col >= ncol ) {
          fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
                  "\n entry (%d,%d), ncol = %d\n", row, col, ncol) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       ivec2[ii] = colmap[col] ;
    }
@@ -85,13 +85,13 @@ if ( INPMTX_IS_BY_ROWS(inpmtx) ) {
       if ( row < 0 || row >= nrow ) {
          fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
                  "\n entry (%d,%d), nrow = %d\n", row, col, nrow) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       ivec2[ii] = rowmap[row] ;
       if ( col < 0 || col >= ncol ) {
          fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
                  "\n entry (%d,%d), ncol = %d\n", row, col, ncol) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       ivec1[ii] = colmap[col] ;
    }
@@ -106,13 +106,13 @@ if ( INPMTX_IS_BY_ROWS(inpmtx) ) {
       if ( row < 0 || row >= nrow ) {
          fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
                  "\n entry (%d,%d), nrow = %d\n", row, col, nrow) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       row = rowmap[row] ;
       if ( col < 0 || col >= ncol ) {
          fprintf(stderr, "\n fatal error in InpMtx_mapEntries()"
                  "\n entry (%d,%d), ncol = %d\n", row, col, ncol) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       col = colmap[col] ;
       ivec1[ii] = (row >= col) ? col : row ;

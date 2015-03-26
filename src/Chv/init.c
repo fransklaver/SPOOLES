@@ -29,7 +29,7 @@ int   nbytes, nent, nint ;
 if ( nD < 0 || nL < 0 || nU < 0 ) {
    fprintf(stderr, "\n fatal error in Chv_nbytesNeeded()"
            "\n bad input, nD = %d, nL = %d, nU = %d\n", nD, nL, nU) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = 0 ;
 switch ( type ) {
@@ -49,7 +49,7 @@ case SPOOLES_REAL :
               "\n type = SPOOLES_REAL, invalid symflag = %d"
               "\n must be SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC\n",
               symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( 2*sizeof(int) == sizeof(double) ) {
       nbytes = ((nint + 1)/2 + nent)*sizeof(double) ;
@@ -60,7 +60,7 @@ case SPOOLES_REAL :
               "\n fatal error in Chv_nbytesNeeded()"
               "\n sizeof(int) = %ld, sizeof(double) = %ld",
               (long unsigned int)sizeof(int), (long unsigned int)sizeof(double)) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 case SPOOLES_COMPLEX :
@@ -81,7 +81,7 @@ case SPOOLES_COMPLEX :
               "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN"
               "\n or SPOOLES_NONSYMMETRIC\n",
               symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( 2*sizeof(int) == sizeof(double) ) {
       nbytes = ((nint + 1)/2 + 2*nent)*sizeof(double) ;
@@ -92,7 +92,7 @@ case SPOOLES_COMPLEX :
               "\n fatal error in Chv_nbytesNeeded()"
               "\n sizeof(int) = %ld, sizeof(double) = %ld",
               (long unsigned int)sizeof(int), (long unsigned int)sizeof(double)) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 default :
@@ -120,7 +120,7 @@ Chv_nbytesInWorkspace (
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_nbytesInWorkspace(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(sizeof(double)*DV_maxsize(&chv->wrkDV)) ; }
 
@@ -140,7 +140,7 @@ Chv_setNbytesInWorkspace (
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_setNbytesInWorkspace(%p,%d)"
            "\n bad input\n", chv, nbytes) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_setSize(&chv->wrkDV, nbytes/sizeof(double)) ;
 
@@ -176,7 +176,7 @@ if (  chv == NULL || nD <= 0 || nL < 0 || nU < 0 ) {
    fprintf(stderr, "\n fatal error in Chv_setFields()"
            "\n bad input, chv %p, nD %d, nL %d, nU %d\n", 
            chv, nD, nL, nU) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -190,7 +190,7 @@ case SPOOLES_REAL :
            "\n type = SPOOLES_REAL, symflag = %d"
            "\n must be SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC\n", 
            symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 case SPOOLES_COMPLEX :
@@ -206,7 +206,7 @@ case SPOOLES_COMPLEX :
               "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN"
               "\n or SPOOLES_NONSYMMETRIC\n",
               symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 default :
@@ -215,7 +215,7 @@ default :
      "\n type = %d"
      "\n must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
      type) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 dbuffer = DV_entries(&chv->wrkDV) ;
 ibuffer = (int *) dbuffer ;
@@ -279,7 +279,7 @@ if (  chv == NULL || nD <= 0 || nL < 0 || nU < 0 ) {
            "\n fatal error in Chv_init()"
            "\n bad input, chv %p, nD %d, nL %d, nU %d\n", 
            chv, nD, nL, nU) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -293,7 +293,7 @@ case SPOOLES_REAL :
            "\n type = SPOOLES_REAL, symflag = %d"
            "\n must be SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC\n", 
            symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 case SPOOLES_COMPLEX :
@@ -309,7 +309,7 @@ case SPOOLES_COMPLEX :
               "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN"
               "\n or SPOOLES_NONSYMMETRIC\n",
               symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 default :
@@ -318,7 +318,7 @@ default :
            "\n type = %d"
            "\n must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            type) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 /*
    -------------------------------------------------------
@@ -367,7 +367,7 @@ if (  chv == NULL || nD <= 0 || nL < 0 || nU < 0 ) {
            "\n fatal error in Chv_initWithPointers() "
            "\n chv = %p, nD = %d, nL = %d, nU = %d\n",
            chv, nD, nL, nU) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  entries == NULL || colind == NULL 
    || (symflag == SPOOLES_NONSYMMETRIC && rowind == NULL) ) {
@@ -375,7 +375,7 @@ if (  entries == NULL || colind == NULL
            "\n fatal error in Chv_init()"
            "\n entries = %p, colind = %p, rowind = %p, symflag = %d\n",
            entries, colind, rowind, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -389,7 +389,7 @@ case SPOOLES_REAL :
               "\n type = SPOOLES_REAL, symflag = %d"
               "\n must be SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC\n", 
               symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 case SPOOLES_COMPLEX :
@@ -405,7 +405,7 @@ case SPOOLES_COMPLEX :
               "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN"
               "\n or SPOOLES_NONSYMMETRIC\n",
               symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    break ;
 default :
@@ -414,7 +414,7 @@ default :
             "\n type = %d"
             "\n must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
      type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------
@@ -463,7 +463,7 @@ int      *ibuffer ;
 if (  chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_initFromBuffer(%p) "
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ibuffer = (int *) DV_entries(&chv->wrkDV) ;
 Chv_setFields(chv, ibuffer[0], ibuffer[1], ibuffer[2], 

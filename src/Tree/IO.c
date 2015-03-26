@@ -339,7 +339,7 @@ int   ierr, rc ;
 if ( tree == NULL || fp == NULL || tree->n <= 0 ) {
    fprintf(stderr, "\n fatal error in Tree_writeToFormattedFile(%p,%p)"
            "\n bad input\n", tree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -388,7 +388,7 @@ int   itemp[2] ;
 if ( tree == NULL || fp == NULL || tree->n <= 0 ) {
    fprintf(stderr, "\n fatal error in Tree_writeToBinaryFile(%p,%p)"
            "\n bad input\n", tree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 itemp[0] = tree->n    ;
 itemp[1] = tree->root ;
@@ -442,7 +442,7 @@ int   rc, v ;
 if ( tree == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_writeForHumanEye(%p,%p)"
            "\n bad input\n", tree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = Tree_writeStats(tree, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in Tree_writeForHumanEye(%p,%p)"
@@ -482,7 +482,7 @@ int   rc ;
 if ( tree == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in Tree_writeStats(%p,%p)"
            "\n bad input\n", tree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, 
         "\n Tree : tree object, %d vertices, root = %d, takes %d bytes",

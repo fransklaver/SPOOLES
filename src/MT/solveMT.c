@@ -123,7 +123,7 @@ if (  frontmtx == NULL || solmtx == NULL || rhsmtx == NULL
         "\n  msglvl = %d, msgFile = %p"
         "\n\n bad input\n", frontmtx, solmtx, rhsmtx, mtxmanager,
         solvemap, cpus, msglvl, msgFile) ; 
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 nfront  = FrontMtx_nfront(frontmtx) ;
@@ -182,7 +182,7 @@ for ( myid = 0, data = dataObjects ; myid < nthread ; myid++, data++ ) {
       if ( (fp = fopen(buffer, "w")) == NULL ) {
          fprintf(stderr, "\n fatal error, unable to open file %s",
                  buffer) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       data->msgFile = fp ;
    } else {
@@ -220,7 +220,7 @@ for ( myid = 0, data = dataObjects ;
       fprintf(stderr,
               "\n fatal error, myid = %d, rc = %d from thr_create",
              myid, rc) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 MARKTIME(t2) ;
@@ -269,7 +269,7 @@ for ( myid = 0, data = dataObjects ; myid < nthread ; myid++, data++ ) {
       fprintf(stderr,
               "\n fatal error, myid = %d, rc = %d from pthread_create",
               myid, rc) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 MARKTIME(t2) ;

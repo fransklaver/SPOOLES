@@ -25,7 +25,7 @@ int   nbytes ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_sizeOf(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _ETree) ;
 if ( etree->tree != NULL ) {
@@ -67,7 +67,7 @@ if ( etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_nFactorIndices(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nodwghts = IV_entries(etree->nodwghtsIV) ;
 bndwghts = IV_entries(etree->bndwghtsIV) ;
@@ -108,7 +108,7 @@ if ( etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_nFactorEntries(%p,%d)"
            "\n bad input\n", etree, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nzf = 0 ;
 for ( J = 0 ; J < nfront ; J++ ) {
@@ -150,7 +150,7 @@ if ( etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_nFactorOps(%p,%d,%d)"
            "\n bad input\n", etree, type, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ops = 0 ;
 for ( J = 0 ; J < nfront ; J++ ) {
@@ -185,7 +185,7 @@ if ( etree == NULL
    fprintf(stderr, 
            "\n fatal error in ETree_nFactorEntriesInFront(%p,%d,%d)"
            "\n bad input\n", etree, symflag, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 b = IV_entry(etree->nodwghtsIV, J) ;
 m = IV_entry(etree->bndwghtsIV, J) ;
@@ -233,7 +233,7 @@ if ( etree == NULL
    fprintf(stderr, 
            "\n fatal error in ETree_nInternalOpsInFront(%p,%d,%d,%d)"
            "\n bad input\n", etree, type, symflag, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 b = ETree_frontSize(etree, J) ;
 m = ETree_frontBoundarySize(etree, J) ;
@@ -292,7 +292,7 @@ if ( etree == NULL
    fprintf(stderr, 
            "\n fatal error in ETree_nExternalOpsInFront(%p,%d,%d,%d)"
            "\n bad input\n", etree, J, type, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 b = IV_entry(etree->nodwghtsIV, J) ;
 m = IV_entry(etree->bndwghtsIV, J) ;
@@ -352,7 +352,7 @@ int      *counts, *indices, *list, *mark, *vtxToFront ;
 if ( etree == NULL || symbfacIVL == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_backwardOps(%p,%p,%p)"
            "\n bad input\n", etree, vwghts, symbfacIVL) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront     = etree->nfront ;
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
@@ -457,7 +457,7 @@ IV    *nzfIV ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_factorEntriesIV(%p,%d)"
            "\n bad input\n", etree, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = ETree_nfront(etree) ;
 /*
@@ -505,7 +505,7 @@ int      J, nfront ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_forwardOps(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront     = etree->nfront ;
 opsDV = DV_new() ;
@@ -544,7 +544,7 @@ int     *map, *vtxToFront, *vtxToFront2 ;
 if ( etree == NULL || eqmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_expand(%p,%p)"
            "\n bad input\n", etree, eqmapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = etree->nfront ;
 IV_sizeAndEntries(eqmapIV, &ndof, &map) ;
@@ -611,7 +611,7 @@ if (  etree0 == NULL || graph0 == NULL
            "\n fatal error in ETree_spliceTwoETrees(%p,%p,%p,%p)"
            "\n bad input\n",
            etree0, graph0, mapIV, etree1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront0     = etree0->nfront ;
 nvtx        = etree0->nvtx    ;

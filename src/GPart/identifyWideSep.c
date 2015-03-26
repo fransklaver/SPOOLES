@@ -35,7 +35,7 @@ if (  gpart == NULL || (g = gpart->g) == NULL
    || nlevel1 < 0 || nlevel2 < 0 ) {
   fprintf(stderr, "\n fatal error in GPart_identifyWideSep(%p,%d,%d)"
            "\n bad input\n", gpart, nlevel1, nlevel2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 g       = gpart->g ;
 compids = IV_entries(&gpart->compidsIV) ;

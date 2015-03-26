@@ -23,7 +23,7 @@ ETree_leftJustify (
 if ( etree == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_leftJustify(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Tree_leftJustify(etree->tree) ;
  
@@ -56,7 +56,7 @@ if ( etree == NULL
    || IV_entries(metricIV) == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_leftJustifyI(%p,%p)"
            "\n bad input\n", etree, metricIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Tree_leftJustifyI(etree->tree, metricIV) ;
  
@@ -89,7 +89,7 @@ if ( etree == NULL
    || DV_entries(metricDV) == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_leftJustifyD(%p,%p)"
            "\n bad input\n", etree, metricDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Tree_leftJustifyD(etree->tree, metricDV) ;
  

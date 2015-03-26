@@ -38,7 +38,7 @@ ChvManager_setDefaultFields (
 if ( manager == NULL ) {
    fprintf(stderr, "\n fatal error in ChvManager_setDefaultFields(%p)"
            "\n bad input", manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 manager->head            = NULL ;
 manager->lock            = NULL ;
@@ -75,7 +75,7 @@ Chv   *chv ;
 if ( manager == NULL ) {
    fprintf(stderr, "\n fatal error in ChvManager_clearData(%p)"
            "\n bad input\n", manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -118,7 +118,7 @@ ChvManager_free (
 if ( manager == NULL ) {
    fprintf(stderr, "\n fatal error in ChvManager_free(%p)"
            "\n bad input\n", manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ChvManager_clearData(manager) ;
 FREE(manager) ;

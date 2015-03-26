@@ -129,14 +129,14 @@ msmdinfo->msgFile       = msgFile       ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 graph = Graph_new() ;
 if ( (rc = Graph_readFromFile(graph, inGraphFileName)) != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
         rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t2) ;
 fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s", 
@@ -164,7 +164,7 @@ if ( strcmp(inDSTreeFileName, "none") == 0 ) {
       fprintf(msgFile, 
               "\n return value %d from DSTree_readFromFile(%p,%s)",
               rc, dstree, inDSTreeFileName) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    MARKTIME(t2) ;
    fprintf(msgFile, 

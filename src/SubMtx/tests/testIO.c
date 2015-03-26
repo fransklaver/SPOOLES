@@ -62,7 +62,7 @@ fflush(msgFile) ;
    ----------------------------
 */
 if ( strcmp(inSubMtxFileName, "none") == 0 ) { fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 mtx = SubMtx_new() ;
 MARKTIME(t1) ;
@@ -74,7 +74,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from SubMtx_readFromFile(%p,%s)",
            rc, mtx, inSubMtxFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading SubMtx object from file %s",
         inSubMtxFileName) ;

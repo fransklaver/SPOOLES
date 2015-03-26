@@ -72,7 +72,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inDSTreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 dstree = DSTree_new() ;
 MARKTIME(t1) ;
@@ -83,7 +83,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in dstree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from DSTree_readFromFile(%p,%s)",
            rc, dstree, inDSTreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading DSTree object from file %s",
         inDSTreeFileName) ;
@@ -100,7 +100,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 graph = Graph_new() ;
 MARKTIME(t1) ;
@@ -111,7 +111,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Graph object from file %s",
         inGraphFileName) ;
@@ -128,7 +128,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inCutoffDVfileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 cutoffDV = DV_new() ;
 MARKTIME(t1) ;
@@ -139,7 +139,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from DV_readFromFile(%p,%s)",
            rc, cutoffDV, inCutoffDVfileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading DV object from file %s",
         inCutoffDVfileName) ;

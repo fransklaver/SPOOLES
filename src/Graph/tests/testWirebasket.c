@@ -69,7 +69,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 graph = Graph_new() ;
 MARKTIME(t1) ;
@@ -80,7 +80,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Graph object from file %s",
         inGraphFileName) ;
@@ -97,7 +97,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inCompidsFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 compidsIV = IV_new() ;
 MARKTIME(t1) ;
@@ -108,7 +108,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in compidsIV from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
            rc, compidsIV, inCompidsFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading IV object from file %s",
         inCompidsFileName) ;

@@ -29,7 +29,7 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_sortAndCompress(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  INPMTX_IS_SORTED(inpmtx) 
    || INPMTX_IS_BY_VECTORS(inpmtx) 
@@ -85,7 +85,7 @@ int      first, id, ient, jj, nent, nvector, value ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_convertToVectors(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( INPMTX_IS_BY_VECTORS(inpmtx) || (nent = inpmtx->nent) == 0 ) {
    inpmtx->storageMode = INPMTX_BY_VECTORS ;
@@ -214,7 +214,7 @@ if ( inpmtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_dropOffdiagonalEntries(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -222,7 +222,7 @@ if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
    fprintf(stderr, 
            "\n fatal error in InpMtx_dropOffdiagonalEntries(%p)"
            "\n bad coordType = %d\n", inpmtx, inpmtx->coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -307,14 +307,14 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_dropLowerTriangle(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
        || INPMTX_IS_BY_CHEVRONS(inpmtx) ) ) {
    fprintf(stderr, "\n fatal error in InpMtx_dropLowerTriangle(%p)"
            "\n bad coordType \n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -407,14 +407,14 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_dropUpperTriangle(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
        || INPMTX_IS_BY_CHEVRONS(inpmtx) ) ) {
    fprintf(stderr, "\n fatal error in InpMtx_dropUpperTriangle(%p)"
            "\n bad coordType \n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -499,14 +499,14 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapToLowerTriangle(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
        || INPMTX_IS_BY_CHEVRONS(inpmtx) ) ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapToLowerTriangle(%p)"
            "\n bad coordType\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -556,7 +556,7 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapToUpperTriangle(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -564,7 +564,7 @@ if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
    fprintf(stderr, "\n fatal error in InpMtx_mapToUpperTriangle(%p)"
            "\n bad coordType = %d, must be 1, 2, or 3\n", 
            inpmtx, inpmtx->coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -618,7 +618,7 @@ int      *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapToUpperTriangle(%p)"
            "\n bad input\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -626,12 +626,12 @@ if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
    fprintf(stderr, "\n fatal error in InpMtx_mapToUpperTriangle(%p)"
            "\n bad coordType = %d, must be 1, 2, or 3\n", 
            inpmtx, inpmtx->coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, "\n fatal error in InpMtx_mapToUpperTriangleH(%p)"
            "\n input mode is not complex\n", inpmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = inpmtx->nent ;
 ivec1 = InpMtx_ivec1(inpmtx) ;
@@ -694,7 +694,7 @@ int   *ivec1, *ivec2 ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_checksums(%p,%p)"
            "\n bad input\n", inpmtx, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( inpmtx->inputMode ) {
 case INPMTX_INDICES_ONLY :
@@ -704,7 +704,7 @@ case SPOOLES_COMPLEX :
 default :
    fprintf(stderr, "\n fatal error in InpMtx_checksums(%p,%p)"
            "\n bad inputMode\n", inpmtx, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 sums[0] = sums[1] = sums[2] = 0.0 ;
 if ( (nent = InpMtx_nent(inpmtx)) <= 0 ) {

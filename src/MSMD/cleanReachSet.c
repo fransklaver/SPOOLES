@@ -33,7 +33,7 @@ MSMDvtx   *v ;
 if ( msmd == NULL || info == NULL ) {
    fprintf(stderr, "\n inside MSMD_cleanReachSet(%p,%p)"
            "\n bad input\n", msmd, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nreach = IV_size(&msmd->reachIV) ;
 reach  = IV_entries(&msmd->reachIV) ;
@@ -45,7 +45,7 @@ if (  nreach < 0 || nreach > msmd->nvtx || reach == NULL ) {
    fprintf(stderr, "\n inside MSMD_cleanReachSet(%p)"
            "\n nreach = %d, reach = %p, nvtx = %d\n", 
            msmd, nreach, reach, msmd->nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( info->msglvl >= 5 ) {
    fprintf(info->msgFile, "\n inside MSMD_cleanReachSet(%p)", msmd) ;
@@ -122,7 +122,7 @@ MSMDvtx   *u ;
 if ( msmd == NULL || v == NULL || info == NULL ) {
    fprintf(stderr, "\n inside MSMD_cleanSubtreeList(%p,%p,%p)"
            "\n bad input\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( info->msglvl > 4 && info->msgFile != NULL ) {
    fprintf(info->msgFile, 
@@ -198,7 +198,7 @@ MSMDvtx   *w ;
 if ( msmd == NULL || v == NULL || info == NULL ) {
    fprintf(stderr, "\n inside MSMD_cleanEdgeList(%p,%p,%p)"
            "\n bad input\n", msmd, v, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------

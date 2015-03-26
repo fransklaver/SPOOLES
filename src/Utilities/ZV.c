@@ -176,7 +176,7 @@ int      ii, jj ;
 if ( n <= 0 ) {
    fprintf(stderr, "\n fatal error in ZVinit(%d,%f,%f)"
            "\n bad input\n", n, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ALLOCATE(x, double, 2*n) ;
 for ( ii = jj = 0 ; ii < n ; ii++, jj += 2 ) {
@@ -212,7 +212,7 @@ if (  size < 0 || y == NULL || x == NULL
    || prdot == NULL || pidot == NULL ) {
    fprintf(stderr, "\n fatal error in ZVdotU(%d,%p,%p,%p,%p)"
            "\n bad input\n", size, y, x, prdot, pidot) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 isum = rsum = 0.0 ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
@@ -255,7 +255,7 @@ if (  size < 0 || y == NULL || x == NULL
    || prdot == NULL || pidot == NULL ) {
    fprintf(stderr, "\n fatal error in ZVdotC(%d,%p,%p,%p,%p)"
            "\n bad input\n", size, y, x, prdot, pidot) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 isum = rsum = 0.0 ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
@@ -299,7 +299,7 @@ if (  size < 0 || y == NULL || index == NULL || x == NULL
    || prdot == NULL || pidot == NULL ) {
    fprintf(stderr, "\n fatal error in ZVdotiU(%d,%p,%p,%p,%p,%p)"
            "\n bad input\n", size, y, index, x, prdot, pidot) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 isum = rsum = 0.0 ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
@@ -348,7 +348,7 @@ if (  size < 0 || y == NULL || index == NULL || x == NULL
    || prdot == NULL || pidot == NULL ) {
    fprintf(stderr, "\n fatal error in ZVdotiU(%d,%p,%p,%p,%p,%p)"
            "\n bad input\n", size, y, index, x, prdot, pidot) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 isum = rsum = 0.0 ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
@@ -390,7 +390,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in ZVaxpy(%d,%p,%f,%f,%p)"
            "\n bad input\n", size, y, areal, aimag, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    xreal = x[jj] ;
@@ -433,7 +433,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL ) {
    fprintf(stderr, "\n fatal error in ZVscale(%d,%p,%f,%f)"
            "\n bad input\n", size, y, areal, aimag) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    yreal = y[jj] ;
@@ -462,7 +462,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL ) {
    fprintf(stderr, "\n fatal error in ZVfprintf(%p,%d,%p)"
            "\n bad input\n", fp, size, y) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
 /*
@@ -495,7 +495,7 @@ int      ii, jj ;
 if ( size < 0 || x == NULL ) {
    fprintf(stderr, "\n fatal error in ZVminabs(%d,%p)"
            "\n bad input\n", size, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 minabs = 0.0 ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
@@ -548,7 +548,7 @@ int      ii, jj ;
 if ( size < 0 || x == NULL ) {
    fprintf(stderr, "\n fatal error in ZVmaxabs(%d,%p)"
            "\n bad input\n", size, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 maxabs = 0.0 ;
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
@@ -601,7 +601,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in ZVcopy(%d,%p,%p)"
            "\n bad input\n", size, y, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    y[jj]   = x[jj]   ;
@@ -629,7 +629,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in ZVsub(%d,%p,%p)"
            "\n bad input\n", size, y, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    y[jj]   -= x[jj]   ;
@@ -666,7 +666,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in ZVaxpy(%d,%p,%f,%f,%p)"
            "\n bad input\n", size, y, areal, aimag, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    xreal = x[jj] ;
@@ -721,7 +721,7 @@ int      ii, jj ;
 if ( size < 0 || x == NULL || y == NULL ) {
    fprintf(stderr, "\n fatal error in ZVscale2(%d,%p,%p,...)"
            "\n bad input\n", size, x, y) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    xreal = x[jj] ;
@@ -755,7 +755,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in ZVgather, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j, k ;
       for ( i = j = 0 ; i < size ; i++, j += 2 ) {
@@ -787,7 +787,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in ZVscatter, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i, j, k ;
       for ( i = j = 0 ; i < size ; i++, j += 2 ) {
@@ -1565,7 +1565,7 @@ int      ii, jj ;
 if ( size < 0 || y == NULL ) {
    fprintf(stderr, "\n fatal error in ZVzero(%d,%p)"
            "\n bad input\n", size, y) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
    y[jj] = y[jj+1] = 0.0 ;

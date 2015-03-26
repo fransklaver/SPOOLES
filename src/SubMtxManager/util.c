@@ -29,7 +29,7 @@ if ( manager == NULL || nbytesNeeded <= 0 ) {
    fprintf(stderr, 
       "\n fatal error in SubMtxMananger_newObjectOfSizeNbytes(%p,%d)"
       "\n bad input\n", manager, nbytesNeeded) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 1
    fprintf(stdout, 
@@ -156,7 +156,7 @@ if ( manager == NULL || mtx1 == NULL ) {
    fprintf(stderr, 
        "\n fatal error in SubMtxManager_releaseObject(%p,%p)"
        "\n bad input\n", manager, mtx1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( manager->lock != NULL ) {
 /*
@@ -263,7 +263,7 @@ if ( manager == NULL || head == NULL ) {
    fprintf(stderr, 
        "\n fatal error in SubMtxManager_releaseListOfObjects(%p,%p)"
        "\n bad input\n", manager, head) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( manager->lock != NULL ) {
 /*

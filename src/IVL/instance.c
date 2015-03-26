@@ -22,7 +22,7 @@ IVL_type (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_type(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ivl->type) ; }
 
@@ -46,7 +46,7 @@ IVL_maxnlist (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_maxnlist(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ivl->maxnlist) ; }
 
@@ -70,7 +70,7 @@ IVL_nlist (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_nlist(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ivl->nlist) ; }
 
@@ -94,7 +94,7 @@ IVL_tsize (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_tsize(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ivl->tsize) ; }
 
@@ -118,7 +118,7 @@ IVL_incr (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_incr(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ivl->incr) ; }
 
@@ -143,7 +143,7 @@ IVL_setincr (
 if ( ivl == NULL || incr < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_setincr(%p,%d)"
            "\n bad input\n", ivl, incr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivl->incr = incr ;
 

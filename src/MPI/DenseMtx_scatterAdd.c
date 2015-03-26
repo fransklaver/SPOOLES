@@ -63,7 +63,7 @@ if ( Y == NULL || X == NULL || sendIVL == NULL || recvIVL == NULL
      || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in DenseMtx_MPI_scatterAddRows()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 MPI_Comm_size(comm, &nproc) ;
@@ -74,7 +74,7 @@ if ( DENSEMTX_IS_REAL(X) ) {
 } else {
    fprintf(stderr, "\n fatal error in DenseMtx_MPI_scatterAddRows()"
            "\n X->type = %d\n", X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_columnIndices(Y, &ncolY,  &colindY) ;
 DenseMtx_rowIndices(Y, &nrowY, &rowindY) ;

@@ -45,7 +45,7 @@ if ( list == NULL || nlist <= 0 || lockflag < 0 || lockflag > 2 ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxList_init(%p,%d,%p,%d,%p)"
            "\n bad input\n", list, nlist, counts, lockflag, flags) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------

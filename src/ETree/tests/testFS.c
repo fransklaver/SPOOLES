@@ -77,7 +77,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 etree = ETree_new() ;
 MARKTIME(t1) ;
@@ -88,7 +88,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in etree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, etree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading ETree object from file %s",
         inETreeFileName) ;
@@ -147,7 +147,7 @@ if ( rc != 1 ) {
    fprintf(stderr, "\n error in %s",
            "\n return value %d from Tree_getSimpleCoords()\n",
            argv[0], rc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 x = DV_entries(xDV) ;
 y = DV_entries(yDV) ;
@@ -209,7 +209,7 @@ if ( rc != 1 ) {
    fprintf(stderr, "\n error in %s"
            "\n return value %d from Tree_drawToEPS()\n",
            argv[0], rc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------
@@ -261,7 +261,7 @@ if ( rc != 1 ) {
    fprintf(stderr, "\n error in %s"
            "\n return value %d from Tree_drawToEPSfile()\n",
            argv[0], rc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------

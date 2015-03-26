@@ -54,18 +54,18 @@ SubMtx_solve (
 if ( mtxA == NULL || mtxB == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_solve(%p,%p)"
            "\n bad input\n", mtxA, mtxB) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_DENSE_COLUMNS(mtxB) ) {
    fprintf(stderr, "\n fatal error in SubMtx_solve(%p,%p)"
            "\n mtxB has bad type %d\n", mtxA, mtxB, mtxB->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( mtxA->nrow != mtxB->nrow ) {
    fprintf(stderr, "\n fatal error in SubMtx_solve(%p,%p)"
            "\n mtxA->nrow = %d, mtxB->nrwo = %d\n", 
            mtxA, mtxB, mtxA->nrow, mtxB->nrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------
@@ -104,7 +104,7 @@ case SPOOLES_REAL :
    default :
       fprintf(stderr, "\n fatal error in SubMtx_solve(%p,%p)"
               "\n bad mode %d\n", mtxA, mtxB, mtxA->type) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -142,14 +142,14 @@ case SPOOLES_COMPLEX :
    default :
       fprintf(stderr, "\n fatal error in SubMtx_solve(%p,%p)"
               "\n bad mode %d\n", mtxA, mtxB, mtxA->type) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
 default :
    fprintf(stderr, "\n fatal error in SubMtx_solve(%p,%p)"
            "\n bad type %d\n", mtxA, mtxB, mtxA->type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return ; }
@@ -336,7 +336,7 @@ if ( jj < 0 || jj >= irowA ) {
    fprintf(stderr, 
 "\n fatal error, irowA = %d, kk =%d, ii = %d, jj = %d",
 irowA, kk, ii, jj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
             sum0 += Aki * colB0[jj] ;
             sum1 += Aki * colB1[jj] ;
@@ -383,7 +383,7 @@ if ( jj < 0 || jj >= irowA ) {
    fprintf(stderr, 
 "\n fatal error, irowA = %d, kk =%d, ii = %d, jj = %d",
 irowA, kk, ii, jj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
             sum0 += Aki * colB0[jj] ;
          }
@@ -703,7 +703,7 @@ for ( irowA = ipivot = kk = 0 ; irowA < nrowA ; ipivot++ ) {
               "\n mtxA is block diagonal symmetric"
               "\n pivot %d is %d, not supported",
               mtxA, mtxB, ipivot, m) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    irowA += m ;
 }
@@ -1020,7 +1020,7 @@ for ( jcolB = 0 ; jcolB < ncolB - 2 ; jcolB += 3 ) {
                fprintf(stderr, 
                  "\n fatal error, irowA = %d, kk =%d, ii = %d, jj = %d",
                  irowA, kk, ii, jj) ;
-               exit(-1) ;
+               spoolesFatal();
             }
             rloc = 2*jj ;
             iloc = rloc + 1 ;
@@ -1060,7 +1060,7 @@ if ( jcolB == ncolB - 2 ) {
                fprintf(stderr, 
                  "\n fatal error, irowA = %d, kk =%d, ii = %d, jj = %d",
                  irowA, kk, ii, jj) ;
-               exit(-1) ;
+               spoolesFatal();
             }
             rloc = 2*jj ;
             iloc = rloc + 1 ;
@@ -1093,7 +1093,7 @@ if ( jcolB == ncolB - 2 ) {
                fprintf(stderr, 
                  "\n fatal error, irowA = %d, kk =%d, ii = %d, jj = %d",
                  irowA, kk, ii, jj) ;
-               exit(-1) ;
+               spoolesFatal();
             }
             rloc = 2*jj ;
             iloc = rloc + 1 ;
@@ -1481,7 +1481,7 @@ for ( irowA = ipivot = kk = 0 ; irowA < nrowA ; ipivot++ ) {
               "\n mtxA is block diagonal symmetric"
               "\n pivot %d is %d, not supported",
               mtxA, mtxB, ipivot, m) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    irowA += m ;
 }
@@ -1629,7 +1629,7 @@ for ( irowA = ipivot = kk = 0 ; irowA < nrowA ; ipivot++ ) {
               "\n mtxA is block diagonal hermitian"
               "\n pivot %d is %d, not supported",
               mtxA, mtxB, ipivot, m) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    irowA += m ;
 }

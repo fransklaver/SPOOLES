@@ -102,7 +102,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Graph object from file %s",
         inGraphFileName) ;
@@ -127,7 +127,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in frontETree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, frontETree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading ETree object from file %s",
         inETreeFileName) ;

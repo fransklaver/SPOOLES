@@ -59,7 +59,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inZVFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 zvobj = ZV_new() ;
 MARKTIME(t1) ;
@@ -70,7 +70,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in iv from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ZV_readFromFile(%p,%s)",
            rc, zvobj, inZVFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading ZV object from file %s",
         inZVFileName) ;

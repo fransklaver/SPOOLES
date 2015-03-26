@@ -37,7 +37,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_splitUpperMatrices(%p,%d,%p)"
            "\n bad input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront    = FrontMtx_nfront(frontmtx) ;
 neqns     = FrontMtx_neqns(frontmtx) ;
@@ -304,7 +304,7 @@ if ( frontmtx == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_splitLowerMatrices(%p,%d,%p)"
            "\n bad input\n", frontmtx, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront    = FrontMtx_nfront(frontmtx) ;
 neqns     = FrontMtx_neqns(frontmtx) ;

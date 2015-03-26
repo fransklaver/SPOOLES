@@ -28,7 +28,7 @@ IVL      *adjIVL ;
 if ( inpmtxA == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_adjForATA(%p)"
            "\n NULL input\n", inpmtxA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------------------
@@ -49,7 +49,7 @@ if ( firstrow < 0 || firstcol < 0 ) {
            "\n firstrow = %d, firstcol = %d"
            "\n lastrow  = %d, lastcol  = %d",
            firstrow, firstcol, lastrow, lastcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = 1 + lastrow ;
 ncol = 1 + lastcol ;

@@ -298,7 +298,7 @@ if ( iv == NULL || fp == NULL || iv->size <= 0 ) {
    fprintf(stderr, "\n fatal error in IV_writeToFormattedFile(%p,%p)"
            "\n bad input\n", iv, fp) ;
    fprintf(stderr, "\n iv->size = %d", iv->size) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -348,7 +348,7 @@ int   rc ;
 if ( iv == NULL || fp == NULL || iv->size <= 0 ) {
    fprintf(stderr, "\n fatal error in IV_writeToBinaryFile(%p,%p)"
            "\n bad input\n", iv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fwrite((void *) &iv->size, sizeof(int), 1, fp) ;
 if ( rc != 1 ) {
@@ -385,7 +385,7 @@ int   ierr, rc ;
 if ( iv == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in IV_writeForHumanEye(%p,%p)"
            "\n bad input\n", iv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = IV_writeStats(iv, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in IV_writeForHumanEye(%p,%p)"
@@ -421,7 +421,7 @@ int   rc ;
 if ( iv == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in IV_writeStats(%p,%p)"
            "\n bad input\n", iv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, "\n IV : integer vector object : ") ;
 if ( rc < 0 ) { goto IO_error ; }
@@ -469,7 +469,7 @@ IV_fp80 (
 if ( iv == NULL || fp == NULL || pierr == NULL ) {
    fprintf(stderr, "\n fatal error in IV_fp80(%p,%p,%p)"
            "\n bad input\n", iv, fp, pierr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->size > 0 && iv->vec != NULL ) {
    column = IVfp80(fp, iv->size, iv->vec, column, pierr) ;
@@ -503,7 +503,7 @@ int   *entries ;
 if ( iv == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in IV_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", iv, name, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(iv, &size, &entries) ;
 fprintf(fp, "\n %s = zeros(%d,%d) ;", name, size, size) ;

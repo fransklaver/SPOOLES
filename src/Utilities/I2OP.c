@@ -31,7 +31,7 @@ I2OP    *base ;
 if ( n <= 0 || flag < I2OP_NULL || flag > I2OP_BACKWARD ) {
    fprintf(stderr, "\n fatal error in I2OP_init(%d,%d)"
            "\n bad input\n", n, flag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------
@@ -77,7 +77,7 @@ if (  n <= 0 || flag < I2OP_NULL || flag > I2OP_BACKWARD
    || base == NULL ) {
    fprintf(stderr, "\n fatal error in I2OP_initStorage(%d,%d,%p)"
    "\n bad input\n", n, flag, base) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n inside I2OP_initStorage(%d, %d, %p)",

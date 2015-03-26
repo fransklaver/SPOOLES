@@ -42,7 +42,7 @@ MSMDvtx         *v, *w ;
 if ( msmd == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_findInodes(%p,%p)"
            "\n bad input\n", msmd, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (flag = info->compressFlag % 4) == 0 ) {
 /*

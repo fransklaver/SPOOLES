@@ -27,7 +27,7 @@ if ( chvlist == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ChvList_writeForHumanEye(%p,%p)"
            "\n bad input\n", chvlist, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n ChvList object at address %p"
             "\n    %d lists, %d locks",

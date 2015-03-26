@@ -48,7 +48,7 @@ distribution = atoi(argv[3]) ;
 if ( distribution < 1 || distribution > 2 ) {
    fprintf(stderr, "\n fatal error in testDrand"
            "\n distribution must be 1 (uniform) or 2 (normal)") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 param1 = atof(argv[4]) ;
 param2 = atof(argv[5]) ;

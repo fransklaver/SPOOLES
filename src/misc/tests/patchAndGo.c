@@ -240,11 +240,11 @@ if ( patchAndGoFlag == 1 ) {
 }
 if ( rootchv != NULL ) {
    fprintf(msgFile, "\n\n matrix found to be singular\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( error >= 0 ) {
    fprintf(msgFile, "\n\n error encountered at front %d", error) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*--------------------------------------------------------------------*/
 /*

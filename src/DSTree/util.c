@@ -23,7 +23,7 @@ int   nbytes ;
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_sizeOf(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _DSTree) ;
 if ( dstree->tree != NULL ) {
@@ -63,7 +63,7 @@ if ( dstree == NULL
    || (oldmap = IV_entries(mapIV)) == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_renumberViaPostOT(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------
@@ -147,7 +147,7 @@ Tree   *tree ;
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_domainWeight(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree  = DSTree_tree(dstree) ;
 mapIV = DSTree_mapIV(dstree) ;
@@ -195,7 +195,7 @@ Tree   *tree ;
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_separatorWeight(%p)"
            "\n bad input\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree  = DSTree_tree(dstree) ;
 mapIV = DSTree_mapIV(dstree) ;

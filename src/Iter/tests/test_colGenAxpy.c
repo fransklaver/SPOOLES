@@ -52,7 +52,7 @@ if ( argc != 15 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -70,7 +70,7 @@ if (   type < 1 || type > 2 || nrow < 0 || ncol < 0
    fprintf(stderr, 
        "\n fatal error, type %d, nrow %d, ncol %d, inc1 %d, inc2 %d",
        type, nrow, ncol, inc1, inc2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 icol = atoi(argv[8]) ;
 jcol = atoi(argv[9]) ;

@@ -24,7 +24,7 @@ IV   *metricIV ;
 if (  etree == NULL || etree->nfront <= 0 || etree->nvtx <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_nvtxMetric(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 metricIV = IV_new() ;
 IV_init(metricIV, etree->nfront, NULL) ;
@@ -62,7 +62,7 @@ if (  etree == NULL
    || (nfront = etree->nfront) <= 0 || etree->nvtx <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_nentMetric(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 metricIV = IV_new() ;
 IV_init(metricIV, nfront, NULL) ;
@@ -115,7 +115,7 @@ DV       *metricDV ;
 if (  etree == NULL || etree->nfront <= 0 || etree->nvtx <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_nopsMetric(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 metricDV = ETree_forwardOps(etree, type, symflag) ;
 

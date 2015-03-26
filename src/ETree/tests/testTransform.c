@@ -80,7 +80,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 graph = Graph_new() ;
 MARKTIME(t1) ;
@@ -91,7 +91,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Graph object from file %s",
         inGraphFileName) ;
@@ -108,7 +108,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 etree0 = ETree_new() ;
 MARKTIME(t1) ;
@@ -119,7 +119,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in etree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, etree0, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfronts[0] = ETree_nfront(etree0) ;
 nfind[0]   = ETree_nFactorIndices(etree0) ;

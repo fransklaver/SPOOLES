@@ -68,7 +68,7 @@ MSMDvtx   *first, *last, *v ;
 if ( msmd == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_clearData(%p)"
            "\n bad input\n", msmd) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msmd->heap != NULL ) { 
 #if MYDEBUG > 0

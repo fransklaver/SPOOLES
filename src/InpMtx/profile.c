@@ -41,7 +41,7 @@ if ( inpmtx == NULL
       "\n bad input\n",
        inpmtx, npts, xDV, yDV, tausmall, taubig, 
        pnzero, pnsmall, pnbig) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    DV   *dv = DV_new();

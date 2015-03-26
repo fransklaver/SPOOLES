@@ -80,7 +80,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 graph = Graph_new() ;
@@ -88,7 +88,7 @@ Graph_setDefaultFields(graph) ;
 if ( (rc = Graph_readFromFile(graph, inGraphFileName)) != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
         rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t2) ;
 fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s", 
@@ -108,7 +108,7 @@ if ( msglvl < 4 ) {
 */
 if ( strcmp(inIVfileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 compidsIV = IV_new() ;
@@ -116,7 +116,7 @@ IV_setDefaultFields(compidsIV) ;
 if ( (rc = IV_readFromFile(compidsIV, inIVfileName)) != 1 ) {
    fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
         rc, compidsIV, inIVfileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t2) ;
 fprintf(msgFile, "\n CPU %9.5f : read in compidsIV from file %s", 

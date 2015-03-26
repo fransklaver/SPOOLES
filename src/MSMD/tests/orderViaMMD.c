@@ -122,7 +122,7 @@ msmdinfo->msgFile       = msgFile       ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 g = Graph_new() ;
@@ -130,7 +130,7 @@ Graph_setDefaultFields(g) ;
 if ( (rc = Graph_readFromFile(g, inGraphFileName)) != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
         rc, g, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t2) ;
 fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s", 

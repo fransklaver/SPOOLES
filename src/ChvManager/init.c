@@ -35,7 +35,7 @@ if ( manager == NULL
    || mode < 0 || mode > 1 ) {
    fprintf(stderr, "\n fatal error in ChvManager_init(%p,%d,%d)"
           "\n bad input\n", manager, lockflag, mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------------

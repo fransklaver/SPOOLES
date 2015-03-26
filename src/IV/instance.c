@@ -20,7 +20,7 @@ IV_owned (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_owned(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(iv->owned) ; }
 
@@ -39,7 +39,7 @@ IV_size (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_size(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(iv->size) ; }
 /*--------------------------------------------------------------------*/
@@ -57,7 +57,7 @@ IV_maxsize (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_maxsize(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(iv->maxsize) ; }
 
@@ -78,7 +78,7 @@ IV_entry (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_entries(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( loc < 0 || loc >= iv->size ) {
    return(-1) ;
@@ -102,7 +102,7 @@ IV_entries (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_entries(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(iv->vec) ; }
 
@@ -124,7 +124,7 @@ IV_sizeAndEntries (
 if ( iv == NULL || psize == NULL || pentries == NULL ) {
    fprintf(stderr, "\n fatal error in IV_sizeAndEntries(%p,%p,%p)"
            "\n bad input\n", iv, psize, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *psize    = iv->size ;
 *pentries = iv->vec  ;
@@ -153,7 +153,7 @@ IV_setEntry (
 if ( iv == NULL || loc < 0 ) {
    fprintf(stderr, "\n fatal error in IV_setEntry(%p,%d,%d)"
            "\n bad input\n", iv, loc, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( loc >= iv->maxsize ) {
    int newmaxsize = (int) 1.25*iv->maxsize ;

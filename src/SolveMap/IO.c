@@ -486,7 +486,7 @@ if ( solvemap == NULL || fp == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SolveMap_writeToFormattedFile(%p,%p)"
            "\n bad input\n", solvemap, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------
@@ -595,7 +595,7 @@ int   itemp[5] ;
 if ( solvemap == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_writeToBinaryFile(%p,%p)"
            "\n bad input\n", solvemap, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 itemp[0] = solvemap->symmetryflag ;
 itemp[1] = solvemap->nfront       ;
@@ -690,7 +690,7 @@ int   ierr, kk, rc ;
 if ( solvemap == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_writeForHumanEye(%p,%p)"
            "\n bad input\n", solvemap, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = SolveMap_writeStats(solvemap, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in SolveMap_writeForHumanEye(%p,%p)"
@@ -741,7 +741,7 @@ SolveMap_writeStats (
 if ( solvemap == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in SolveMap_writeStats(%p,%p)"
            "\n bad input\n", solvemap, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n SolveMap : submatrix solve object :") ;
 if ( solvemap->symmetryflag < 2 ) {

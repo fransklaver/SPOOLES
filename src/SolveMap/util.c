@@ -28,7 +28,7 @@ if (  solvemap == NULL
    || colid < 0 || colid >= solvemap->nfront ) {
    fprintf(stderr, "\n fatal error in SolveMap_owner(%p,%d,%d)"
            "\n bad input\n", solvemap, rowid, colid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( rowid == colid ) {
 /*
@@ -129,7 +129,7 @@ IVL   *solveIVL ;
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_upperSolveIVL(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = solvemap->nfront      ;
 nproc  = solvemap->nproc       ;
@@ -249,7 +249,7 @@ IV    *aggIV ;
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_upperAggregateIVL(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = solvemap->nfront      ;
 nproc  = solvemap->nproc       ;
@@ -364,7 +364,7 @@ IV    *aggIV ;
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_lowerAggregateIV(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = solvemap->nfront ;
 nproc  = solvemap->nproc  ;
@@ -488,7 +488,7 @@ IVL    *solveIVL ;
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_lowerSolveIVL(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = solvemap->nfront ;
 nproc  = solvemap->nproc  ;

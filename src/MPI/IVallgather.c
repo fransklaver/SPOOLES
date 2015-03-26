@@ -41,7 +41,7 @@ if ( objIV == NULL || ownersIV == NULL ) {
    fprintf(stderr, "\n fatal error in IV_MPI_allgather()"
            "\n objIV = %p, ownersIV = %p\n",
            objIV, ownersIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------
@@ -62,7 +62,7 @@ if ( nvec != nowners || vec == NULL || owners == NULL ) {
    fprintf(stderr, "\n fatal error in IV_MPI_allgather()"
            "\n nvec = %d, nowners = %d, vec = %p, owners = %p\n",
            nvec, nowners, vec, owners) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------
@@ -75,7 +75,7 @@ if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in IV_MPI_allgather()"
            "\n firsttag = %d, lasttag = %d, tagbound = %d\n",
            firsttag, lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n objIV") ;
@@ -93,7 +93,7 @@ counts = IVinit(nproc, 0) ;
 for ( ii = 0 ; ii < nvec ; ii++ ) {
    if ( owners[ii] < 0 || owners[ii] >= nproc ) {
       fprintf(stderr, "\n owners[%d] = %d", ii, owners[ii]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    counts[owners[ii]]++ ;
 }
@@ -120,7 +120,7 @@ if ( counts[myid] > 0 ) {
               jj, myid, 2*counts[myid]) ;
       fprintf(stderr, "\n jj = %d, 2*counts[%d] = %d",
               jj, myid, 2*counts[myid]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    outbuffer = NULL ;
@@ -185,7 +185,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
                  "\n 1. fatal error in IV_MPI_allgather()"
                  "\n proc %d : source = %d, count = %d, incount = %d\n",
                  myid, source, count, incount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 /*
@@ -201,7 +201,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
    if ( jj != incount ) {
       fprintf(msgFile, "\n jj = %d, incount = %d", jj, incount) ;
       fprintf(stderr, "\n jj = %d, incount = %d", jj, incount) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( msglvl > 2 ) {
       fprintf(msgFile, "\n after setting values") ;

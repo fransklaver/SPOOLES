@@ -22,7 +22,7 @@ Tree_nnodes (
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_nnodes(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(tree->n) ; }
 
@@ -46,7 +46,7 @@ Tree_root (
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_root(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(tree->root) ; }
 
@@ -70,7 +70,7 @@ Tree_par (
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_par(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(tree->par) ; }
 
@@ -94,7 +94,7 @@ Tree_fch (
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_fch(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(tree->fch) ; }
 
@@ -118,7 +118,7 @@ Tree_sib (
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_sib(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(tree->sib) ; }
 

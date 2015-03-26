@@ -37,7 +37,7 @@ PatchAndGoInfo_setDefaultFields (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in PatchAndGoInfo_setDefaultFields()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 info->strategy =  -1  ;
 info->toosmall =  0.0 ;
@@ -62,7 +62,7 @@ PatchAndGoInfo_clearData (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in PatchAndGoInfo_clearData()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( info->fudgeIV != NULL ) {
    IV_free(info->fudgeIV) ;
@@ -89,7 +89,7 @@ PatchAndGoInfo_free (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in PatchAndGoInfo_free()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 PatchAndGoInfo_clearData(info) ;
 FREE(info) ;

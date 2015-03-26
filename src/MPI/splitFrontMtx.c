@@ -49,7 +49,7 @@ if ( frontmtx == NULL || solvemap == NULL
          "\n stats %p, msglvl %d, msgFile %p"
          "\n bad input\n", 
          frontmtx, solvemap, firsttag, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 split(frontmtx, solvemap, 'U', stats, 
       msglvl, msgFile, firsttag, comm) ;
@@ -114,7 +114,7 @@ if ( frontmtx == NULL || solvemap == NULL
          "\n stats %p, msglvl %d, msgFile %p"
          "\n bad input\n", 
          frontmtx, solvemap, firsttag, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------
@@ -304,7 +304,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
                  "\n 1. fatal error in FrontMtx_MPI_split()"
                  "\n proc %d : source = %d, count = %d, incount = %d\n",
                  myid, source, count, 3*incount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
    if ( incount > 0 && msglvl > 1 ) {

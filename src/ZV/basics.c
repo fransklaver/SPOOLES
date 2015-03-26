@@ -37,7 +37,7 @@ ZV_setDefaultFields (
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_setDefaultFields(%p)"
            "\n bad input\n", zv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 zv->size    =   0  ;
 zv->maxsize =   0  ;
@@ -61,7 +61,7 @@ ZV_clearData (
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_clearData(%p)"
            "\n bad input\n", zv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( zv->vec != NULL && zv->owned == 1 ) {
    DVfree(zv->vec) ;
@@ -85,7 +85,7 @@ ZV_free (
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_free(%p)"
            "\n bad input\n", zv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ZV_clearData(zv) ;
 FREE(zv) ;

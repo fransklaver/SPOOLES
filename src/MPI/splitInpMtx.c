@@ -67,22 +67,22 @@ MPI_Comm_size(comm, &nproc) ;
 if ( inpmtx == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_MPI_split()"
            "\n inpmtx is NULL") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( inpmtx->storageMode != INPMTX_BY_VECTORS ) {
    fprintf(stderr, "\n fatal error in InpMtx_MPI_split()"
            "\n inpmtx must be stored by vectors") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( firsttag < 0 ) {
    fprintf(stderr, "\n fatal error in InpMtx_MPI_split()"
            "\n firsttag = %d\n", firsttag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( firsttag > (tagbound = maxTagMPI(comm)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_MPI_split()"
            "\n firsttag = %d, tagbound = %d\n", firsttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 type  = InpMtx_inputMode(inpmtx) ;
 switch ( type ) {
@@ -96,7 +96,7 @@ case SPOOLES_COMPLEX :
 default :
    fprintf(stderr, "\n fatal error in InpMtx_MPI_split()"
            "\n bad inputMode\n") ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 nent    = InpMtx_nent(inpmtx)    ;
@@ -107,27 +107,27 @@ IV_sizeAndEntries(mapIV, &nvtx, &map) ;
 if ( nvtx <= 0 || map == NULL ) {
    fprintf(stderr, "\n process %d : nvtx = %d, map = %p",
            myid, nvtx, map) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (val = IVmin(nent, ivec1, &ient)) < 0 ) {
    fprintf(stderr, "\n process %d : IV_min(ivec1) = %d", 
            myid, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (val = IVmax(nent, ivec1, &ient)) >= nvtx ) {
    fprintf(stderr, "\n process %d : IV_max(ivec1) = %d", 
            myid, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (val = IV_min(mapIV)) < 0 ) {
    fprintf(stderr, "\n process %d : IVmin(mapIV) = %d", 
            myid, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (val = IV_max(mapIV)) >= nproc ) {
    fprintf(stderr, "\n process %d : IVmax(mapIV) = %d", 
            myid, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*--------------------------------------------------------------------*/
 /*
@@ -535,7 +535,7 @@ if ( myid == root ) {
    if ( rc != 1 ) {
       MPI_Bcast((void *) &rc, 1, MPI_INT, root, comm) ;
       MPI_Finalize() ;
-      exit(rc) ;
+      spoolesFatal();
    } else {
       MPI_Bcast((void *) &type,      1, MPI_INT, root, comm) ;
       coordType = Aglobal->coordType ;
@@ -552,7 +552,7 @@ if ( myid == root ) {
    MPI_Bcast((void *) &type, 1, MPI_INT, root, comm) ;
    if ( type < 0 ) {
       MPI_Finalize() ;
-      exit(type) ;
+      spoolesFatal();
    }
    MPI_Bcast((void *) &coordType, 1, MPI_INT, root, comm) ;
 }

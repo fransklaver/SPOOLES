@@ -98,7 +98,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inTreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 tree = Tree_new() ;
 MARKTIME(t1) ;
@@ -113,7 +113,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in tree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Tree_readFromFile(%p,%s)",
            rc, tree, inTreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Tree object from file %s",
         inTreeFileName) ;
@@ -142,7 +142,7 @@ if ( strcmp(inTagsFileName, "none") != 0 ) {
    if ( rc != 1 ) {
       fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
               rc, tagsIV, inTagsFileName) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    fprintf(msgFile, "\n\n after reading IV object from file %s",
            inTagsFileName) ;
@@ -156,7 +156,7 @@ if ( strcmp(inTagsFileName, "none") != 0 ) {
       fprintf(stderr, 
               "\n fatal error, IV_size(tagsIV) = %d, tree->n = %d",
               IV_size(tagsIV), tree->n) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    tagsIV = NULL ;
@@ -171,7 +171,7 @@ yDV = DV_new() ;
 rc = Tree_getSimpleCoords(tree, heightflag, coordflag, xDV, yDV) ;
 if ( rc != 1 ) {
    fprintf(stderr, "\n error return %d from Tree_getSimpleCoords()",rc);
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n x-coordinates") ;
@@ -189,7 +189,7 @@ rc = Tree_drawToEPS(tree, outEPSfileName, xDV, yDV, radius, NULL,
                     tagsflag, fontsize, tagsIV, bbox, frame, NULL) ;
 if ( rc != 1 ) {
    fprintf(stderr, "\n error return %d from Tree_drawToEPSfile()", rc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------

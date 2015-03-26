@@ -70,7 +70,7 @@ if ( size <= 0 ) {
    fprintf(stderr, 
            "\n fatal error in CVcopy, size = %d, y = %p, x = %p\n",
            size, y, x) ;
-   exit(0) ;
+   spoolesFatal();
 } else { 
    int   i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -99,7 +99,7 @@ if ( size <= 0 ) {
    fprintf(stderr, 
            "\n fatal error in CVfill, size = %d, y = %p\n",
            size, y) ;
-   exit(0) ;
+   spoolesFatal();
 } else { 
    int   i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -129,7 +129,7 @@ if ( fp != NULL && size > 0 ) {
       fprintf(stderr, 
          "\n fatal error in CVfprintf, fp = %p, size = %d, y = %p\n",
          fp, size, y) ;
-      exit(0) ;
+      spoolesFatal();
    } else {
       int    i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -174,7 +174,7 @@ if ( fp != NULL && size > 0 ) {
       fprintf(stderr, "\n fatal error in CVfp80"
               "\n fp = %p, size = %d, y = %p, column = %d\n",
               fp, size, y, column) ;
-      exit(0) ;
+      spoolesFatal();
    } else {
       int    i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -234,7 +234,7 @@ if ( fp != NULL && size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in CVfscanf"
               "\n fp = %p, size = %d, y = %p\n", fp, size, y) ;
-      exit(0) ;
+      spoolesFatal();
    } else {
       for ( i = 0 ; i < size ; i++ ) {
          if ( fscanf(fp, "%c", y + i) != 1 ) {

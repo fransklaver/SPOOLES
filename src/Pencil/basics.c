@@ -38,7 +38,7 @@ Pencil_setDefaultFields (
 if ( pencil == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_setDefaultFields(%p)"
            "\n bad input", pencil) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 pencil->type     = SPOOLES_REAL ;
 pencil->symflag  = SPOOLES_SYMMETRIC ;
@@ -69,7 +69,7 @@ Pencil_clearData (
 if ( pencil == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_clearData(%p)"
            "\n bad input\n", pencil) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------
@@ -106,7 +106,7 @@ Pencil_free (
 if ( pencil == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_free(%p)"
            "\n bad input\n", pencil) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Pencil_clearData(pencil) ;
 FREE(pencil) ;

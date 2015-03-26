@@ -28,7 +28,7 @@ IV    *mapIV ;
 if ( tree == NULL || tree->n <= 0 ) {
    fprintf(stderr, "\n fatal error in Tree_fundChainMap(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mapIV = IV_new() ;
 IV_init(mapIV, tree->n, NULL) ;
@@ -88,7 +88,7 @@ if (  tree == NULL
    || (map = IV_entries(mapIV)) == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_compress(%p,%p)"
            "\n bad input\n", tree, mapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------
@@ -109,7 +109,7 @@ for ( v = 0 ; v < n ; v++ ) {
    if ( (V = map[v]) < 0 || V >= N ) {
       fprintf(stderr, "\n fatal error in Tree_compress(%p,%p)"
               "\n map[%d] = %d, N = %d\n", tree, map, v, V, N) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    link[v] = head[V] ;
    head[V] =    v    ;

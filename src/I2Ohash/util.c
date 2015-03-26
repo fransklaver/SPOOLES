@@ -26,7 +26,7 @@ long int loc3;
 if ( hashtable == NULL ) {
    fprintf(stderr, "\n error in I2Ohash_insert(%p,%d,%d,%p)"
            "\n hashtable is NULL \n", hashtable, key1, key2, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n\n inside I2Ohash_insert(%p,%d,%d,%p)",
@@ -60,7 +60,7 @@ if ( (i2op = hashtable->freeI2OP) == NULL ) {
       fprintf(stderr, "\n fatal error in I2Ohash_insert(%p,%d,%d,%p)"
               "\n no free list items, grow = %d",
               hashtable, key1, key2, value, hashtable->grow) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    i2op = I2OP_init(hashtable->grow, I2OP_FORWARD) ;
    hashtable->freeI2OP = i2op + 1 ;
@@ -152,7 +152,7 @@ if ( hashtable == NULL || pvalue == NULL ) {
    fprintf(stderr, "\n error in I2Ohash_locate(%p,%d,%d,%p)"
            "\n hashtable or pvalue is NULL\n",
            hashtable, key1, key2, pvalue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n\n inside I2Ohash_locate(%p,%d,%d,%p)",
@@ -229,7 +229,7 @@ if ( hashtable == NULL || pvalue == NULL ) {
    fprintf(stderr, "\n error in I2Ohash_remove(%p,%d,%d,%p)"
            "\n hashtable or pvalue is NULL\n",
            hashtable, key1, key2, pvalue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 loc1 = (key1 + 1) % hashtable->nlist ;
 loc2 = (key2 + 1) % hashtable->nlist ;
@@ -288,7 +288,7 @@ I2OP      *i2op ;
 if ( hashtable == NULL ) {
    fprintf(stderr, "\n fatal error in I2Ohash_measure(%p)"
            "\n hashtable is NULL\n", hashtable) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 measure = 0.0 ;
 for ( loc = 0 ; loc < hashtable->nlist ; loc++ ) {

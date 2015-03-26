@@ -41,7 +41,7 @@ if (  chv == NULL || ichv < 0 || chvsize < 0
            "\n fatal error in Chv_addChevron(%p,%p,%d,%d,%p,%p)"
            "\n bad input\n", 
            chv, alpha, ichv, chvsize, chvind, chvent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( chv->type ) {
 case SPOOLES_REAL :
@@ -54,7 +54,7 @@ case SPOOLES_REAL :
               "\n type is SPOOLES_REAL, symflag = %d"
               "\n must be SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC\n",
               chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
 case SPOOLES_COMPLEX :
@@ -69,7 +69,7 @@ case SPOOLES_COMPLEX :
         "\n must be SPOOLES_SYMMETRIC, SPOOLES_HERMITIAN"
         "\n or SPOOLES_NONSYMMETRIC\n",
         chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    break ;
@@ -77,7 +77,7 @@ default :
    fprintf(stderr, "\n fatal error in Chv_addChevron()"
      "\n type is %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
      chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 #if MYDEBUG > 0
@@ -122,7 +122,7 @@ if ( iloc == nD ) {
    fprintf(stderr, "\n fatal error in Chv_addChevron(%p,%d,%d,%p,%p)"
            "\n chevron id %d not found in colind[]",
            chv, ichv, chvsize, chvind, chvent, ichv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
 /*
@@ -139,7 +139,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
                  "\n ii %d, negative offset %d\n", 
                  chv, ichv, chvsize, chvind, chvent, ii, chvind[ii]) ;
          IVfprintf(stderr, chvsize, chvind) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       jcol = ichv + offset ;
 #if MYDEBUG > 0 
@@ -163,7 +163,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
          IVfprintf(stderr, ncol, colind) ;
          fprintf(stderr, "\n chvind") ;
          IVfprintf(stderr, chvsize, chvind) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       chvind[ii] = jj ;
    }
@@ -236,7 +236,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
          fprintf(stderr, "\n fatal error in Chv_addChevron()"
     "\n chevron is hermitian, but the scalar has nonzero imaginary part"
     "\n sum is no longer hermitian\n") ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 /*
@@ -274,7 +274,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
                  "\n fatal error in Chv_addChevron(%p,%d,%d,%p,%p)"
                  "\n jcol %d not found in colind[]\n", 
                  chv, ichv, chvsize, chvind, chvent, jcol) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       chvind[ii] = -jj + iloc ;
    }
@@ -288,7 +288,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
                  "\n fatal error in Chv_addChevron(%p,%d,%d,%p,%p)"
                  "\n jcol %d not found in colind[]\n", 
                  chv, ichv, chvsize, chvind, chvent, jcol) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       chvind[ii] = jj - iloc ;
    }
@@ -404,20 +404,20 @@ int      *colindJ, *colindI, *rowindI, *rowindJ ;
 if ( chvJ == NULL || chvI == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_assembleChv(%p,%p)"
            "\n bad input\n", chvJ, chvI) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(CHV_IS_SYMMETRIC(chvI) 
        || CHV_IS_HERMITIAN(chvI) 
        || CHV_IS_NONSYMMETRIC(chvI) ) ) {
    fprintf(stderr, "\n fatal error in Chv_assembleChv(%p,%p)"
            "\n bad symflag %d\n", chvJ, chvI, chvI->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( chvI->symflag != chvJ->symflag ) {
    fprintf(stderr, "\n fatal error in Chv_assembleChv(%p,%p)"
            "\n chvI->symflag = %d, chvJ->symflag = %d\n", 
            chvJ, chvI, chvI->symflag, chvJ->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -432,7 +432,7 @@ if (  nDI + nLI > nDJ + nLJ ||  nDI + nUI > nDJ + nUJ ) {
            "\n nDI = %d, nLI = %d, nUI = %d"
            "\n nDI = %d, nLI = %d, nUI = %d",
            chvJ, chvI, nDI, nLI, nUI, nDJ, nLJ, nUJ) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------
@@ -471,7 +471,7 @@ if ( jj == ncolJ ) {
    IVfprintf(stderr, ncolI, colindI) ;
    fprintf(stderr, "\n colindJ") ;
    IVfprintf(stderr, ncolJ, colindJ) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_SYMMETRIC(chvJ) || CHV_IS_HERMITIAN(chvJ) ) {
 /*
@@ -511,7 +511,7 @@ if ( CHV_IS_SYMMETRIC(chvJ) || CHV_IS_HERMITIAN(chvJ) ) {
       IVfprintf(stderr, nrowI, rowindI) ;
       fprintf(stderr, "\n rowindJ") ;
       IVfprintf(stderr, nrowJ, rowindJ) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 #if MYDEBUG > 0
    fprintf(stdout, "\n local row indices") ;
@@ -535,7 +535,7 @@ for ( ichvI = 0 ; ichvI < nDI ; ichvI++ ) {
       fprintf(stderr, "\n fatal error in Chv_assembleChv(%p,%p)"
               "\n ichvI = %d, ichvJ = %d, rowindI[ichvI] = %d",
               chvJ, chvI, ichvI, ichvJ, rowindI[ichvI]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    diagI = Chv_diagLocation(chvI, ichvI) ;
    diagJ = Chv_diagLocation(chvJ, ichvJ) ;
@@ -666,7 +666,7 @@ if ( newchv == NULL || oldchv == NULL || firstchild == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Chv_assemblePostponedData(%p,%p,%p)"
            "\n bad input\n", newchv, oldchv, firstchild) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_zero(newchv) ;
 #if MYDEBUG > 0

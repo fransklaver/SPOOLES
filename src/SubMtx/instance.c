@@ -26,7 +26,7 @@ if (  mtx == NULL || prowid == NULL || pcolid == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_ids(%p,%p,%p)"
            "\n bad input\n", mtx, prowid, pcolid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *prowid = mtx->rowid ;
 *pcolid = mtx->colid ;
@@ -57,7 +57,7 @@ if (  mtx == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_ids(%p,%d,%d)"
            "\n bad input\n", mtx, rowid, colid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 buffer = (int *) mtx->wrkDV.vec ;
 buffer[2] = mtx->rowid = rowid ;
@@ -91,7 +91,7 @@ if (  mtx == NULL || pnrow == NULL || pncol == NULL || pnent == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_ids(%p,%p,%p,%p)"
            "\n bad input\n", mtx, pnrow, pncol, pnent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnrow = mtx->nrow ;
 *pncol = mtx->ncol ;
@@ -182,14 +182,14 @@ if (  mtx == NULL || pnrow == NULL || pncol == NULL
            "\n fatal error in SubMtx_denseInfo(%p,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            mtx, pnrow, pncol, pinc1, pinc2, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_denseInfo(%p,%p,%p,%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            mtx, pnrow, pncol, pinc1, pinc2, pentries, mtx->type) ;
-            exit(-1) ;
+            spoolesFatal();
 }
 if ( ! (SUBMTX_IS_DENSE_ROWS(mtx) || SUBMTX_IS_DENSE_COLUMNS(mtx)) ) {
    fprintf(stderr, 
@@ -197,7 +197,7 @@ if ( ! (SUBMTX_IS_DENSE_ROWS(mtx) || SUBMTX_IS_DENSE_COLUMNS(mtx)) ) {
            "\n bad mode %d"
            "\n must be SUBMTX_DENSE_ROWS or SUBMTX_DENSE_COLUMNS\n",
            mtx, pnrow, pncol, pinc1, pinc2, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnrow = mtx->nrow ;
 *pncol = mtx->ncol ;
@@ -253,21 +253,21 @@ if ( mtx == NULL || pnrow == NULL  || pnent == NULL
            "\n fatal error in SubMtx_sparseRowsInfo(%p,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            mtx, pnrow, pnent, psizes, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_sparseRowsInfo(%p,%p,%p,%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            mtx, pnrow, pnent, psizes, pindices, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_SPARSE_ROWS(mtx) ) {
    fprintf(stderr, 
          "\n fatal error in SubMtx_sparseRowsInfo(%p,%p,%p,%p,%p,%p)"
          "\n bad mode %d, must be SUBMTX_SPARSE_ROWS\n",
          mtx, pnrow, pnent, psizes, pindices, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnrow    = mtx->nrow ;
 *pnent    = mtx->nent ;
@@ -321,14 +321,14 @@ if ( mtx == NULL || pncol == NULL  || pnent == NULL
          "\n fatal error in SubMtx_sparseColumnsInfo(%p,%p,%p,%p,%p,%p)"
          "\n bad input\n",
          mtx, pncol, pnent, psizes, pindices, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
          "\n fatal error in SubMtx_sparseColumnsInfo(%p,%p,%p,%p,%p,%p)"
          "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
          mtx, pncol, pnent, psizes, pindices, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_SPARSE_COLUMNS(mtx) ) {
    fprintf(stderr, 
@@ -336,7 +336,7 @@ if ( ! SUBMTX_IS_SPARSE_COLUMNS(mtx) ) {
          "\n bad mode %d"
          "\n must be SUBMTX_SPARSE_COLUMNS\n",
          mtx, pncol, pnent, psizes, pindices, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pncol    = mtx->ncol ;
 *pnent    = mtx->nent ;
@@ -388,14 +388,14 @@ if ( mtx == NULL || pnent == NULL
            "\n fatal error in SubMtx_sparseTriplesInfo(%p,%p,%p,%p,%p)"
            "\n bad input\n",
            mtx, pnent, prowids, pcolids, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
          "\n fatal error in SubMtx_sparseTriplesInfo(%p,%p,%p,%p,%p)"
          "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
          mtx, pnent, prowids, pcolids, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_SPARSE_TRIPLES(mtx) ) {
    fprintf(stderr, 
@@ -403,7 +403,7 @@ if ( ! SUBMTX_IS_SPARSE_TRIPLES(mtx) ) {
          "\n bad mode %d"
          "\n must be SUBMTX_SPARSE_TRIPLES\n",
          mtx, pnent, prowids, pcolids, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnent   = mtx->nent ;
 dbuffer  = mtx->wrkDV.vec ;
@@ -459,14 +459,14 @@ if ( mtx == NULL || pnrow == NULL || pnent == NULL
    if ( mtx != NULL ) {
       SubMtx_writeForHumanEye(mtx, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
          "\n fatal error in SubMtx_denseSubrowsInfo(%p,%p,%p,%p,%p,%p)"
          "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
          mtx, pnrow, pnent, pfirstlocs, psizes, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_DENSE_SUBROWS(mtx) ) {
    fprintf(stderr, 
@@ -474,7 +474,7 @@ if ( ! SUBMTX_IS_DENSE_SUBROWS(mtx) ) {
          "\n bad mode %d"
          "\n must be SUBMTX_DENSE_SUBROWS\n",
          mtx, pnrow, pnent, pfirstlocs, psizes, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pnrow  = mtx->nrow ;
 *pnent  = mtx->nent ;
@@ -529,14 +529,14 @@ if ( mtx == NULL
         "\n fatal error in SubMtx_denseSubcolumnsInfo(%p,%p,%p,%p,%p,%p)"
         "\n bad input\n",
         mtx, pncol, pnent, pfirstlocs, psizes, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
         "\n fatal error in SubMtx_denseSubcolumsInfo(%p,%p,%p,%p,%p,%p)"
         "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
         mtx, pncol, pnent, pfirstlocs, psizes, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_DENSE_SUBCOLUMNS(mtx) ) {
    fprintf(stderr, 
@@ -544,7 +544,7 @@ if ( ! SUBMTX_IS_DENSE_SUBCOLUMNS(mtx) ) {
        "\n bad mode %d"
        "\n must be SUBMTX_DENSE_SUBCOLUMNS\n",
        mtx, pncol, pnent, pfirstlocs, psizes, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pncol = mtx->ncol ;
 *pnent = mtx->nent ;
@@ -592,14 +592,14 @@ if (  mtx == NULL || pncol == NULL || pentries == NULL ) {
         "\n fatal error in SubMtx_diagonalInfo(%p,%p,%p)"
         "\n bad input\n",
         mtx, pncol, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
         "\n fatal error in SubMtx_diagonalInfo(%p,%p,%p)"
         "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
         mtx, pncol, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_DIAGONAL(mtx) ) {
    fprintf(stderr, 
@@ -607,7 +607,7 @@ if ( ! SUBMTX_IS_DIAGONAL(mtx) ) {
        "\n bad mode %d"
        "\n must be SUBMTX_DIAGONAL\n",
        mtx, pncol, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pncol = mtx->ncol ;
 dbuffer = mtx->wrkDV.vec ;
@@ -655,14 +655,14 @@ if (  mtx == NULL
         "\n fatal error in SubMtx_blockDiagonalInfo(%p,%p,%p,%p,%p)"
         "\n bad input\n",
         mtx, pncol, pnent, ppivotsizes, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, 
         "\n fatal error in SubMtx_blockDiagonalInfo(%p,%p,%p,%p,%p)"
         "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
         mtx, pncol, pnent, ppivotsizes, pentries, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_BLOCK_DIAGONAL_SYM(mtx)
         || SUBMTX_IS_BLOCK_DIAGONAL_HERM(mtx)) ) {
@@ -671,7 +671,7 @@ if ( ! (SUBMTX_IS_BLOCK_DIAGONAL_SYM(mtx)
 "\n bad mode %d"
 "\n must be SUBMTX_BLOCK_DIAGONAL_SYM or SUBMTX_BLOCK_DIAGONAL_HERM \n",
 mtx, pncol, pnent, ppivotsizes, pentries, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pncol = mtx->ncol ;
 *pnent = mtx->nent ;
@@ -721,14 +721,14 @@ if (  mtx == NULL || irow < 0 || irow >= mtx->nrow || jcol < 0
    fprintf(stderr, 
            "\n fatal error in SubMtx_realEntry(%p,%d,%d,%p)"
            "\n bad input\n", mtx, irow, jcol, pValue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_REAL(mtx) ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_realEntry(%p,%d,%d,%p)"
            "\n bad type %d, must be SPOOLES_REAL\n", 
            mtx, irow, jcol, pValue, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pValue = 0 ;
 switch ( mtx->mode ) {
@@ -927,7 +927,7 @@ default :
    fprintf(stderr, 
            "\n fatal error in SubMtx_realEntry(%p,%d,%d,%p)"
            "\n bad mode %d", mtx, irow, jcol, pValue, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return(-1) ; }
@@ -967,14 +967,14 @@ if (  mtx == NULL || irow < 0 || irow >= mtx->nrow || jcol < 0
    fprintf(stderr, 
            "\n fatal error in SubMtx_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad input\n", mtx, irow, jcol, pReal, pImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_COMPLEX(mtx) ) {
    fprintf(stderr, 
            "\n fatal error in SubMtx_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, jcol, pReal, pImag, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pReal = *pImag = 0 ;
 switch ( mtx->mode ) {
@@ -1182,7 +1182,7 @@ default :
    fprintf(stderr, 
            "\n fatal error in SubMtx_complexEntry(%p,%d,%d,%p,%p)"
            "\n bad mode %d", mtx, irow, jcol, pReal, pImag, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return(-1) ; }
@@ -1219,14 +1219,14 @@ if (  mtx == NULL || irow < 0 || irow >= mtx->nrow || jcol < 0
    fprintf(stderr, 
        "\n fatal error in SubMtx_locationOfRealEntry(%p,%d,%d,%p)"
            "\n bad input\n", mtx, irow, jcol, ppValue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_REAL(mtx) ) {
    fprintf(stderr, 
        "\n fatal error in SubMtx_locationOfRealEntry(%p,%d,%d,%p)"
            "\n bad type %d, must be SPOOLES_REAL\n", 
            mtx, irow, jcol, ppValue, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *ppValue = NULL ;
 switch ( mtx->mode ) {
@@ -1369,7 +1369,7 @@ default :
    fprintf(stderr, 
        "\n fatal error in SubMtx_locationOfRealEntry(%p,%d,%d,%p)"
        "\n bad mode %d", mtx, irow, jcol, ppValue, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return ; }
@@ -1407,14 +1407,14 @@ if (  mtx == NULL || irow < 0 || irow >= mtx->nrow || jcol < 0
    fprintf(stderr, 
        "\n fatal error in SubMtx_locationOfComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad input\n", mtx, irow, jcol, ppReal, ppImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_COMPLEX(mtx) ) {
    fprintf(stderr, 
        "\n fatal error in SubMtx_locationOfComplexEntry(%p,%d,%d,%p,%p)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, jcol, ppReal, ppImag, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *ppReal = NULL ;
 *ppImag = NULL ;
@@ -1566,7 +1566,7 @@ default :
    fprintf(stderr, 
        "\n fatal error in SubMtx_locationOfComplexEntry(%p,%d,%d,%p,%p)"
        "\n bad mode %d", mtx, irow, jcol, ppReal, ppImag, mtx->mode) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return ; }

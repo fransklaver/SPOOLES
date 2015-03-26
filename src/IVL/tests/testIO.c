@@ -59,7 +59,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inIVLfileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 ivl = IVL_new() ;
 IVL_init1(ivl, IVL_CHUNKED, 0) ;
@@ -71,7 +71,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in ivl from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from IVL_readFromFile(%p,%s)",
            rc, ivl, inIVLfileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading IVL object from file %s",
         inIVLfileName) ;

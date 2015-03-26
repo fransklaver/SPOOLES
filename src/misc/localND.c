@@ -50,13 +50,13 @@ if ( n1 <= 0 || n2 <= 0 || 2*p1 - 1 > n1 || 2*p2 - 1 > n2
    fprintf(stderr, "\n fatal error in localND2D(%d,%d,%d,%d,%p,%p,%p)"
            "\n bad input\n",
            n1, n2, p1, p2, dsizes1, dsizes2, oldToNew) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 if ( p2 <= 1 ) {
    fprintf(stderr, "\n fatal error in localND2D(%d,%d,%d,%d,%p,%p,%p)"
            "\n p2 = %d, must be > 1", 
            n1, n2, p1, p2, dsizes1, dsizes2, oldToNew, p2) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 if ( dsizes1 != NULL && IVsum(p1, dsizes1) != n1 - p1 + 1 ) {
    fprintf(stderr, "\n fatal error in localND2D(%d,%d,%d,%d,%p,%p,%p)"

@@ -18,7 +18,7 @@ ZV_owned (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_owned(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(dv->owned) ; }
 
@@ -37,7 +37,7 @@ ZV_maxsize (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_maxsize(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(dv->maxsize) ; }
 
@@ -56,7 +56,7 @@ ZV_size (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_size(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(dv->size) ; }
 
@@ -78,13 +78,13 @@ ZV_entry (
 if ( dv == NULL || pReal == NULL || pImag == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_entry(%p,%d,%p,%p)"
            "\n bad input\n", dv, loc, pReal, pImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( loc < 0 || loc >= dv->size || dv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_entry(%p,%d,%p,%p)"
            "\n bad state: size = %d, vec = %p\n",
            dv, loc, pReal, pImag, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pReal = dv->vec[2*loc] ;
 *pImag = dv->vec[2*loc+1] ;
@@ -109,13 +109,13 @@ ZV_pointersToEntry (
 if ( dv == NULL || ppReal == NULL || ppImag == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_pointersToEntry(%p,%d,%p,%p)"
            "\n bad input\n", dv, loc, ppReal, ppImag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( loc < 0 || loc >= dv->size || dv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_pointersToEntry(%p,%d,%p,%p)"
            "\n bad state: size = %d, vec = %p\n",
            dv, loc, ppReal, ppImag, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *ppReal = &dv->vec[2*loc] ;
 *ppImag = &dv->vec[2*loc+1] ;
@@ -137,7 +137,7 @@ ZV_entries (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_entries(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(dv->vec) ; }
 
@@ -159,7 +159,7 @@ ZV_sizeAndEntries (
 if ( dv == NULL || psize == NULL || pentries == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_sizeAndEntries(%p,%p,%p)"
            "\n bad input\n", dv, psize, pentries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *psize    = dv->size ;
 *pentries = dv->vec  ;
@@ -189,7 +189,7 @@ ZV_setEntry (
 if ( dv == NULL || loc < 0 ) {
    fprintf(stderr, "\n fatal error in ZV_setEntry(%p,%d,%f,%f)"
            "\n bad input\n", dv, loc, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( loc >= dv->maxsize ) {
    int newmaxsize = (int) 1.25*dv->maxsize ;

@@ -44,7 +44,7 @@ MARKTIME(t0) ;
 if (  msmd == NULL || g == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_order(%p,%p,%p,%p)"
            "\n bad input\n", msmd, g, stages, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( info->msglvl > 2 ) {
    fprintf(info->msgFile, "\n\n inside MSMD_order()") ;
@@ -63,7 +63,7 @@ if ( info->msglvl > 2 ) {
 if ( MSMDinfo_isValid(info) != 1 ) {
    fprintf(stderr, "\n fatal error in MSMD_order(%p,%p,%p,%p)"
            "\n bad MSMDinfo object\n", msmd, g, stages, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------

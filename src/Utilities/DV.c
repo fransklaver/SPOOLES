@@ -23,7 +23,7 @@ if ( size <= 0 ) {
    fprintf(stderr, "\n fatal error in DVadd"
            "\n invalid input, size = %d, y = %p, x = %p\n",
            size, y, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -53,7 +53,7 @@ if ( size < 0 || alpha == 0.0 ) {
    fprintf(stderr, "\n fatal error in DVaxpy"
            "\n invalid input, size = %d, y = %p, alpha = %f, x = %p\n",
            size, y, alpha, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -84,7 +84,7 @@ if ( size <= 0 || alpha == 0.0 ) {
    fprintf(stderr, "\n fatal error in DVaxpyi, invalid input"
            "\n size = %d, y = %p, index = %p, alpha = %f, x = %p",
            size, y, index, alpha, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -112,7 +112,7 @@ if ( size <= 0 ) {
 } else if ( y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in DVcopy, invalid input"
            "\n size = %d, y = %p, x = %p\n", size, y, x) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 } else {
    int i ;
    for ( i = 0 ; i < size ; i++ ) {
@@ -158,7 +158,7 @@ if ( size1 <= 0 || size2 <= 0 ) {
            "\n size1 = %d, x1 = %p, y1 = %p"
            "\n size2 = %d, x2 = %p, y2 = %p",
            size1, x1, y1, size2, x2, y2) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 /*
    ----------------------------------------
@@ -234,7 +234,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in DVdot, invalid data"
               "\n size = %d, y = %p, x = %p\n", size, y, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       for ( i = 0, sum = 0. ; i < size ; i++ ) {
@@ -269,7 +269,7 @@ int      ii  ;
 if (  size < 0 || y == NULL || index == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in DVdoti(%d,%p,%p,%p)"
            "\n bad input\n", size, y, index, x) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = 0, sum = 0.0 ; ii < size ; ii++ ) {
    sum += y[index[ii]] * x[ii] ;
@@ -294,7 +294,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVfill, invalid data"
               "\n size = %d, y = %p, dval = %f\n", size, y, dval) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -322,7 +322,7 @@ if ( fp != NULL && size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVfprintf, invalid input"
               "\n fp = %p, size = %d, y = %p\n", fp, size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int    i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -371,7 +371,7 @@ if ( fp != NULL && size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVfscanf, invalid input"
               "\n fp = %p, size = %d, y = %p\n", fp, size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( i = 0 ; i < size ; i++ ) {
       if ( fscanf(fp, " %le", y + i)  != 1 ) {
@@ -401,7 +401,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVgather, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -431,7 +431,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVgatherAddZero, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -463,7 +463,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVgatherZero, invalid input"
               "\n size = %d, y = %p, x = %p, index = %p\n",
               size, y, x, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   i, j ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -537,7 +537,7 @@ if ( size > 0 ) {
    if ( y == NULL || index == NULL ) {
       fprintf(stderr, "\n fatal error in DVinvPerm, invalid data"
               "\n size = %d, y = %p, index = %p", size, y, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       double   *x ;
       int      i ;
@@ -572,7 +572,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVmax, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       maxval = y[0] ;
@@ -612,7 +612,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVmaxabs, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i   ;
       double   val ;
@@ -653,7 +653,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVmin, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       minval = y[0] ;
@@ -693,7 +693,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVminabs, invalid data"
               "\n size = %d, y = %p, ploc = %p\n", size, y, ploc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i   ;
       double   val ;
@@ -732,7 +732,7 @@ if ( size > 0 ) {
    if ( y == NULL || index == NULL ) {
       fprintf(stderr, "\n fatal error in DVperm, invalid data"
               "\n size = %d, y = %p, index = %p\n", size, y, index) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       double   *x ;
       int      i ;
@@ -766,7 +766,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVramp, invalid input"
               "\n size = %d, y = %p, start = %f, inc = %f\n",
               size, y, start, inc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       double   val ;
@@ -795,7 +795,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in DVsub, invalid input"
               "\n size = %d, y = %p, x = %p", size, y, x) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -824,7 +824,7 @@ if ( size > 0 && alpha != 1.0 ) {
       fprintf(stderr, "\n fatal error in DVscale, invalid data"
               "\n size = %d, y = %p, alpha = %f\n",
               size, y, alpha) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -854,7 +854,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVscatter, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -884,7 +884,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVscatterAdd, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -914,7 +914,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVscatterAddZero, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -945,7 +945,7 @@ if ( size > 0 ) {
       fprintf(stderr, "\n fatal error in DVscatterZero, invalid data"
               "\n size = %d, y = %p, index = %p, x = %p\n",
               size, y, index, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       int   i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -974,7 +974,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVsum, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       for ( i = 0, sum = 0. ; i < size ; i++ ) {
@@ -1003,7 +1003,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVsumabs, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int      i ;
       for ( i = 0, sum = 0. ; i < size ; i++ ) {
@@ -1031,7 +1031,7 @@ if ( size > 0 ) {
    if ( y == NULL || x == NULL ) {
       fprintf(stderr, "\n fatal error in DVswap, invalid data"
               "\n size = %d, y = %p, x = %p", size, y, x) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       double   temp ;
       int      i ;
@@ -1061,7 +1061,7 @@ if ( size > 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVzero, invalid data"
               "\n size = %d, y = %p\n", size, y) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int i ;
       for ( i = 0 ; i < size ; i++ ) {
@@ -1097,7 +1097,7 @@ if ( size > 0 || seed <= 0 ) {
    if ( y == NULL ) {
       fprintf(stderr, "\n fatal error in DVshuffle, invalid data"
               "\n size = %d, y = %p, seed = %d\n", size, y, seed) ;
-      exit(-1) ; 
+      spoolesFatal(); 
    } else {
       Drand    drand ;
       double   temp ;
@@ -1142,7 +1142,7 @@ int      ii ;
 if ( size < 0 || x == NULL || y == NULL ) {
    fprintf(stderr, "\n fatal error in DVscale2(%d,%p,%p,...)"
            "\n bad input\n", size, x, y) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 for ( ii = 0 ; ii < size ; ii++ ) {
    xi    = x[ii] ;
@@ -1179,7 +1179,7 @@ int      ii ;
 if ( size < 0 || y == NULL || x == NULL ) {
    fprintf(stderr, "\n fatal error in DVaxpy2()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 for ( ii = 0 ; ii < size ; ii++ ) {
    xi = x[ii] ;
@@ -1230,7 +1230,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot33(%d,%p,%p,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, row1, row2, col0, col1, col2, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1296,7 +1296,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot23(%d,%p,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, row1, col0, col1, col2, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1356,7 +1356,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot13(%d,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, col0, col1, col2, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1418,7 +1418,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot32(%d,%p,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, row1, row2, col0, col1, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1481,7 +1481,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot22(%d,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, row1, col0, col1, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1539,7 +1539,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot12(%d,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, col0, col1, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1597,7 +1597,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot31(%d,%p,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, row1, row2, col0, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1657,7 +1657,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot21(%d,%p,%p,%p,%p)"
            "\n bad input\n",
            n, row0, row1, col0, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -1713,7 +1713,7 @@ if (  sums == NULL
    fprintf(stderr, "\n fatal error in DVdot11(%d,%p,%p,%p)"
            "\n bad input\n",
            n, row0, col0, sums) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------

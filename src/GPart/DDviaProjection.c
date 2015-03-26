@@ -29,7 +29,7 @@ int   dom, domloc, ndom, ndomloc, nvtx, vglob, vloc ;
 if ( gpart == NULL || DDmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_DDviaProjection(%p,%p)"
            "\n bad input\n", gpart, DDmapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx    = gpart->nvtx ;
 compids = IV_entries(&gpart->compidsIV) ;

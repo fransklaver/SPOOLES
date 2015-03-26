@@ -37,7 +37,7 @@ Perm_setDefaultFields (
 if ( perm == NULL ) {
    fprintf(stderr, "\n fatal error in Perm_setDefaultFields(%p)"
            "\n bad input", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 perm->isPresent =   0  ;
 perm->size      =   0  ;
@@ -66,7 +66,7 @@ Perm_clearData (
 if ( perm == NULL ) {
    fprintf(stderr, "\n fatal error in Perm_clearData(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( perm->newToOld != NULL ) {
    IVfree(perm->newToOld) ;
@@ -98,7 +98,7 @@ Perm_free (
 if ( perm == NULL ) {
    fprintf(stderr, "\n fatal error in Perm_free(%p)"
            "\n bad input\n", perm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Perm_clearData(perm) ;
 FREE(perm) ;

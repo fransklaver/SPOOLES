@@ -39,7 +39,7 @@ if ( A == NULL || XownersIV == NULL || YownersIV == NULL
    || stats == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in MatMul_MPI_setup()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( symflag ) {
 case SPOOLES_SYMMETRIC :
@@ -49,7 +49,7 @@ case SPOOLES_NONSYMMETRIC :
 default :
    fprintf(stderr, "\n fatal error in MatMul_MPI_setup()"
            "\n bad symflag = %d\n", symflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 switch ( opflag ) {
@@ -60,7 +60,7 @@ case MMM_WITH_AH :
 default :
    fprintf(stderr, "\n fatal error in MatMul_MPI_setup()"
            "\n bad opflag = %d", opflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 MPI_Comm_rank(comm, &myid) ;
@@ -260,7 +260,7 @@ MatMul_setLocalIndices (
 if ( info == NULL || A == NULL ) {
    fprintf(stderr, "\n fatal error in MatMul_setLocalIndices()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A->nent > 0 ) {
 /*
@@ -287,7 +287,7 @@ if ( A->nent > 0 ) {
    default :
       fprintf(stderr, "\n fatal error in MatMul_setLocalIndices()"
               "\n bad symflag = %d\n", info->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
 }
@@ -309,7 +309,7 @@ MatMul_setGlobalIndices (
 if ( info == NULL || A == NULL ) {
    fprintf(stderr, "\n fatal error in MatMul_setGlobalIndices()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A->nent > 0 ) {
 /*
@@ -336,7 +336,7 @@ if ( A->nent > 0 ) {
    default :
       fprintf(stderr, "\n fatal error in MatMul_setGlobalIndices()"
               "\n bad symflag = %d\n", info->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
 }
@@ -376,7 +376,7 @@ if ( info == NULL || Yloc == NULL || alpha == NULL
     || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in MatMul_MPI_mmm()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------------------
@@ -477,7 +477,7 @@ MatMul_cleanup (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in MatMul_cleanup()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( info->XownedIV != NULL ) {
    IV_free(info->XownedIV) ; info->XownedIV = NULL ;

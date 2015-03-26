@@ -41,13 +41,13 @@ A2_init (
 if ( mtx == NULL || n1 <= 0 || n2 <= 0 || inc1 <= 0 || inc2 <= 0 ) {
    fprintf(stderr, "\n fatal error in A2_init(%p,%d,%d,%d,%d,%p)"
            "\n bad input\n", mtx, n1, n2, inc1, inc2, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( type != SPOOLES_REAL && type != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n fatal error in A2_init(%p,%d,%d,%d,%d,%p)"
            "\n bad type %d\n", 
            mtx, n1, n2, inc1, inc2, entries, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( entries == NULL
    && !( (inc1 == 1 && inc2 == n1) || (inc1 == n2 && inc2 == 1) ) ) {
@@ -61,7 +61,7 @@ if ( entries == NULL
            "\n inc1 = %d, inc2 = %d, nrow = %d, ncol = %d\n", 
            mtx, n1, n2, inc1, inc2, entries, 
            inc1, inc2, n1, n2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( entries != NULL ) {
 /*
@@ -150,13 +150,13 @@ if (  mtxA == NULL || mtxB == NULL
       fprintf(stderr, "\n second A2") ;
       A2_writeForHumanEye(mtxB, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtxB) || A2_IS_COMPLEX(mtxB)) ) {
    fprintf(stderr, "\n fatal error in A2_subA2(%p,%p,%d,%d,%d,%d)"
            "\n bad type %d\n", mtxA, mtxB, firstrow, lastrow, 
            firstcol, lastcol, mtxB->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 mtxA->type    = mtxB->type ;
 mtxA->inc1    = mtxB->inc1 ;

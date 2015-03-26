@@ -33,7 +33,7 @@ Tree   *tree ;
 if ( etree == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_MFstackProfile(%p,%p)"
            "\n bad input\n", etree, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree     = ETree_tree(etree) ;
 nodwghts = ETree_nodwghts(etree) ;
@@ -167,7 +167,7 @@ if ( etree == NULL || symbfacIVL == NULL || dvec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ETree_GSstorageProfile(%p,%p,%p,%p)"
            "\n bad input\n", etree, symbfacIVL, vwghts, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree       = ETree_tree(etree) ;
 nodwghts   = ETree_nodwghts(etree) ;
@@ -224,7 +224,7 @@ for ( J = Tree_postOTfirst(tree) ;
          if ( K < 0 || K >= nfront ) {
             fprintf(stderr, "\n\n fatal error"
                     "\n ii = %d, v = %d, K = %d", ii, v, K) ;
-            exit(-1) ;
+            spoolesFatal();
          }
          if ( (K = vtxToFront[v]) != J ) {
 #if MYDEBUG > 0
@@ -315,7 +315,7 @@ if ( etree == NULL || symbfacIVL == NULL || dvec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ETree_FSstorageProfile(%p,%p,%p)"
            "\n bad input\n", etree, symbfacIVL, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree       = ETree_tree(etree) ;
 nodwghts   = ETree_nodwghts(etree) ;
@@ -403,7 +403,7 @@ if ( etree == NULL || dvec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ETree_forwSolveProfile(%p,%p)"
            "\n bad input\n", etree, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree       = ETree_tree(etree) ;
 nodwghts   = ETree_nodwghts(etree) ;
@@ -471,7 +471,7 @@ if ( etree == NULL || dvec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ETree_backSolveProfile(%p,%p)"
            "\n bad input\n", etree, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree       = ETree_tree(etree) ;
 nodwghts   = ETree_nodwghts(etree) ;

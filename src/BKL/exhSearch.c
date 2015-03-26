@@ -39,7 +39,7 @@ int     *colors ;
 if ( bkl == NULL || mdom < 1 || domids == NULL || tcolors == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_exhaustiveSearch(%p,%d,%p,%p)"
            "\n bad input\n",  bkl, mdom, domids, tcolors) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors = bkl->colors ;
 bkl->nflips = 0 ;

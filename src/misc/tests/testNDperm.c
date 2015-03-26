@@ -41,7 +41,7 @@ if ( strcmp(argv[2], "stdout") == 0 ) {
 } else if ( (msgFile = fopen(argv[2], "a")) == NULL ) {
    fprintf(stderr, "\n error in test4, file %s, line %d"
            "\n unable to open file %s", __FILE__, __LINE__, argv[2]) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 n1 = atoi(argv[3]) ;
 n2 = atoi(argv[4]) ;

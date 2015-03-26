@@ -58,7 +58,7 @@ case SPOOLES_NONSYMMETRIC :
 default :
    fprintf(stderr, "\n fatal error in Pencil_setup()"
            "\n bad symflag %d\n", symflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 
@@ -78,7 +78,7 @@ if ( strcmp(inpmtxAfile, "none") != 0 ) {
          fprintf(msgFile, 
                  "\n return value %d from InpMtx_readFromFile(%p,%s)",
                  rc, inpmtxA, inpmtxAfile) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( symflag == SPOOLES_SYMMETRIC 
         || symflag == SPOOLES_HERMITIAN ){
@@ -161,7 +161,7 @@ if ( strcmp(inpmtxBfile, "none") != 0 ) {
          fprintf(msgFile, 
                  "\n return value %d from InpMtx_readFromFile(%p,%s)",
                  rc, inpmtxB, inpmtxBfile) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( symflag == SPOOLES_SYMMETRIC 
         || symflag == SPOOLES_HERMITIAN ){
@@ -238,7 +238,7 @@ if ( inpmtxA != NULL && inpmtxB != NULL ) {
       fprintf(stderr, "\n fatal error in Pencil_setup()"
               "\n inpmtxA->inputMode = %d, inpmtxB->inputMode = %d\n",
               inpmtxA->inputMode, inpmtxB->inputMode) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( INPMTX_IS_REAL_ENTRIES(inpmtxA) ) {
       pencil = Pencil_new() ;
@@ -251,7 +251,7 @@ if ( inpmtxA != NULL && inpmtxB != NULL ) {
    } else {
       fprintf(stderr, "\n fatal error in Pencil_setup()"
               "\n inpmtxA->inputMode = %d\n", inpmtxA->inputMode) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( inpmtxA != NULL ) {
    if ( INPMTX_IS_REAL_ENTRIES(inpmtxA) ) {
@@ -266,7 +266,7 @@ if ( inpmtxA != NULL && inpmtxB != NULL ) {
       fprintf(stderr, "\n fatal error in Pencil_setup()"
               "\n inpmtxA->inputMode = %d\n", 
                   inpmtxA->inputMode) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( inpmtxB != NULL ) {
    if ( INPMTX_IS_REAL_ENTRIES(inpmtxB) ) {
@@ -280,7 +280,7 @@ if ( inpmtxA != NULL && inpmtxB != NULL ) {
    } else {
       fprintf(stderr, "\n fatal error in Pencil_setup()"
               "\n inpmtxB->inputMode = %d\n", inpmtxB->inputMode) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 return(pencil) ; }

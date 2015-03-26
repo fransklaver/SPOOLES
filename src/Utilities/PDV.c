@@ -63,7 +63,7 @@ if ( length > 0 ) {
       fprintf(stderr, "\n fatal error in PDVsetup, invalid data"
               "\n length = %d, sizes = %p, dvec = %p, p_dvec = %p\n",
               length, sizes, dvec, p_dvec) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   j ;
       for ( j = 0 ; j < length ; j++ ) {
@@ -97,7 +97,7 @@ if ( length > 0 ) {
       fprintf(stdout, "\n fatal error in PDVcopy, invalid data"
               "\n length = %d, p_dvec1 = %p, p_dvec2 = %p\n",
               length, p_dvec1, p_dvec2) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   j ;
       for ( j = 0 ; j < length ; j++ ) {

@@ -38,7 +38,7 @@ SolveMap_setDefaultFields (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_setDefaultFields(%p)"
            "\n bad input", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 solvemap->symmetryflag = SPOOLES_SYMMETRIC ;
 solvemap->nfront       = 0 ;
@@ -75,7 +75,7 @@ SolveMap_clearData (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_clearData(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------
@@ -127,7 +127,7 @@ SolveMap_free (
 if ( solvemap == NULL ) {
    fprintf(stderr, "\n fatal error in SolveMap_free(%p)"
            "\n bad input\n", solvemap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SolveMap_clearData(solvemap) ;
 FREE(solvemap) ;

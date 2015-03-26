@@ -54,7 +54,7 @@ if (  chv == NULL || length < 0 || dvec == NULL ) {
    fprintf(stderr,
            "\n fatal error in Chv_copyEntriesToVector(%p,%d,%p,,%d,%d)"
            "\n bad input\n", chv, length, dvec, copyflag, storeflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( copyflag ) {
 case CHV_STRICT_LOWER    :
@@ -79,7 +79,7 @@ default :
    "\n CHV_UPPER_12        --> copy upper entries in (1,2) block"
    "\n",
    chv, length, dvec, copyflag, storeflag, copyflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 switch ( storeflag ) {
@@ -95,7 +95,7 @@ default :
            "\n CHV_BY_COLUMNS --> store by columns"
            "\n",
            chv, length, dvec, copyflag, storeflag, storeflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 nD      = chv->nD      ;
@@ -116,7 +116,7 @@ case CHV_STRICT_LOWER : /* strictly lower entries  */
            "\n fatal error in Chv_copyEntriesToVector(%p,%d,%p,%d,%d)"
            "\n symflag = %d, copyflag = %d",
            chv, length, dvec, copyflag, storeflag, symflag, copyflag) ;
-   exit(-1) ;
+   spoolesFatal();
    }
    nent = (nD*(nD-1))/2 + nD*nL ;
    break ;
@@ -147,7 +147,7 @@ case CHV_STRICT_LOWER_11 : /* strictly lower entries in (1,1) block */
            "\n fatal error in Chv_copyEntriesToVector(%p,%d,%p,%d,%d)"
            "\n symflag = %d, copyflag = %d",
            chv, length, dvec, copyflag, storeflag, symflag, copyflag) ;
-   exit(-1) ;
+   spoolesFatal();
    }
    nent = (nD*(nD-1))/2 ;
    break ;
@@ -157,7 +157,7 @@ case CHV_LOWER_21        : /* lower entries in (2,1) block */
            "\n fatal error in Chv_copyEntriesToVector(%p,%d,%p,%d,%d)"
            "\n symflag = %d, copyflag = %d",
            chv, length, dvec, copyflag, storeflag, symflag, copyflag) ;
-   exit(-1) ;
+   spoolesFatal();
    }
    nent = nD*nL ;
    break ;
@@ -183,7 +183,7 @@ if ( nent > length ) {
            "\n fatal error in Chv_copyEntriesToVector(%p,%d,%p,%d,%d)"
            "\n nent = %d, buffer length = %d",
            chv, length, dvec, copyflag, storeflag, nent, length) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------
@@ -1143,7 +1143,7 @@ if (  chv == NULL || sizes == NULL || ivec == NULL || dvec == NULL ) {
      "\n fatal error in Chv_copyBigEntriesToVector()"
      "\n chv %p, sizes %p, ivec %p, dvec %p"
      "\n bad input\n", chv, sizes, ivec, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, 
@@ -1171,7 +1171,7 @@ default :
         "\n    6 --> copy strict upper entries in (1,1) block"
         "\n    7 --> copy upper entries in (1,2) block",
         chv, sizes, ivec, dvec, copyflag, storeflag, copyflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( storeflag  < 0 || storeflag > 1 ) {
    fprintf(stderr,
@@ -1181,7 +1181,7 @@ if ( storeflag  < 0 || storeflag > 1 ) {
       "\n    0 --> store by rows"
       "\n    1 --> store by columns",
       chv, sizes, ivec, dvec, copyflag, storeflag, storeflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nD      = chv->nD      ;
 nL      = chv->nL      ;
@@ -2476,7 +2476,7 @@ if (  chv == NULL ) {
    fprintf(stderr,
      "\n fatal error in Chv_countEntries(%p,%d,%p,%d)"
      "\n bad input\n", chv, npivot, pivotsizes, countflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( countflag < 1 || countflag > 7 ) {
    fprintf(stderr,
@@ -2491,7 +2491,7 @@ if ( countflag < 1 || countflag > 7 ) {
         "\n    6 --> strictly upper entries in (1,1) block"
         "\n    7 --> upper entries in (1,2) block",
         chv, npivot, pivotsizes, countflag, countflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv))
    && (countflag == 1 || countflag == 4 || countflag == 5 ) ) {
@@ -2499,7 +2499,7 @@ if ( (CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv))
         "\n fatal error in Chv_countEntries(%p,%d,%p,%d)"
         "\n countflag = %d --> lower entries but chevron is symmetric",
         chv, npivot, pivotsizes, countflag, countflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 switch ( countflag ) {
@@ -2582,7 +2582,7 @@ if (  chv == NULL ) {
    fprintf(stderr,
      "\n fatal error in Chv_countBigEntries(%p,%d,%p,%d,%f)"
      "\n bad input\n", chv, npivot, pivotsizes, countflag, droptol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( countflag ) {
 case CHV_STRICT_LOWER :
@@ -2604,7 +2604,7 @@ default :
         "\n    6 --> count strict upper entries in (1,1) block"
         "\n    7 --> count upper entries in (1,2) block",
         chv, npivot, pivotsizes, countflag, droptol, countflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv))
    && (countflag == 1 || countflag == 4 || countflag == 5) ) {
@@ -2612,7 +2612,7 @@ if ( (CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv))
         "\n fatal error in Chv_countBigEntries(%p,%d,%p,%d,%f)"
         "\n countflag = %d --> lower entries but chevron is symmetric",
         chv, npivot, pivotsizes, countflag, droptol, countflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n\n %% inside Chv_countBigEntries, countflag %d",
@@ -3369,7 +3369,7 @@ if ( chvI == NULL || chvJ == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Chv_copyTrailingPortion(%p,%p,%d)"
            "\n bad input\n", chvI, chvJ, offset) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chvJ, &nDJ, &nLJ, &nUJ) ;
 if ( offset < 0 || offset >= nDJ ) {
@@ -3377,7 +3377,7 @@ if ( offset < 0 || offset >= nDJ ) {
            "\n fatal error in Chv_copyTrailingPortion(%p,%p,%d)"
            "\n nDJ = %d, offset = %d\n", 
            chvI, chvJ, offset, nDJ, offset) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------

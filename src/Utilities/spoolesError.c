@@ -4,7 +4,7 @@
 
 static void defaultExit(void)
 {
-	exit(-1);
+	spoolesFatal();
 }
 
 static ExitFunction spoolesFail = defaultExit;

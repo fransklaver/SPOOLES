@@ -25,7 +25,7 @@ int   ii ;
 if ( dequeue == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_writeForHumanEye(%p,%p)"
            "\n bad input\n", dequeue, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n Ideq : maxsize = %d, head = %d, tail = %d\n",
         dequeue->maxsize, dequeue->head, dequeue->tail) ;

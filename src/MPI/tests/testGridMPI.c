@@ -246,7 +246,7 @@ case 4 :
 default :
    fprintf(stderr, "\n fatal error, maptype = %d", maptype) ;
    MPI_Finalize() ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 if ( msglvl > 1 ) {
@@ -432,7 +432,7 @@ fprintf(msgFile, "\n CPU %8.3f : factor matrix, %8.3f mflops",
         t2 - t1, 1.e-6*factorops/(t2-t1)) ;
 if ( factorerror >= 0 ) {
    fprintf(msgFile, "\n\n error found in front %d", factorerror) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( rootchv != NULL ) {
    Chv   *chv ;

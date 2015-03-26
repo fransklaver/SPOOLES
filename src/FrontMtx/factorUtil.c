@@ -828,7 +828,7 @@ int    *nactiveChild, *par ;
 if ( frontmtx == NULL || status == NULL || myid < 0 ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nativeChild(%p,%p,%d)"
            "\n bad input\n", frontmtx, status, myid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 par    = ETree_par(frontmtx->frontETree) ;
@@ -889,7 +889,7 @@ if (  frontmtx == NULL || owners == NULL
            "\n bad input\n", 
            frontmtx, owners, myid, status, heads,
            activeFlag, inactiveFlag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 tree   = frontmtx->tree ;
@@ -989,7 +989,7 @@ if (  frontmtx == NULL || frontOwnersIV == NULL
    fprintf(stderr, 
            "\n fatal error in FrontMtx_postList(%p,%p,%d)"
            "\n bad input\n", frontmtx, frontOwnersIV, lockflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fch = ETree_fch(frontmtx->frontETree) ;
 sib = ETree_sib(frontmtx->frontETree) ;
@@ -1095,7 +1095,7 @@ if (  frontmtx == NULL || frontOwnersIV == NULL
    fprintf(stderr, 
            "\n fatal error in FrontMtx_aggregateList(%p,%p,%d)"
            "\n bad input\n", frontmtx, frontOwnersIV, lockflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 symbfacIVL = frontmtx->symbfacIVL ;
 vtxToFront = ETree_vtxToFront(frontmtx->frontETree) ;

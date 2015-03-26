@@ -28,13 +28,13 @@ double   *rowvec ;
 if ( mtx == NULL || irow < 0 || rowDV == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillRowDV(%p,%d,%p)"
            "\n bad input\n", mtx, irow, rowDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_REAL(mtx) ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillRowDV(%p,%d,%p)"
            "\n type = %d, must be SPOOLES_REAL\n", 
            mtx, irow, rowDV, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_setSize(rowDV, mtx->ncol) ;
 rowvec = DV_entries(rowDV) ;
@@ -267,13 +267,13 @@ double   *rowvec ;
 if ( mtx == NULL || irow < 0 || rowZV == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillRowZV(%p,%d,%p)"
            "\n bad input\n", mtx, irow, rowZV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_COMPLEX(mtx) ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillRowZV(%p,%d,%p)"
            "\n type = %d, must be SPOOLES_COMPLEX\n", 
            mtx, irow, rowZV, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ZV_setSize(rowZV, mtx->ncol) ;
 rowvec = ZV_entries(rowZV) ;
@@ -516,13 +516,13 @@ double   *colvec ;
 if ( mtx == NULL || icol < 0 || colDV == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillColumnDV(%p,%d,%p)"
            "\n bad input\n", mtx, icol, colDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_REAL(mtx) ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillColumnDV(%p,%d,%p)"
            "\n bad type %d, must be SPOOLES_REAL\n", 
            mtx, icol, colDV, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_setSize(colDV, mtx->nrow) ;
 colvec = DV_entries(colDV) ;
@@ -754,13 +754,13 @@ double   *colvec ;
 if ( mtx == NULL || icol < 0 || colZV == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillColumnZV(%p,%d,%p)"
            "\n bad input\n", mtx, icol, colZV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! SUBMTX_IS_COMPLEX(mtx) ) {
    fprintf(stderr, "\n fatal error in SubMtx_fillColumnZV(%p,%d,%p)"
            "\n bad type %d, must be SPOOLES_COMPLEX\n", 
            mtx, icol, colZV, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ZV_setSize(colZV, mtx->nrow) ;
 colvec = ZV_entries(colZV) ;
@@ -1002,13 +1002,13 @@ int      loc, nent ;
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_maxabs(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (SUBMTX_IS_REAL(mtx) || SUBMTX_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in SubMtx_maxabs(%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------
@@ -1101,7 +1101,7 @@ SubMtx_zero (
 if ( mtx == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_zero(%p)"
            "\n bad input\n", mtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( SUBMTX_IS_REAL(mtx) ) {
    DVzero(mtx->nent, mtx->entries) ;

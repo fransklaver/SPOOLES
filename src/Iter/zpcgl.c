@@ -60,7 +60,7 @@ int             stats[6] ;
 if (symmetryflag != SPOOLES_HERMITIAN){
       fprintf(msgFile, "\n\n Fatal Error, \n"
                     " Matrix is not Hermitian in ZPCGL !!") ;
-       exit(-1);
+       spoolesFatal();
     };
 
 neqns = n_matrixSize;
@@ -119,7 +119,7 @@ while ( ratio > convergetol && Iter <= itermax )
     if ( Rho[0] == 0.0 & Rho[1] == 0.0){
       fprintf(stderr, "\n   breakdown in ZPCGL !! "
 	      "\n Fatal error   \n");
-      exit(-1) ; 
+      spoolesFatal(); 
     }
     
 /*                                                         */

@@ -67,7 +67,7 @@ if ( msglvl > 2 ) {
 */
 if ( strcmp(argv[3], "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 rc = EGraph_readFromFile(&egraph, argv[3]) ;
@@ -77,7 +77,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in egraph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from EGraph_readFromFile(%p,%s)",
            rc, &egraph, argv[3]) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading EGraph object from file %s",

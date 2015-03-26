@@ -23,7 +23,7 @@ int   nbytes ;
 if (  coords == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_sizeof(%p)"
            "\n bad input\n", coords) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _Coords) ;
 if ( coords->ndim > 0 && coords->ncoor > 0 ) {
@@ -51,33 +51,33 @@ int     i, j, ncoor, ndim ;
 if ( coords == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_min(%p,%d)"
            "\n bad input \n", coords, dim) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( !(coords->type == COORDS_BY_TUPLE
            || coords->type == COORDS_BY_COORD) ) {
    fprintf(stderr, "\n fatal error in Coords_min(%p,%d)"
            "\n coords->type = %d",
            coords, dim, coords->type) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( (ndim = coords->ndim) < 1 ) {
    fprintf(stderr, "\n fatal error in Coords_min(%p,%d)"
            "\n coords->ndim = %d",
            coords, dim, coords->ndim) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( (ncoor = coords->ncoor) < 1 ) {
    fprintf(stderr, "\n fatal error in Coords_min(%p,%d)"
            "\n coords->ncoor = %d",
            coords, dim, coords->ncoor) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( (coors = coords->coors) == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_min(%p,%d)"
            "\n coords->coords = %p",
            coords, dim, coords->coors) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( dim <= 0 || dim > coords->ndim ) {
    fprintf(stderr, "\n fatal error in Coords_min(%p,%d)"
            "\n bad input value, dim %d, ndim %d", 
            coords, dim, dim, ndim) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( coords->type ) {
 case COORDS_BY_TUPLE :
@@ -121,33 +121,33 @@ int     i, j, ncoor, ndim ;
 if ( coords == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_max(%p,%d)"
            "\n bad input \n", coords, dim) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( !(coords->type == COORDS_BY_TUPLE
            || coords->type == COORDS_BY_COORD) ) {
    fprintf(stderr, "\n fatal error in Coords_max(%p,%d)"
            "\n coords->type = %d",
            coords, dim, coords->type) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( (ndim = coords->ndim) < 1 ) {
    fprintf(stderr, "\n fatal error in Coords_max(%p,%d)"
            "\n coords->ndim = %d",
            coords, dim, coords->ndim) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( (ncoor = coords->ncoor) < 1 ) {
    fprintf(stderr, "\n fatal error in Coords_max(%p,%d)"
            "\n coords->ncoor = %d",
            coords, dim, coords->ncoor) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( (coors = coords->coors) == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_max(%p,%d)"
            "\n coords->coords = %p",
            coords, dim, coords->coors) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( dim <= 0 || dim > coords->ndim ) {
    fprintf(stderr, "\n fatal error in Coords_max(%p,%d)"
            "\n bad input value, dim %d, ndim %d", 
            coords, dim, dim, ndim) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( coords->type ) {
 case COORDS_BY_TUPLE :
@@ -198,7 +198,7 @@ if (  coords == NULL || idim <= 0
    || icoor < 0 || coords->ncoor <= icoor || coords->coors == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_value(%p,%d,%d)"
            "\n bad input or object\n", coords, idim, icoor) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( coords->type ) {
 case COORDS_BY_TUPLE :
@@ -237,7 +237,7 @@ if (  coords == NULL || idim <= 0
    || icoor < 0 || coords->ncoor <= icoor || coords->coors == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_setValue(%p,%d,%d,%f)"
            "\n bad input or object\n", coords, idim, icoor, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( coords->type ) {
 case COORDS_BY_TUPLE :

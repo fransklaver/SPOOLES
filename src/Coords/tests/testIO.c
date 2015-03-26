@@ -66,13 +66,13 @@ if ( msglvl > 1 ) {
 */
 if ( strcmp(argv[3], "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from\n") ;
-   exit(0) ;
+   spoolesFatal();
 }
 rc = Coords_readFromFile(&coords, argv[3]) ;
 fprintf(msgFile, "\n return value %d from Coords_readFromFile(%p,%s)",
         rc, &coords, argv[3]) ;
 if ( rc != 1 ) {
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n after reading Coords object from file %s",

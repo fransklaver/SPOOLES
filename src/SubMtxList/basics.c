@@ -39,7 +39,7 @@ if ( list == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxList_setDefaultFields(%p)"
            "\n bad input", list) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 list->nlist  =   0  ;
 list->heads  = NULL ;
@@ -70,7 +70,7 @@ SubMtxList_clearData (
 if ( list == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtxList_clearData(%p)"
            "\n bad input\n", list) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------
@@ -118,7 +118,7 @@ SubMtxList_free (
 if ( list == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtxList_free(%p)"
            "\n bad input\n", list) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtxList_clearData(list) ;
 FREE(list) ;

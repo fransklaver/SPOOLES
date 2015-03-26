@@ -57,7 +57,7 @@ case 27 :
 default :
    fprintf(stderr, "\n fatal error in mkGridGraph"
            "\n stencil = %d, must be 5, 7, 9, 13 or 27\n", stencil) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 n1 = atoi(argv[4]) ;
 n2 = atoi(argv[5]) ;
@@ -66,7 +66,7 @@ if ( n1 < 1 || n2 < 1 || n3 < 1 ) {
    fprintf(stderr, "\n fatal error in mkGridGraph"
            "\n n1 = %d, n2 = %d, n3 = %d, all must be positive\n",
            n1, n2, n3) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx = n1 * n2 * n3 ;
 outFileName = argv[7] ;

@@ -63,7 +63,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inPermFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 perm = Perm_new() ;
 MARKTIME(t1) ;
@@ -74,7 +74,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in perm from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Perm_readFromFile(%p,%s)",
            rc, perm, inPermFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading Perm object from file %s",
         inPermFileName) ;
@@ -91,7 +91,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inIVfileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 eqmapIV = IV_new() ;
 MARKTIME(t1) ;
@@ -102,7 +102,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in eqmapIV from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
            rc, eqmapIV, inIVfileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading IV object from file %s",
         inIVfileName) ;

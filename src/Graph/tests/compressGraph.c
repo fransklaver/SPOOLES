@@ -73,7 +73,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 gf = Graph_new() ;
@@ -84,7 +84,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in graph from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
         rc, gf, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading Graph object from file %s",
@@ -157,7 +157,7 @@ if ( strcmp(outGraphFileName, "none") != 0 ) {
       fprintf(msgFile, 
               "\n return value %d from Graph_writeToFile(%p,%s)",
               rc, gc, outGraphFileName) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*

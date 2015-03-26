@@ -38,7 +38,7 @@ Coords_setDefaultFields (
 if ( coords == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_setDefaultFields(%p)"
            "\n bad input", coords) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 coords->type   = COORDS_BY_TUPLE ;
 coords->ndim   =   0  ;
@@ -67,7 +67,7 @@ Coords_clearData (
 if ( coords == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_clearData(%p)"
            "\n bad input\n", coords) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( coords->coors != NULL ) {
    FVfree(coords->coors) ;
@@ -96,7 +96,7 @@ Coords_free (
 if ( coords == NULL ) {
    fprintf(stderr, "\n fatal error in Coords_free(%p)"
            "\n bad input\n", coords) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Coords_clearData(coords) ;
 FREE(coords) ;

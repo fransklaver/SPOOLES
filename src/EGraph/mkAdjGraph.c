@@ -27,7 +27,7 @@ Graph   *graph ;
 if ( egraph == NULL || (eadjIVL = egraph->adjIVL) == NULL ) {
    fprintf(stderr, "\n fatal error in EGraph_mkAdjGraph(%p)"
            "\n bad input\n", egraph) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nelem  = egraph->nelem  ;
 nvtx   = egraph->nvtx   ;

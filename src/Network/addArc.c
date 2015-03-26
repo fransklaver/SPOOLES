@@ -39,7 +39,7 @@ if (  network == NULL
    if ( network != NULL ) {
       fprintf(stderr, "\n nnode = %d", nnode) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 inheads  = network->inheads  ;
 outheads = network->outheads ;

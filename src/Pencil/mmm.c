@@ -25,42 +25,42 @@ int   ncolX, ncolY, nrhs, nrow, nrowX, nrowY ;
 if ( pencil == NULL || Y == NULL || X == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n bad input\n", pencil, Y, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(PENCIL_IS_REAL(pencil) || PENCIL_IS_COMPLEX(pencil)) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n bad type %d for pencil\n", pencil, Y, X, pencil->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(DENSEMTX_IS_REAL(Y) || DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n bad type %d for Y\n", pencil, Y, X, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(DENSEMTX_IS_REAL(X) || DENSEMTX_IS_COMPLEX(X)) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n bad type %d for X\n", pencil, Y, X, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( PENCIL_IS_REAL(pencil) && !DENSEMTX_IS_REAL(Y) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n pencil is real, Y is not\n", pencil, Y, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( PENCIL_IS_REAL(pencil) && !DENSEMTX_IS_REAL(X) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n pencil is real, X is not\n", pencil, Y, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( PENCIL_IS_COMPLEX(pencil) && !DENSEMTX_IS_COMPLEX(Y) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n pencil is complex, Y is not\n", pencil, Y, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( PENCIL_IS_COMPLEX(pencil) && !DENSEMTX_IS_COMPLEX(X) ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n pencil is complex, X is not\n", pencil, Y, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_dimensions(Y, &nrowY, &ncolY) ;
 DenseMtx_dimensions(X, &nrowX, &ncolX) ;
@@ -68,7 +68,7 @@ if ( nrowY != nrowX || ncolY != ncolX ) {
    fprintf(stderr, "\n fatal error in Pencil_mmm(%p,%p,%p)"
            "\n nrowY %d, ncolY %d, nrowX %d, ncolX %d\n", 
            pencil, Y, X, nrowY, ncolY, nrowX, ncolX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = nrowY ;
 nrhs = ncolY ;

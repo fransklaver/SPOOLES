@@ -43,7 +43,7 @@ if ( etree == NULL
    fprintf(stderr, "\n fatal error in ETree_transform(%p,%p,%d,%d,%d)"
            "\n bad input\n", etree, vwghts, maxzeros, maxfrontsize, 
            seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nzerosIV = IV_new();
 IV_init(nzerosIV, nfront, NULL) ;
@@ -126,7 +126,7 @@ if ( etree == NULL
    fprintf(stderr, "\n fatal error in ETree_transform2(%p,%p,%d,%d,%d)"
            "\n bad input\n", etree, vwghts, maxzeros, maxfrontsize, 
            seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nzerosIV = IV_new();
 IV_init(nzerosIV, nfront, NULL) ;
@@ -197,13 +197,13 @@ if (  etree == NULL || nzerosIV == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_mergeFrontsOne(%p,%d,%p)"
            "\n bad input\n", etree, maxzeros, nzerosIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( IV_size(nzerosIV) != nfront ) {
    fprintf(stderr, "\n fatal error in ETree_mergeFrontsOne(%p,%d,%p)"
            "\n size(nzerosIV) = %d, nfront = %d\n", 
            etree, maxzeros, nzerosIV, IV_size(nzerosIV), nfront) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nzeros = IV_entries(nzerosIV) ;
 tree     = etree->tree ;
@@ -350,13 +350,13 @@ if (  etree == NULL || nzerosIV == NULL
       fprintf(stderr, "\n nfront = %d, nvtx = %d",
               etree->nfront, etree->nvtx) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( IV_size(nzerosIV) != nfront ) {
    fprintf(stderr, "\n fatal error in ETree_mergeFrontsAll(%p,%d,%p)"
            "\n size(nzerosIV) = %d, nfront = %d\n", 
            etree, maxzeros, nzerosIV, IV_size(nzerosIV), nfront) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nzeros = IV_entries(nzerosIV) ;
 /*
@@ -519,13 +519,13 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_mergeFrontsAny(%p,%d)"
            "\n bad input\n", etree, maxzeros) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( IV_size(nzerosIV) != nfront ) {
    fprintf(stderr, "\n fatal error in ETree_mergeFrontsAny(%p,%d,%p)"
            "\n size(nzerosIV) = %d, nfront = %d\n", 
            etree, maxzeros, nzerosIV, IV_size(nzerosIV), nfront) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nzeros = IV_entries(nzerosIV) ;
 tree     = etree->tree ;
@@ -822,7 +822,7 @@ if ( etree == NULL
    || maxfrontsize <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_splitFronts(%p,%p,%d,%d)"
            "\n bad input\n", etree, vwghts, maxfrontsize, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree       = etree->tree ;
 fch        = tree->fch ;
@@ -867,7 +867,7 @@ for ( J = Tree_postOTfirst(tree) ;
       fprintf(stderr, "\n fatal error in ETree_splitFronts(%p,%p,%d,%d)"
              "\n J = %d, sizeJ = %d, nodwght = %d\n", 
              etree, vwghts, maxfrontsize, seed, J, sizeJ, nodwghts[J]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 #if MYDEBUG > 0
    fprintf(stdout, "\n\n checking out front %d, size %d", J, sizeJ) ;

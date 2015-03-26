@@ -38,12 +38,12 @@ if (  frontmtx == NULL || frontOwnersIV == NULL ) {
    fprintf(stderr, 
            "\n fatal error in FrontMtx_MPI_aggregateList(%p,%p,%p)"
            "\n bad input\n", frontmtx, frontOwnersIV, comm) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( tag < 0 || tag > maxTagMPI(comm) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_aggregateList()"
            "\n tag = %d, tag_bound = %d", tag, maxTagMPI(comm)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 MPI_Comm_size(comm, &nproc) ;

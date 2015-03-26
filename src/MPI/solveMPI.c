@@ -80,7 +80,7 @@ if ( frontmtx == NULL || mtxX == NULL || mtxB == NULL
    || cpus == NULL || stats == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_solve()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MARKTIME(t0) ;
 nfront = frontmtx->nfront ;
@@ -108,7 +108,7 @@ if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_solve()"
            "\n firsttag = %d, lasttag = %d, tag_bound = %d", 
            firsttag, lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------------------------------------
@@ -714,7 +714,7 @@ for ( ip = heads[J] ; ip != NULL ; ip = ip->next ) {
                   fprintf(stderr, 
             "\n proc %d: fatal error in checkForSolMsg, J = %d, I = %d",
                   myid, J, I) ;
-                  exit(-1) ;
+                  spoolesFatal();
                }
                SubMtx_initFromBuffer(msg->mtx) ;
                p_msg[I] = NULL ;
@@ -865,7 +865,7 @@ if ( p_msg[J] != NULL ) {
             fprintf(stderr, 
                    "\n proc %d: fatal error in checkForAggMsg, J = %d", 
                    myid, J) ;
-            exit(-1) ;
+            spoolesFatal();
          }
          SubMtx_initFromBuffer(msg->mtx) ;
          SubMtxList_addObjectToList(aggList, msg->mtx, J) ;
@@ -925,7 +925,7 @@ if ( (dest = owners[J]) == myid ) {
          fprintf(stderr, 
                 "\n proc %d: error in sendMessages, J = %d, XJ is NULL",
                 myid, J) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       nbytes = SubMtx_nbytesInUse(XJ) ;
       XJbuff = SubMtx_workspace(XJ) ;

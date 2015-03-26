@@ -71,7 +71,7 @@ fflush(msgFile) ;
 graph = Graph_new() ;
 if ( strcmp(inGraphFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 rc = Graph_readFromFile(graph, inGraphFileName) ;
@@ -83,7 +83,7 @@ vwghts = graph->vwghts ;
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, inGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading Graph object from file %s",
@@ -99,7 +99,7 @@ if ( msglvl > 2 ) {
 etree = ETree_new() ;
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 rc = ETree_readFromFile(etree, inETreeFileName) ;
@@ -114,7 +114,7 @@ nL         = ETree_nFactorEntries(etree, 2) ;
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, etree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading ETree object from file %s",
@@ -130,7 +130,7 @@ if ( msglvl > 2 ) {
 mapIV = IV_new() ;
 if ( strcmp(inMapFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 rc = IV_readFromFile(mapIV, inMapFileName) ;
@@ -141,7 +141,7 @@ map = IV_entries(mapIV) ;
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
            rc, mapIV, inMapFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading IV object from file %s",

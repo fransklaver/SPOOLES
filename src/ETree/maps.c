@@ -38,7 +38,7 @@ Tree     *tree ;
 if ( frontETree == NULL || cumopsDV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_wrapMap(%p,%p)"
            "\n bad input\n", frontETree, cumopsDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree = frontETree->tree ;
 DV_sizeAndEntries(cumopsDV, &nthread, &cumops) ;
@@ -106,7 +106,7 @@ Tree     *tree ;
 if ( frontETree == NULL || cumopsDV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_balancedMap(%p,%p)"
            "\n bad input\n", frontETree, cumopsDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree = frontETree->tree ;
 DV_sizeAndEntries(cumopsDV, &nthread, &cumops) ;
@@ -181,7 +181,7 @@ Tree     *tree ;
 if ( frontETree == NULL || cumopsDV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_subtreeSubsetMap(%p,%p)"
            "\n bad input\n", frontETree, cumopsDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree = frontETree->tree ;
 fch  = tree->fch ;
@@ -357,7 +357,7 @@ Tree     *tree ;
 if ( frontETree == NULL || cumopsDV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_ddMap(%p,%p,%f)"
            "\n bad input\n", frontETree, cumopsDV, cutoff) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontETree->nfront ;
 tree   = frontETree->tree ;
@@ -590,7 +590,7 @@ Tree     *tree ;
 if ( frontETree == NULL || cumopsDV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_ddMapNew(%p,%p,%p)"
            "\n bad input\n", frontETree, msIV, cumopsDV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront     = ETree_nfront(frontETree) ;
 nvtx       = ETree_nvtx(frontETree) ;

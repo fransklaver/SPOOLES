@@ -30,7 +30,7 @@ int      *rowind ;
 if ( chv == NULL || irow < 0 || jrow < 0 ) {
    fprintf(stderr, "\n fatal error in Chv_swapRows(%p,%d,%d)"
            "\n bad input\n", chv, irow, jrow) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout,"\n %% Chv_swapRows(%p,%d,%d)", chv, irow, jrow) ;
@@ -44,7 +44,7 @@ Chv_dimensions(chv, &nD, &nL, &nU) ;
 if ( irow >= nD || jrow >= nD ) {
    fprintf(stderr, "\n fatal error in Chv_swapRows(%p,%d,%d)"
            "\n rows must be less than nD = %d", chv, irow, irow, nD) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 entries = Chv_entries(chv) ;
 #if MYDEBUG > 0
@@ -56,13 +56,13 @@ if ( entries == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_swapRows(%p,%d,%d)"
            "\n bad input, entries = %p, nD = %d\n", 
            chv, irow, jrow, entries, nD) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_swapRows(%p,%d,%d)"
            "\n type = %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            chv, irow, jrow, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
 /*
@@ -168,7 +168,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
 } else {
    fprintf(stderr, "\n fatal error in Chv_swapRows(%p,%d,%d)"
            "\n bad symmetryflag %d\n", chv, irow, jrow, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -198,7 +198,7 @@ int      *colind ;
 if ( chv == NULL || icol < 0 || jcol < 0 ) {
    fprintf(stderr, "\n fatal error in Chv_swapColumns(%p,%d,%d)"
            "\n bad input\n", chv, icol, jcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( icol == jcol ) {
    return ;
@@ -209,13 +209,13 @@ if ( entries == NULL || icol >= nD || jcol >= nD ) {
    fprintf(stderr, "\n fatal error in Chv_swapColumns(%p,%d,%d)"
            "\n bad input, entries = %p, nD = %d\n", 
            chv, icol, jcol, entries, nD) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_swapColumns(%p,%d,%d)"
            "\n type = %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            chv, icol, jcol, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
 /*
@@ -303,7 +303,7 @@ if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
 } else {
    fprintf(stderr, "\n fatal error in Chv_swapColumns(%p,%d,%d)"
            "\n bad symmetryflag %d\n", chv, icol, jcol, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -334,7 +334,7 @@ if ( chv == NULL || ii < 0 || jj < 0 ) {
    fprintf(stderr, 
            "\n fatal error in Chv_swapRowsAndColumns(%p,%d,%d)"
            "\n bad input\n", chv, ii, jj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ii == jj ) {
    return ;
@@ -346,13 +346,13 @@ if ( entries == NULL || ii >= nD || jj >= nD ) {
            "\n fatal error in Chv_swapRowsAndColumns(%p,%d,%d)"
            "\n bad input, entries = %p, nD = %d\n", 
            chv, ii, jj, entries, nD) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (CHV_IS_REAL(chv) || CHV_IS_COMPLEX(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_swapRowsAndColumns(%p,%d,%d)"
            "\n type = %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            chv, ii, jj, chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_NONSYMMETRIC(chv) ) {
 /*
@@ -532,7 +532,7 @@ if ( CHV_IS_NONSYMMETRIC(chv) ) {
 } else {
    fprintf(stderr, "\n fatal error in Chv_swapRowsAndColumns(%p,%d,%d)"
            "\n bad symmetryflag %d\n", chv, ii, jj, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 

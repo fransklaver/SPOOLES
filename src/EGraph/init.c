@@ -27,7 +27,7 @@ if (  egraph == NULL || type < 0 || type > 1
    || nelem <= 0 || nvtx <= 0 ) {
    fprintf(stderr, "\n fatal error in EGraph_init(%p,%d,%d,%d,%d)"
            "\n bad input\n", egraph, type, nelem, nvtx, IVL_type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------

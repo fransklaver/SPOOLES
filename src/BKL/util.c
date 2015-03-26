@@ -30,7 +30,7 @@ Drand   drand ;
 if ( bkl == NULL || bkl->bpg == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_setRandomColors(%p,%d)"
            "\n bad input\n", bkl, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ndom   = bkl->ndom   ;
 nreg   = bkl->nreg   ;
@@ -88,7 +88,7 @@ int   *colors ;
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_setColorsWeights(%p)"
            "\n bad input\n", bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors = bkl->colors ;
 bkl->cweights[0] = bkl->cweights[1] = bkl->cweights[2] = 0 ;
@@ -101,7 +101,7 @@ for ( ireg = 0 ; ireg < bkl->ndom ; ireg++ ) {
    if ( (c = colors[ireg]) < 1 || 2 < c ) {
       fprintf(stderr, "\n fatal error in BKL_setColorWeights(%p)"
               "\n region %d has color %d", bkl, ireg, c) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    bkl->cweights[c] += bkl->regwghts[ireg] ;
 }
@@ -114,7 +114,7 @@ for ( ireg = bkl->ndom ; ireg < bkl->nreg ; ireg++ ) {
    if ( (c = BKL_segColor(bkl, ireg)) < 0 || 2 < c ) {
       fprintf(stderr, "\n fatal error in BKL_setColorWeights(%p)"
               "\n region %d has color %d", bkl, ireg, c) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    colors[ireg] = c ;
    bkl->cweights[c] += bkl->regwghts[ireg] ;
@@ -145,7 +145,7 @@ int   *adj, *colors ;
 if ( bkl == NULL || iseg < bkl->ndom || iseg >= bkl->nreg ) {
    fprintf(stderr, "\n fatal error in BKL_segColor(%p,%d)"
            "\n bad input\n", bkl, iseg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors = bkl->colors ;
 /*
@@ -192,7 +192,7 @@ int   *adj, *colors, *regwghts ;
 if ( bkl == NULL || idom < 0 || idom >= bkl->ndom ) {
    fprintf(stderr, "\n fatal error in BKL_flipDomain(%p,%d)"
            "\n bad input\n", bkl, idom) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors   = bkl->colors   ;
 regwghts = bkl->regwghts ;
@@ -206,7 +206,7 @@ case 2 :
 default :
    fprintf(stderr, "\n fatal error in BKL_flipDomain(%p,%d)"
            "\n colors[%d] = %d\n", bkl, idom, idom, colors[idom]) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors[idom] = newcolor ;
 /*
@@ -271,7 +271,7 @@ int   chk, idom, res ;
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_greyCodeDomain(%p)"
            "\n bad input\n", bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
  
 for ( idom = 0, res = 1, chk = 2 ;
@@ -283,7 +283,7 @@ for ( idom = 0, res = 1, chk = 2 ;
 }
 fprintf(stderr, "\n fatal error in BKL_greyCodeDomain(%p,%d)"
         "\n should never have reached this point\n", bkl, count) ;
-exit(-1) ;
+spoolesFatal();
  
 return(-2) ; }
 
@@ -333,7 +333,7 @@ if (  bkl == NULL
    || flag < 1 || 6 < flag || (flag == 6 && domcolors == NULL) ) { 
    fprintf(stderr, "\n fatal error in BKL_setInitPart(%p,%d,%d,%p)"
            "\n bad input\n", bkl, flag, seed, domcolors) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 bpg      = bkl->bpg      ;
 ndom     = bkl->ndom     ;
@@ -438,7 +438,7 @@ if ( ndom == 1 ) {
                         "\n fatal error in BKL_setInitPart(%p,%d,%d,%p)"
                            "\n list[] size exceeded\n", 
                              bkl, flag, seed, domcolors) ;
-                     exit(-1) ;
+                     spoolesFatal();
                   }
                   mark[dom2] = 1 ;
                   list[++last] = dom2 ;
@@ -488,7 +488,7 @@ int   *adj, *colors ;
 if ( bkl == NULL || dom < 0 || dom >= bkl->ndom ) {
    fprintf(stderr, "\n fatal error in BKL_domAdjToSep(%p,%d)"
            "\n bad input\n", bkl, dom) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors = bkl->colors ;
 

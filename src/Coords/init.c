@@ -27,7 +27,7 @@ if (  coords == NULL
    || ndim < 1 || ncoor <= 0 ) {
    fprintf(stderr, "\n fatal error in Coords_init(%p,%d,%d,%d)"
            "\n bad input\n", coords, type, ndim, ncoor) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------
@@ -89,7 +89,7 @@ if ( coords == NULL || bbox == NULL
      || n1 <= 0 || n2 <= 0 || ncomp <= 0 ) {
    fprintf(stderr, "\n fatal error in Coords_init9P(%p,%p,%d,%d,%d,%d)"
            "\n bad input\n", coords, bbox, type, n1, n2, ncomp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------
@@ -179,7 +179,7 @@ if ( coords == NULL || bbox == NULL
    fprintf(stderr, 
            "\n fatal error in Coords_init27P(%p,%p,%d,%d,%d,%d,%d)"
            "\n bad input\n", coords, bbox, type, n1, n2, n3, ncomp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------

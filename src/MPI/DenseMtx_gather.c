@@ -66,7 +66,7 @@ if ( Y == NULL || X == NULL || sendIVL == NULL || recvIVL == NULL
            "\n bad input\n") ;
    fprintf(stderr, "\n Y %p, X %p, sendIVL %p, recvIVL %p",
            Y, X, sendIVL, recvIVL) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 MPI_Comm_size(comm, &nproc) ;
@@ -74,7 +74,7 @@ lasttag = firsttag + nproc*nproc ;
 if ( lasttag > (tagbound = maxTagMPI(comm)) ) {
    fprintf(stderr, "\n fatal error in DenseMtx_MPI_gatherRows()"
           "\n lasttag = %d, tag_bound = %d", lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(X) ) {
    nword = 1 ;
@@ -83,7 +83,7 @@ if ( DENSEMTX_IS_REAL(X) ) {
 } else {
    fprintf(stderr, "\n fatal error in DenseMtx_MPI_gatherRows()"
            "\n X->type = %d\n", X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_columnIndices(Y, &ncolY,  &colindY) ;
 DenseMtx_rowIndices(Y, &nrowY, &rowindY) ;

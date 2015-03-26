@@ -22,7 +22,7 @@ Ideq_clear (
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_clear(%p)"
            "\n bad input\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 deq->head = deq->tail = -1 ;
 
@@ -50,7 +50,7 @@ int   val ;
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_head(%p)"
            "\n bad input\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( deq->head == -1 ) {
    val = -1 ;
@@ -81,7 +81,7 @@ int   val ;
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_removeFromHead(%p)"
            "\n bad input\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( deq->head == -1 ) {
    val = -1 ;
@@ -123,7 +123,7 @@ int   *ivec ;
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_insertAtHead(%p,%d)"
            "\n bad input\n", deq, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivec = deq->iv.vec ;
 size = deq->iv.size ;
@@ -170,7 +170,7 @@ int   val ;
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_tail(%p)"
            "\n bad input\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( deq->tail == -1 ) {
    val = -1 ;
@@ -201,7 +201,7 @@ int   val ;
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_removeFromTail(%p)"
            "\n bad input\n", deq) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( deq->tail == -1 ) {
    val = -1 ;
@@ -243,7 +243,7 @@ int   *ivec ;
 if ( deq == NULL ) {
    fprintf(stderr, "\n fatal error in Ideq_insertAtTail(%p,%d)"
            "\n bad input\n", deq, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivec = deq->iv.vec ;
 size = deq->iv.size ;

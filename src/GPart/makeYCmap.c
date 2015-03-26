@@ -40,7 +40,7 @@ if ( gpart == NULL || (g = gpart->g) == NULL
       fprintf(stderr, "\n YVmapIV") ;
       IV_writeForHumanEye(YVmapIV, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 compids = IV_entries(&gpart->compidsIV) ;
 /*

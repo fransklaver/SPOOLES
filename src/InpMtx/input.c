@@ -117,7 +117,7 @@ if ( inpmtx == NULL || row < 0 || col < 0 ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputEntry(%p,%d,%d)"
            "\n bad input\n", inpmtx, row, col) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -126,14 +126,14 @@ if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
            "\n fatal error in InpMtx_inputEntry(%p,%d,%d)"
            "\n bad coordType = %d\n", inpmtx, row, col, 
            inpmtx->coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_INDICES_ONLY(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputEntry(%p,%d,%d)"
            "\n inputMode is not INPMTX_INDICES_ONLY\n",
            inpmtx, row, col) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputEntry(inpmtx, row, col, 0.0, 0.0) ;
 
@@ -163,7 +163,7 @@ if ( inpmtx == NULL || row < 0 || col < 0 ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealEntry(%p,%d,%d,%e)"
            "\n bad inputReal\n", inpmtx, row, col, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -172,14 +172,14 @@ if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
            "\n fatal error in InpMtx_inputRealEntry(%p,%d,%d,%e)"
            "\n bad coordType = %d\n", inpmtx, row, col, value, 
            inpmtx->coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealEntry(%p,%d,%d,%e)"
            "\n inputMode is not SPOOLES_REAL\n",
            inpmtx, row, col, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputEntry(inpmtx, row, col, value, 0.0) ;
 
@@ -210,7 +210,7 @@ if ( inpmtx == NULL || row < 0 || col < 0 ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexEntry(%p,%d,%d,%e,%e)"
            "\n bad inputComplex\n", inpmtx, row, col, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
        || INPMTX_IS_BY_COLUMNS(inpmtx)
@@ -219,14 +219,14 @@ if ( !(   INPMTX_IS_BY_ROWS(inpmtx)
            "\n fatal error in InpMtx_inputComplexEntry(%p,%d,%d,%e,%e)"
            "\n bad coordType = %d\n", inpmtx, row, col, real, imag,
            inpmtx->coordType) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexEntry(%p,%d,%d,%e,%e)"
            "\n inputMode is not SPOOLES_COMPLEX\n",
            inpmtx, row, col, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputEntry(inpmtx, row, col, real, imag) ;
 
@@ -313,14 +313,14 @@ if (  inpmtx == NULL || row < 0 || rowsize < 0 || rowind == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRow(%p,%d,%d,%p)"
            "\n bad input\n", inpmtx, row, rowsize, rowind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_INDICES_ONLY(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRow(%p,%d,%d,%p)"
            "\n inputMode is not INPMTX_INDICES_ONLY\n",
            inpmtx, row, rowsize, rowind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputRow(inpmtx, row, rowsize, rowind, NULL) ;
 
@@ -352,14 +352,14 @@ if (  inpmtx == NULL || row < 0 || rowsize < 0
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealRow(%p,%d,%d,%p,%p)"
            "\n bad input\n", inpmtx, row, rowsize, rowind, rowent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealRow(%p,%d,%d,%p,%p)"
            "\n inputMode is not SPOOLES_REAL\n",
            inpmtx, row, rowsize, rowind, rowent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputRow(inpmtx, row, rowsize, rowind, rowent) ;
 
@@ -391,14 +391,14 @@ if (  inpmtx == NULL || row < 0 || rowsize < 0
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexRow(%p,%d,%d,%p,%p)"
            "\n bad input\n", inpmtx, row, rowsize, rowind, rowent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexRow(%p,%d,%d,%p,%p)"
            "\n inputMode is not SPOOLES_COMPLEX\n",
            inpmtx, row, rowsize, rowind, rowent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputRow(inpmtx, row, rowsize, rowind, rowent) ;
 
@@ -480,14 +480,14 @@ if (  inpmtx == NULL || col < 0 || colsize < 0 || colind == NULL ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealColumn(%p,%d,%d,%p)"
            "\n bad input\n", inpmtx, col, colsize, colind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_INDICES_ONLY(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputColumn(%p,%d,%d,%p)"
            "\n inputMode must be INPMTX_INDICES_ONLY\n",
            inpmtx, col, colsize, colind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputColumn(inpmtx, col, colsize, colind, NULL) ;
 
@@ -519,14 +519,14 @@ if (  inpmtx == NULL || col < 0 || colsize < 0
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealColumn(%p,%d,%d,%p,%p)"
            "\n bad input\n", inpmtx, col, colsize, colind, colent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealColumn(%p,%d,%d,%p,%p)"
            "\n inputMode must be SPOOLES_REAL\n",
            inpmtx, col, colsize, colind, colent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputColumn(inpmtx, col, colsize, colind, colent) ;
 
@@ -558,14 +558,14 @@ if (  inpmtx == NULL || col < 0 || colsize < 0
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexColumn(%p,%d,%d,%p,%p)"
            "\n bad input\n", inpmtx, col, colsize, colind, colent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexColumn(%p,%d,%d,%p,%p)"
            "\n inputMode must be SPOOLES_COMPLEX\n",
            inpmtx, col, colsize, colind, colent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputColumn(inpmtx, col, colsize, colind, colent) ;
 
@@ -662,14 +662,14 @@ if (  inpmtx == NULL || chv < 0 || chvsize < 0 || chvind == NULL ) {
    fprintf(stderr, 
           "\n fatal error in InpMtx_inputChevron(%p,%d,%d,%p)"
           "\n bad input\n", inpmtx, chv, chvsize, chvind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_INDICES_ONLY(inpmtx) ) {
    fprintf(stderr, 
           "\n fatal error in InpMtx_inputChevron(%p,%d,%d,%p)"
           "\n inputMode must be INPMTX_INDICES_ONLY\n", 
            inpmtx, chv, chvsize, chvind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputChevron(inpmtx, chv, chvsize, chvind, NULL) ;
 
@@ -701,14 +701,14 @@ if (  inpmtx == NULL || chv < 0 || chvsize < 0
    fprintf(stderr, 
           "\n fatal error in InpMtx_inputRealChevron(%p,%d,%d,%p,%p)"
           "\n bad input\n", inpmtx, chv, chvsize, chvind, chvent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
           "\n fatal error in InpMtx_inputRealChevron(%p,%d,%d,%p,%p)"
           "\n inputMode must be SPOOLES_REAL\n", 
            inpmtx, chv, chvsize, chvind, chvent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputChevron(inpmtx, chv, chvsize, chvind, chvent) ;
 
@@ -740,14 +740,14 @@ if (  inpmtx == NULL || chv < 0 || chvsize < 0
    fprintf(stderr, 
           "\n fatal error in InpMtx_inputComplexChevron(%p,%d,%d,%p,%p)"
           "\n bad input\n", inpmtx, chv, chvsize, chvind, chvent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
           "\n fatal error in InpMtx_inputComplexChevron(%p,%d,%d,%p,%p)"
           "\n inputMode must be SPOOLES_COMPLEX\n", 
            inpmtx, chv, chvsize, chvind, chvent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputChevron(inpmtx, chv, chvsize, chvind, chvent) ;
 
@@ -870,14 +870,14 @@ if (  inpmtx == NULL || nrow < 0 || ncol < 0
   "\n fatal error in InpMtx_inputMatrix(%p,%d,%d,%d,%d,%p,%p)"
   "\n bad input\n", inpmtx, nrow, ncol, rowstride, colstride, 
         rowind, colind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_INDICES_ONLY(inpmtx) ) {
    fprintf(stderr, 
  "\n fatal error in InpMtx_inputMatrix(%p,%d,%d,%d,%d,%p,%p)"
  "\n inputComplexMode must be INPMTX_INDICES_ONLY\n",
         inpmtx, nrow, ncol, rowstride, colstride, rowind, colind) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrow == 0 || ncol == 0 ) {
    return ;
@@ -918,7 +918,7 @@ if (  inpmtx == NULL || nrow < 0 || ncol < 0
   "\n fatal error in InpMtx_inputRealMatrix(%p,%d,%d,%d,%d,%p,%p,%p)"
   "\n bad input\n", inpmtx, nrow, ncol, rowstride, colstride, 
         rowind, colind, mtxent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
@@ -926,7 +926,7 @@ if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
  "\n inputMode must be SPOOLES_REAL\n",
         inpmtx, nrow, ncol, rowstride, colstride, 
         rowind, colind, mtxent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrow == 0 || ncol == 0 ) {
    return ;
@@ -967,7 +967,7 @@ if (  inpmtx == NULL || nrow < 0 || ncol < 0
   "\n fatal error in InpMtx_inputComplexMatrix(%p,%d,%d,%d,%d,%p,%p,%p)"
   "\n bad input\n", inpmtx, nrow, ncol, rowstride, colstride, 
         rowind, colind, mtxent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
@@ -975,7 +975,7 @@ if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
  "\n inputMode must be SPOOLES_COMPLEX\n",
         inpmtx, nrow, ncol, rowstride, colstride, 
         rowind, colind, mtxent) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrow == 0 || ncol == 0 ) {
    return ;
@@ -1052,14 +1052,14 @@ if (  inpmtx == NULL || ntriples < 0
           "\n fatal error in InpMtx_inputTriples(%p,%d,%p,%p)"
           "\n bad inputComplex\n", 
           inpmtx, ntriples, rowids, colids) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_INDICES_ONLY(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputEntry(%p,%d,%p,%p)"
            "\n coordType must be INPMTX_INDICES_ONLY\n",
            inpmtx, ntriples, rowids, colids) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputTriples(inpmtx, ntriples, rowids, colids, NULL) ;
 
@@ -1092,14 +1092,14 @@ if ( inpmtx == NULL || ntriples < 0 || rowids == NULL
           "\n fatal error in InpMtx_inputRealTriples(%p,%d,%p,%p,%p)"
           "\n bad input\n", 
           inpmtx, ntriples, rowids, colids, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_REAL_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputRealEntry(%p,%d,%p,%p,%p)"
            "\n coordType must be COMPLEX_REAL_ENTRIES\n",
            inpmtx, ntriples, rowids, colids, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputTriples(inpmtx, ntriples, rowids, colids, entries) ;
 
@@ -1132,14 +1132,14 @@ if ( inpmtx == NULL || ntriples < 0 || rowids == NULL
           "\n fatal error in InpMtx_inputComplexTriples(%p,%d,%p,%p,%p)"
           "\n bad inputComplex\n", 
           inpmtx, ntriples, rowids, colids, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(inpmtx) ) {
    fprintf(stderr, 
            "\n fatal error in InpMtx_inputComplexEntry(%p,%d,%p,%p,%p)"
            "\n inputMode must be SPOOLES_COMPLEX\n",
            inpmtx, ntriples, rowids, colids, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inputTriples(inpmtx, ntriples, rowids, colids, entries) ;
 

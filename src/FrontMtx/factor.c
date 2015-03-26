@@ -153,7 +153,7 @@ if ( frontmtx == NULL || pencil == NULL || cpus == NULL || stats == NULL
            "\n msglvl = %d, msgFile = %p"
            "\n bad input\n",
            frontmtx, pencil, tau, droptol, cpus, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n INSIDE FrontMtx_factorPencil()") ;
@@ -227,7 +227,7 @@ for ( J = Tree_postOTfirst(tree) ;
    } else if ( status[J] != 'F' ) {
       fprintf(stderr, "\n fatal error, return %c from front %d",
               status[J], J) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*

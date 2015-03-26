@@ -652,7 +652,7 @@ int      *colids, *colind, *firstlocs, *indices,
 if ( mtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_writeToFormattedFile(%p,%p)"
            "\n bad input\n", mtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
     ---------------------------
@@ -765,7 +765,7 @@ int      *colids, *colind, *firstlocs, *indices,
 if ( mtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_writeToBinaryFile(%p,%p)"
            "\n bad input\n", mtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
     ---------------------------
@@ -875,7 +875,7 @@ int      *colind, *rowind ;
 if ( mtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_writeForHumanEye(%p,%p)"
            "\n bad input\n", mtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_writeStats(mtx, fp) ;
 SubMtx_rowIndices(mtx, &nrow, &rowind) ;
@@ -925,7 +925,7 @@ SubMtx_writeStats (
 if ( mtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_writeStats(%p,%p)"
            "\n bad input\n", mtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, 
         "\n\n SubMtx object : type %d, (rowid,colid) = (%d,%d)"
@@ -1007,7 +1007,7 @@ int   *colind, *rowind ;
 if ( mtx == NULL || mtxname == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtx_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", mtx, mtxname, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtx_rowIndices(mtx, &nrow, &rowind) ;
 SubMtx_columnIndices(mtx, &ncol, &colind) ;

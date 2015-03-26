@@ -43,7 +43,7 @@ if ( zv == NULL || npts <= 0 || xDV == NULL || yDV == NULL
        "\n fatal error in ZV_log10profile(%p,%d,%p,%p,%f,%f,%p,%p,%p)"
        "\n bad input\n",
        zv, npts, xDV, yDV, tausmall, taubig, pnzero, pnsmall, pnbig) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------

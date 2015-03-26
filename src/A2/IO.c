@@ -383,7 +383,7 @@ int   i, j, jfirst, jlast, loc ;
 if ( mtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in A2_writeForHumanEye(%p,%p)"
            "\n bad input\n", mtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 A2_writeStats(mtx, fp) ;
 if ( A2_IS_REAL(mtx) ) {
@@ -442,7 +442,7 @@ A2_writeStats (
 if ( mtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in A2_writeStats(%p,%p)"
            "\n bad input\n", mtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_IS_REAL(mtx) ) {
    fprintf(fp, "\n A2 : double 2D array object :") ;
@@ -478,7 +478,7 @@ int      irow, jcol, ncol, nrow ;
 if ( mtx == NULL || mtxname == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in A2_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", mtx, mtxname, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrow = A2_nrow(mtx) ;
 ncol = A2_ncol(mtx) ;

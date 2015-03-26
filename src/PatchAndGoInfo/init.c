@@ -46,7 +46,7 @@ if ( info == NULL || strategy < 1 || strategy > 2
      || toosmall < 0.0 || fudge < 0.0 ) {
    fprintf(stderr, "\n fatal error in PatchAndGoInfo_init()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 PatchAndGoInfo_clearData(info) ;
 

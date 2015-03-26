@@ -29,7 +29,7 @@ int   i, j ;
 if ( n1 <= 0 || n2 <= 0 || ivec == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in fp2DGrid(%d,%d,%p,%p)"
            "\n bad input\n", n1, n2, ivec, fp) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 for ( j = n2 - 1 ; j >= 0 ; j-- ) {
    fprintf(fp, "\n") ;
@@ -68,7 +68,7 @@ int   k ;
 if ( n1 <= 0 || n2 <= 0 || n3 <= 0 || ivec == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in fp3DGrid(%d,%d,%d,%p,%p)"
            "\n bad input\n", n1, n2, n3, ivec, fp) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 for ( k = 0 ; k < n3 ; k++ ) {
    fprintf(fp, "\n") ;

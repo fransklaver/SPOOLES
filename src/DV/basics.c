@@ -36,7 +36,7 @@ DV_setDefaultFields (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_setDefaultFields(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dv->size    =   0  ;
 dv->maxsize =   0  ;
@@ -60,7 +60,7 @@ DV_clearData (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_clearData(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->vec != NULL && dv->owned == 1 ) {
    DVfree(dv->vec) ;
@@ -84,7 +84,7 @@ DV_free (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_free(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_clearData(dv) ;
 FREE(dv) ;

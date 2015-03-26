@@ -42,7 +42,7 @@ if ( ivl == NULL || ownersIV == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_MPI_allgather()"
            "\n ivl = %p, ownersIV = %p\n",
            ivl, ownersIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------
@@ -63,7 +63,7 @@ if ( nlist != nowners || owners == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_MPI_allgather()"
            "\n nlist = %d, nowners = %d, owners = %p\n",
            nlist, nowners, owners) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n ivl") ;
@@ -81,7 +81,7 @@ if ( msglvl > 2 ) {
 for ( ilist = 0, outcount = 1 ; ilist < nlist ; ilist++ ) {
    if ( owners[ilist] < 0 || owners[ilist] >= nproc ) {
       fprintf(stderr, "\n owners[%d] = %d", ilist, owners[ilist]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( owners[ilist] == myid ) {
       outcount += 2 ;
@@ -133,7 +133,7 @@ if ( outcount > 0 ) {
               myid, ii, outcount) ;
       fprintf(msgFile, "\n myid = %d, ii = %d, outcount = %d",
               myid, ii, outcount) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    outbuffer = NULL ;
@@ -197,7 +197,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
                  "\n 1. fatal error in IVL_MPI_allgather()"
                  "\n proc %d : source = %d, count = %d, incount = %d\n",
                  myid, source, count, incount) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 /*
@@ -217,7 +217,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
    if ( ii != incount ) {
       fprintf(msgFile, "\n ii = %d, incount = %d", ii, incount) ;
       fprintf(stderr, "\n ii = %d, incount = %d", ii, incount) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( msglvl > 2 ) {
       fprintf(msgFile, "\n after setting values") ;

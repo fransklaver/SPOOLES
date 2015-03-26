@@ -62,7 +62,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(argv[3], "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 inpmtx = InpMtx_new() ;
 rc = InpMtx_readFromFile(inpmtx, argv[3]) ;
@@ -70,7 +70,7 @@ fprintf(msgFile,
         "\n %% return value %d from InpMtx_readFromFile(%p,%s)",
         rc, inpmtx, argv[3]) ;
 if ( rc != 1 ) {
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n %d entries", inpmtx->nent) ;
 /*

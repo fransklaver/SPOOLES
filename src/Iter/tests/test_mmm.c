@@ -58,7 +58,7 @@ if ( argc != 20 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -81,7 +81,7 @@ if (  type < 1 ||  type > 2 ||  nrow < 0 ||  ncol < 0 ||
    fprintf(stderr, 
        "\n fatal error, type %d, nrow %d, ncol %d, ainc1 %d, ainc2 %d"
        ", binc1 %d, binc2 %d", type, nrow, ncol, ainc1, ainc2, binc1, binc2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 A_opt[0] = *argv[13] ;
 B_opt[0] = *argv[14] ;

@@ -127,7 +127,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from EGraph_readFromFile(%p,%s)",
            rc, egraph, EGraphFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading EGraph object from file %s",
@@ -152,7 +152,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from Coords_readFromFile(%p,%s)",
            rc, coords, CoordsFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading Coords object from file %s",

@@ -46,7 +46,7 @@ if ( graph == NULL || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in orderViaMMD(%p,%d,%d,%p)"
            "\n bad input\n", 
            graph, seed, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------

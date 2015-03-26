@@ -26,7 +26,7 @@ DV_shiftBase (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_shiftBase(%p,%d)"
            "\n bad input\n", dv, offset) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dv->vec     += offset ;
 dv->maxsize -= offset ;
@@ -50,7 +50,7 @@ DV_push (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_push(%p,%f)"
            "\n bad input\n", dv, val) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->size == dv->maxsize ) {
    if ( dv->maxsize > 0 ) {
@@ -80,7 +80,7 @@ int   i ;
 if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in DV_min(%p), size = %d, vec = %p",
            dv, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(DVmin(dv->size, dv->vec, &i)) ; }
 
@@ -93,7 +93,7 @@ int   i ;
 if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in DV_max(%p), size = %d, vec = %p",
            dv, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(DVmax(dv->size, dv->vec, &i)) ; }
 
@@ -104,7 +104,7 @@ DV_sum (
 if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, "\n fatal error in DV_sum(%p), size = %d, vec = %p",
            dv, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(DVsum(dv->size, dv->vec)) ; }
 
@@ -124,7 +124,7 @@ if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DV_sortUp(%p), size = %d, vec = %p",
            dv, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DVqsortUp(dv->size, dv->vec) ;
 
@@ -138,7 +138,7 @@ if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DV_sortDown(%p), size = %d, vec = %p",
            dv, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DVqsortDown(dv->size, dv->vec) ;
 
@@ -162,7 +162,7 @@ if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DV_ramp(%p,%f,%f), size = %d, vec = %p",
            dv, base, incr, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DVramp(dv->size, dv->vec, base, incr) ;
 
@@ -185,7 +185,7 @@ if ( dv == NULL || dv->size <= 0 || dv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DV_shuffle(%p,%d), size = %d, vec = %p",
            dv, seed, dv->size, dv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DVshuffle(dv->size, dv->vec, seed) ;
 
@@ -208,7 +208,7 @@ int   nbytes ;
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_sizeOf(%p)"
            "\n bad input \n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _DV) ;
 if ( dv->owned == 1 ) {
@@ -238,7 +238,7 @@ double   *pd ;
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_first(%p)"
            "\n bad input", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->size == 0 ) {
    pd = NULL ;
@@ -271,7 +271,7 @@ if ( pd == NULL ) {
    fprintf(stderr, "\n fatal error in DV_next(%p,%p)"
            "\n bad input", dv, pd) ;
    fflush(stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------
@@ -288,7 +288,7 @@ if ( (offset = pd - dv->vec) < 0 || offset >= dv->size ) {
            "\n offset = %d, must be in [0,%d)",
            dv, pd, offset, dv->size) ;
    fflush(stderr) ;
-   exit(-1) ;
+   spoolesFatal();
 } else if ( offset == dv->size - 1 ) {
 /*
    ----------------------------
@@ -327,7 +327,7 @@ DV_fill (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_fill(%p,%f)"
            "\n bad input\n", dv, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->size > 0 ) {
    DVfill(dv->size, dv->vec, value) ;
@@ -355,7 +355,7 @@ DV_zero (
 if ( dv == NULL ) {
    fprintf(stderr, "\n fatal error in DV_zero(%p)"
            "\n bad input\n", dv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( dv->size > 0 ) {
    DVzero(dv->size, dv->vec) ;
@@ -387,7 +387,7 @@ double   *vec1, *vec2 ;
 if ( dv1 == NULL || dv2 == NULL ) {
    fprintf(stderr, "\n fatal error in DV_copy(%p,%p)"
            "\n bad input\n", dv1, dv2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = dv1->size ;
 if ( size > dv2->size ) {

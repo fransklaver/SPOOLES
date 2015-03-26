@@ -85,7 +85,7 @@ if ( chvlist == NULL || ilist < 0 || ilist >= chvlist->nlist ) {
    fprintf(stderr, 
            "\n fatal error in ChvList_addObjectToList(%p,%p,%d)"
            "\n bad input\n", chvlist, chv, ilist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n ChvList %p : adding chv %p to list %d",
@@ -157,7 +157,7 @@ if ( chvlist == NULL || ilist < 0 || ilist >= chvlist->nlist ) {
    fprintf(stderr, 
            "\n fatal error in ChvList_getList(%p,%d)"
            "\n bad input\n", chvlist, ilist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n ChvList %p : get list %d", chvlist, ilist) ;

@@ -44,12 +44,12 @@ if (   mtxA == NULL || workDV == NULL
     || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in A2_QRreduce()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtxA) || A2_IS_COMPLEX(mtxA)) ) {
    fprintf(stderr, "\n fatal error in A2_QRreduce()"
            "\n matrix must be real or complex\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrowA = A2_nrow(mtxA) ; 
 ncolA = A2_ncol(mtxA) ;
@@ -378,7 +378,7 @@ inc2  = mtxA->inc2 ;
 if ( inc1 != 1 && inc2 != 1 ) {
    fprintf(stderr, "\n error in computeW1"
            "\n inc1 = %d, inc2 = %d\n", inc1, inc2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nops  = 0.0 ;
 if ( A2_IS_REAL(mtxA) ) {
@@ -735,44 +735,44 @@ int      irowA, jcolA, ncolA, nrowA ;
 if ( Q == NULL ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n Q is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A == NULL ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n A is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( workDV == NULL ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n workDV is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 0 && msgFile == NULL ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n msglvl > 0 and msgFile is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrowA = A2_nrow(A) ;
 ncolA = A2_ncol(A) ;
 if ( nrowA <= 0 ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n nrowA = %d\n", nrowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ncolA <= 0 ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n ncolA = %d\n", nrowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrowA != A2_nrow(Q) ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n nrowA = %d, nrowQ = %d\n", nrowA, A2_nrow(Q)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ncolA != A2_ncol(Q) ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n ncolA = %d, ncolQ = %d\n", ncolA, A2_ncol(Q)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( A->type ) {
 case SPOOLES_REAL :
@@ -781,22 +781,22 @@ case SPOOLES_COMPLEX :
 default :
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n invalid type for A\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A->type != Q->type ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n A->type = %d, Q->type = %d\n", A->type, Q->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_inc1(A) != 1 ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n A->inc1 = %d \n", A2_inc1(A)) ; 
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_inc1(Q) != 1 ) {
    fprintf(stderr, "\n fatal error in A2_computeQ()"
            "\n Q->inc1 = %d, \n", A2_inc1(Q)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------------
@@ -964,22 +964,22 @@ int      irowA, jcolA, jcolX, ncolA, ncolX, nrowA ;
 if ( A == NULL ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n A is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( X == NULL ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n X is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( workDV == NULL ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n workDV is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 0 && msgFile == NULL ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n msglvl > 0 and msgFile is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nrowA = A2_nrow(A) ;
 ncolA = A2_ncol(A) ;
@@ -987,17 +987,17 @@ ncolX = A2_ncol(X) ;
 if ( nrowA <= 0 ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n nrowA = %d\n", nrowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ncolA <= 0 ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n ncolA = %d\n", nrowA) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( nrowA != A2_nrow(X) ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n nrowA = %d, nrowX = %d\n", nrowA, A2_nrow(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( A->type ) {
 case SPOOLES_REAL :
@@ -1006,22 +1006,22 @@ case SPOOLES_COMPLEX :
 default :
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n invalid type for A\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A->type != X->type ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n A->type = %d, X->type = %d\n", A->type, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_inc1(A) != 1 ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n A->inc1 = %d \n", A2_inc1(A)) ; 
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( A2_inc1(X) != 1 ) {
    fprintf(stderr, "\n fatal error in A2_applyQT()"
            "\n X->inc1 = %d, \n", A2_inc1(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------------------

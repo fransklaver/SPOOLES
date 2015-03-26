@@ -29,7 +29,7 @@ if ( ivl == NULL
   || maxnlist < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_init1(%p,%d,%d)"
            "\n bad input", ivl, type, maxnlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------
@@ -76,7 +76,7 @@ IVL_init2 (
 if ( ivl == NULL || type != IVL_CHUNKED || maxnlist < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_init2(%p,%d,%d,%d)"
            "\n bad input", ivl, type, maxnlist, tsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------
@@ -125,7 +125,7 @@ if ( ivl == NULL || (type != IVL_CHUNKED && type != IVL_SOLO)
    fprintf(stderr,
            "\n fatal error in IVL_init3(%p,%d,%d,%p)"
            "\n bad input", ivl, type, maxnlist, sizes) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case IVL_SOLO :
@@ -174,7 +174,7 @@ IVL_setMaxnlist (
 if ( ivl == NULL || newmaxnlist < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_setMaxnlist(%p,%d)"
            "\n bad input\n", ivl, newmaxnlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( newmaxnlist != ivl->maxnlist ) {
    int   *ivec, **pivec ;
@@ -238,7 +238,7 @@ IVL_setNlist (
 if ( ivl == NULL || newnlist < 0 ) {
    fprintf(stderr, "\n fatal error in IVL_setNlist(%p,%d)"
            "\n bad input\n", ivl, newnlist) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( newnlist > ivl->maxnlist ) {
 /*

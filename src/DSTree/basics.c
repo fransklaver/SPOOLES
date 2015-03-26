@@ -56,7 +56,7 @@ fflush(stdout) ;
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_setDefaultFields(%p)"
            "\n dstree is NULL\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 dstree->tree  = NULL ;
 dstree->mapIV = NULL ;
@@ -88,7 +88,7 @@ fflush(stdout) ;
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_clearData(%p)"
            "\n dstree is NULL\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( dstree->tree != NULL ) {
@@ -127,7 +127,7 @@ fflush(stdout) ;
 if ( dstree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_free(%p)"
            "\n dstree is NULL\n", dstree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 DSTree_clearData(dstree) ;

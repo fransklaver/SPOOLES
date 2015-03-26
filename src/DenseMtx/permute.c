@@ -26,7 +26,7 @@ int   *oldToNew, *rowind ;
 if ( mtx == NULL || oldToNewIV == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_permuteRows(%p,%p)"
            "\n bad input\n", mtx, oldToNewIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_rowIndices(mtx, &nrow, &rowind) ;
 if ( nrow <= 0 ) {
@@ -44,7 +44,7 @@ for ( ii = 0 ; ii < nrow ; ii++ ) {
       fprintf(stderr, "\n fatal error in DenseMtx_permuteRows(%p,%p)"
               "\n irow = %d, maxnrow = %d", 
               mtx, oldToNewIV, irow, maxnrow) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    rowind[ii] = oldToNew[rowind[ii]] ;
 }
@@ -83,7 +83,7 @@ int   *oldToNew, *colind ;
 if ( mtx == NULL || oldToNewIV == NULL ) {
    fprintf(stderr, "\n fatal error in DenseMtx_permuteColumns(%p,%p)"
            "\n bad input\n", mtx, oldToNewIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DenseMtx_columnIndices(mtx, &ncol, &colind) ;
 if ( ncol <= 0 ) {
@@ -102,7 +102,7 @@ for ( ii = 0 ; ii < ncol ; ii++ ) {
               "\n fatal error in DenseMtx_permuteColumns(%p,%p)"
               "\n jcol = %d, maxncol = %d", 
               mtx, oldToNewIV, jcol, maxncol) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    colind[ii] = oldToNew[jcol] ;
 }

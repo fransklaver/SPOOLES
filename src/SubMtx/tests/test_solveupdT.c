@@ -50,7 +50,7 @@ if ( argc != 12 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -93,7 +93,7 @@ if ( type < 0 || type > 6
    || nentA > nrowA*ncolA 
    || nrowX <= 0 ) {
    fprintf(stderr, "\n invalid input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( type ) {
 case SPOOLES_REAL :
@@ -101,7 +101,7 @@ case SPOOLES_COMPLEX :
    break ;
 default :
    fprintf(stderr, "\n invalid type %d\n", type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( mode ) {
 case SUBMTX_DENSE_ROWS :
@@ -111,7 +111,7 @@ case SUBMTX_SPARSE_COLUMNS :
    break ;
 default :
    fprintf(stderr, "\n invalid mode %d\n", mode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------

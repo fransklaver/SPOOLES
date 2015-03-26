@@ -26,7 +26,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_newToOldFrontPerm(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 newToOldIV = IV_new() ;
 IV_init(newToOldIV, nfront, NULL) ;
@@ -63,7 +63,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_oldToNewFrontPerm(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 oldToNewIV = IV_new() ;
 IV_init(oldToNewIV, nfront, NULL) ;
@@ -101,7 +101,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_newToOldVtxPerm(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 /*
@@ -167,7 +167,7 @@ if (  etree == NULL
    || (nvtx = etree->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_oldToNewVtxPerm(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 /*
@@ -238,7 +238,7 @@ if ( etree == NULL || vtxOldToNewIV == NULL
               "\n etree->nvtx = %d, IV_size(vtxOldToNewIV) = %d\n",
               etree->nvtx, IV_size(vtxOldToNewIV)) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 vtxToFront = IV_entries(etree->vtxToFrontIV) ;
 oldToNew   = IV_entries(vtxOldToNewIV) ;

@@ -44,7 +44,7 @@ int   ilist ;
 if ( chvlist == NULL || nlist <= 0 || lockflag < 0 || lockflag > 1 ) {
    fprintf(stderr, "\n fatal error in ChvList_init(%p,%d,%p,%d,%p)"
            "\n bad input\n", chvlist, nlist, counts, lockflag, flags) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------

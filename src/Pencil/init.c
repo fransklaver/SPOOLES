@@ -28,13 +28,13 @@ if (  pencil == NULL || sigma == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_init(%p,%d,%d,%p,%p,%p)"
            "\n bad input\n", 
            pencil, type, symflag, inpmtxA, sigma, inpmtxB) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(type == SPOOLES_REAL || type == SPOOLES_COMPLEX) ) {
    fprintf(stderr, "\n fatal error in Pencil_init(%p,%d,%d,%p,%p,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            pencil, type, symflag, inpmtxA, sigma, inpmtxB, type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !(symflag == SPOOLES_SYMMETRIC 
    ||  symflag == SPOOLES_HERMITIAN
@@ -43,7 +43,7 @@ if ( !(symflag == SPOOLES_SYMMETRIC
            "\n bad symflag %d, must be SPOOLES_SYMMETRIC,"
            "\n SPOOLES_HERMITIAN or SPOOLES_NONSYMMETRIC\n", 
            pencil, type, symflag, inpmtxA, sigma, inpmtxB, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------

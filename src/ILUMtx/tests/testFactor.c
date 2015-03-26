@@ -90,7 +90,7 @@ fprintf(msgFile,
 fflush(msgFile) ;
 if ( type != SPOOLES_REAL && type != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n invalid value %d for type\n", type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( symflag ) {
 case SPOOLES_SYMMETRIC    :
@@ -99,17 +99,17 @@ case SPOOLES_NONSYMMETRIC :
    break ;
 default :
    fprintf(stderr, "\n invalid value %d for symflag\n", symflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 if ( symflag == SPOOLES_HERMITIAN && type == SPOOLES_REAL ) {
    fprintf(stderr, "\n symflag is hermitian and type is real") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( neqns <= 0 || nitem <= 0 ) {
    fprintf(stderr, "\n invalid value: neqns = %d, nitem = %d",
            neqns, nitem) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------

@@ -148,7 +148,7 @@ while ( ratio > convergetol && Iter <= itermax )
     if ( zabs(Rho_new) == 0.0 || zabs(Omega)== 0.0 ){
       fprintf(stderr, "\n   breakdown in ZBiCGSTABR !! "
               "\n Fatal error   \n");
-      exit(-1) ; 
+      spoolesFatal(); 
     }
 
 /*      Beta    = (Rho_new / (Rho+Tiny)) * (Alpha / (Omega+Tiny));  */
@@ -191,7 +191,7 @@ while ( ratio > convergetol && Iter <= itermax )
     if ( zabs(Rtmp) == 0.0 ){
       fprintf(stderr, "\n   breakdown in ZBiCGSTABR !! "
               "\n Fatal error   \n");
-      exit(-1) ; 
+      spoolesFatal(); 
     }
     zdiv(Rho, Rtmp, Alpha);
     
@@ -228,7 +228,7 @@ while ( ratio > convergetol && Iter <= itermax )
     if ( zabs(Ttmp) == 0.0 ){
       fprintf(stderr, "\n   breakdown in ZBiCGSTABR !! "
               "\n Fatal error   \n");
-      exit(-1) ; 
+      spoolesFatal(); 
     };
     DenseMtx_colDotProduct (vecT, 0, vecR, 0, Rtmp);
     zdiv(Rtmp, Ttmp, Omega);

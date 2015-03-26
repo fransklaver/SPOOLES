@@ -136,7 +136,7 @@ if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_factorInpMtx()"
            "\n tag range is [%d,%d], tag_bound = %d",
            firsttag, lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Pencil_setDefaultFields(&pencil) ;
 Pencil_init(&pencil, frontmtx->type, frontmtx->symmetryflag,
@@ -255,7 +255,7 @@ if ( frontmtx == NULL || pencil == NULL || tau < 1.0 || droptol < 0.0
            "\n bad input\n",
            frontmtx, pencil, tau, droptol, chvmanager, frontOwnersIV, 
            firsttag, cpus, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront  = frontmtx->nfront ;
 lasttag = 3*nfront + 2 ;
@@ -264,7 +264,7 @@ if ( firsttag < 0 || lasttag > tagbound ) {
    fprintf(stderr, "\n fatal error in FrontMtx_MPI_factorPencil()"
            "\n tag range is [%d,%d], tag_bound = %d",
            firsttag, lasttag, tagbound) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 MPI_Comm_size(comm, &nproc) ;
@@ -741,7 +741,7 @@ if ( frontmtx == NULL || J < 0 || J > (nfront = frontmtx->nfront)
    || (msglvl > 1 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in wakeupFront()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n inside wakeupFront, J = %d", J) ;

@@ -56,7 +56,7 @@ fflush(stdout) ;
 if ( bpg == NULL ) {
    fprintf(stderr, "\n fatal error in BPG_setDefaultFields(%p)"
            "\n bipartite graph is NULL\n", bpg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 bpg->nX    =  0   ;
 bpg->nY    =  0   ;
@@ -89,7 +89,7 @@ fflush(stdout) ;
 if ( bpg == NULL ) {
    fprintf(stderr, "\n fatal error in BPG_clearData(%p)"
            "\n bipartite graph is NULL\n", bpg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( bpg->graph != NULL ) {
@@ -124,7 +124,7 @@ fflush(stdout) ;
 if ( bpg == NULL ) {
    fprintf(stderr, "\n fatal error in BPG_free(%p)"
            "\n bipartite graph is NULL\n", bpg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 BPG_clearData(bpg) ;

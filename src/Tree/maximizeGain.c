@@ -38,7 +38,7 @@ if ( tree == NULL || gainIV == NULL || ptotalgain == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in Tree_maximizeGainIV()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 n   = tree->n   ;
 par = tree->par ;
@@ -48,7 +48,7 @@ if ( n != IV_size(gainIV) ) {
    fprintf(stderr, "\n fatal error in Tree_maximizeGainIV()"
            "\n tree size = %d, gain size = %d", 
            tree->n, IV_size(gainIV)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 gain = IV_entries(gainIV) ;
 /*

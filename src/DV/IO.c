@@ -297,7 +297,7 @@ if ( dv == NULL || fp == NULL || dv->size <= 0 ) {
    fprintf(stderr, "\n fatal error in DV_writeToFormattedFile(%p,%p)"
            "\n bad input\n", dv, fp) ;
    fprintf(stderr, "\n dv->size = %d", dv->size) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -------------------------------------
@@ -341,7 +341,7 @@ int   rc, size ;
 if ( dv == NULL || fp == NULL || dv->size <= 0 ) {
    fprintf(stderr, "\n fatal error in DV_writeToBinaryFile(%p,%p)"
            "\n bad input\n", dv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = DV_size(dv) ;
 rc = fwrite((void *) &size, sizeof(int), 1, fp) ;
@@ -379,7 +379,7 @@ int   rc ;
 if ( dv == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in DV_writeForHumanEye(%p,%p)"
            "\n bad input\n", dv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = DV_writeStats(dv, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in DV_writeForHumanEye(%p,%p)"
@@ -415,7 +415,7 @@ int   rc ;
 if ( dv == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in DV_writeStats(%p,%p)"
            "\n bad input\n", dv, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, "\n DV : double vector object : ") ;
 if ( rc < 0 ) { goto IO_error ; }
@@ -457,7 +457,7 @@ int      ii, rc, size ;
 if ( dv == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in DV_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", dv, name, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DV_sizeAndEntries(dv, &size, &entries) ;
 fprintf(fp, "\n %s = zeros(%d,%d) ;", name, size, size) ;

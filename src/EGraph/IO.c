@@ -528,7 +528,7 @@ int   ierr, rc ;
 if ( egraph == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in EGraph_writeForHumanEye(%p,%p)"
            "\n bad input\n", egraph, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -607,7 +607,7 @@ int   rc ;
 if ( egraph == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in EGraph_writeStats(%p,%p)"
            "\n bad input\n", egraph, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( egraph->type ) {
 case 0 : 

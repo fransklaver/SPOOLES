@@ -47,7 +47,7 @@ if ( argc != 10 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -72,7 +72,7 @@ if (  nDJ <= 0 || nUJ < 0
    fprintf(stderr, "\n invalid input"
       "\n nDJ = %d, nUJ = %d, nDI = %d, nUI = %d, symflag = %d\n",
            nDJ, nUJ, nDI, nUI, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------------

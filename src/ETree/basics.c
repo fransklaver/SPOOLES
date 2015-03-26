@@ -56,7 +56,7 @@ fflush(stdout) ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_setDefaultFields(%p)"
            "\n etree is NULL\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
  }
 etree->nfront       =   0  ;
 etree->nvtx         =   0  ;
@@ -92,7 +92,7 @@ fflush(stdout) ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_clearData(%p)"
            "\n etree is NULL\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( etree->tree != NULL ) {
@@ -136,7 +136,7 @@ fflush(stdout) ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_free(%p)"
            "\n etree is NULL\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 ETree_clearData(etree) ;

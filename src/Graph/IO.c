@@ -885,7 +885,7 @@ int   ierr, rc ;
 if ( graph == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_writeForHumanEye(%p,%p)"
            "\n bad input\n", graph, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -988,7 +988,7 @@ int   rc ;
 if ( graph == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in Graph_writeStats(%p,%p)"
            "\n bad input\n", graph, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( graph->type ) {
 case 0 : 
@@ -1058,7 +1058,7 @@ int   *vewghts, *vadj ;
 if ( g == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_writeToMetisFile(%p,%p)"
            "\n bad input\n", g, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx = g->nvtx ;
 nedge = (g->nedges - nvtx)/2 ;

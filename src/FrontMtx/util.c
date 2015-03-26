@@ -284,7 +284,7 @@ IV    *ownedRowsIV ;
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_ownedRowsIV(%p,%d,%p)"
            "\n bad input\n", frontmtx, myid, ownersIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 neqns  = frontmtx->neqns  ;
@@ -345,7 +345,7 @@ IV    *ownedColumnsIV ;
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_ownedColumnsIV(%p,%d,%p)"
            "\n bad input\n", frontmtx, myid, ownersIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 neqns  = frontmtx->neqns  ;
@@ -409,7 +409,7 @@ IVL   *upperblockIVL ;
 if ( frontmtx == NULL || colmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_makeUpperBlockIVL()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = FrontMtx_nfront(frontmtx) ;
 colmap = IV_entries(colmapIV) ;
@@ -487,7 +487,7 @@ IVL   *lowerblockIVL ;
 if ( frontmtx == NULL || rowmapIV == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_makeLowerBlockIVL()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = FrontMtx_nfront(frontmtx) ;
 rowmap = IV_entries(rowmapIV) ;
@@ -556,7 +556,7 @@ int   nsolveops ;
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_nSolveOps()"
            "\n frontmtx is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 switch ( frontmtx->type ) {
 case SPOOLES_REAL :
@@ -572,7 +572,7 @@ case SPOOLES_REAL :
          fprintf(stderr, "\n fatal error in FrontMtx_nSolveOps()"
                  "\n real type, invalid symmetryflag %d\n", 
                  frontmtx->symmetryflag) ;
-         exit(-1) ;
+         spoolesFatal();
          break ;
    }
    break ;
@@ -590,14 +590,14 @@ case SPOOLES_COMPLEX :
          fprintf(stderr, "\n fatal error in FrontMtx_nSolveOps()"
                  "\n complex type, invalid symmetryflag %d\n", 
                  frontmtx->symmetryflag) ;
-         exit(-1) ;
+         spoolesFatal();
          break ;
    }
    break ;
 default :
    fprintf(stderr, "\n fatal error in FrontMtx_nSolveOps()"
            "\n invalid type %d\n", frontmtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 return(nsolveops) ; }

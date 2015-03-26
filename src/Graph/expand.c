@@ -28,7 +28,7 @@ if (  g == NULL
    || IV_entries(mapIV) == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_expand2(%p,%p)"
            "\n bad input\n", g, mapIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(Graph_expand(g, IV_size(mapIV), IV_entries(mapIV))) ; }
 
@@ -60,7 +60,7 @@ IVL     *adjIVL, *adjbigIVL ;
 if ( g == NULL || nvtxbig <= 0 || map == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_expand(%p,%d,%p)"
            "\n bad input\n", g, nvtxbig, map) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx   = g->nvtx   ;
 adjIVL = g->adjIVL ;

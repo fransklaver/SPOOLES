@@ -39,7 +39,7 @@ DDsepInfo_setDefaultFields (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in DDsepInfo_setDefaultFields(%p)"
            "\n bad input\n", info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 info->seed          =      1 ;
 info->minweight     =     40 ;
@@ -77,7 +77,7 @@ DDsepInfo_clearData (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in DDsepInfo_clearData(%p)"
            "\n bad input\n", info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DDsepInfo_setDefaultFields(info) ;
 
@@ -98,7 +98,7 @@ DDsepInfo_free (
 if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in DDsepInfo_free(%p)"
            "\n bad input\n", info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 DDsepInfo_clearData(info) ;
 #if MYDEBUG > 0
@@ -131,7 +131,7 @@ double   cpuMisc ;
 if ( info == NULL || msgFile == NULL ) {
    fprintf(stderr, "\n fatal error in DDsepInfo_writeCpuTimes(%p,%p)"
            "\n bad input\n", info, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 cpuMisc = info->cpuTotal - info->cpuDD  - info->cpuSplit - info->cpuMap 
         - info->cpuBPG   - info->cpuBKL - info->cpuSmooth ;

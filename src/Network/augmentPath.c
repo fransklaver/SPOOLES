@@ -31,7 +31,7 @@ if ( network == NULL || (nnode = network->nnode) <= 0
    fprintf(stderr, "\n fatal error in Network_augmentPath(%p,%d,%p)"
            "\n bad input\n",
            network, delta, pred) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 source   = 0 ;
 sink     = nnode - 1 ;

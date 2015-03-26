@@ -23,7 +23,7 @@ Tree_init1 (
 if ( tree == NULL || size < 0 ) {
    fprintf(stderr, "\n fatal error in Tree_init1(%p,%d)"
            "\n bad input\n", tree, size) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------
@@ -67,7 +67,7 @@ Tree_init2 (
 if ( tree == NULL || size <= 0 || par == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_init2(%p,%d,%p)"
            "\n bad input\n", tree, size, par) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------
@@ -115,7 +115,7 @@ if (  tree == NULL || size <= 0
    || par == NULL || fch == NULL || sib == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_init3(%p,%d,%p,%p,%p)"
            "\n bad input\n", tree, size, par, fch, sib) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------
@@ -163,7 +163,7 @@ if (  tree == NULL || (n = tree->n) < 1 ) {
 if (  tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setFchSibRoot(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  (n = tree->n) < 1 ) {
    return ;
@@ -220,7 +220,7 @@ int   *par, *sib ;
 if (  tree == NULL || (n = tree->n) < 1 ) {
    fprintf(stderr, "\n fatal error in Tree_setRoot(%p)"
            "\n bad input\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 n    = tree->n   ;
 par  = tree->par ;

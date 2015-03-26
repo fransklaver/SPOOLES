@@ -192,7 +192,7 @@ case SPOOLES_NONSYMMETRIC :
 default :
    fprintf(stderr, "\n fatal error in mkNDlinsys()"
            "\n invalid symmetryflag %d\n", symmetryflag) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 if ( msglvl > 2 ) {

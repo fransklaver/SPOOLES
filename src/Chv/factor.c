@@ -31,7 +31,7 @@ int   *colind, *rowind ;
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_factorWithNoPivoting()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nD = chv->nD ;
 /*
@@ -130,7 +130,7 @@ if ( info == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_factorWithNoPivoting()"
            "\n patch-and-go info != NULL, strategy = %d",
            info->strategy) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(nelim) ; }
 
@@ -177,24 +177,24 @@ int   *colind, *rowind ;
 if ( chv == NULL || pivotflag != 1 || ndelay < 0 ) {
    fprintf(stderr, "\n fatal error in Chv_factorWithPivoting()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( workDV == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_factorWithPivoting()"
            "\n workDV is NULL \n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( tau < 1.0 ) {
    fprintf(stderr, "\n fatal error in Chv_factorWithPivoting()"
            "\n tau = %f is invalid \n", tau) ; 
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_REAL(chv) && CHV_IS_SYMMETRIC(chv)
    && pivotsizesIV == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_factorWithPivoting()"
            "\n real symmetric front"
            "\n pivoting enabled, pivotsizesIV is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( CHV_IS_COMPLEX(chv) 
    && (CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv))
@@ -202,7 +202,7 @@ if ( CHV_IS_COMPLEX(chv)
    fprintf(stderr, "\n fatal error in Chv_factorWithPivoting()"
            "\n complex symmetric or hermitian front"
            "\n pivoting enabled, pivotsizesIV is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nD = chv->nD ;
 /*
@@ -449,7 +449,7 @@ int   rc = 0 ;
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_r1upd(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 if ( CHV_IS_NONSYMMETRIC(chv) ) {
    rc = nonsym1x1(chv) ;
@@ -458,7 +458,7 @@ if ( CHV_IS_NONSYMMETRIC(chv) ) {
 } else {
    fprintf(stderr, "\n fatal error in Chv_r1upd(%p)"
            "\n symflag = %d\n", chv, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(rc) ; }
 
@@ -484,12 +484,12 @@ int   rc = 0 ;
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_r2upd(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 if ( !(CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv)) ) {
    fprintf(stderr, "\n fatal error in Chv_r2upd(%p)"
            "\n symflag = %d\n", chv, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 rc = symmetric2x2(chv) ;
 
@@ -967,7 +967,7 @@ if ( CHV_IS_REAL(chv) ) {
 } else {
    fprintf(stderr, "\n fatal error in Chv_symmetric2x2"
            "\n chevron must be real or complex") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( rc == 0 ) {
 /*
@@ -1136,7 +1136,7 @@ if ( chv == NULL || ichv < 0 || ichv >= chv->nD
   || pdiagmaxabs == NULL || prowmaxabs == NULL || pcolmaxabs == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_maxabsInChevron()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 pdiag  = Chv_diagLocation(chv, ichv) ;
@@ -1154,7 +1154,7 @@ if ( CHV_IS_REAL(chv) ) {
       fprintf(stderr, "\n fatal error in Chv_maxabsInChevron()"
               "\n chv is real, chv->symflag = %d"
               "\n must be symmetric or nonsymmetric\n", chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chv) ) {
    if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
@@ -1169,12 +1169,12 @@ if ( CHV_IS_REAL(chv) ) {
       fprintf(stderr, "\n fatal error in Chv_maxabsInChevron()"
               "\n chv is complex, chv->symflag = %d"
               "\n must be symmetric or nonsymmetric\n", chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    fprintf(stderr, "\n fatal error in Chv_maxabsInChevron()"
            "\n chv->type = %d, must be real or complex\n", chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 
@@ -1201,7 +1201,7 @@ int      length, nD, nL, nU ;
 if ( chv == NULL || ichv < 0 || ichv >= chv->nD ) {
    fprintf(stderr, "\n fatal error in Chv_zeroOffdiagonalOfChevron()"
            "\n bad input\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 pdiag  = Chv_diagLocation(chv, ichv) ;
@@ -1217,7 +1217,7 @@ if ( CHV_IS_REAL(chv) ) {
               "\n fatal error in Chv_zeroOffdiagonalOfChevron()"
               "\n chv is real, chv->symflag = %d"
               "\n must be symmetric or nonsymmetric\n", chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chv) ) {
    if ( CHV_IS_SYMMETRIC(chv) || CHV_IS_HERMITIAN(chv) ) {
@@ -1230,12 +1230,12 @@ if ( CHV_IS_REAL(chv) ) {
               "\n fatal error in Chv_zeroOffdiagonalOfChevron()"
               "\n chv is complex, chv->symflag = %d"
               "\n must be symmetric or nonsymmetric\n", chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    fprintf(stderr, "\n fatal error in Chv_zeroOffdiagonalOfChevron()"
            "\n chv->type = %d, must be real or complex\n", chv->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return ; }
 

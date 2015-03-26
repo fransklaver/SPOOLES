@@ -29,7 +29,7 @@ if ( solvemap == NULL || symmetryflag < 0 || nfront <= 0
    fprintf(stderr, "\n fatal error in SolveMap_init(%p,%d,%d,%d,%d,%d)"
            "\n bad input\n", solvemap, symmetryflag, nfront, 
            nproc, nblockUpper, nblockLower) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------

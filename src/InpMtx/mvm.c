@@ -28,48 +28,48 @@ double   *dvec, *x, *y ;
 if ( A == NULL || Y == NULL || alpha == NULL || X == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
            "\n bad input\n", A, Y, alpha, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_REAL_ENTRIES(A) || INPMTX_IS_COMPLEX_ENTRIES(A)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, Y, alpha, X, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (DENSEMTX_IS_REAL(Y) || DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n bad type %d for Y\n", A, Y, alpha, X, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (DENSEMTX_IS_REAL(X) || DENSEMTX_IS_COMPLEX(X)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n bad type %d for X\n", A, Y, alpha, X, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(Y) != DENSEMTX_IS_REAL(X) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n X's type %d, Y's type %d \n", A, Y, alpha, X, 
           X->type, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  (INPMTX_IS_REAL_ENTRIES(A) && !DENSEMTX_IS_REAL(Y))
    || (INPMTX_IS_COMPLEX_ENTRIES(A) && !DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n A's inputMode %d, Y's type %d \n", A, Y, alpha, X, 
           A->inputMode, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DenseMtx_rowIncrement(Y) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n Y's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(Y)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incY = DenseMtx_columnIncrement(Y) ;
 if ( DenseMtx_rowIncrement(X) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n X's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incX = DenseMtx_columnIncrement(X) ;
 x    = DenseMtx_entries(X) ;
@@ -80,7 +80,7 @@ if ( (nrhs = ncolY) != ncolX ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
           "\n Y's nrhs = %d, X's nrhs = %d",
           A, Y, alpha, X, nrhs, ncolX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -95,7 +95,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, Y, alpha, X, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_REAL_ENTRIES(A) ) {
@@ -329,48 +329,48 @@ double   *dvec, *x, *y ;
 if ( A == NULL || Y == NULL || alpha == NULL || X == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
            "\n bad input\n", A, Y, alpha, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_REAL_ENTRIES(A) || INPMTX_IS_COMPLEX_ENTRIES(A)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, Y, alpha, X, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (DENSEMTX_IS_REAL(Y) || DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n bad type %d for Y\n", A, Y, alpha, X, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (DENSEMTX_IS_REAL(X) || DENSEMTX_IS_COMPLEX(X)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n bad type %d for X\n", A, Y, alpha, X, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(Y) != DENSEMTX_IS_REAL(X) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n X's type %d, Y's type %d \n", A, Y, alpha, X, 
           X->type, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  (INPMTX_IS_REAL_ENTRIES(A) && !DENSEMTX_IS_REAL(Y))
    || (INPMTX_IS_COMPLEX_ENTRIES(A) && !DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n A's inputMode %d, Y's type %d \n", A, Y, alpha, X, 
           A->inputMode, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DenseMtx_rowIncrement(Y) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n Y's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(Y)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incY = DenseMtx_columnIncrement(Y) ;
 if ( DenseMtx_rowIncrement(X) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n X's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incX = DenseMtx_columnIncrement(X) ;
 x    = DenseMtx_entries(X) ;
@@ -381,7 +381,7 @@ if ( (nrhs = ncolY) != ncolX ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
           "\n Y's nrhs = %d, X's nrhs = %d",
           A, Y, alpha, X, nrhs, ncolX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -396,7 +396,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_T(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, Y, alpha, X, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_REAL_ENTRIES(A) ) {
@@ -630,35 +630,35 @@ double   *dvec, *x, *y ;
 if ( A == NULL || Y == NULL || alpha == NULL || X == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
            "\n bad input\n", A, Y, alpha, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, Y, alpha, X, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! DENSEMTX_IS_COMPLEX(Y) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
           "\n bad type %d for Y\n", A, Y, alpha, X, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! DENSEMTX_IS_COMPLEX(X) ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
           "\n bad type %d for X\n", A, Y, alpha, X, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DenseMtx_rowIncrement(Y) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
           "\n Y's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(Y)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incY = DenseMtx_columnIncrement(Y) ;
 if ( DenseMtx_rowIncrement(X) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
           "\n X's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incX = DenseMtx_columnIncrement(X) ;
 x    = DenseMtx_entries(X) ;
@@ -669,7 +669,7 @@ if ( (nrhs = ncolY) != ncolX ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
           "\n Y's nrhs = %d, X's nrhs = %d",
           A, Y, alpha, X, nrhs, ncolX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -684,7 +684,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_nonsym_mmm_H(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, Y, alpha, X, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_COMPLEX_ENTRIES(A) ) {
@@ -849,48 +849,48 @@ double   *dvec, *x, *y ;
 if ( A == NULL || Y == NULL || alpha == NULL || X == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
            "\n bad input\n", A, Y, alpha, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (INPMTX_IS_REAL_ENTRIES(A) || INPMTX_IS_COMPLEX_ENTRIES(A)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, Y, alpha, X, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (DENSEMTX_IS_REAL(Y) || DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n bad type %d for Y\n", A, Y, alpha, X, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (DENSEMTX_IS_REAL(X) || DENSEMTX_IS_COMPLEX(X)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n bad type %d for X\n", A, Y, alpha, X, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DENSEMTX_IS_REAL(Y) != DENSEMTX_IS_REAL(X) ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n X's type %d, Y's type %d \n", A, Y, alpha, X, 
           X->type, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if (  (INPMTX_IS_REAL_ENTRIES(A) && !DENSEMTX_IS_REAL(Y))
    || (INPMTX_IS_COMPLEX_ENTRIES(A) && !DENSEMTX_IS_COMPLEX(Y)) ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n A's inputMode %d, Y's type %d \n", A, Y, alpha, X, 
           A->inputMode, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DenseMtx_rowIncrement(Y) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n Y's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(Y)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incY = DenseMtx_columnIncrement(Y) ;
 if ( DenseMtx_rowIncrement(X) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n X's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incX = DenseMtx_columnIncrement(X) ;
 x    = DenseMtx_entries(X) ;
@@ -901,7 +901,7 @@ if ( (nrhs = ncolY) != ncolX ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
           "\n Y's nrhs = %d, X's nrhs = %d",
           A, Y, alpha, X, nrhs, ncolX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -916,7 +916,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_sym_mmm(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, Y, alpha, X, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_REAL_ENTRIES(A) ) {
@@ -1220,35 +1220,35 @@ double   *dvec, *x, *y ;
 if ( A == NULL || Y == NULL || alpha == NULL || X == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
            "\n bad input\n", A, Y, alpha, X) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! INPMTX_IS_COMPLEX_ENTRIES(A) ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
           "\n bad inputMode %d for A\n", A, Y, alpha, X, A->inputMode) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! DENSEMTX_IS_COMPLEX(Y) ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
           "\n bad type %d for Y\n", A, Y, alpha, X, Y->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! DENSEMTX_IS_COMPLEX(X) ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
           "\n bad type %d for X\n", A, Y, alpha, X, X->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( DenseMtx_rowIncrement(Y) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
           "\n Y's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(Y)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incY = DenseMtx_columnIncrement(Y) ;
 if ( DenseMtx_rowIncrement(X) != 1 ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
           "\n X's row increment = %d\n",
           A, Y, alpha, X, DenseMtx_rowIncrement(X)) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 incX = DenseMtx_columnIncrement(X) ;
 x    = DenseMtx_entries(X) ;
@@ -1259,7 +1259,7 @@ if ( (nrhs = ncolY) != ncolX ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
           "\n Y's nrhs = %d, X's nrhs = %d",
           A, Y, alpha, X, nrhs, ncolX) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------------
@@ -1274,7 +1274,7 @@ if ( ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_herm_mmm(%p,%p,%p,%p)"
            "\n ivec1 %p, ivec2 %p, dvec %p\n", 
            A, Y, alpha, X, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nent  = A->nent ;
 if ( INPMTX_IS_COMPLEX_ENTRIES(A) ) {

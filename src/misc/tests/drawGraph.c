@@ -114,7 +114,7 @@ fflush(msgFile) ;
 graph = Graph_new() ;
 if ( strcmp(fnGraph, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 rc = Graph_readFromFile(graph, fnGraph) ;
@@ -125,7 +125,7 @@ nvtx = graph->nvtx ;
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from Graph_readFromFile(%p,%s)",
            rc, graph, fnGraph) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading Graph object from file %s",
@@ -140,7 +140,7 @@ if ( msglvl > 2 ) {
 */
 if ( strcmp(fnCoords, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 coords = Coords_new() ;
@@ -151,7 +151,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in coords from file %s",
 if ( rc != 1 ) {
   fprintf(msgFile, "\n return value %d from Coords_readFromFile(%p,%s)",
            rc, coords, fnCoords) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 2 ) {
    fprintf(msgFile, "\n\n after reading Coords object from file %s",
@@ -176,7 +176,7 @@ if ( strcmp(fnTagsIV, "none") == 0 ) {
    if ( rc != 1 ) {
      fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
               rc, tagsIV, fnTagsIV) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( msglvl > 2 ) {
       fprintf(msgFile, "\n\n after reading IV object from file %s",

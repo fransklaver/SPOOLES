@@ -35,7 +35,7 @@ if ( chv == NULL || mark == NULL || pmaxval == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Chv_maxabsInDiagonal11(%p,%p,%d,%p)"
            "\n bad input\n", chv, mark, tag, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -85,7 +85,7 @@ if ( CHV_IS_REAL(chv) ) {
               "\n fatal error in Chv_maxabsInDiagonal11(%p,%p,%d,%p)"
               "\n type = SPOOLES_REAL, bad symflag %d \n", 
               chv, mark, tag, pmaxval, chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chv) ) {
    if ( CHV_IS_NONSYMMETRIC(chv) ) {
@@ -133,14 +133,14 @@ if ( CHV_IS_REAL(chv) ) {
               "\n fatal error in Chv_maxabsInDiagonal11(%p,%p,%d,%p)"
               "\n type = SPOOLES_COMPLEX, bad symflag %d \n", 
               chv, mark, tag, pmaxval, chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    fprintf(stderr, 
            "\n fatal error in Chv_maxabsInDiagonal11(%p,%p,%d,%p)"
            "\n bad type, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, mark, tag, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pmaxval = maxval ;
    
@@ -179,7 +179,7 @@ if ( chv == NULL || irow < 0 || colmark == NULL || pmaxval == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Chv_maxabsInRow11(%p,%d,%p,%d,%p)"
            "\n bad input\n", chv, irow, colmark, tag, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -245,7 +245,7 @@ if ( CHV_IS_REAL(chv) ) {
               "\n fatal error in Chv_maxabsInRow11(%p,%d,%p,%d,%p)"
               "\n type is SPOOLES_REAL, bad symflag %d \n", 
               chv, irow, colmark, tag, pmaxval, chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else if ( CHV_IS_COMPLEX(chv) ) {
    if ( CHV_IS_NONSYMMETRIC(chv) ) {
@@ -309,14 +309,14 @@ if ( CHV_IS_REAL(chv) ) {
               "\n fatal error in Chv_maxabsInRow11(%p,%d,%p,%d,%p)"
               "\n type is SPOOLES_COMPLEX, bad symflag %d \n", 
               chv, irow, colmark, tag, pmaxval, chv->symflag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
    fprintf(stderr, 
            "\n fatal error in Chv_maxabsInRow11(%p,%d,%p,%d,%p)"
            "\n bad type, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, irow, colmark, tag, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pmaxval = maxval ;
    
@@ -355,7 +355,7 @@ if ( chv == NULL || jcol < 0 || rowmark == NULL || pmaxval == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Chv_maxabsInColumn11(%p,%d,%p,%d,%p)"
            "\n bad input\n", chv, jcol, rowmark, tag, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -478,7 +478,7 @@ if ( CHV_IS_REAL(chv) ) {
            "\n fatal error in Chv_maxabsInColumn11(%p,%d,%p,%d,%p)"
            "\n bad type, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            chv, jcol, rowmark, tag, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pmaxval = maxval ;
 
@@ -511,7 +511,7 @@ int      jcol, jj, ncol, nD, nL, nU, off, stride ;
 if ( chv == NULL || irow < 0 || pmaxval == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_maxabsInRow(%p,%d,%p)"
            "\n bad input\n", chv, irow, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -623,7 +623,7 @@ if ( CHV_IS_REAL(chv) ) {
            "\n fatal error in Chv_maxabsInRow(%p,%d,%p)"
           "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX \n", 
            chv, irow, pmaxval, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pmaxval = maxval ;
    
@@ -656,7 +656,7 @@ int      irow, ii, nD, nL, nrow, nU, off, stride ;
 if ( chv == NULL || jcol < 0 || pmaxval == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_maxabsInColumn(%p,%d,%p)"
            "\n bad input\n", chv, jcol, pmaxval) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;
@@ -763,7 +763,7 @@ if ( CHV_IS_REAL(chv) ) {
    fprintf(stderr, 
            "\n fatal error in Chv_maxabsInColumn(%p,%d,%p)"
            "\n bad symflag %d \n", chv, jcol, pmaxval, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 *pmaxval = maxval ;
 
@@ -799,7 +799,7 @@ if ( chv == NULL || rowmark == NULL || colmark == NULL
    fprintf(stderr, 
            "\n fatal error in Chv_quasimax(%p,%p,%p,%d,%p,%p)"
            "\n bad input\n", chv, rowmark, colmark, tag, pirow, pjcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! CHV_IS_NONSYMMETRIC(chv) ) {
    fprintf(stderr, 
@@ -808,7 +808,7 @@ if ( ! CHV_IS_NONSYMMETRIC(chv) ) {
            "\n chevron is not symmetric or hermitian"
            "\n method cannot be used \n", 
            chv, rowmark, colmark, tag, pirow, pjcol, chv->symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nD = chv->nD ;
 /*
@@ -937,7 +937,7 @@ if ( chv == NULL || mark == NULL || pirow == NULL || pjcol == NULL ) {
           "\n fatal error in Chv_fastBunchParlettPivot(%p,%p,%d,%p,%p)"
           "\n bad input\n",
           chv, mark, tag, pirow, pjcol) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_dimensions(chv, &nD, &nL, &nU) ;
 entries = Chv_entries(chv) ;

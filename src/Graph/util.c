@@ -27,7 +27,7 @@ int   *vadj, *vwghts ;
 if (  g == NULL || v < 0 || g->nvtx + g->nvbnd <= v ) {
    fprintf(stderr, "\n fatal error in Graph_externalDegree(%p,%d)"
            "\n bad input\n", g, v) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 vwghts = g->vwghts ;
 Graph_adjAndSize(g, v, &vsize, &vadj) ;
@@ -63,12 +63,12 @@ if (  g == NULL || jvtx < 0 || g->nvtx + g->nvbnd <= jvtx
    fprintf(stderr, 
            "\n fatal error in Graph_adjAndSize(%p,%d,%p,%p)"
            "\n bad input\n", g, jvtx, psize, padj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g->adjIVL == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_adjAndSize(%p,%d,%p,%p)"
            "\n g->adjIVL == NULL\n", g, jvtx, psize, padj) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVL_listAndSize(g->adjIVL, jvtx, psize, padj) ;
 /*
@@ -109,21 +109,21 @@ if (  g == NULL || jvtx < 0 || g->nvtx + g->nvbnd <= jvtx
            "\n fatal error in Graph_adjAndEwghts(%p,%d,%p,%p,%p)"
            "\n bad input\n",
            g, jvtx, psize, padj, pewghts) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g->adjIVL == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Graph_adjAndEwghts(%p,%d,%p,%p,%p)"
            "\n g->adjIVL == NULL\n",
            g, jvtx, psize, padj, pewghts) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g->type >= 2 && g->ewghtIVL == NULL ) {
    fprintf(stderr, 
            "\n fatal error in Graph_adjAndEwghts(%p,%d,%p,%p,%p)"
            "\n g->type = %d and g->ewghtIVL == NULL\n",
            g, jvtx, psize, padj, pewghts, g->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVL_listAndSize(g->adjIVL, jvtx, psize, padj) ;
 if ( g->type >= 2 ) {
@@ -154,7 +154,7 @@ int   nbytes ;
 if ( g == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_sizeOf(%p)"
            "\n bad input\n", g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _Graph) ;
 if ( g->vwghts != NULL ) {
@@ -192,7 +192,7 @@ IV    *mapIV ;
 if ( g == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_componentMap(%p)"
            "\n bad input\n", g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (nvtx = g->nvtx) <= 0 ) {
    return(NULL) ;
@@ -262,7 +262,7 @@ int   *vwghts ;
 if ( g == NULL || map == NULL || counts == NULL || weights == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_componentStats(%p,%p,%p,%p)"
            "\n bad input\n", g, map, counts, weights) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------
@@ -323,13 +323,13 @@ int     *invmap, *map, *vadj ;
 if ( g == NULL || icomp <= 0 || compids == NULL || pmap == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_subGraph(%p,%d,%p,%p)"
            "\n bad input\n", g, icomp, compids, pmap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( g->type < 0 || g->type >= 2 ) {
    fprintf(stderr, "\n fatal error in Graph_subGraph(%p,%d,%p,%p)"
            "\n g->type = 0 or 1 currently supported\n", 
            g, icomp, compids, pmap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx  = g->nvtx  ;
 nvbnd = g->nvbnd ;
@@ -470,7 +470,7 @@ int   *vadj, *wadj ;
 if ( graph == NULL ) {
    fprintf(stderr, "\n fatal error in Graph_isSymmetric(%p)"
            "\n bad input\n", graph) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------

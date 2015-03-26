@@ -31,7 +31,7 @@ int   v ;
 if ( network == NULL || nnode <= 2 || narc < 0 ) {
    fprintf(stderr, "\n fatal error in Network_init(%p,%d,%d)"
            "\n bad input\n", network, nnode, narc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------
@@ -88,7 +88,7 @@ Network_setMessageInfo (
 if ( network == NULL ) {
    fprintf(stderr, "\n fatal error in Network_setMessageInfo(%p,%d,%p)"
            "\n bad input\n", network, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl >= 0 ) {
    network->msglvl = msglvl ;

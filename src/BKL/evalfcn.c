@@ -26,7 +26,7 @@ int     wmax, wmin ;
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_evalfcn(%p)"
            "\n bad input\n",  bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( bkl->cweights[1] <= bkl->cweights[2] ) {
    wmin = bkl->cweights[1] ;
@@ -67,7 +67,7 @@ int     wmax, wmin ;
 if ( bkl == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_evalfcn(%p)"
            "\n bad input\n",  bkl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( Bweight <= Wweight ) {
    wmin = Bweight ;
@@ -111,7 +111,7 @@ if (  bkl == NULL || dom < 0 || dom >= bkl->ndom
    || pdeltaS == NULL || pdeltaB == NULL || pdeltaW == NULL ) {
    fprintf(stderr, "\n fatal error in BKL_evalGain(%p,%d,%p,%p,%p)"
            "\n bad input\n", bkl, dom, pdeltaS, pdeltaB, pdeltaW) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colors   = bkl->colors   ;
 regwghts = bkl->regwghts ;

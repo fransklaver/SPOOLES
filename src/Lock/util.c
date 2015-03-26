@@ -24,7 +24,7 @@ Lock_lock (
 if ( lock == NULL ) {
    fprintf(stderr, "\n fatal error in Lock_lock(%p)"
            "\n bad input\n", lock) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
 fprintf(stdout, "\n inside Lock_lock()") ;
@@ -80,7 +80,7 @@ Lock_unlock (
 if ( lock == NULL ) {
    fprintf(stderr, "\n fatal error in Lock_unlock(%p)"
            "\n bad input\n", lock) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 lock->nunlocks++ ;
 /*

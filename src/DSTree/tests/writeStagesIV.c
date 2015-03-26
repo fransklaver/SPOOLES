@@ -61,7 +61,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inDSTreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 dstree = DSTree_new() ;
 MARKTIME(t1) ;
@@ -72,7 +72,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in dstree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from DSTree_readFromFile(%p,%s)",
            rc, dstree, inDSTreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading DSTree object from file %s",
         inDSTreeFileName) ;

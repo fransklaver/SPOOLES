@@ -22,7 +22,7 @@ ETree_nfront (
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_nfront(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->nfront) ; }
 
@@ -46,7 +46,7 @@ ETree_nvtx (
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_nvtx(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->nvtx) ; }
 
@@ -70,7 +70,7 @@ ETree_tree (
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_tree(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->tree) ; }
 
@@ -94,7 +94,7 @@ ETree_root (
 if ( etree == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_root(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->tree->root) ; }
 
@@ -118,7 +118,7 @@ ETree_par (
 if ( etree == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_par(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->tree->par) ; }
 
@@ -142,7 +142,7 @@ ETree_fch (
 if ( etree == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_fch(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->tree->fch) ; }
 
@@ -166,7 +166,7 @@ ETree_sib (
 if ( etree == NULL || etree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_sib(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->tree->sib) ; }
 
@@ -190,7 +190,7 @@ ETree_nodwghtsIV (
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_nodwghtsIV(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->nodwghtsIV) ; }
 
@@ -214,7 +214,7 @@ ETree_nodwghts (
 if ( etree == NULL || etree->nodwghtsIV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_nodwghts(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(etree->nodwghtsIV)) ; }
 
@@ -238,7 +238,7 @@ ETree_bndwghtsIV (
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_bndwghtsIV(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->bndwghtsIV) ; }
 
@@ -262,7 +262,7 @@ ETree_bndwghts (
 if ( etree == NULL || etree->bndwghtsIV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_bndwghts(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(etree->bndwghtsIV)) ; }
 
@@ -286,7 +286,7 @@ ETree_vtxToFrontIV (
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_vtxToFrontIV(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->vtxToFrontIV) ; }
 
@@ -310,7 +310,7 @@ ETree_vtxToFront (
 if ( etree == NULL || etree->vtxToFrontIV == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_vtxToFront(%p)"
            "\n bad input\n", etree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(IV_entries(etree->vtxToFrontIV)) ; }
 
@@ -336,7 +336,7 @@ ETree_frontSize (
 if ( etree == NULL || J < 0 || J >= etree->nfront ) {
    fprintf(stderr, "\n fatal error in ETree_frontSize(%p,%d)"
            "\n bad input\n", etree, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->nodwghtsIV->vec[J]) ; }
 
@@ -362,7 +362,7 @@ ETree_frontBoundarySize (
 if ( etree == NULL || J < 0 || J >= etree->nfront ) {
    fprintf(stderr, "\n fatal error in ETree_frontBoundarySize(%p,%d)"
            "\n bad input\n", etree, J) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(etree->bndwghtsIV->vec[J]) ; }
 
@@ -399,7 +399,7 @@ int   *nodwghts, *bndwghts ;
 if ( etree == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_maxNindAndNent(%p,%d)"
            "\n bad input\n", etree, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront   = etree->nfront ;
 nodwghts = ETree_nodwghts(etree) ;
@@ -420,7 +420,7 @@ for ( J = 0, maxnent = maxnind = 0 ; J < nfront ; J++ ) {
    default :
       fprintf(stderr, "\n fatal error in ETree_maxNindAndNent(%p,%d)"
               "\n bad symflag\n", etree, symflag) ;
-      exit(-1) ;
+      spoolesFatal();
       break ;
    }
    if ( maxnind < nind ) {

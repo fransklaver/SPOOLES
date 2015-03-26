@@ -50,7 +50,7 @@ if (  g == NULL
    fprintf(stderr, 
            "\n fatal error in Graph_setListsFromOffsets(%p,%d,%p,%p)"
            "\n bad input\n", g, neqns, offsets, adjncy) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------

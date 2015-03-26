@@ -27,7 +27,7 @@ IV_MPI_Bcast (
 if ( obj == NULL ) {
    fprintf(stderr, "\n fatal error in IV_MPI_Bcast()"
            "\n obj is NULL\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 MPI_Comm_rank(comm, &myid) ;
 if ( myid == root ) {

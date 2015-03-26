@@ -22,7 +22,7 @@ Drand_init (
 if ( drand == NULL ) {
    fprintf(stderr, "\n fatal error in Drand_init(%p)"
            "\n bad input\n", drand) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------
@@ -50,7 +50,7 @@ if ( drand == NULL || u <= 0 || u >= drand->base1 ) {
    fprintf(stderr, "\n fatal error in Drand_setSeed(%p,%d)"
            "\n first seed must in in (0,%.0f)", 
            drand, u, drand->base1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 drand->seed1 = u ;
 drand->seed2 = fmod(2718.*u, drand->base2) ;
@@ -78,7 +78,7 @@ if (  drand == NULL
            "\n first seed must in in (0,%.0f)"
            "\n second seed must in in (0,%.0f)\n",
            drand, u, v, drand->base1, drand->base2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 drand->seed1 = u ;
 drand->seed2 = v ;
@@ -107,7 +107,7 @@ Drand_setUniform (
 if ( drand == NULL || lower > upper ) {
    fprintf(stderr, "\n fatal error in Drand_setUniform(%p,%f,%f)"
            "\n bad input\n", drand, lower, upper) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 drand->mode  =   1   ;
 drand->lower = lower ;
@@ -137,7 +137,7 @@ Drand_setNormal (
 if ( drand == NULL || sigma <= 0 ) {
    fprintf(stderr, "\n fatal error in Drand_setNormal(%p,%f,%f)"
            "\n bad input\n", drand, mean, sigma) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 drand->mode  =   2   ;
 drand->mean  = mean  ;

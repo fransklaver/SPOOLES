@@ -30,7 +30,7 @@ MSMDvtx   *v, *w ;
 if ( msmd == NULL || (oldToNewIV == NULL && newToOldIV == NULL) ) {
    fprintf(stderr, "\n fatal error in MSMD_fillPerms(%p,%p,%p)"
            "\n bad input\n", msmd, newToOldIV, oldToNewIV) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx = msmd->nvtx ;
 if ( newToOldIV != NULL ) {
@@ -108,7 +108,7 @@ for ( iv = 0, v = msmd->vertices ; iv < nvtx ; iv++, v++ ) {
               "\n v = %d, status = %c",
               msmd, oldToNew, newToOld, v->id, v->status) ;
       fprintf(stderr, "\n vertex %d, status %c", v->id, v->status) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 #if MYDEBUG > 0

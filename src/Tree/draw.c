@@ -216,7 +216,7 @@ if ( bounds != NULL ) {
 */
 if ( (fp = fopen(filename, "w")) == NULL ) {
    fprintf(stderr, "\n unable to open file %s", filename) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------
@@ -439,7 +439,7 @@ while ( 1 ) {
             fprintf(stderr, "\n\n error in Tree_drawEPS()"
                     "\n nonlinear process is unable to converge"
                     "\n reduce radius scaling factor\n") ;
-            exit(-1) ;
+            spoolesFatal();
          }
 #if MYDEBUG > 0
          fprintf(stdout, "\n 1. x[%d] = %f, x[%d] = %f",

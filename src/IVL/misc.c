@@ -154,7 +154,7 @@ fprintf(stdout, "\n dof %d : m %d :", idof, m) ;
                             " (inow,jnow,know) = (%d,%d,%d)",
                             n1, n2, n3, ncomp, naind, m, i, j, k, 
                             inow, jnow, know) ;
-                            exit(-1) ;
+                            spoolesFatal();
                         }
                         indices[m++] = jcomp 
                                  + (inow + jnow*n1 + know*n1*n2)*ncomp ;

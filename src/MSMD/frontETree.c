@@ -28,7 +28,7 @@ MSMDvtx   *v, *w ;
 if ( msmd == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_frontETree(%p)"
            "\n bad input\n", msmd) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx = msmd->nvtx ;
 /*

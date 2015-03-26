@@ -296,7 +296,7 @@ if ( dstree == NULL || fp == NULL || dstree->tree == NULL ) {
    fprintf(stderr, 
            "\n fatal error in DSTree_writeToFormattedFile(%p,%p)"
            "\n bad input\n", dstree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------
@@ -351,7 +351,7 @@ int   rc ;
 if ( dstree == NULL || fp == NULL || dstree->tree == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_writeToBinaryFile(%p,%p)"
            "\n bad input\n", dstree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------------------
@@ -400,7 +400,7 @@ int   rc ;
 if ( dstree == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in DSTree_writeForHumanEye(%p,%p)"
            "\n bad input\n", dstree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (rc = DSTree_writeStats(dstree, fp)) == 0 ) {
    fprintf(stderr, "\n fatal error in DSTree_writeForHumanEye(%p,%p)"
@@ -439,7 +439,7 @@ int   rc ;
 if ( dstree == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in DSTree_writeStats(%p,%p)"
            "\n bad input\n", dstree, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rc = fprintf(fp, "\n DSTree : dstree object") ;
 if ( rc < 0 ) { 

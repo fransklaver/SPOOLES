@@ -63,7 +63,7 @@ if ( length > 0 ) {
       fprintf(stderr, "\n fatal error in PCVsetup, invalid data"
               "\n length = %d, sizes = %p, cvec = %p, p_cvec = %p\n",
               length, sizes, cvec, p_cvec) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   j ;
       for ( j = 0 ; j < length ; j++ ) {
@@ -97,7 +97,7 @@ if ( length > 0 ) {
       fprintf(stdout, "\n fatal error in PCVcopy, invalid data"
               "\n length = %d, p_cvec1 = %p, p_cvec2 = %p\n",
               length, p_cvec1, p_cvec2) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       int   j ;
       for ( j = 0 ; j < length ; j++ ) {

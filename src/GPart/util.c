@@ -28,12 +28,12 @@ int     *compids, *cweights, *list, *uadj, *vwghts ;
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_setCweights(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (nvtx = gpart->nvtx) <= 0 || (g = gpart->g) == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_setCweights(%p)"
            "\n bad Gpart object\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------------------
@@ -119,7 +119,7 @@ int   nbytes ;
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_sizeOf(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _GPart) ;
 nbytes += IV_size(&gpart->compidsIV)  ;
@@ -157,7 +157,7 @@ if (  gpart == NULL || v < 0 || (nvtx = gpart->nvtx) <= v
    fprintf(stderr, 
            "\n fatal error in GPart_vtxIsAdjToOneDomain(%p,%d,%p)"
            "\n bad input\n", gpart, v, pdomid) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 compids = IV_entries(&gpart->compidsIV) ;
 /*
@@ -206,7 +206,7 @@ int     *compids, *vadj ;
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_validVtxSep(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx    = gpart->nvtx ;
 g       = gpart->g    ;
@@ -260,7 +260,7 @@ IV      *bndIV ;
 if ( gpart == NULL || (graph = gpart->g) == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_bndWeightsIV(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nvtx     = gpart->nvtx  ;
 ncomp    = gpart->ncomp ;

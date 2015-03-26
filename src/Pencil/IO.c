@@ -67,7 +67,7 @@ Pencil_writeForHumanEye (
 if ( pencil == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_writeForHumanEye(%p,%p)"
            "\n bad input\n", pencil, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -108,7 +108,7 @@ Pencil_writeStats (
 if ( pencil == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in Pencil_writeStats(%p,%p)"
            "\n bad input\n", pencil, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n Pencil : matrix pencil object :") ;
 if ( PENCIL_IS_REAL(pencil) ) {

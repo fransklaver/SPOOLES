@@ -40,7 +40,7 @@ if ( solvemap == NULL || symmetryflag < 0
            "\n bad input\n",
            solvemap, symmetryflag, upperBlockIVL, 
            lowerBlockIVL, ownersIV, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = IV_size(ownersIV) ;
 if ( msglvl > 2 ) {
@@ -236,7 +236,7 @@ if ( solvemap == NULL || symmetryflag < 0
            "\n bad input\n",
            solvemap, symmetryflag, upperBlockIVL, 
            lowerBlockIVL, ownersIV, seed) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = IV_size(ownersIV) ;
 if ( msglvl > 2 ) {

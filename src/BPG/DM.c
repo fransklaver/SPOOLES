@@ -84,7 +84,7 @@ if ( bpg == NULL || dmflags == NULL || stats == NULL
    fprintf(stderr, 
            "\n fatal error in BPG_DMdecomposition(%p,%p,%p,%d,%p)"
            "\n bad input\n", bpg, dmflags, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( bpg->graph->type % 2 == 0 ) {
 /*
@@ -156,7 +156,7 @@ if ( msglvl > 1 && msgFile != NULL ) {
 if ( bpg == NULL || dmflags == NULL || stats == NULL ) {
    fprintf(stderr, "\n fatal error in nonunitDM(%p,%p,%p)"
            "\n bad input\n", bpg, dmflags, stats) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nX = bpg->nX ;
 nY = bpg->nY ;
@@ -312,7 +312,7 @@ if ( bpg == NULL || uexp < 0 || uexp > (bpg->nX + bpg->nY)
     "\n fatal error in nonunitFindExposedNode2(%p,%d,%p,%p,%p,%d,%p,%p)"
     "\n bad input\n",
     bpg, uexp, list, link, mark, tag, nvexp, ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 && msgFile != NULL ) {
    fprintf(msgFile, "\n\n working on exposed %d, nvexp %d", 
@@ -419,7 +419,7 @@ if ( bpg == NULL
    fprintf(stderr, 
            "\n fatal error in nonunitFindNmatch(%p,%d,%d,%p,%p,%p)"
            "\n bad input\n", bpg, uexp, vexp, nvexp, link, ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------------------
@@ -517,7 +517,7 @@ if ( bpg == NULL
    fprintf(stderr, 
           "\n fatal error in BPG_flipMatch(%p,%d,%d,%d,%p,%p,%p)"
           "\n bad input\n", bpg, uexp, vexp, nmatch, nvexp, link, ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 && msgFile != NULL ) {
    fprintf(msgFile, "\n match lists before edge swaps") ;
@@ -576,7 +576,7 @@ if ( link[vexp] == uexp ) {
               "\n uexp = %d, vexp = %d, count = %d, nmatch = %d"
               "\n u matches with ", uexp, vexp, count, nmatch) ;
       IVfp80(stderr, msize, mind, 12, &ierr) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    IVL_listAndSize(ivl, vexp, &msize, &mind) ;
    for ( ii = 0, count = 0 ; ii < msize ; ii++ ) {
@@ -602,7 +602,7 @@ if ( link[vexp] == uexp ) {
               "\n uexp = %d, vexp = %d, count = %d, nmatch = %d"
               "\n v matches with ", uexp, vexp, count, nmatch) ;
       IVfp80(stderr, msize, mind, 12, &ierr) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 } else {
 /*
@@ -657,7 +657,7 @@ if ( link[vexp] == uexp ) {
                  "\n u = %d, count = %d, nmatch = %d"
                  "\n %d match list : ", u, count, nmatch, u) ;
          IVfp80(stderr, msize, mind, 12, &ierr) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       IVL_listAndSize(ivl, v, &msize, &mind) ;
       for ( ii = 0, count = 0 ; ii < msize ; ii++ ) {
@@ -678,7 +678,7 @@ if ( link[vexp] == uexp ) {
                  "\n v = %d, count = %d, nmatch = %d"
                  "\n %d match list : ", v, count, nmatch, v) ;
          IVfp80(stderr, msize, mind, 12, &ierr) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       IVL_listAndSize(ivl, vnext, &msize, &mind) ;
       for ( ii = 0, count = 0 ; ii < msize ; ii++ ) {
@@ -699,7 +699,7 @@ if ( link[vexp] == uexp ) {
                  "\n vnext = %d, count = %d, nmatch = %d"
                  "\n %d match list : ", vnext, count, nmatch, vnext) ;
          IVfp80(stderr, msize, mind, 12, &ierr) ;
-         exit(-1) ;
+         spoolesFatal();
       }
 /*
       ---------------------------
@@ -733,7 +733,7 @@ if ( link[vexp] == uexp ) {
               "\n uexp = %d, vnext = %d, count = %d, nmatch = %d"
               "\n u matches with ", uexp, vnext, count, nmatch) ;
       IVfp80(stderr, msize, mind, 12, &ierr) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    IVL_listAndSize(ivl, vnext, &msize, &mind) ;
    for ( ii = 0, count = 0 ; ii < msize ; ii++ ) {
@@ -759,7 +759,7 @@ if ( link[vexp] == uexp ) {
               "\n vnext = %d, uexp = %d, count = %d, nmatch = %d"
               "\n v matches with ", vnext, uexp, count, nmatch) ;
       IVfp80(stderr, msize, mind, 12, &ierr) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 if ( msglvl > 1 && msgFile != NULL ) {
@@ -850,7 +850,7 @@ if (  bpg  == NULL || list == NULL || nvexp   == NULL
           "\n fatal error in BPG_seDMflags(%p,%p,%p,%p,%p,%p,%p)"
           "\n bad input\n", 
           bpg, list, nvexp, mark, ivl, dmflags, stats) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nX     = bpg->nX ;
 nY     = bpg->nY ;
@@ -1004,7 +1004,7 @@ int   *mate ;
 if ( bpg == NULL || dmflags == NULL || stats == NULL ) {
    fprintf(stderr, "\n fatal error in unitDM(%p,%p,%p)"
            "\n bad input\n", bpg, dmflags, stats) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nX = bpg->nX ;
 nY = bpg->nY ;
@@ -1052,7 +1052,7 @@ int   *link, *list, *mark ;
 if ( bpg == NULL || mate == NULL ) {
    fprintf(stderr, "\n fatal error in unitFindMaxMatch(%p,%p)"
            "\n bad input\n", bpg, mate) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nX = bpg->nX ;
 nY = bpg->nY ;
@@ -1131,7 +1131,7 @@ if ( bpg == NULL || uexp < 0 || (bpg->nX + bpg->nY <= uexp)
    fprintf(stderr, 
            "\n fatal error in unitAugmentingPath(%p,%d,%p,%p,%p,%p)"
            "\n bad input\n", bpg, uexp, mate, mark, link, list) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 && msgFile != NULL ) {
    fprintf(msgFile, "\n\n uexp = %d", uexp) ;
@@ -1220,7 +1220,7 @@ int   *list, *xadj, *yadj ;
 if (  bpg == NULL || mate == NULL || dmflags == NULL || stats == NULL ){
    fprintf(stderr, "\n fatal error in unitSetFlags(%p,%p,%p,%p)"
            "\n bad input\n", bpg, mate, dmflags, stats) ;
-   exit(-1) ; 
+   spoolesFatal(); 
 }
 nX = bpg->nX ;
 nY = bpg->nY ;
@@ -1282,7 +1282,7 @@ while ( now <= last ) {
                     now, x, y) ;
             fprintf(stderr, "\n adj(%d) :", x) ;
             IVfp80(stderr, xsize, xadj, 10, &ierr) ;
-            exit(-1) ;
+            spoolesFatal();
          } else if ( dmflags[xmate] == 0 ) {
             if ( msglvl > 1 && msgFile != NULL ) {
                fprintf(msgFile, "\n    adding xmate = %d", xmate) ;
@@ -1331,7 +1331,7 @@ while ( now <= last ) {
          if ( (ymate = mate[x]) == -1 ) {
             fprintf(stderr, "\n fatal error in unitSetFlags"
                     "\n x = %d, mate = -1", x) ;
-            exit(-1) ;
+            spoolesFatal();
          } else if ( dmflags[ymate] == 0 ) {
             if ( msglvl > 1 && msgFile != NULL ) {
                fprintf(msgFile, "\n    loading ymate = %d", ymate) ;

@@ -87,7 +87,7 @@ if ( bpg == NULL || dmflags == NULL || stats == NULL
    || (msglvl > 0 && msgFile == NULL) ) {
    fprintf(stderr, "\n fatal error in BPG_DMviaMaxFlow(%p,%p,%p,%d,%p)"
            "\n bad input\n", bpg, dmflags, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nX = bpg->nX ;
 nY = bpg->nY ;
@@ -502,7 +502,7 @@ while ( 1 ) {
    }
    if ( cell == NULL ) {
       fprintf(stderr, "\n 1. error, x = %d, y = %d", x, y) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( x == xexp ) {
       break ;
@@ -525,7 +525,7 @@ while ( 1 ) {
    }
    if ( cell == NULL ) {
       fprintf(stderr, "\n 2. error, x = %d, y = %d", x, y) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 nvexp[xexp] -= delta ;
@@ -730,7 +730,7 @@ for ( x = 0 ; x < nX ; x++ ) {
    default :
       fprintf(stderr, "\n fatal error in BPG_DMviaMaxFlow"
               "\n dmflags[%d] = %d\n", x, dmflags[x]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 for ( y = nX ; y < nX + nY ; y++ ) {
@@ -742,7 +742,7 @@ for ( y = nX ; y < nX + nY ; y++ ) {
    default :
       fprintf(stderr, "\n fatal error in BPG_DMviaMaxFlow"
               "\n dmflags[%d] = %d\n", y, dmflags[y]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 

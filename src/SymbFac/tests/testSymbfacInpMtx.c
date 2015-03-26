@@ -80,7 +80,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 etree = ETree_new() ;
 MARKTIME(t1) ;
@@ -91,7 +91,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in etree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, etree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ETree_leftJustify(etree) ;
 if ( msglvl > 1 ) {
@@ -173,7 +173,7 @@ if ( msglvl > 1 ) {
 */
 if ( strcmp(inInpMtxFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 inpmtx = InpMtx_new() ;
 MARKTIME(t1) ;
@@ -185,7 +185,7 @@ if ( rc != 1 ) {
    fprintf(msgFile, 
            "\n return value %d from InpMtx_readFromFile(%p,%s)",
            rc, inpmtx, inInpMtxFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n after reading InpMtx object from file %s",
@@ -205,7 +205,7 @@ if ( INPMTX_IS_BY_ROWS(inpmtx) ) {
    fprintf(msgFile, "\n matrix coordinate type is chevrons") ;
 } else {
    fprintf(msgFile, "\n\n, error, bad coordinate type") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( INPMTX_IS_RAW_DATA(inpmtx) ) {
    fprintf(msgFile, "\n matrix storage mode is raw data\n") ;
@@ -215,7 +215,7 @@ if ( INPMTX_IS_RAW_DATA(inpmtx) ) {
    fprintf(msgFile, "\n matrix storage mode is by vectors\n") ;
 } else {
    fprintf(msgFile, "\n\n, error, bad storage mode") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------------------

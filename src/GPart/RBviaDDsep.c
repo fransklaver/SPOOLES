@@ -54,7 +54,7 @@ if (    gpart == NULL
    ) {
    fprintf(stderr, "\n fatal error in GPart_RBviaDDsep(%p,%p)"
            "\n bad input\n", gpart, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 msglvl  = gpart->msglvl  ;
 msgFile = gpart->msgFile ;
@@ -66,7 +66,7 @@ msgFile = gpart->msgFile ;
 if ( gpart->par != NULL ) {
    fprintf(stderr, "\n fatal error in GPart_RBviaDDsep(%p,%p)"
            "\n gpart must be a root \n", gpart, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------
@@ -260,7 +260,7 @@ if (  (par = gpart->par) != NULL
          fprintf(stderr, 
               "\n error changing map, vtxMap[[%d] = %d, parnvtot = %d",
               v, vtxMap[v], parnvtot) ;
-         exit(-1) ;
+         spoolesFatal();
       }
 #endif
       vtxMap[v] = parmap[vtxMap[v]] ;
@@ -339,7 +339,7 @@ if ( totvwght <= info->maxcompweight ) {
       }
    } else {
       fprintf(stderr, "\n DD: invalid vertex separator ") ;
-      exit(-1) ;
+      spoolesFatal();
    }
 #endif
    if ( gpart->ncomp > 1 ) {
@@ -363,7 +363,7 @@ if ( totvwght <= info->maxcompweight ) {
          }
       } else {
          fprintf(stderr, "\n BKL: invalid vertex separator ") ;
-         exit(-1) ;
+         spoolesFatal();
       }
 #endif
    }
@@ -391,7 +391,7 @@ if ( totvwght <= info->maxcompweight ) {
          }
       } else {
          fprintf(stderr, "\n smoothed: invalid vertex separator ") ;
-         exit(-1) ;
+         spoolesFatal();
       }
 #endif
       info->cpuSmooth += t2 - t1 ;
@@ -478,7 +478,7 @@ if ( gpart->ncomp > 1 ) {
                fprintf(stderr, 
                        "\n 1.0 whoa, error, vadj[[%d] = %d, nvtot = %d",
                        ii, vadj[ii], nvtot) ;
-               exit(-1) ;
+               spoolesFatal();
             }
 #endif
                vadj[ii] = vtxMap[vadj[ii]] ;
@@ -512,7 +512,7 @@ if ( gpart->ncomp > 1 ) {
                fprintf(stderr, 
                        "\n 2.0 whoa, error, vadj[[%d] = %d, nvtot = %d",
                        ii, vadj[ii], nvtot) ;
-               exit(-1) ;
+               spoolesFatal();
             }
 #endif
             vadj[ii] = vtxMap[vadj[ii]] ;

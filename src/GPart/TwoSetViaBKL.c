@@ -47,7 +47,7 @@ IV       *dsmapIV ;
 if (  gpart == NULL || cpus == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_DDsep(%p,%f,%d,%p)"
           "\n bad input\n", gpart, alpha, seed, cpus) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 g        = gpart->g        ;
 nvtx     = gpart->nvtx     ;

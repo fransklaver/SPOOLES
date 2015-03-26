@@ -29,7 +29,7 @@ if ( manager == NULL || nbytesNeeded <= 0 ) {
    fprintf(stderr, 
            "\n fatal error in ChvMananger_newObjectOfSizeNbytes(%p,%d)"
            "\n bad input\n", manager, nbytesNeeded) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 #if MYDEBUG > 0
 fprintf(stdout, "\n\n %d bytes needed", nbytesNeeded) ;
@@ -158,7 +158,7 @@ if ( manager == NULL || chv1 == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ChvMananger_releaseObject(%p,%p)"
            "\n bad input\n", manager, chv1) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( manager->lock != NULL ) {
 /*
@@ -254,7 +254,7 @@ if ( manager == NULL || head == NULL ) {
    fprintf(stderr, 
        "\n fatal error in ChvManager_releaseListOfObjects(%p,%p)"
        "\n bad input\n", manager, head) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( manager->lock != NULL ) {
 /*

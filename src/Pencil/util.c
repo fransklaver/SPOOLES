@@ -110,13 +110,13 @@ IVL   *adjIVL ;
 if ( pencil == NULL ) {
    fprintf(stderr, "\n fatal error in Pencil_fullAdjacency(%p)"
            "\n NULL input\n\n", pencil) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( pencil->sigma[0] == 0.0 && pencil->sigma[1] == 0.0 ) {
    if ( pencil->inpmtxA == NULL ) {
       fprintf(stderr, "\n fatal error in Pencil_fullAdjacency(%p)"
               "\n pencil is identity \n\n", pencil) ;
-      exit(-1) ;
+      spoolesFatal();
    } else {
       adjIVL = InpMtx_fullAdjacency(pencil->inpmtxA) ;
    }

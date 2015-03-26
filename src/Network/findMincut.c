@@ -37,7 +37,7 @@ if (  network == NULL || (nnode = network->nnode) <= 0
    fprintf(stderr, 
            "\n fatal error in Network_findMincutFromSource(%p,%p,%p)"
            "\n bad input\n", network, deq, mark) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 source   = 0 ;
 inheads  = network->inheads  ;
@@ -149,7 +149,7 @@ if (  network == NULL || (nnode = network->nnode) <= 0
    fprintf(stderr, 
            "\n fatal error in Network_findMincutFromSink(%p,%p,%p)"
            "\n bad input\n", network, deq, mark) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 sink     = nnode - 1 ;
 inheads  = network->inheads  ;

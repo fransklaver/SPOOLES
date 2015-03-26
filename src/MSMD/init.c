@@ -34,7 +34,7 @@ MSMDvtx         *v ;
 if ( msmd == NULL || g == NULL || info == NULL ) {
    fprintf(stderr, "\n fatal error in MSMD_init(%p,%p,%p,%p)"
            "\n bad input\n", msmd, g, stages, info) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ---------------------
@@ -90,7 +90,7 @@ for ( iv = 0, v = msmd->vertices ; iv < nvtx ; iv++, v++ ) {
       if ( v->adj[ii] < 0 || v->adj[ii] > nvtx ) {
          fprintf(stderr, "\n bad adj, v = %d :", iv) ;
          IVfp80(stderr, v->nadj, v->adj, 20, &ierr) ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 #endif

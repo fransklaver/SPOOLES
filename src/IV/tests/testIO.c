@@ -59,7 +59,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inIVFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 ivobj = IV_new() ;
 MARKTIME(t1) ;
@@ -70,7 +70,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in iv from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
            rc, ivobj, inIVFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading IV object from file %s",
         inIVFileName) ;

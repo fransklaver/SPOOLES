@@ -38,7 +38,7 @@ Chv_setDefaultFields (
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_setDefaultFields(%p)"
            "\n bad input", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 chv->id      =  -1  ;
 chv->nD      =   0  ;
@@ -74,7 +74,7 @@ Chv_clearData (
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_clearData(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -106,7 +106,7 @@ Chv_free (
 if ( chv == NULL ) {
    fprintf(stderr, "\n fatal error in Chv_free(%p)"
            "\n bad input\n", chv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 Chv_clearData(chv) ;
 FREE(chv) ;

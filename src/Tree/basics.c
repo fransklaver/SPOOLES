@@ -56,7 +56,7 @@ fflush(stdout) ;
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_setDefaultFields(%p)"
            "\n tree is NULL\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 tree->n    =   0  ;
 tree->root =  -1  ;
@@ -91,7 +91,7 @@ fflush(stdout) ;
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_clearData(%p)"
            "\n tree is NULL\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( tree->par != NULL ) {
@@ -132,7 +132,7 @@ fflush(stdout) ;
 if ( tree == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_free(%p)"
            "\n tree is NULL\n", tree) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 Tree_clearData(tree) ;

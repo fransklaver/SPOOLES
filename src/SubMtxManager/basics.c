@@ -39,7 +39,7 @@ if ( manager == NULL ) {
    fprintf(stderr, 
            "\n fatal error in SubMtxManager_setDefaultFields(%p)"
            "\n bad input", manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 manager->head            = NULL ;
 manager->lock            = NULL ;
@@ -76,7 +76,7 @@ SubMtx   *mtx ;
 if ( manager == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtxManager_clearData(%p)"
            "\n bad input\n", manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -119,7 +119,7 @@ SubMtxManager_free (
 if ( manager == NULL ) {
    fprintf(stderr, "\n fatal error in SubMtxManager_free(%p)"
            "\n bad input\n", manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 SubMtxManager_clearData(manager) ;
 FREE(manager) ;

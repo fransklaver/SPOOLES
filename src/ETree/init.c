@@ -26,7 +26,7 @@ ETree_init1 (
 if ( etree == NULL || nfront < 0 || nvtx < nfront ) {
    fprintf(stderr, "\n fatal error in ETree_init1(%p,%d,%d)"
            "\n bad input\n", etree, nfront, nvtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ETree_clearData(etree) ;
 etree->nfront = nfront ;
@@ -67,7 +67,7 @@ int   *bndwghts, *mark, *nodwghts, *par, *vadj ;
 if ( etree == NULL || g == NULL || (nvtx = g->nvtx) <= 0 ) {
    fprintf(stderr, "\n fatal error in ETree_initFromGraph(%p,%p)"
            "\n bad input\n", etree, g) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------
@@ -142,7 +142,7 @@ if ( etree == NULL || g == NULL || (nvtx = g->nvtx) <= 0
    || newToOld == NULL || oldToNew == NULL ) {
    fprintf(stderr, "\n fatal error in ETree_initFromGraph(%p,%p,%p,%p)"
            "\n bad input\n", etree, g, newToOld, oldToNew) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = nvtx ;
 /*
@@ -164,7 +164,7 @@ for ( unew = 0 ; unew < nvtx ; unew++ ) {
       if ( 0 <= unew && unew < nvtx ) {
          fprintf(stderr, "\n newToOld[%d] = %d", unew, newToOld[unew]) ;
       }
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*
@@ -253,7 +253,7 @@ if (  etree == NULL || n <= 0
    fprintf(stderr, 
            "\n fatal error in ETree_initFromDenseMatrix(%p,%d,%d,%d)"
            "\n bad input\n", etree, n, option, param) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ETree_clearData(etree) ;
 if ( option == 1 ) {
@@ -391,7 +391,7 @@ IV       *oldToNewIV ;
 */
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 MARKTIME(t1) ;
 ETree_setDefaultFields(frontETree) ;
@@ -403,7 +403,7 @@ fprintf(msgFile, "\n CPU %8.3f : read in frontETree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, frontETree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( msglvl > 1 ) {
    fprintf(msgFile, "\n\n after reading ETree object from file %s",

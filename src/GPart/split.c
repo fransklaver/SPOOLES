@@ -29,12 +29,12 @@ int     *compids, *cweights, *map ;
 if ( gpart == NULL || (g = gpart->g) == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_split(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( gpart->fch != NULL ) {
    fprintf(stderr, "\n fatal error in GPart_split(%p)"
            "\n child(ren) exist, already split\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 msgFile = gpart->msgFile ;
 msglvl  = gpart->msglvl  ;

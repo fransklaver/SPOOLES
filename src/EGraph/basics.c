@@ -36,7 +36,7 @@ EGraph_setDefaultFields (
 if ( eg == NULL ) {
    fprintf(stderr, "\n fatal error in Egraph_setDefaultFields(%p)"
            "\n bad input\n", eg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 eg->type   =   0  ;
 eg->nelem  =   0  ;
@@ -61,7 +61,7 @@ EGraph_clearData (
 if ( eg == NULL ) {
    fprintf(stderr, "\n fatal error in Egraph_clearData(%p)"
            "\n bad input\n", eg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( eg->adjIVL != NULL ) {
    IVL_free(eg->adjIVL) ;
@@ -88,7 +88,7 @@ EGraph_free (
 if ( eg == NULL ) {
    fprintf(stderr, "\n fatal error in Egraph_free(%p)"
            "\n bad input\n", eg) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 EGraph_clearData(eg) ;
 FREE(eg) ;

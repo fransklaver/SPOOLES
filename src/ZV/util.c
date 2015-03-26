@@ -24,7 +24,7 @@ ZV_shiftBase (
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_shiftBase(%p,%d)"
            "\n bad input\n", zv, offset) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 zv->vec     += 2*offset ;
 zv->maxsize -= offset ;
@@ -49,7 +49,7 @@ ZV_push (
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_push(%p,%f,%f)"
            "\n bad input\n", zv, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( zv->size == zv->maxsize ) {
    if ( zv->maxsize > 0 ) {
@@ -80,7 +80,7 @@ if ( zv == NULL || zv->size <= 0 || zv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ZV_minabs(%p), size = %d, vec = %p",
            zv, zv->size, zv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ZVminabs(zv->size, zv->vec)) ; }
 
@@ -92,7 +92,7 @@ if ( zv == NULL || zv->size <= 0 || zv->vec == NULL ) {
    fprintf(stderr, 
            "\n fatal error in ZV_maxabs(%p), size = %d, vec = %p",
            zv, zv->size, zv->vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 return(ZVmaxabs(zv->size, zv->vec)) ; }
 
@@ -113,7 +113,7 @@ int   nbytes ;
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_sizeOf(%p)"
            "\n bad input \n", zv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nbytes = sizeof(struct _ZV) ;
 if ( zv->owned == 1 ) {
@@ -145,13 +145,13 @@ int      ii, jj, size ;
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_fill(%p,%f,%f)"
            "\n bad input\n", zv, real, imag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (size = zv->size) > 0 ) {
    if ( (vec = zv->vec) == NULL ) {
       fprintf(stderr, "\n fatal error in ZV_fill(%p,%f,%f)"
               "\n vec = NULL\n", zv, real, imag) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
       vec[jj]   = real ;
@@ -182,13 +182,13 @@ int      ii, jj, size ;
 if ( zv == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_zero(%p)"
            "\n bad input\n", zv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (size = zv->size) > 0 ) {
    if ( (vec = zv->vec) == NULL ) {
       fprintf(stderr, "\n fatal error in ZV_zero(%p)"
               "\n vec = NULL\n", zv) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    for ( ii = jj = 0 ; ii < size ; ii++, jj += 2 ) {
       vec[jj]   = 0.0 ;
@@ -222,7 +222,7 @@ double   *vec1, *vec2 ;
 if ( zv1 == NULL || zv2 == NULL ) {
    fprintf(stderr, "\n fatal error in ZV_copy(%p,%p)"
            "\n bad input\n", zv1, zv2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size = zv1->size ;
 if ( size > zv2->size ) {

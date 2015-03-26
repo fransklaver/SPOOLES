@@ -272,7 +272,7 @@ if ( rootchv != NULL ) {
 }
 if ( error >= 0 ) {
    fprintf(msgFile, "\n\n fatal error encountered at front %d", error) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile,
         "\n %8d pivots, %8d pivot tests, %8d delayed rows and columns",

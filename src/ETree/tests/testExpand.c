@@ -63,7 +63,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inETreeFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 etree = ETree_new() ;
 MARKTIME(t1) ;
@@ -74,7 +74,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in etree from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from ETree_readFromFile(%p,%s)",
            rc, etree, inETreeFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading ETree object from file %s",
         inETreeFileName) ;
@@ -91,7 +91,7 @@ fflush(msgFile) ;
 */
 if ( strcmp(inEqmapFileName, "none") == 0 ) {
    fprintf(msgFile, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 eqmapIV = IV_new() ;
 MARKTIME(t1) ;
@@ -102,7 +102,7 @@ fprintf(msgFile, "\n CPU %9.5f : read in eqmapIV from file %s",
 if ( rc != 1 ) {
    fprintf(msgFile, "\n return value %d from IV_readFromFile(%p,%s)",
            rc, eqmapIV, inEqmapFileName) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile, "\n\n after reading IV object from file %s",
         inEqmapFileName) ;

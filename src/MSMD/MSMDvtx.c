@@ -24,7 +24,7 @@ int   ierr ;
 if ( v == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in MSMDvtx_print(%p,%p)"
            "\n bad input\n", v, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, 
         "\n vertex %d, weight %d, mark %c, status %c, stage = %d",

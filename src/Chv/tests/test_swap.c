@@ -47,7 +47,7 @@ if ( argc != 8 ) {
 }
 if ( (msglvl = atoi(argv[1])) < 0 ) {
    fprintf(stderr, "\n message level must be positive\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( strcmp(argv[2], "stdout") == 0 ) {
    msgFile = stdout ;
@@ -85,7 +85,7 @@ if (  nD <= 0 || nL < 0 || nU < 0
    fprintf(stderr, "\n invalid input"
       "\n nD = %d, nL = %d, nU = %d, type = %d, symflag = %d\n",
            nD, nL, nU, type, symflag) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(msgFile,
         "\n nD = %d ;"
@@ -172,7 +172,7 @@ if ( CHV_IS_NONSYMMETRIC(chv) ) {
    if ( irow < 0 || irow >= nD || jrow < 0 || jrow >= nD ) {
       fprintf(stderr, "\n fatal error, irow = %d, jrow = %d\n",
               irow, jrow) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    fprintf(msgFile, "\n %% swapping rows %d and %d", irow+1, jrow+1) ;
    fprintf(msgFile, 
@@ -201,7 +201,7 @@ if ( CHV_IS_NONSYMMETRIC(chv) ) {
    if ( icol < 0 || icol >= nD || jcol < 0 || jcol >= nD ) {
       fprintf(stderr, "\n fatal error, icol = %d, jcol = %d\n",
               icol, jrow) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    fprintf(msgFile, 
            "\n %% swapping columns %d and %d", icol+1, jcol+1) ;
@@ -236,7 +236,7 @@ if ( CHV_IS_NONSYMMETRIC(chv) ) {
    if ( irow < 0 || irow >= nD || jrow < 0 || jrow >= nD ) {
       fprintf(stderr, "\n fatal error, irow = %d, jrow = %d\n",
               irow, jrow) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    fprintf(msgFile, 
           "\n %% swapping rows and columns %d and %d", irow+1, jrow+1) ;

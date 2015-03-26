@@ -36,7 +36,7 @@ IV_setDefaultFields (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_setDefaultFields(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 iv->size    =   0  ;
 iv->maxsize =   0  ;
@@ -60,7 +60,7 @@ IV_clearData (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_clearData(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->vec != NULL && iv->owned == 1 ) {
    IVfree(iv->vec) ;
@@ -84,7 +84,7 @@ IV_free (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_free(%p)"
            "\n bad input\n", iv) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_clearData(iv) ;
 FREE(iv) ;

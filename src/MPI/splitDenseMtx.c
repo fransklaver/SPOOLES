@@ -98,7 +98,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                  "\n trouble with return code") ;
          IVfprintf(msgFile, nproc, rcs) ;
          MPI_Finalize() ;
-         exit(rc) ;
+         spoolesFatal();
       }
    }
 }
@@ -136,7 +136,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                  "\n trouble with types") ;
          IVfprintf(msgFile, nproc, ivec) ;
          MPI_Finalize() ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 }
@@ -150,7 +150,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                  "\n trouble with ncols") ;
          IVfprintf(msgFile, nproc, ivec) ;
          MPI_Finalize() ;
-         exit(-1) ;
+         spoolesFatal();
       }
    }
 }
@@ -393,7 +393,7 @@ for ( offset = 1, tag = firsttag ; offset < nproc ; offset++, tag++ ) {
          fprintf(msgFile, "\n fatal error in DenseMtx_splitByRows()"
               "\n nkeep = %d, nrecv = %d, nowned = %d",
               nkeep, nrecv, nowned) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       for ( irow = 0 ; irow < incount ; irow++, nkeep++ ) {
          DenseMtx_copyRowAndIndex(keepmtx, nkeep, inmtx, irow) ;
@@ -419,13 +419,13 @@ for ( ii = 0 ; ii < nrow ; ii++ ) {
       fprintf(stderr, 
          "\n process %d : local row %d, global row %d, neqns = %d\n",
          myid, ii, irow, neqns) ;
-      exit(-1) ;
+      spoolesFatal();
    }
    if ( rowmap[irow] != myid ) {
       fprintf(stderr, 
            "\n process %d : local row %d, global row %d, map = %d\n",
            myid, ii, irow, rowmap[irow]) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 /*
@@ -500,7 +500,7 @@ if ( root < 0 || root >= nproc ) {
    fprintf(stderr, "\n fatal error in DenseMtx_MPI_splitByRows()"
            "\n root = %d, nproc = %d\n", root, nproc) ;
    MPI_Finalize() ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*--------------------------------------------------------------------*/
 /*
@@ -548,7 +548,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                 "\n trouble with return code") ;
          IVfprintf(msgFile, nproc, rcs) ;
          MPI_Finalize() ;
-         exit(rc) ;
+         spoolesFatal();
       }
    }
 }
@@ -800,7 +800,7 @@ if ( root < 0 || root >= nproc ) {
    fprintf(stderr, "\n fatal error in DenseMtx_MPI_splitByRows()"
            "\n root = %d, nproc = %d\n", root, nproc) ;
    MPI_Finalize() ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*--------------------------------------------------------------------*/
 /*
@@ -834,7 +834,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                 "\n trouble with return code") ;
          IVfprintf(msgFile, nproc, ivec) ;
          MPI_Finalize() ;
-         exit(rc) ;
+         spoolesFatal();
       }
    }
 }
@@ -857,7 +857,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                   "\n trouble with types\n") ;
             IVfprintf(msgFile, nproc, ivec) ;
             MPI_Finalize() ;
-            exit(-1) ;
+            spoolesFatal();
          }
       }
    }
@@ -881,7 +881,7 @@ for ( iproc = 0 ; iproc < nproc ; iproc++ ) {
                   "\n trouble with ncolX\n") ;
             IVfprintf(msgFile, nproc, ivec) ;
             MPI_Finalize() ;
-            exit(-1) ;
+            spoolesFatal();
          }
       }
    }

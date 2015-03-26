@@ -40,7 +40,7 @@ IIheap_setDefaultFields (
 if ( heap == NULL ) {
    fprintf(stderr, "\n fatal error in IIheap_setDefaultFields(%p)"
            "\n heap is NULL\n", heap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 heap->size    =   0  ;
 heap->maxsize =   0  ;
@@ -65,7 +65,7 @@ IIheap_clearData (
 if ( heap == NULL ) {
    fprintf(stderr, "\n fatal error in IIheap_clearData(%p)"
            "\n heap is NULL\n", heap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( heap->heapLoc != NULL ) {
    IVfree(heap->heapLoc) ;
@@ -95,7 +95,7 @@ IIheap_free (
 if ( heap == NULL ) {
    fprintf(stderr, "\n fatal error in IIheap_free(%p)"
            "\n heap is NULL\n", heap) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IIheap_clearData(heap) ;
 FREE(heap) ;
@@ -121,7 +121,7 @@ if ( heap == NULL || maxsize <= 0 ) {
    fprintf(stderr, "\n\n error in IIheap_init(%p,%d)"
            "\n heap is NULL or size = %d is nonpositive\n",
            heap, maxsize, maxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IIheap_clearData(heap) ;
 heap->maxsize = maxsize ;
@@ -150,7 +150,7 @@ if ( heap == NULL || pkey == NULL || pvalue == NULL ) {
    fprintf(stderr, "\n\n error in IIheap_root(%p,%p,%p)"
            "\n heap is NULL or pid is NULL or pkey is NULL\n",
            heap, pkey, pvalue) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 
 if ( heap->size > 0 ) {
@@ -182,18 +182,18 @@ if ( heap == NULL || key < 0 || key >= heap->maxsize ) {
    fprintf(stderr, "\n error in IIheap_insert(%p,%d,%d)"
            "\n heap is NULL or pair (%d,%d) is out of bounds\n",
            heap, key, value, key, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( heap->heapLoc[key] != -1 ) {
    fprintf(stderr, "\n error in IIheap_insert(%p,%d,%d)"
            "\n object (%d,%d) is already in heap\n",
            heap, key, value, key, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( heap->size == heap->maxsize ) {
    fprintf(stderr, "\n error in IIheap_insert(%p,%d,%d)"
            "\n heap size exceeded\n", heap, key, value) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------
@@ -230,12 +230,12 @@ if ( heap == NULL || key < 0 || key >= heap->maxsize ) {
    fprintf(stderr, "\n error in IIheap_remove(%p,%d)"
            "\n heap is NULL or object (%d) is out of bounds\n",
            heap, key, key) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( (loc = heap->heapLoc[key]) == -1 ) {
    fprintf(stderr, "\n error in IIheap_remove(%p,%d)"
            "\n object %d not in heap", heap, key, key) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------
@@ -292,7 +292,7 @@ int   ierr, j ;
 if ( heap == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in IIheap_print(%p,%p)"
            "\n heap is NULL or file pointer is NULL", heap, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n\n IIheap : present size %d, max size %d",
         heap->size, heap->maxsize) ;
@@ -346,7 +346,7 @@ if ( heap == NULL || loc < 0 || loc >= heap->size ) {
    fprintf(stderr, "\n fatal error in IIheap_siftDown(%p,%d)"
            "\n heap is NULL or loc = %d out of range\n",
            heap, loc, loc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 size    = heap->size    ;
 heapLoc = heap->heapLoc ;
@@ -411,7 +411,7 @@ if ( heap == NULL || loc < 0 || loc >= heap->size ) {
    fprintf(stderr, "\n fatal error in IIheap_siftUp(%p,%d)"
            "\n heap is NULL or loc = %d out of range\n",
            heap, loc, loc) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 heapLoc = heap->heapLoc ;
 keys    = heap->keys  ;

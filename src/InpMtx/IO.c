@@ -546,7 +546,7 @@ int      *indices ;
 if ( inpmtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_writeForHumanEye(%p,%p)"
            "\n bad input\n", inpmtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------
@@ -644,7 +644,7 @@ InpMtx_writeStats (
 if ( inpmtx == NULL || fp == NULL ) {
    fprintf(stderr, "\n error in InpMtx_writeStats(%p,%p)"
            "\n bad input\n", inpmtx, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 fprintf(fp, "\n InpMtx : double precision input matrix object :") ;
 if ( INPMTX_IS_BY_ROWS(inpmtx) ) {
@@ -719,7 +719,7 @@ int      ii, oldCoordType, oldStorageMode ;
 if ( inpmtx == NULL || mtxname == NULL || fp == NULL ) {
    fprintf(stderr, "\n fatal error in InpMtx_writeForMatlab(%p,%p,%p)"
            "\n bad input\n", inpmtx, mtxname, fp) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
 fprintf(fp, "\n before changing") ;
@@ -800,7 +800,7 @@ if ( inpmtx == NULL || fn == NULL ) {
 */
 if ( strcmp(fn, "none") == 0 ) {
    fprintf(stderr, "\n no file to read from") ;
-   exit(0) ;
+   spoolesFatal();
 }
 rc = readHB_info(fn, &nrow, &ncol, &nnonzeros, &type, &nrhs) ;
 if ( rc != 1 ) {
@@ -820,7 +820,7 @@ default :
    fprintf(stderr, "\n fatal error in InpMtx_readFromHBfile"
            "\n type = %s, first character must be 'P', 'R' or 'C'",
            type) ;
-   exit(-1) ;
+   spoolesFatal();
    break ;
 }
 /*

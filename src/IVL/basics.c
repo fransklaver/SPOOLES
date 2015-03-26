@@ -38,7 +38,7 @@ IVL_setDefaultFields (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_setDefaultFields(%p)"
            "\n bad input", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 ivl->type     = IVL_NOTYPE ;
 ivl->maxnlist = 0          ;
@@ -71,7 +71,7 @@ IVL_clearData (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_clearData(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ----------------------------------------------------
@@ -107,7 +107,7 @@ case IVL_UNKNOWN :
 default :
    fprintf(stderr, "\n fatal error in IVL_clearData(%p)"
            "\n invalid type = %d\n", ivl, ivl->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------
@@ -147,7 +147,7 @@ IVL_free (
 if ( ivl == NULL ) {
    fprintf(stderr, "\n fatal error in IVL_free(%p)"
            "\n bad input\n", ivl) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IVL_clearData(ivl) ;
 FREE(ivl) ;

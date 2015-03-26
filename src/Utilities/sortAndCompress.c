@@ -31,7 +31,7 @@ if ( n < 0 || ivec == NULL ) {
            "\n fatal error in IVsortAndCompress(%d,%p)"
            "\n bad input, n = %d, ivec = %p",
            n, ivec, n, ivec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n == 0 ) {
    return(0) ;
@@ -102,7 +102,7 @@ if ( n < 0 || ivec == NULL || dvec == NULL) {
            "\n fatal error in IVDVsortAndCompress(%d,%p,%p)"
            "\n bad input, n = %d, ivec = %p, dvec = %p",
            n, ivec, dvec, n, ivec, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n == 0 ) {
    return(0) ;
@@ -175,7 +175,7 @@ if ( n < 0 || ivec == NULL || zvec == NULL) {
            "\n fatal error in IVZVsortAndCompress(%d,%p,%p)"
            "\n bad input, n = %d, ivec = %p, zvec = %p",
            n, ivec, zvec, n, ivec, zvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n == 0 ) {
    return(0) ;
@@ -248,7 +248,7 @@ if ( n < 0 || ivec1 == NULL || ivec2 == NULL) {
            "\n fatal error in IV2sortAndCompress(%d,%p,%p)"
            "\n bad input, n = %d, ivec1 = %p, ivec2 = %p",
            n, ivec1, ivec2, n, ivec1, ivec2) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n == 0 ) {
    return(0) ;
@@ -314,7 +314,7 @@ if ( n < 0 || ivec1 == NULL || ivec2 == NULL || dvec == NULL ) {
            "\n fatal error in IV2DVsortAndCompress(%d,%p,%p,%p)"
            "\n bad input, n = %d, ivec1 = %p, ivec2 = %p, dvec = %p",
            n, ivec1, ivec2, dvec, n, ivec1, ivec2, dvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n == 0 ) {
    return(0) ;
@@ -386,7 +386,7 @@ if ( n < 0 || ivec1 == NULL || ivec2 == NULL || zvec == NULL ) {
            "\n fatal error in IV2ZVsortAndCompress(%d,%p,%p,%p)"
            "\n bad input, n = %d, ivec1 = %p, ivec2 = %p, zvec = %p",
            n, ivec1, ivec2, zvec, n, ivec1, ivec2, zvec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( n == 0 ) {
    return(0) ;

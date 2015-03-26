@@ -41,7 +41,7 @@ GPart_setDefaultFields (
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_setDefaultFields(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 gpart->id       =  -1  ;
 gpart->g        = NULL ;
@@ -76,7 +76,7 @@ GPart_clearData (
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_clearData(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_clearData(&gpart->compidsIV)  ;
 IV_clearData(&gpart->cweightsIV) ;
@@ -102,7 +102,7 @@ GPart_free (
 if ( gpart == NULL ) {
    fprintf(stderr, "\n fatal error in GPart_free(%p)"
            "\n bad input\n", gpart) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 GPart_clearData(gpart) ;
 #if MYDEBUG > 0

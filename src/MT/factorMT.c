@@ -182,7 +182,7 @@ if (  frontmtx == NULL || pencil == NULL || tau < 1.0 || droptol < 0.0
            "\n cpus = %p, stats = %p, msglvl = %d, msgFile = %p"
            "\n bad input\n", frontmtx, pencil, tau, droptol, 
            ownersIV, lookahead, cpus, stats, msglvl, msgFile) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 IV_sizeAndEntries(ownersIV, &nfront, &owners) ;
 nthread = 1 + IV_max(ownersIV) ;
@@ -239,7 +239,7 @@ for ( myid = 0, data = dataObjects ; myid < nthread ; myid++, data++ ) {
       if ( (fp = fopen(buffer, "w")) == NULL ) {
          fprintf(stderr, "\n fatal error, unable to open file %s",
                  buffer) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       data->msgFile = fp ;
    } else {
@@ -276,7 +276,7 @@ for ( myid = 0, data = dataObjects ;
       fprintf(stderr, 
               "\n fatal error, myid = %d, rc = %d from thr_create",
               myid, rc) ;
-      exit(-1) ;
+      spoolesFatal();
    }
 }
 MARKTIME(t2) ;
@@ -326,7 +326,7 @@ for ( myid = 0, data = dataObjects ; myid < nthread ; myid++, data++ ) {
       fprintf(stderr, 
               "\n fatal error, myid = %d, rc = %d from pthread_create",
               myid, rc) ;
-      exit(-1) ;
+      spoolesFatal();
    } else if ( msglvl > 1 ) {
       fprintf(stderr, "\n thread %d created", myid) ;
    }

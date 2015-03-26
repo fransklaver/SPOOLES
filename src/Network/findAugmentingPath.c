@@ -47,7 +47,7 @@ if (  network == NULL || (nnode = network->nnode) <= 0
 "\n fatal error in Network_findAugmentingPath(%p,%d,%d,%d,%p,%p,%p,%p)"
 "\n bad input\n",
            network, node, delta, tag, deq, tags, deltas, pred) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 inheads  = network->inheads  ;
 outheads = network->outheads ;

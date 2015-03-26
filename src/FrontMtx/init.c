@@ -90,13 +90,13 @@ if (  frontmtx == NULL || frontETree == NULL || symbfacIVL == NULL
            "\n myid %d, ownersIV %p, manager %p"
            "\n bad input\n", 
            frontmtx, frontETree, symbfacIVL, myid, ownersIV, manager) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( type != SPOOLES_REAL && type != SPOOLES_COMPLEX ) {
    fprintf(stderr, "\n fatal error in FrontMtx_init()"
            "\n type %d must be SPOOLES_REAL or SPOOLES_COMPLEX\n",
            type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( type == SPOOLES_REAL && 
    ! (symmetryflag == SPOOLES_SYMMETRIC
@@ -105,7 +105,7 @@ if ( type == SPOOLES_REAL &&
   "\n fatal error in FrontMtx_init()"
   "\n type is real"
   "\n symmetryflag is not SPOOLES_SYMMETRIC or SPOOLES_NONSYMMETRIC") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( type == SPOOLES_COMPLEX && 
    ! (symmetryflag == SPOOLES_SYMMETRIC
@@ -115,13 +115,13 @@ if ( type == SPOOLES_COMPLEX &&
            "\n fatal error in FrontMtx_init()"
            "\n type is real, symmetryflag is not SPOOLES_SYMMETRIC,"
            "\n SPOOLES_HERMITIAN or SPOOLES_NONSYMMETRIC") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! ( pivotingflag == SPOOLES_PIVOTING 
       || pivotingflag == SPOOLES_NO_PIVOTING) ) {
    fprintf(stderr, "\n fatal error in FrontMtx_init()"
   "\n pivotingflag must be SPOOLES_PIVOTING or SPOOLES_NO_PIVOTING\n") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( !  (lockflag == NO_LOCK
       || lockflag == LOCK_IN_PROCESS
@@ -130,7 +130,7 @@ if ( !  (lockflag == NO_LOCK
        "\n fatal error in FrontMtx_init()"
        "\n invalid lockflag, must be NO_LOCK"
        "\n LOCK_IN_PROCESS or LOCK_OVER_ALL_PROCESSES") ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront     = frontETree->nfront         ;
 neqns      = frontETree->nvtx           ;

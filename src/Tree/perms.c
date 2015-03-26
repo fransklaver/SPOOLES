@@ -24,7 +24,7 @@ int   i, v ;
 if ( tree == NULL || tree->n < 1 || newToOld == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_fillNewToOldPerm(%p,%p)"
            "\n bad input\n", tree, newToOld) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------
@@ -60,7 +60,7 @@ int   i, v ;
 if ( tree == NULL || tree->n < 1 || oldToNew == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_fillOldToNewPerm(%p,%p)"
            "\n bad input\n", tree, oldToNew) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    -----------------------------------------------
@@ -98,7 +98,7 @@ if (  tree == NULL || tree->n < 1
    || newToOld == NULL || oldToNew == NULL ) {
    fprintf(stderr, "\n fatal error in Tree_fillBothPerms(%p,%p,%p)"
            "\n bad input\n", tree, newToOld, oldToNew) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    ------------------------------------------------

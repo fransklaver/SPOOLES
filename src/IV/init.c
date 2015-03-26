@@ -29,7 +29,7 @@ IV_init (
 if ( iv == NULL || size < 0 ) {
    fprintf(stderr, "\n fatal error in IV_init(%p,%d,%p)"
            "\n bad input\n", iv, size, entries) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 /*
    --------------
@@ -105,24 +105,24 @@ IV_init2 (
 if ( iv == NULL ) {
    fprintf(stderr, "\n fatal error in IV_init2(%p,%d,%d,%d,%p)"
            "\n bad input\n", iv, size, maxsize, owned, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( size < 0 || maxsize < size ) {
    fprintf(stderr, "\n fatal error in IV_init2(%p,%d,%d,%d,%p)"
            "\n size = %d, maxsize = %d \n", 
            iv, size, maxsize, owned, vec, size, maxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( owned < 0 || 1 < owned ) {
    fprintf(stderr, "\n fatal error in IV_init2(%p,%d,%d,%d,%p)"
            "\n owned = %d\n", iv, size, maxsize, owned, vec, owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( owned == 1 && vec == NULL ) {
    fprintf(stderr, "\n fatal error in IV_init2(%p,%d,%d,%d,%p)"
            "\n owned = %d and vec = %p", 
            iv, size, maxsize, owned, vec, owned, vec) ;
-   exit(-1) ;
+   spoolesFatal();
 } 
 /*
    --------------
@@ -172,13 +172,13 @@ IV_setMaxsize (
 if ( iv == NULL || newmaxsize < 0 ) {
    fprintf(stderr, "\n fatal error in IV_setMaxsize(%p,%d)"
            "\n bad input\n", iv, newmaxsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->maxsize > 0 && iv->owned == 0 ) {
    fprintf(stderr, "\n fatal error in IV_setMaxsize(%p,%d)"
            "\n iv->maxsize = %d, iv->owned = %d\n", 
            iv, newmaxsize, iv->maxsize, iv->owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->maxsize != newmaxsize ) {
 /*
@@ -197,7 +197,7 @@ if ( iv->maxsize != newmaxsize ) {
          fprintf(stderr, "\n fatal error in IV_setMaxsize(%p,%d)"
                  "\n iv->size = %d, iv->vec is NULL\n", 
                  iv, newmaxsize, iv->size) ;
-         exit(-1) ;
+         spoolesFatal();
       }
       if ( iv->size <= newmaxsize ) {
 /*
@@ -262,13 +262,13 @@ IV_setSize (
 if ( iv == NULL || newsize < 0 ) {
    fprintf(stderr, "\n fatal error in IV_setSize(%p,%d)"
            "\n bad input\n", iv, newsize) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( 0 < iv->maxsize && iv->maxsize < newsize && iv->owned == 0 ) {
    fprintf(stderr, "\n fatal error in IV_setSize(%p,%d)"
            "\n iv->maxsize = %d, newsize = %d, iv->owned = %d\n", 
            iv, newsize, iv->maxsize, newsize, iv->owned) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( iv->maxsize < newsize ) {
 /*

@@ -38,7 +38,7 @@ FrontMtx_setDefaultFields (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_setDefaultFields(%p)"
            "\n bad input", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 frontmtx->nfront        =   0  ;
 frontmtx->neqns         =   0  ;
@@ -93,7 +93,7 @@ int      *adj ;
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_clearData(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nfront = frontmtx->nfront ;
 /*
@@ -224,7 +224,7 @@ FrontMtx_free (
 if ( frontmtx == NULL ) {
    fprintf(stderr, "\n fatal error in FrontMtx_free(%p)"
            "\n bad input\n", frontmtx) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 FrontMtx_clearData(frontmtx) ;
 FREE(frontmtx) ;

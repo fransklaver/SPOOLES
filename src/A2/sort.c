@@ -28,7 +28,7 @@ int   *rowids ;
 if ( mtx == NULL || nrow < 0 || nrow > mtx->n1 || index == NULL ) {
    fprintf(stderr, "\n fatal error in A2_permuteRows(%p,%d,%p)"
            "\n bad input\n", mtx, nrow, index) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 rowids = IVinit(nrow, -1) ;
 IVcopy(nrow, rowids, index) ;
@@ -63,7 +63,7 @@ int   *colids ;
 if ( mtx == NULL || ncol < 0 || ncol > mtx->n2 || index == NULL ) {
    fprintf(stderr, "\n fatal error in A2_permuteColumns(%p,%d,%p)"
            "\n bad input\n", mtx, ncol, index) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 colids = IVinit(ncol, -1) ;
 IVcopy(ncol, colids, index) ;
@@ -101,13 +101,13 @@ if ( mtx == NULL || mtx->n1 < nrow || nrow < 0 || rowids == NULL ) {
    if ( mtx != NULL ) {
       A2_writeStats(mtx, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_sortRowsUp(%p,%d,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, nrow, rowids, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nswap = 0 ;
 if ( mtx->inc1 == 1 ) {
@@ -194,13 +194,13 @@ if ( mtx == NULL || mtx->n2 < ncol || ncol < 0 || colids == NULL ) {
    if ( mtx != NULL ) {
       A2_writeStats(mtx, stderr) ;
    }
-   exit(-1) ;
+   spoolesFatal();
 }
 if ( ! (A2_IS_REAL(mtx) || A2_IS_COMPLEX(mtx)) ) {
    fprintf(stderr, "\n fatal error in A2_sortColumnsUp(%p,%d,%p)"
            "\n bad type %d, must be SPOOLES_REAL or SPOOLES_COMPLEX\n", 
            mtx, ncol, colids, mtx->type) ;
-   exit(-1) ;
+   spoolesFatal();
 }
 nswap = 0 ;
 if ( mtx->inc2 == 1 ) {
