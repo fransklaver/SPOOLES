@@ -47,5 +47,6 @@
 #include "Utilities/ZV.h"
 #include "Utilities/iohb.h"
 #include "Utilities/axpy.h"
+#include "Utilities/spoolesError.h"
 
 #endif

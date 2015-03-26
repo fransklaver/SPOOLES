@@ -421,6 +421,7 @@ set(Utilities_SRCS
   Utilities/iohb.c
   Utilities/newsort.c
   Utilities/sortAndCompress.c
+  Utilities/spoolesError.c
   )
 
 set(ZV_SRCS
